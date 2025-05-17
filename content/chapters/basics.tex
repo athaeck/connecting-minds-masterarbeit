@@ -246,9 +246,30 @@ Für diese Infrastruktur gibt es zwei verschiedene Varianten (vgl. \cite{noautho
 \label{fig:client_server}
 \end{figure}
 
-\subsection{Client-Side Prediction and Lag Compensation}
+% \subsection{Client-Side Prediction and Lag Compensation}
 
-Spiele wie \say{Counterstrike}, \say{Call of Duty}, \say{Valorant} und \say{Apex legends} verwenden ein auf dem klassischen Quake-Modell basierendem Netzwerkmodell. Der Spieler steuert dabei lokal im eigenen Client, auf dem die volle Simulation läuft, ohne dabei Verzögerungen beim Laufen oder Schießen zu haben. Der Server 
+% Spiele wie \say{Counterstrike}, \say{Call of Duty}, \say{Valorant} und \say{Apex legends} verwenden ein auf dem klassischen Quake-Modell basierendem Netzwerkmodell. Der Spieler steuert dabei lokal im eigenen Client, auf dem die volle Simulation läuft, ohne dabei Verzögerungen beim Laufen oder Schießen zu haben. Der Server nimmt die Eingaben samt Zeitstempel des Clients entgegen und verteilt den \say{State} zurück. Bspw. das Inventar, Munition oder Feuerraten. Die Korrekturen des \say{State}s werden rückwirkend auf den Client angewandt, der den Zustand bis zur aktuellen Zeit wieder herstellt (\say{Client-Side Prediction}). Schüsse und der damit einhergehende Schaden wir auf dem Server ausgewertet und an die Clients übergeben. Um das Spielerlebnis reaktionsschnell und präzise zu gestatlten, nutzt der Server ein \say{Lag Compensation} Verfahren, bei dem er anhand gespeicherter Zustände die Welt aus der Sicht der Clients zum Schlusspunkt rekonstruiert wird (vgl. \say{}.
+
+\subsection{Peer-to-Peer}
+Das \ac{P2P}-Architektur-Modell verbindet jeden Spieler mit allen anderen Spielern. Über die Verbindung werden Daten über Spielzustände und Ereignisse ausgetauscht. Im \say{reinen} \ac{P2P}-Sytsme gibt es keinen einzelnen \say{Host}, stattdessen ist jeder Client dafür verantwortlich, einen eigenen Avatar (oder Einheiten) zu veralten und erhält gleichzeitig Updaes der anderen Clients (vgl. \cite{mygames_unity_2024}). Abbildung \ref{fig:p-2-p} zeigt die Topologie.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/0_poGQC2fWQ3tPWPwT.png}
+\caption{Peer-to-Peer Infrastruktur (vgl. \cite{mygames_unity_2024}}
+\label{fig:p-2-p}
+\end{figure}
+
+
+\subsection{Relay-Server}
+Der Relay-Dienst ermöglicht Multiplayer-Unterstützung ohne dedizierten Spielserver. Er übermittelt deshalb die Kommunikation zwischen Spielern über sogenannte Relay-Server. Nachrichten werden zwischen verbundenen Spielern mittels latenzarmer Datagramm-Übertragung übertragen, sodass keine zwei Spieler direkt miteinander verbunden sein müssen (vgl. \cite{noauthor_relay_nodate}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/0_o7LJU1ImxPHIM5Ej.png}
+\caption{Relay-Server Infrastruktur (vgl. \cite{mygames_unity_2024})}
+\label{fig:relay-server}
+\end{figure}
 
 \chapter{Verwandte Arbeiten}
 

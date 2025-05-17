@@ -210,9 +210,45 @@ Das bereits in den vorangegangenen Kapiteln [Kapitel einbinden] erwähnte \say{\
 Im März 2025 erschien das Spiel \say{\textbf{Myrmidon}} vom Studio Studio Popot, welches ein asymmetrischer kooperativer Multiplayer ist, bei dem zwei Spieler zusammen, in zwei verschiedenen Rollen, miteinander spielen können. Eine Rolle ist dabei die Stop-Motion Puppe, welche in einer Stop-Motion Welt Hindernisse überqueren und über verschiedene Plattformen springen muss um ans Ziel zu kommen. Unterstützt wird die Puppe dabei vom Animator, der die Kulisse des Stop-Motion Films bedienen muss, damit die Puppe an ihr Ziel gelangt (vgl. \cite{noauthor_myrmidon_2024}).
 
 \section{Netzwerkinfrastrukturen}
+Um ein Multiplayer-Spiel entwickeln zu können, muss zunächst geklärt werden wie die Netzwerk-Infrastruktur der Anwendung auszusehen hat. Es gibt viele verschiedene Ansätze, die für verschiedene Anwendungszwecke gedacht sind.
 
-enthält eine Liste von Möglichkeiten, auf welcher Grundlage verschiedene Multiplayer-Anwendungen gebaut werden können
+\subsection{Distributed Authority}
+Bei einer \say{Distributed Authority}-Netzwerktopologie übernimmt jeder im Netzwerk verbundene Spielclient gemeinsam jeweils die Verantwortung für das Erstellen und Verwalten von Objekten im Netzwerk. Jeder Client simuliert dabei seinen Teil der Spielwelt selbst und steuert Objekte über seine Autoriät.
+Damit Positionen und andere Daten an alle anderen Clients im Netzwerk weitergeleitet werden können, enthält die Topologie einen zentralen und leichtgewichtigen Statusdienst, der diese Funktion übernimmt. Dabei simuliert er die Anwendung nicht, sondern ist nur für die Weiterleitung der nötigen Informationen zuständig (vgl. \cite{noauthor_distributed_2025}).
 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/distributed-authority-service.jpg}
+\caption{Netzwerktopologie der Distributed Authority (vgl. \cite{noauthor_distributed_2025})}
+\label{fig:distributed_authority_topology}
+\end{figure}
+
+Spiele wie \say{Journey}, \say{God of War: Ascension}, \say{Mercenaries 2}, \say{GTA: Online}, \say{Dark Souls} und \say{Destiny} verwenden diese Netzwerkinfrastruktur. Genutzt wird diese Topologie häufig, wenn ein bestehendes Singleplayer-Spiel eine Multiplayer-Erweiterung erhält (Journey, GTA und Dark Souls), ohne dabei den Kern des Quellcodes umzustrukturieren. Für diesen Anwendungszweck wird kein dedizierter Server gefordert, das Spiel hat eine große, offene Spielwelt (Dark Souls, GTA) und hat keine deterministische Physik bzw. hat kein deterministisches Spielkonzept wodurch eine Integration nicht zu aufwändig wäre. Außerdem empfiehlt es sich bei Spielen zu integrieren, bei denen die Rechner-CPU (bspw. durch die Physik) stark belastet wird. Bei Spielen mit kooperativer Spielmechanik oder leichten kompetitiven Elementen, sowie innovativen Mehrspielermechaniken lohnt es sich, diese Infrastruktur zu wählen (vgl. \cite{noauthor_choosing_2024}).
+
+\subsection{Pure Client/Server}
+Bei der Client-Server-Architektur übernimmt ein zentraler Server die Hauptsimulation und verwaltet alle Aspekte des Spiels. Darunter fällt die Physiksimulation, die Erzeugung und Entfernung von Objekten, sowie die Autorisierung von Client-Anfragen. Aus der Sicht der Clients, besitzen diese die Anwendung, mit der sie sich mit dem Server verbinden können, und bekommen über die Verbindung das Spiel zu sehen.
+Für diese Infrastruktur gibt es zwei verschiedene Varianten (vgl. \cite{noauthor_client-server_2024}):
+\paragraph{Ein dedizierter Server} der eine separate Instanz bildet, welche ausschließlich dem Spielbetrieb dient (vgl. Abbildung \ref{fig:dedicated_server}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/ded_server-d5369721966357b9b4d5e1fa96b05b22.png}
+\caption{Client-Server-Architektur mit dediziertem Server (vgl. \cite{noauthor_network_2024})}
+\label{fig:dedicated_server}
+\end{figure}
+
+\paragraph{Client hosted} einen Server und läuft damit auf demselben Gerät wie die entsprechende Client Anwendung (vgl. Abbildung \ref{fig:client_server}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/client-hosted-16be0b1c9b5020f21325b1e6a7beca73.png}
+\caption{Client hosted Server (vgl. \cite{noauthor_network_2024})}
+\label{fig:client_server}
+\end{figure}
+
+\subsection{Client-Side Prediction and Lag Compensation}
+
+Spiele wie \say{Counterstrike}, \say{Call of Duty}, \say{Valorant} und \say{Apex legends} verwenden ein auf dem klassischen Quake-Modell basierendem Netzwerkmodell. Der Spieler steuert dabei lokal im eigenen Client, auf dem die volle Simulation läuft, ohne dabei Verzögerungen beim Laufen oder Schießen zu haben. Der Server 
 
 \chapter{Verwandte Arbeiten}
 

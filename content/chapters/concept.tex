@@ -88,7 +88,7 @@ Der Watcher hat in seiner \ac{AR}-Anwendung die Spielwelt vor sich platziert und
 Im weiteren Verlauf des Spiels kann der Watcher Gegenstände nicht nur platzieren oder entfernen, sondern auch in der Größe skallieren oder drehen.
 
 \paragraph{Weltregeln}
-Leichte Gegenstände können vom Player getragen und aufgenommen werden. Diese Gegenstände kann der Player in der Spielwelt über die Interaktionsleiste oder in der First-Person platzieren. 
+Leichte Gegenstände können vom Player getragen und aufgenommen werden. Diese Gegenstände kann der Player in der Spielwelt über die Interaktions-Leiste oder in der First-Person platzieren. 
 
 Schwere Gegenstände können nur vom Watcher platziert oder skaliert werden. Der Player kann jedoch über seine Interaktionen mit ihnen interagieren. Beide Arten von Gegenständen können, sobald sie entdeckt und in der Spielwelt platziert wurden vom Watcher wieder entfernt werden.
 
@@ -107,10 +107,62 @@ Die durch das Spiel angesprochenen ästhetischen Eigenschaften sind Challenge, F
 Untergeordnet steht das Narrativ des Spiels als Stütze für die Sinnhaftigkeit der Herausforderungen, die bewältigt werden müssen.
 
 
-\section{Spielablauf}
+\section{Spielabläufe}
+Die Spielabläufe des Spiels werden in zwei unterschiedliche Abschnitte unterteilt. Es gibt einen übergeordneten Ablauf für das gesamte Spiel und einen für jeden einzelnen Abschnitt.
 
+\subsection{Ablauf des Spiels}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/GameLoop-Player.drawio.png}
+\caption{Aktivitätsdiagramm des gesamten Spiels aus Player Sicht, (Quelle: eigene Darstellung), (in groß im Anhang \ref{})}
+\label{fig:game-loop-player}
+\end{figure}
 
-\section{Levelablauf}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/GameLoop-Watcher.drawio.png}
+\caption{Aktivitätsdiagramm des gesamten Spiels aus Watcher Sicht, (Quelle: eigene Darstellung), (in groß im Anhang \ref{})}
+\label{fig:game-loop-watcher}
+\end{figure}
+
+Die Abläufe des Spiels sind bei den Anwendungen des Watchers und Players nahezu identisch. Es gibt allerdings einen Unterschied, der im folgenden bei der Beschreibung der Abläufe erklärt wird.
+Abbildung \ref{fig:game-loop-player} zeigt das Aktivitätsdiagramm der Player-Anwendung. Sobald das Spiel geladen hat, öffnet sich das Startmenü über das der Player in die Einstellungen gehen, eine neue Session starten, einer existierenden Session beitreten oder das Spiel wieder beenden kann. Über die Einstellungen kann der Player die Tasten bzw. Touchbelegung einstellen, sowie Audio und Kameraeinstellungen ändern. Sobald der Player eine neue Session startet, öffnet sich die Prolog-Szene in der es ein kleines Tutorial zu den Regeln des Spiels und den Steuerungen gibt. 
+
+Über die Tutorial-Inhalte erfährt der Spieler Informationen zu Interaktionsmöglichkeiten mit Gegenständen in der Welt. Sobald sich der Avatar des Players nahe an Gegenstände bewegt, die ein Tooltip haben, kann der Player über eine Leiste mit Interaktionen im UI mit den Gegenständen interagieren. Darunter fällt z. B. das bestätigen einer Taste bei einem Computer oder aber das Aufnehmen und Tragen von Gegenständen.
+
+Es gibt für das Tutorial die Option erklärende Inhalte zu überspringen, da es sein kann, dass der Spieler das Spiel bereits einmal gespielt hat und die Inhalte nicht erneut lesen muss. Innerhalb des Spielszene kann der Player in ein Pausenmenü schalten, worüber er Einstellungen ändern, das Spiel beenden oder die Session verlassen kann. Außerdem kann er das Spiel auch wieder fortsetzen und weiterspielen. Verlässt der Spieler die Session, so lädt erneut der Startbildschirm und kann entweder der verlassenen Session neu beitreten oder eine neue Session starten.
+
+Nach Abschließen des Tutorials wird die nächste Szene geladen, welche in der bestehenden Session gespeichert wird. Sobald der Player nun die Session verlässt und erneut beitritt so lädt die Szene des abgespeicherten Levels. Dieser Kreislauf endet erst, sobald der letzte Spielabschnitt erreicht und die Geschichte beendet wurde. Über den Endscreen gelangt der Player erneut zum Hauptmenü, worüber eine neue Session gestartet werden kann. Das Beitreten der Session des beendeten Spiels führt dazu, dass der Player wieder im Endscreen landet und zurück ins Hauptmenü gelangt oder das Spiel beenden kann.
+
+Bei der Anwendung des Watchers gibt es einen Unterschied zu der des Players. In Abbildung \ref{fig:game-loop-watcher} ist zu sehen, dass der Watcher nach Laden und Starten des Spiels keine Session starten sondern lediglich einer Beitreten kann. Der Watcher ist so konzipiert, dass er nicht der aktive Teilnehmer, sondern ein unterstützender Teilnehmer des Spiels ist. Außerdem erhält der Watcher im Prolog für seine Aufgaben und seine \ac{UI}s entsprechende Informationen. Er erhält Informationen darüber, dass er über das Menü \say{Platzieren} Gegenstände in die Spielwelt platzieren kann und diese über angezeigt Tooltip der Gegenstände auch wieder entfernen kann. Außerdem kann er über das Menü \say{Preview} Gegenstände an den Player senden, welche dieser trägt. Das gilt für jede Gegenstände die der Player trägt. Findet er einen Gegenstand und trägt ihn, so kann der Watcher ihn ebenfalls entfernen. Entdeckte Gegenstände werden wie platzierte Gegenstände in der Welt angezeigt.
+
+Der restliche Spielablauf des Watchers ist identisch zu dem des Players.
+
+\subsection{Ablauf des Levels}
+Wie beim Ablauf des Spiels gibt es auch beim Levelablauf zwischen dem Player und Watcher kleine Unterscheidungen, die in der folgenden Erklärung aufgezeigt werden.
+
+\subsection{Ablauf des Spiels}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/LevelLoop-Player.drawio.png}
+\caption{Aktivitätsdiagramm des Levels aus Player Sicht, (Quelle: eigene Darstellung)}
+\label{fig:level-loop-player}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/LevelLoop-Watcher.drawio.png}
+\caption{Aktivitätsdiagramm des Levels aus Watcher Sicht, (Quelle: eigene Darstellung)}
+\label{fig:level-loop-watcher}
+\end{figure}
+
+Abbildung \ref{fig:level-loop-player} zeigt das Aktivitätsdiagramm des Players innerhalb der Spielszene. Sobald die Szene geladen hat, befindet sicher der Avatar des Spielers irgendwo in der Spielwelt. Da der Watcher den Avatar des Players nicht sehen kann, muss der Player seine Position beschreiben. Entweder nachdem der Player seine Position beschrieben hat oder währenddessen kann er sich in der Welt umsehen und stößt auf erste Rätsel oder Hindernisse. Ist dem so, so muss er seinem Watcher beschreiben um was für ein Rätsel oder Hindernis es sich handelt. In der Spielwelt befinden sich passende Lösungsgegenstände zu den Rätseln, die vom Player entdeckt werden können. Haben der Player und der Watcher das Rätsel gelöst so kann es sein, dass der Player darauf warten muss, dass der Watcher die richtigen Gegenstände in die Spielwelt platziert, damit sie weiter voran kommen oder aber der Watcher muss dem Player die richtigen Gegenstände schicken, damit dieser die Gegenstände an entsprechende Slots oder Stellen platzieren muss. Sobald ein Rätsel gelöst oder Hindernis beseitigt wurde, kommen sie weiter in der Spielwelt voran und müssen die nächsten Räume untersuchen. 
+
+Beim Watcher, dessen Aktivitätsdiagramm in Abbildung \ref{fig:level-loop-watcher} zu sehen ist, verhält es sich ein wenig anders als beim Player. Der Watcher muss zunächst den Standort des Players durch seine Beschreibungen lokalisieren. Während der Lokalisierung und im Anschluss darauf kann er Hindernisse oder Rätsel erkennen und diese dem Player Beschreiben. Außerdem kann er sich bereits Gedanken zu Rätseln und Hindernissen machen, die der Player bereits entdeckt hat. Gemeinsam suchen sie getrennt nach Hinweisen und versuchen Lösungen zu finden. Das Lösen der Rätsel funktioniert aus der Sicht des Watchers ein wenig anders, da er dafür zuständig ist, die jeweilig richtigen Gegenstände zu platzieren und/ oder dem Player zu senden. Sobald alles Rätsel in Koordination gelöst wurden und neue Räume zugänglich sind, fängt der Ablauf von neuem an.
+
+\section{Relation der Anwendungen}
+
+% \section{Levelablauf}
 
 \section{Konzipiertes Tutorial}
 

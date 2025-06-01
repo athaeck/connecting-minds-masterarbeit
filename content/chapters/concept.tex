@@ -164,10 +164,35 @@ Beim Watcher, dessen Aktivitätsdiagramm in Abbildung \ref{fig:level-loop-watche
 In der bisherigen Konzeption wurde bislang nur über die verschiedenen Rollen gesprochen, aber nicht wie viele Nutzer pro Rolle es pro Session des Spiels sein können. In der Entstehung des Projekts in der vorangegangenen Ausarbeitung war geplant, dass es pro Session immer einen Player geben muss. Außerdem können es immer mehr als einen Watcher geben. Es sollte also diese Regel gälten: $1\ldots n$ \quad wobei $n \geq 1$. In einer Referenz-Bachelorarbeit wurde ein ähnlicher Prototyp konzipiert, bei der in der Auswertung das Feedback gegeben wurde, dass sich mehrere Teilnehmer in der Rolle der \say{Smartphone}-Nutzer (Navigator) nicht zielführend sind (vgl. \cite[S. 34]{lotz_konzeption_2021}). Aus diesem Grund und der Tatsache, dass die Rolle des Watchers eine ähnliche des Navigators ist, sollten pro Session jeweils ein Player mit einem Watcher gemeinsam spielen. Darüber hinaus erforschte die Arbeit von \cite[S. 197:22]{bautista_isaza_understanding_2024} den Einfluss der Gruppengrößen auf das Engagement und die Arbeitsbelastung in einem Handheld-\ac{MR} und \ac{VR} Szenario und kam zu dem Schluss, dass kleinere Gruppen der Effekt des Engagements größer ist. Daraus ergibt sich die Regel $1\ldots1$, durch welche ein Player und ein Watcher in einer Session zusammenspielen.
 % \section{Levelablauf}
 
-\section{Konzipiertes Tutorial}
-Für diesen Prototyp wurde ein kleines Tutorial konzipiert, durch welchen der Watcher und der Spiele die grundlegenden Mechaniken und Funktionen des Spielkonzepts erlernen können. Aus dem Grund des Umfangs der Umsetzungen, wurden in den Probandentests die einzelnen Funktionen und Steuerungselemente erklärt, die in einem finalen Build im Spiel enthalten sein werden.
+\section{Konzeption des Tutorials}
+Für diesen Prototyp wurde ein kleines Tutorial konzipiert, durch welchen der Watcher und der Spiele die grundlegenden Mechaniken und Funktionen des Spielkonzepts erlernen können. Aus dem Grund des Umfangs der Umsetzungen, wurden in den Probandentests die einzelnen Funktionen und Steuerungselemente erklärt, die in einer finalen Version im Spiel enthalten sein werden.
 
-Das Tutorial wurde in verschiedene Abschnitte unterteilt, welche sich in einzelne Räume gliedern. Die einzelnen Abschnitte und ihre Räume werden nun vorgestellt.
+% [Die gesamten Lernziele des Tutorials hier einbauen]
+Folgende Lernziele wurden für das Tutorial konzipiert:
+\paragraph{Watcher}
+\begin{itemize}
+    \item Steuerung in der Anwendung (Drag, Zoom, Yaw und Touch)
+    \item Auffinden der richtigen Position, an der sich der Avatar des Players befindet 
+    \item Identifizierung des Ziels, wohin er den Player navigieren muss
+    \item Identifizierung von Hinweisen und Rätseln
+    \item Platzieren von schweren Gegenständen
+    \item Previewen von leichten Gegenständen
+    \item Entfernen von platzierten Gegenständen
+    \item Identifizierung von Unterschieden in der Spielwelt
+\end{itemize}
+
+\paragraph{Player}
+
+\begin{itemize}
+    \item Steuerung in der Anwendung (Drag, Zoom, Touch)
+    \item Identifizierung und Beschreibung der Lokalität
+    \item Identifizierung von Hinweisen und Rätseln
+    \item Tragen von Objekten (Previewen)
+    \item Interaktion mit interagierbaren Weltobjekten
+    \item Entdecken von neuen schweren und leichten Gegenständen
+\end{itemize}
+
+Das Tutorial wurde in verschiedene Abschnitte unterteilt, welche sich in einzelne Räume gliedern. Die einzelnen Abschnitte mit ihren Lernzielen und ihre Räumen werden nun vorgestellt.
 \subsection{Abschnitt 1: Der Start}
 
 \begin{figure}[ht]
@@ -197,7 +222,8 @@ Wie in der Konzeptzeichnung von Abbildung \ref{fig:section_00_concept} im rechte
 
 Der Watcher sieht zum Start den gesamten ersten Abschnitt aus Abbildung \ref{fig:section_00}, wohingegen der Player nur einen der drei Starträume aus Abbildung \ref{fig:corridors} und den anliegenden Flur sehen kann. Die anderen zwei Räume samt Flur kann er nicht sehen. Auch dann nicht, wenn er in der Eingangskammer zum nächsten Abschnitt gelangt ist.
 
-\paragraph{[Verschiedene Räume]}
+\paragraph{Lernaspekte dieses Abschnittes}
+
 
 \subsection{Rätsel}
 

@@ -194,6 +194,40 @@ Folgende Lernziele wurden für das Tutorial konzipiert:
 
 Das Tutorial wurde in verschiedene Abschnitte unterteilt, welche sich in einzelne Räume gliedern. Die einzelnen Abschnitte mit ihren Lernzielen und ihre Räumen werden nun vorgestellt.
 \subsection{Abschnitt 1: Der Start}
+Zunächst werden die Lernziele dieses Abschnittes vorgestellt, aus welchen der Abschnitt konzeptionell gestaltet wird.
+
+\paragraph{Lernaspekte und Konzeption dieses Abschnittes}
+Der Watcher bekommt eine kleine Einführung in die genannten Steuerungsmechaniken seiner Anwendung. Daraus resultiert, dass er sich selbständig durch die Spielwelt navigieren kann. Die Kernaufgabe des Watchers ist es, die Bewegungen des Players nachverfolgen zu können, wofür er die Position des Players benötigt. Daher sollte die Spielwelt so gestaltet sein, dass eine Positionsbeschreibung des Players automatisch erfolgen muss. Dies geschieht durch unterschiedliche Startpositionen in der Spielwelt, welche vom Player beschrieben werden muss, wodurch der Watcher den richtigen Startort suchen muss. In Abbildung \ref{fig:sketch-starterrooms} wird eine kleine Sketchzeichnung zum Startgebiet gezeigt. 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/Startplaces_Sketch.png}
+\caption{Sketchzeichnung der Starträume (Quelle: eigene Darstellung)}
+\label{fig:sketch-starterrooms}
+\end{figure}
+
+Der Watcher muss auch erkennen können, wohin sie gemeinsam gehen müssen. Daher muss die Spielwelt immer so eindeutig sein, dass es entweder ein oder mehrere eindeutige Ziele geben muss, wohin der Player gelotst werden muss. Für einen ersten Abschnitt ist es allerdings einfacher, wenn ein Ziel festgelegt wird, wohin alle Wege führen. In Abbildung \ref{fig:sketch-starterrooms} ist dieses klar im Sketch zu sehen. 
+
+Die mit der Spielmechaniken einhergehenden Grundmechaniken und Aufgaben des Watchers müssen ebenfalls erlernt werden, darunter zählen das Platzieren, Previewen und Entfernen von Gegenständen. Das Platzieren von Gegenständen kann so initialisiert werden, dass der Watcher zu, Start des Spiels bereits einen Gegenstand wie eine Säule im Inventar hat, welche nun nur noch den Ort benötigt, wo sie platziert werden kann. Durch ein weiteres Hindernis und dem Erkennen, dass der Player einen Gegenstand benötigt den er in eine bestimmte Stelle platzieren muss, bekommt der Watcher die Aufforderung dem Player einen bereits existierenden Gegenstand (bspw. eine Fackel) zu schicken. Das Entfernen von Gegenständen kann so so initialisiert werden, dass der Player in der in der Sketchzeichnung eingezeichneten Ziel-Eingangshalle ist (vgl. Abbildung \ref{fig:sketch-starterrooms}) und dort eine Tür oder ähnlcihes zu einem weiteren Abschnitt öffnen muss. Es werden allerdings wieder die gleichen Gegenstände benötigt, die sie in den vorangegangenen Rätseln verwendet haben. Also müssen die in der Welt platzierten Gegenstände entfernt und erneut platziert werden.
+
+% [Einfügen von unterschieden in der Spielwelt, erklärend aus Feedback vom vorangegangenen Projekt und hier eimbauen wie es in der Umsetzung aussehen kann]
+Darüber hinaus lernt der Watcher die Spielkarte richtig zu deuten. Es gibt in der Darstellung der Spielwelt in der Player-Anwendung teilweise kleine Unterschiede zu der des Watchers. Dieser Aspekt soll zudem die Kommunikation fördern. Umgesetzt ist dieser Aspekt durch fehlende Türen in den Starträumen, in denen der Player zu Beginn des Spiels ist, und bei den Durchgängen zum Eingangsportal zum nächsten Abschnitt.
+
+Analog zum Watcher, erhält der Player ebenfalls eine kleine Einweisung in die Steuerungsmechaniken der Anwendung. im Allgemeinen sind in der Anwendung des Players Rätsel und Hindernisse eingebaut, partiell allerdings in der Anwendung des Watchers. Aus diesem Grund muss der Player Rätsel/ Hindernisse und Hinweise identifizieren und verwenden können. Um einen ersten Anhaltspunkt für den Start zu erhalten, sollte in den jeweiligen Starträumen des Players eine kleine Notiz eingebaut werden, welche einen Hinweis auf die Einführung der Mechaniken des Watchers und das Lösen des ersten Hindernisses geben.
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/Startroom_Sketch.png}
+\caption{Sketchzeichnung des Hinweises für das erste Hindernis (Quelle: eigene Darstellung)}
+\label{fig:sketch-startriddle}
+\end{figure}
+
+Abbildung \ref{fig:sketch-startriddle} zeigt eine erste Überlegung, dass eine Notiz im Startraum darauf aufmerksam macht, dass ein schwerer Gegenstand auf eine Druckplatte gestellt werden muss, durch welche die Tür zum anliegenden Flur öffnet.
+
+Außerdem soll der erste Abschnitt das Tragen und Platzieren von Gegenständen enthalten. Es kann also ein Hindernis geben, das über eine Fackelhalterung oder ähnliches gelöst werden kann. Dadurch benötigt der Player einen Gegenstand, den er vom Watcher geschickt bekommt und an die entsprechende Stelle platzieren kann.
+
+Das letzte Lernziel enthält das Freischalten von neuen Abschnitten, das sowohl für den Player als auch den Watcher gilt.
+
+\paragraph{Beschreibung des Abschnittes}
 
 \begin{figure}[ht]
 \centering
@@ -222,7 +256,7 @@ Wie in der Konzeptzeichnung von Abbildung \ref{fig:section_00_concept} im rechte
 
 Der Watcher sieht zum Start den gesamten ersten Abschnitt aus Abbildung \ref{fig:section_00}, wohingegen der Player nur einen der drei Starträume aus Abbildung \ref{fig:corridors} und den anliegenden Flur sehen kann. Die anderen zwei Räume samt Flur kann er nicht sehen. Auch dann nicht, wenn er in der Eingangskammer zum nächsten Abschnitt gelangt ist.
 
-\paragraph{Lernaspekte dieses Abschnittes}
+% \paragraph{Lernaspekte dieses Abschnittes}
 
 
 \subsection{Rätsel}

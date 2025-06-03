@@ -28,8 +28,10 @@ Es wurde sich hier nur auf die ersten zwei Teile (\say{We were here} und \say{We
 Abbildungen \ref{fig:wwh-visuals} in Anhang [Anhang verlinken] und \ref{fig:wwht-visuals} in Anhang [Anhang verlinken] geben einen Einblick in die Analyse der Spieler-Rollen der Spiele. Schnell fällt auf, dass die Rätselelemente der Spiele sehr häufig über Symbole oder Bilder gestaltet wurde, bei denen diese beschrieben werden, richtig ausgewählt und platziert werden müssen. Grundlegend sind die Rätsel in der Spielwelt eingebaut, das bedeutet, dass entweder Symbole an den Wänden zu sehen sind, oder Anweisungen in Textform in der Spielwelt integriert sind. Selten ist es so, dass durch auditives Storytelling oder Texte in Büchern Rätsel gelöst werden müssen. In \say{We were here} fällt zudem auf, dass der \say{Explorer} die eingebauten Rätsel lösen muss und der \say{Librarian} sich in einer Hub befindet, über welchen der zu allen Rätseln die richtige Lösung finden muss. In \say{We were here too} ist es ähnlich. Häufig befindet sich der \say{Peasant} in Räumen mit den Rätseln und der \say{Lord} in den Räumen mit den Lösungen. Allerdings wurde hier öfters auch der \say{Lord} durch das Lösen von Rätseln gefordert. Außerdem befindet er sich nicht in einem zentralen Hub.
 
 \paragraph{Analyse des Rätseldesigns}
-Abbildung \ref{fig:wwh-uml} und \ref{fig:wwht-uml} zeigen jeweils die Ablaufdiagramme von \say{We were here} und \say{We were here too}. Auffallend ist, dass in \say{We were here} die Rolle des \say{Librarian}s im Kontext des Rätseldesigns linear verläuft und nur selten verschachtelte Rätsel aufzufinden sind. Grundlegend ist es so, dass der \say{Explorer} auf die Rätsel und Hindernisse trifft, und der \say{Librarian} dafür zuständig ist, die richtigen Antworten zu liefern. Es findet eine sehr eindimensionale Verkettung zwischen den Rollen statt.
+Abbildung \ref{fig:wwh-uml} und \ref{fig:wwht-uml} im Anhang zeigen jeweils die Ablaufdiagramme von \say{We were here} und \say{We were here too}. Auffallend ist, dass in \say{We were here} die Rolle des \say{Librarian}s im Kontext des Rätseldesigns linear verläuft und nur selten verschachtelte Rätsel aufzufinden sind. Grundlegend ist es so, dass der \say{Explorer} auf die Rätsel und Hindernisse trifft, und der \say{Librarian} dafür zuständig ist, die richtigen Antworten zu liefern. Es findet eine sehr eindimensionale Verkettung zwischen den Rollen statt.
 In \say{We were here too} lassen sich im Vergleich zum Vorgänger-Teil öfters verkettetes Rätseldesign finden, zum Beispiel in Raum 2 des Spiels. Dies ist jedoch auch in Ausnahmen der Fall, es wiederholt sich ein ähnlicher Aufbau wie im Vorgänger.
+% \newpage
+[kommt in Anhang, UML]
 
 \begin{figure}[ht]
 \centering
@@ -38,13 +40,16 @@ In \say{We were here too} lassen sich im Vergleich zum Vorgänger-Teil öfters v
 \label{fig:wwh-uml}
 \end{figure}
 
+% \newpage
+[kommt in Anhang, UML]
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\linewidth]{content/pictures/WeWereHereTooUML.png}
 \caption{Rätseldesign von We were here too (Quelle: eigene Darstellung), vollständig in Anhang: }
 \label{fig:wwht-uml}
 \end{figure}
-
+% \newpage
+% \newpage
 \paragraph{Schlussfolgerung}
 Der zentrale Aspekt der Kommunikationsaufforderung ist in beiden Spielen erkennbar und bildet eine gemeinsame Grundlage. In \say{We were here} fällt jedoch auf, dass das Rätseldesign häufig monoton und eindimensional wirkt - \say{Explorer} stößt auf Rätsel, beschreibt gegebene und/oder gesuchte Gegenstände, \say{Librarian} geht in bestimmten Raum und beschreibt gesuchte Gegenstände, \say{Explorer} löst Rätsel. Es existieren zwar einzelne Ausnahmen, in denen der \say{Librarian} aktiv werden muss um dem \say{Explorer} weiterzuhelfen - \say{Librarian} muss das richtige Ventil vom Rohr öffnen. Doch diese wechselseitige Abhängigkeit bleibt die Ausnahme. Gerade diese Form der Verzweigung ist für \say{Connecting-Minds} essenziell und sollte eine tragende Rolle Spielen. Auf dieser Grundidee lässt sich aufbauen, auch wenn nicht jedes Rätsel in seiner konkreten Ausgestaltung überzeugt, bieten bestimmte Ansätze dennoch wertvolle Anregungen - insbesondere im Hinblick auf die Möglichkeit, abwechslungsreiche, variantenreichere und stärker auf Kooperation ausgelegte Rätsel für \say{Connecting-Minds} zu entwickeln.
 
@@ -63,17 +68,17 @@ Die Abbildungen \ref{} und \ref{} in den Anhängen [Anhang verlinken] und [Anhan
 \paragraph{Analyse des Rätseldesigns}
 Abbildung \ref{fig:trs-uml} zeigt das Ablaufdiagramm der Rätsel des Spiels. Sowohl in der visuellen Darstellung des Spiels, als auch im Design der Rätsel ist erkennbar, dass Zugänge zu neuen Räumen neue Hinweise oder Rätsel freischalten, welche gelöst werden müssen. Die Rätsel sind dabei gegenseitig verwoben, sodass es oft vorkommt, dass das Lösen von Rätsel A erst Hinweise für Rätsel B zugänglich macht wodurch Rätsel C ebenso gelöst werden kann. Diese Struktur findet sich in Kapitel 1 beim Bücherregal Rätsel wieder, als auch bereits im Prolog beim Öffnen der Schranke.
 
-\paragraph{Schlussfolgerung}
-Die Spielsteuerung kann eine gute Vorlage für \say{Connecting-Minds} bietet. Zum einen überzeugt sie durch ihre klare und intuitive Umsetzung, die gut auf diesen Prototyp übertragbar sein kann. Zum anderen passt die Struktur der Rätsel ausgezeichnet zu der Art und Weise, wie die Aufgaben der zwei Spielerrollen gestaltet sein könnten.
-
-Besonders interessant ist dabei, wie sich untergeordnete und übergeordnete Rätsel sinnvoll miteinander verknüpfen lassen: Die Rolle des einen Spielers löst oder entdeckt ein Element, dessen Erkenntnis der andere Spieler anschließend aktiv umsetzen muss, um wiederum des einen Spielers die nächsten Schritte ermöglicht. Dieses Prinzip des wechselseitigen Fortschritt eröffnet spannenden Möglichkeiten für das Rätseldesign von \say{Connecting-Minds}.
-
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/TinyRoomStoriesUML.png}
 \caption{Rätseldesign von Tiny Room Stories (Quelle: eigene Darstellung), vollständig in Anhang: }
 \label{fig:trs-uml}
 \end{figure}
+
+\paragraph{Schlussfolgerung}
+Die Spielsteuerung kann eine gute Vorlage für \say{Connecting-Minds} bietet. Zum einen überzeugt sie durch ihre klare und intuitive Umsetzung, die gut auf diesen Prototyp übertragbar sein kann. Zum anderen passt die Struktur der Rätsel ausgezeichnet zu der Art und Weise, wie die Aufgaben der zwei Spielerrollen gestaltet sein könnten.
+
+Besonders interessant ist dabei, wie sich untergeordnete und übergeordnete Rätsel sinnvoll miteinander verknüpfen lassen: Die Rolle des einen Spielers löst oder entdeckt ein Element, dessen Erkenntnis der andere Spieler anschließend aktiv umsetzen muss, um wiederum des einen Spielers die nächsten Schritte ermöglicht. Dieses Prinzip des wechselseitigen Fortschritt eröffnet spannenden Möglichkeiten für das Rätseldesign von \say{Connecting-Minds}.
 
 \subsection{The past within}
 

@@ -6,6 +6,9 @@ Nachdem durch die Literaturrecherche in Kapitel \ref{sec:related-works} wichtige
 
 Die Konzeption dieses Spiels folgt einem methodischen Vorgehen: Zunächst wird die übergeordnete Designvision und Zielsetzung erläutert. Anschließend dient das \ac{MDA}-Framework (vgl. \cite{hunicke_mda_2004}) als zentrales Analyse- und Strukturierungsmittel, um das Spielerlebnis gezielt zu gestalten. Auf Basis des \ac{MDA}-Frameworks werden die grundlegenden Spielmechaniken, Rollenverteilungen und dynamischen Abläufe beschrieben.
 
+
+[irgendwo muss noch Feedback aus dem vorangegangenen projekt erwähnt werden]
+
 \section{Designziele und Zielgruppe}
 \say{Connecting-Minds} verfolgt das Ziel, kooperative Kommunikation unter ungleichen Perspektiven in einem Escape-Room-ähnlichen Szenario zu verbessern. Dabei existieren zwei verschiedene Rollen - Player und Watcher - die gemeinsam die Rätsel lösen und Hindernisse der Spielwelt überwinden müssen. Die Wahrnehmung der Spielwelt und Handlungsmöglichkeiten ist in beiden Anwendungen unterschiedlich, gleichzeitig ergänzt sie sich aber. 
 
@@ -319,6 +322,8 @@ Der Bürokomplex im letzten Teil des Tutorials besteht aus einem Korridor (Bild 
 \subsection{Rätseldesign}\label{sec:riddles}
 Der Aufbau der Rätsel in den Abschnitten 1 und 2 ist linear gehalten, da diese als Einführung in die Mechanik gedacht ist. Die Hinweise der Rätsel sind meist in der Nähe der jeweiligen Rätsel in die Umgebung, oder als Notiz, eingebaut.
 
+\paragraph{Abschnitt 1}
+
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/Rätseldesign - Abschnitt00 - Rätsel00.png}
@@ -342,11 +347,32 @@ Der Aufbau der Rätsel in den Abschnitten 1 und 2 ist linear gehalten, da diese 
 
 Zum Start befindet sich der Player innerhalb des Verlieses. Eine verrostete Eisentür versperrt ihm den Weg aus dem Verlies (vgl. Abbildung \ref{fig:riddle-design-section00-00}, linkes Bild). Auf einer Notiz (vgl. Abbildung \ref{fig:riddle-design-section00-00}, mittleres Bild) erhält der Player einen Hinweis darauf, auf einer Druckplatte (vgl. Abbildung \ref{fig:riddle-design-section00-00}, rechtes Bild) etwas zu werfen. In diesem Fall ist damit das Platzieren eines schweren Gegenstandes (eine Säule) gemeint, welches zum Start des Spiels im Inventar des Watchers zu finden ist. 
 
-Nachdem der Player aus dem Verlies gelangt ist, stößt er erneut auf eine verrostete Eisentür, welche ebenfalls geöffnet werden muss (vgl. Abbildung \ref{fig:riddle-design-section00-01}, linkes Bild). Auf der von der Tür aus linken Wand, sehen sowohl der Player als auch der Watcher eine Fackelhalterung, in der eine Fackel hängt (vgl. \ref{fig:riddle-design-section00-01}, mittlere Bild). Außerdem befindet sich auf der entgegen liegenden Wandseite eine Fackelhalterung ohne Fackel (vgl. \ref{fig:riddle-design-section00-01}. rechts Bild). Sie schließen daraus, dass der Watcher dem Player eine Fackel schicken und dieser sie in die Halterung einsetzen muss.
+Nachdem der Player aus dem Verlies gelangt ist, stößt er erneut auf eine verrostete Eisentür, welche ebenfalls geöffnet werden muss (vgl. Abbildung \ref{fig:riddle-design-section00-01}, linkes Bild). Auf der von der Tür aus linken Wand, sehen sowohl der Player als auch der Watcher eine Fackelhalterung, in der eine Fackel hängt (vgl. Abbildung \ref{fig:riddle-design-section00-01}, mittlere Bild). Außerdem befindet sich auf der entgegen liegenden Wandseite eine Fackelhalterung ohne Fackel (vgl. Abbildung \ref{fig:riddle-design-section00-01}. rechts Bild). Sie schließen daraus, dass der Watcher dem Player eine Fackel schicken und dieser sie in die Halterung einsetzen muss.
 
-In der folgenden Eingangshalle stoßen beide Spieler auf eine verschlossene Sicherheitstür, welche zum Abschließen des Abschnittes geöffnet werden muss (vgl. Abbildung \ref{fig:riddle-design-section00-02}, linkes Bild). In der Eingangshalle befinden sich links von der Tür eine Säule und eine Fackelhalterung in der eine Fackel steckt (vgl. Abbildung \ref{fig:riddle-design-section00-02}, zweites Bild von links und zweites Bild von rechts). Auf der rechten Seite befindet sich eine leere Fackelhalterung (vgl. \ref{fig:riddle-design-section00-02}, rechts Bild). Der Player muss die Fackel, die im vorherigen Rätsel verwendet wurde in die leere Halterung einsetzen. Außerdem muss der Watcher, gemäß der Beschreibung der Säule \say{The column is required to match a pattern or to serve as a counterweight.}, die Säule aus dem ersten Rätsel ungefähr an die auf der rechten Seite der Tür entgegen liegenden Stelle platzieren, sodass die Säulen symmetrisch zur Tür ausgerichtet sind (vgl. \ref{fig:riddle-design-section00-02}, linkes Bild).
+In der folgenden Eingangshalle stoßen beide Spieler auf eine verschlossene Sicherheitstür, welche zum Abschließen des Abschnittes geöffnet werden muss (vgl. Abbildung \ref{fig:riddle-design-section00-02}, linkes Bild). In der Eingangshalle befinden sich links von der Tür eine Säule und eine Fackelhalterung in der eine Fackel steckt (vgl. Abbildung \ref{fig:riddle-design-section00-02}, zweites Bild von links und zweites Bild von rechts). Auf der rechten Seite befindet sich eine leere Fackelhalterung (vgl. Abbildung \ref{fig:riddle-design-section00-02}, rechts Bild). Der Player muss die Fackel, die im vorherigen Rätsel verwendet wurde in die leere Halterung einsetzen. Außerdem muss der Watcher, gemäß der Beschreibung der Säule \say{The column is required to match a pattern or to serve as a counterweight.}, die Säule aus dem ersten Rätsel ungefähr an die auf der rechten Seite der Tür entgegen liegenden Stelle platzieren, sodass die Säulen symmetrisch zur Tür ausgerichtet sind (vgl. Abbildung \ref{fig:riddle-design-section00-02}, linkes Bild).
 
+\paragraph{Abschnitt 2}
+In Abschnitt 2 erfolgt das Rätseldesign ähnlich linear wie in Abschnitt 1.
 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/Rätseldesign - Abschnitt01 - Rätsel00.png}
+\caption{Aufbau der Rätsel von Abschnitt 2, Teil 1 (Quelle: eigene Darstellung)}
+\label{fig:riddle-design-section01-00}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/Rätseldesign - Abschnitt01 - Rätsel01.png}
+\caption{Aufbau der Rätsel von Abschnitt 2, Teil 2 (Quelle: eigene Darstellung)}
+\label{fig:riddle-design-section01-01}
+\end{figure}
+
+Nachdem der Player in den Sicherheitsraum gegangen ist, stößt er auf 2 Türen. Eine links vom Eingang und die andere geradeaus durch. Durch die letztere muss der Player am Ende des Abschnittes gehen. Allerdings geht das zunächst nicht, da der Bewegungsmelder der Tür deaktiviert ist und erst aktiviert werden muss. Am Terminal, das links neben der Tür zu finden ist, muss er Player den Bewegungsmelder aktivieren (vgl. Abbildung \ref{fig:riddle-design-section01-00}). Allerdings besitzt dieses keinen Strom. 
+
+Der Player als auch der Watcher erhalten einige Hinweise darauf, wie der Strom für das Terminal zu aktivieren ist. Zunächst befindet sich innerhalb des Sicherheitsraumes ein Stromgenerator (vgl. Abbildung \ref{fig:riddle-design-section01-01}, Bild zweite Zeile Mitte), welcher an einen anderen Ort platziert werden muss. In der Ansicht des Watchers befindet sich rechts neben der zweiten Tür im Sicherheitsraum, die vom Eingang in den Raum aus links ist, eine Sicherung, auf deren anderen Seite in einem kleinen Innenhof ein Stromgenerator für die Eingangstür steht (vgl. Abbildung \ref{fig:riddle-design-section01-01}, Bilder erste und zweite Zeile rechts). Der Player besitzt für diesen Aufbau, den der Watcher in seiner Version sieht, einen Plan auf einer Pinnwand (vgl. Abbildung \ref{fig:riddle-design-section01-01}, Bild erste Reihe Mitte). Der Unterschied zwischen der Version des Players und des Watchers ist, dass die Sicherung nicht neben der Tür ist, sondern links neben dem Terminal (vgl. Abbildung \ref{fig:riddle-design-section01-01}, Bild zweite reihe links). Aus diesem Grund muss der Generator auf die entgegenfliegende Seite links neben den bestehenden Stromkasten in der Anwendung des Watchers (vgl. Abbildung \ref{fig:riddle-design-section01-01}, Bild zweite Reihe rechts) platziert werden. Ist der Generator an die Stelle platziert, kann der Bewegungsmelder über das Terminal aktiviert werden und der Player kann Abschnitt 3 betreten.
+
+\paragraph{Abschnitt 3}
 
 \section{Dialoge}
 

@@ -114,8 +114,82 @@ Abbildung \ref{fig:recommended-action} zeigt die Handlungsempfehlungen für den 
 Daher wird nun noch der Fokus auf das Environment gelegt. Die Handlungsempfehlungen beziehen sich in der Darstellung auf das bestehende System des Prototyps. Abstrahiert betrachtet ermöglicht eine grundlegende Weiterentwicklung der Anwendungen und des Environment neue Möglichkeiten wie Rätsel innerhalb der Spielwelt konzipiert und umgesetzt werden können. Dadurch kann es frei wählbare Positionen auf der Spielkarte geben, die nicht mehr vordefiniert sein müssen, oder dass bestehende Gegenstände auf irgend eine weise verändert werden müssen. Diese Aspekte könnten in einer neu Entwicklung des Environments anders aufgebaut werden.
 
 \section{Verwendete Technologien}
+In der folgenden Aufzählung werden alle externen Assets und Packages vorgestellt, welche in der Entwicklung des Prototyps verwendet wurden. Manche der Assets werden im Registry des Projekts nicht aufgezählt, da diese in einem Test-Projekt importiert und für den Gebrauch dieses Projekt in jeweilige Submodule editiert importiert wurden. 
+
+\subsection{Unity Editor Version 2022.3.45f1}
+Der Prototyp wurde mit der 2022.3.45f1 \ac{LTS}-Version umgesetzt, da diese zum Start der Masterarbeit die aktuelle 2022 \ac{LTS}-Version war. Zwischenzeitlich wurde auch die 2023.2.20f1 (vgl. \cite{noauthor_unity_nodate}) ausprobiert. Da diese allerdings weder eine \ac{LTS}-Version noch zusätzlich im Package der Cinemachine ein Major-Update enthalten war und die Cinemachine einige Probleme mit sich führte, wurde eine stabile 20222-Version gewählt.
+
+\subsection{Blender 4.3.2}
+Blender dient als Bearbeitungstool für die 3D-Modelle aus den hinzugenommenen Unity Assets. Die aktuelle Version zu Projektstart war die 4.3.2 Version- welche über den gesamten Bearbeitungszeitraum verwendet wurde. Außerdem bietet Unity einen Blender Direktimport an, wodurch keine \ac{FBX} oder \ac{OBJ} Dateien aus den Blenderdateien exportiert und in Unity importiert werden mussten.
+
+\subsection{NuGetForUnity 4.1.1}
+NuGetForUnity ist ein für Unity entwickelter NuGet-Client (vgl. \cite{noauthor_nuget_nodate}) über den zusätzliche funktionale Pakete für Unity installiert werden kann (vgl. \cite{mccarthy_glitchenzonugetforunity_2025}). Er war nötig, um ein nicht über Unity erworbenes Package in Unity nutzen zu können. Die aktuelle Version zum Bearbeitungsstart war die 4.1.1 Version, welche bis zum Ende genutzt wurde.
+
+\subsection{Newtonsoft.Json 13.03}
+Das erste Package, welches über NuGetForUnity installiert wurde ist Newtonsoft.Json, durch welches über den WebSocket übertragene JSON-Daten leicht deserialisiert und serialisiert werden können (vgl. \cite{newtonsoft_jsonnet_nodate}). Die aktuelle Version im NuGet-Paketverwaltungstool war die 13.03.
+
+\subsection{WebSocketSharp-netstandard 1.0.1}
+Derzeit gibt es einige Netzwerk-Integrationen für Unity, bspw. Mirror (vgl. \cite{noauthor_mirror_nodate}) oder Netcode for GameObjects (vgl. \cite{noauthor_about_2025}). Durch beiden Packages wäre jedoch die Netzwerk-Topologie starrer und die Entwicklung nach eigener Vorstellung wäre ebenfalls eingeschränkter. Daher wurde über NuGetForUnity das WebSocketSharp-netstandard Paket installiert, welches eine direkte Kommunikation mit einem WebSocket-Server ermöglicht (vgl. \cite{pingman_tools_pingmantoolswebsocket-sharp_2025}), da bislang existierende Integration mit Unity nicht mehr unterstützt werden. Die derzeit installierte und zum Projektstart installierbare Version ist die 1.0.1.
+
+\subsection{AI Navigation 1.1.5}
 
 
+\subsection{Cinemachine 2.10.1}
+
+\subsection{Universal RP 14.0.11}
+
+\subsection{Unity UI 1.0.0}
+
+\subsection{TextMeshPro 3.0.9}
+
+\subsection{Input System 1.7.0}
+
+\subsection{FBX Exporter 4.2.1}
+
+\subsection{Unity Assets}
+
+\begin{itemize}  
+    \item Astronaut Model von \cite{quaternius_astronaut_nodate}
+    \item Chair Pack - 3D Low Poly Office Furniture 1.0 \cite{fast_mesh_chair_nodate}
+    \item low poly WD | 3D Props 1.1 \cite{squid_low_nodate}
+    \item Adventure Game Environment Pack | URP | 3D Sci-Fi 1.0 \cite{unity_technologies_adventure_nodate-1}
+    \item Adventure - Sample Game | Tutorials 3.0 \cite{unity_technologies_adventure_nodate}
+    \item Bedroom / Interior - Low Poly assets | 3D Interior 1.1.6 \cite{fries_and_seagull_bedroom_nodate}
+    \item Big Furniture Pack | 3D Furniture 1.3 \cite{vertex_studio_big_nodate}
+    \item Chair pack - 3D Low Poly Office Furniture - Created with FastMesh Asset | 3D Furniture 1.0 \cite{fast_mesh_chair_nodate}
+    \item Fantasy Cemetery \& Necropolis Pack Lite: 3D Assets for RPG and Adventure Games | 3D Fantasy 1.2 \cite{emaceart_fantasy_nodate}
+    \item Free Wood Door Pack | 3D Interior 1.0 \cite{biostart_free_nodate}
+    \item Kitchen Appliance - Low Poly | 3D Electronics 1.02 \cite{alstra_infinite_kitchen_nodate}
+    \item Lowpoly Dungeon Assets | 3D Dungeons 1.0 \cite{kunniki_lowpoly_nodate}
+    \item Low Poly Dungeon Generator | 3D Dungeons 1.0 \cite{mysticforge_low_nodate}
+    \item Low Poly Dungeons Lite | 3D Dungeons 1.11 \cite{justcreate_low_nodate-1}
+    \item Low Poly Simple Medieval Props | 3D Props 1.0 \cite{justcreate_low_nodate}
+    \item LowPoly Server Room Props | 3D Environments 1.0 \cite{ipoly3d_lowpoly_nodate}
+    \item Melon's Low Poly Office | 3D Interior 1.1.1 \cite{mistyczny_arbuz_melons_nodate}
+    \item Office Pack - Free | 3D Interior 1.02 \cite{nappin_office_nodate}
+    \item Ultimate Low Poly Dungeon | 3D Dungeons 2.0 \cite{broken_vector_ultimate_nodate}
+\end{itemize}
+
+\subsection{Docker}
+\cite{noauthor_docker_2025}
+
+\subsection{MongoDB - Docker Image}
+\cite{noauthor_mongo_nodate}
+\cite{mongodb_mongodbnode-mongodb-native_2025}
+
+\subsection{Express.js Webserver 5.1.0}
+\cite{noauthor_express_nodate}
+
+\subsection{Node Version 20.18.1}
+\cite{noauthor_nodejs_nodate}
+
+\subsection{User Interface Inspirationen}
+
+\begin{itemize}
+    \item Vorlage für SciFi \ac{UI}s von \cite{pchvector_free_nodate}
+    \item Vorlage für Low-Poly Feder von \cite{masud_download_nodate}
+    [TODO: Hier fehlen noch die Dumps von CHat, die nachgemalt wurden]
+\end{itemize}
 
 \section{Aufbau des Prototyps}
 

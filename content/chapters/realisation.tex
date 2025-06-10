@@ -72,11 +72,46 @@ Sobald ein Rätsel durch das Platzieren von Gegenständen gelöst wurde, erhielt
 Sobald das Lösen des Rätsel das Hindernis beseitigt und einen neuen Bereich zugänglich macht, geht der Bilder-Slider in der Anwendung des Watchers auf das aktuelle Bild. Der Slider zeigt dem Watcher alle verfügbaren Abschnitte der Spielwelt (vgl. erste Reihe, rechtes Bild, in weiß umrandet in Abbildung \ref{fig:old-unlock-system}). Durch die neuen Spielabschnitte werden nicht nur neue Gegenstände freigeschaltet, sondern auch zusätzliche vordefinierte Positionen, auf denen die Gegenstände platziert werden können. Diese werden dem Watcher in den Gegenstand- und Positions-Dropdown aufgelistet (vgl. Abbildung \ref{fig:old-unlock-system}, beide Bilder in der zweiten Reihe in weiß umrandet). 
 
 \subsection{Aspekte zum Überarbeiten}
+\paragraph{Backfaces}
+In den zuvor betrachteten Abbildungen \ref{fig:old-logins} bis \ref{fig:old-unlock-system} fällt auf, dass die Wände der Spielwelt, in der sich der Player befindet (jeweils immer das linke Bildelement), \say{eigenartig} aussehen. Das liegt daran, dass die einzelnen Raum-Elemente dafür gedacht sind, dass durch die Kameraperspektive der Spieler im inneren des Raumes zu sein sollte. Man müsste für diesem Raumaufbau eine First-Person Kameraansicht wählen.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/Backfaces.png}
+\caption{Fehlende Rückwand-Oberflächen in den Raummodellen (Quelle: eigene Darstellung), (Modell von \cite{alasl_autolevel_nodate})}
+\label{fig:missing-backfaces}
+\end{figure}
+
+Abbildung \ref{fig:missing-backfaces} zeigt fehlende Rückseiten-Oberflächen an. Die blauen Oberflächen sind die Oberflächen, die durch ihre Ausrichtung der Normalvektoren von der Game-Engine gerendert werden können. Die roten Oberflächen sind die, die von der Game-Engine nicht berücksichtigt werden. Hierbei kann es zwei unterschiedliche Ansätze geben, fehlende Rückseiten hinzuzufügen. Innerhalb der Material-Konfiguration der einzelnen Materialien kann bi-direktionales Rendering aktiviert werden oder das Modell muss pro Richtung auf die auf das Modell geschaut wird jeweils eine Oberfläche haben, die auch in diese Richtung zeigt.
+
+Außerdem müsste für den Anwendungszweck eines Spiel mit einer Top-Down Ansicht auch eine Decke der Räume entfernt werden, da diese für den Spieler nicht sichtbar sein sollte und sonst stören würde.
+
 % backfaces
+
+\paragraph{Steuerung des Avatars}
+Im vorangegangenem Prototyp wurde wenig Aufmerksamkeit auf die Gestaltung der Spielsteuerung über Touch-Inputs gelegt. Die Standard-Steuerung innerhalb des verwendeten Unity-Assets von \cite{alasl_autolevel_nodate} enthielt zum Start des Projekts nur die Steuerung über Maus und Tastatur. Über die Tastatur konnte sich über die Spielwelt hinweg bewegt werden, ähnlich wie es aus \ac{RTS}-Spielen bekannt ist. Über die linke Maustaste konnte in die Spielwelt geklickt werden, wodurch sich der Spieler-Avatar an diese Stelle selbständig bewegte. Eine Steuerung über Touch-Eingaben an einem Touch-Monitor oder Fernseher musste erst eingebaut werden. Das Asset von \cite{alasl_autolevel_nodate} verwendet das Kamera-System der Cinemachine (vgl. \cite{noauthor_about_nodate}) wodurch einige vorgefertigte Steuerungen der Kamera durch die Maus bereits implementiert sind. 
+
+Es fehlte also die Touchsteuerung. Diese wurde allerdings nicht nach den Funktionalitäten eines Touchscreens konzipiert und umgesetzt, wie es bspw. in der Arbeit von \cite[S. 64ff]{reinhard_augmented_2022} aufgezeigt wurde, sondern über eigene Ideen, die nicht den Komfort der Maussteuerung wiedergeben konnte. Durch existierende und nicht sichtbare Oberflächen in der Spielwelt, wurde ebenfalls die Erfolgschance den Avatar durch einen Touch-Klick in die Spielwelt zu bewegen vermindert, wodurch ebenfalls Spielkomfort verloren ging.
+
 % steuerung beim Player
+
+\paragraph{Interaktion mit der Spielwelt}
+Sowohl die Anwendung des Players als auch die des Watchers besitzen wenig, bis keine Interaktionen mit der Spielwelt. Bei der Anwendung des Players besteht lediglich das Laufen innerhalb der Spielwelt als Interaktion. Der Watcher hingegen besaß keine Funktionalität im Bezug auf die Spielwelt. Lediglich die Menüs, über die die Daten der Session bearbeitet werden konnten. Für einen zukünftigen Prototyp müssen mehr Kernfunktionen in die Anwendungen eingebaut und Interaktionen mit der Spielwelt geschaffen werden.
 
 % interaktion mit der spielwelt beim watcher
 % feedback von den probandentests aufzählen
+
+\paragraph{Sonstiges Feedback aus den Probandentests}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/Handlungsempfehlungen.PNG}
+\caption{Handlungsempfehlungen des alten Prototyps (Quelle: eigene Darstellung aus der Abschlusspräsentation), (ganze Präsentation in Anhang \ref{}, S. 33)}
+\label{fig:recommended-action}
+\end{figure}
+
+Abbildung \ref{fig:recommended-action} zeigt die Handlungsempfehlungen für den alten Prototyp aus der vorangegangenen Arbeit. Die Abschnitte der \say{Player Interaktion}, \say{Player Ansicht}, \say{Kamerasteuerung} und \say{Watcher Ansicht} wurden bereits angesprochen. Die Abschnitte \say{Environment} und \say{Watcher Tutorial} fehlen noch, wobei \say{Watcher Tutorial} in der Weiterentwicklung des Prototyps in der Implementierung keine Beachtung geschenkt wurde, da der Umfang ein eingebautes Tutorial für \ac{UI}-Elemente zu konzipieren und umzusetzen zu aufwändig wäre. Es müsste außerdem auch für die Anwendung des Player gälten.
+
+Daher wird nun noch der Fokus auf das Environment gelegt. Die Handlungsempfehlungen beziehen sich in der Darstellung auf das bestehende System des Prototyps. Abstrahiert betrachtet ermöglicht eine grundlegende Weiterentwicklung der Anwendungen und des Environment neue Möglichkeiten wie Rätsel innerhalb der Spielwelt konzipiert und umgesetzt werden können. Dadurch kann es frei wählbare Positionen auf der Spielkarte geben, die nicht mehr vordefiniert sein müssen, oder dass bestehende Gegenstände auf irgend eine weise verändert werden müssen. Diese Aspekte könnten in einer neu Entwicklung des Environments anders aufgebaut werden.
 
 \section{Verwendete Technologien}
 

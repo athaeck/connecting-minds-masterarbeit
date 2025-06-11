@@ -135,22 +135,30 @@ Derzeit gibt es einige Netzwerk-Integrationen für Unity, bspw. Mirror (vgl. \ci
 Da sich der Avatar des Players innerhalb der Spielwelt per Touch-Click auf den Bildschirm an die angeklickte stelle bewegen soll, muss ein \ac{AI}-Agent eingebaut werden, der das Avatar Spielobjekt an die gewünschte Stelle bewegt. In Unity kann dafür das NavMesh System verwendet werden, welches ein Pathfinding-System implementiert, wodurch ein automatisiertes Bewegen eines Agents durch eine Zielposition integriert werden kann. Das Paket in Unity heißt dafür \ac{AI}-Navigation. Die aktuelle Version zum Start des Projekts ist die 1.1.5.
 
 \subsection{Cinemachine 2.10.1}
-
+Die Cinemachine wurde in der Entwicklung des Prototyps bei beiden Anwendungen als unterstützendes Element für die Kamerasteuerung verwendet. Durch die Cinemachine können virtuelle Kameras genutzt werden, durch welche verschiedene Ansichten in der Spielwelt erstellt werden können. Außerdem unterstützt sie bei der Kameraführung um ein verfolgtes Objekt, wie dem Avatar des Players. Zudem es ist durch sie möglich, auf einfache weise eine Zoom-Funktion einzubauen. Die aktuelle Version für die 2022-Unity Version ist die 2.10.1, welche über den Verlauf der Arbeit verwendet wurde.
 
 \subsection{Universal RP 14.0.11}
+Für die Entwicklung einer Anwendung für Mobile Endgeräte oder die für Windows-Geräte kann die \ac{URP} verwendet werden. Außerdem ist die \ac{URP} mit ARFoundation kompatibel, wodurch die Wahl auf die \ac{URP} und nicht die Built-In Render Pipeline fiel. Die zum Start und über den Verlauf der Arbeit genutzte Version ist die 14.0.11.
 
-\subsection{Unity UI 1.0.0}
-
-\subsection{TextMeshPro 3.0.9}
+\subsection{Unity UI 1.0.0 und TextMeshPro 3.0.9}
+Für die Entwicklung der \ac{UI}-Elemente der Anwendungen wurden die Pakete Unity \ac{UI} und TextMeshPro in ihren zum Start des Projekt aktuellen Versionen verwendet. Unity \ac{UI} ist dabei das Standard-Paket für die Entwicklung von User-Interfaces. TextMeshPro erweitert die Standard \ac{UI}-Elemente von Unity \ac{UI} um weitere Komponenten, welche für die Entwicklung des \ac{UI}s verwendet wurden.
 
 \subsection{Input System 1.7.0}
+Seit der 2022er-Unity Version wird empfohlen das neue Input System von Unity zu verwenden. Das alte Input System ist standardisiert in jedem Unity Projekt enthalten und wird durch das neue durch das Paket Input System überschrieben. Es ermöglicht über ein eigenes Menü verschiedene Input-Möglichkeiten zu konfigurieren und innerhalb der Scripte zu verwenden.
 
 \subsection{FBX Exporter 4.2.1}
+Manche Meshes der verwendeten Unity-Assets waren nicht im Binary-\ac{FBX}-Format importiert gewesen, wodurch sie über den \ac{FBX} Exporter zu einer Binary-\ac{FBX} Datei exportiert werden konnten. Außerdem kam es vor, dass manche Assets keine grundlegenden Meshes enthielten, wodurch die enthaltenen Prefabs zu \ac{FBX}-Dateien exportiert werden mussten. Die aktuelle Version des Exporters zum Start des Projekts war die 4.2.1.
+
+\subsection{AR Foundation 5.1.6}
+Für die Entwicklung von \ac{AR}-Anwendungen in Unity gibt es verschiedene Möglichkeiten. Die gängigsten Auswahlmöglichkeiten sind hierbei Vuforia (vgl. \cite{noauthor_home_nodate}) oder das Unity interne Paket AR Foundation (vgl. \cite{noauthor_ar_nodate}). Die AR Foundation ermöglicht im Vergleich zu Vuforia auf mehreren Arten das Tracking und Platzieren von virtuellen Gegenständen an, wodurch die Wahl auf die AR Foundation fiel. Außerdem ist die AR Foundation leichter in die Versionierung in Git einzubinden. Da gab es in vergangenen Projekten durch zu große Konfigurations-Dateien von Vuforia Problemen.
+
+\subsection{Google ARCore XR Plugin 5.1.6}
+In Abhängigkeit zum Paket AR Foundation wurde auch das Google ARCore Modul mit installiert, welches wichtig für mobiles \ac{AR} auf Android Smartphones ist. Es bietet eine Schnittstelle zwischen den Android eigenen Modulen auf dem Smartphone und der Unity Anwendung.
 
 \subsection{Unity Assets}
-
+Da durch den begrenzten Bearbeitungszeitraum keine Zeit blieb in großen Maßen eigene \ac{3D}-Objekte zu modellieren, wurde dafür auf bestehende und zum größten Teil kostenlose Assets zurückgegriffen, welche alle über den Unity Asset Store erworben werden konnten. Die enthaltenen Objekte wurden jedoch in einer großen Nacharbeitung an die eigenen Anforderungen angepasst und in die eigenen Submodule importiert.
 \begin{itemize}  
-    \item Astronaut Model von \cite{quaternius_astronaut_nodate}
+    \item Astronaut - Free Model By Quaternius von \cite{quaternius_astronaut_nodate}
     \item Chair Pack - 3D Low Poly Office Furniture 1.0 \cite{fast_mesh_chair_nodate}
     \item low poly WD | 3D Props 1.1 \cite{squid_low_nodate}
     \item Adventure Game Environment Pack | URP | 3D Sci-Fi 1.0 \cite{unity_technologies_adventure_nodate-1}
@@ -171,18 +179,25 @@ Da sich der Avatar des Players innerhalb der Spielwelt per Touch-Click auf den B
     \item Ultimate Low Poly Dungeon | 3D Dungeons 2.0 \cite{broken_vector_ultimate_nodate}
 \end{itemize}
 
+\subsection{Node Version 20.18.1}
+Für den WebSocket-Server wurde eine Laufzeitumgebung benötigt, welche die zum Zeitpunkt des zugrunde liegenden Projekts die Node 20.18.1 war. Da das Teilprojekt des WebSocket-Servers aus dem vorangegangenen Projekts wiederverwendet werden konnte, wurde die Node Version beibehalten.
+
+\subsection{Express.js Webserver 5.1.0}
+Express.js ist eine Webserver Erweiterung von Node.js Servern, durch welche spezifische \ac{URL}-Endpunkte erstellt werden können, über welche bestimmte Funktionen gestartet werden. Außerdem ist er die Basis des WebSocket-Servers durch welchen dieser erst erreichbar wird.
+% \cite{noauthor_express_nodate}
+
+\subsection{WS 8.18.2}
+WS ist das \ac{NPM}-Paket, über welches der WebSocket-Server implementiert werden kann. Das Paket ist innerhalb eines Express.js Server einfach zu verwenden und ermöglicht es Nachrichten zu empfangen und zu senden. Außerdem können empfangene Nachrichten in einem internen Mechanismus weitergereicht werden, wodurch für verschiedene Nachrichten Arten verschiedene Klassen gebaut werden konnten (vgl. \cite{websockets_websocketsws_2025}).
+
 \subsection{Docker}
-\cite{noauthor_docker_2025}
+Docker ist eine Open-Source-Plattform über die Container erstellt, bereitgestellt ausgeführt, aktualisiert und verwaltet werden können. Container sind standardisierte, ausführbare Komponenten, die den Code von einzelnen Anwendungen mit den Betriebssystem-Bibliotheken und Abhängigkeiten kombinieren (vgl. \cite{noauthor_was_2024}). Docker wurde aus dem Grund eines möglichen späteren Deployments des WebSocket-Server verwendet, da aus dem erstellen Express.js Server ein Docker-Image erstellt werden könnte und so die öffentliche Bereitstellung vereinfacht worden wäre. Außerdem können über die Docker Engine weitere Images importiert werden, welche lokal auf dem Gerät laufen und so eine Unabhängigkeit zum Internetzugang bestehen kann.
+% \cite{noauthor_docker_2025}
 
 \subsection{MongoDB - Docker Image}
+
 \cite{noauthor_mongo_nodate}
 \cite{mongodb_mongodbnode-mongodb-native_2025}
 
-\subsection{Express.js Webserver 5.1.0}
-\cite{noauthor_express_nodate}
-
-\subsection{Node Version 20.18.1}
-\cite{noauthor_nodejs_nodate}
 
 \subsection{User Interface Inspirationen}
 

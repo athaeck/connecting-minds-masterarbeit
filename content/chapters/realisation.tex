@@ -223,7 +223,6 @@ Der Prototyp ist wie der zugrunde liegende Prototyp in drei Einzelprojekte unter
 Die Player-Anwendung dient als die eine der beiden \say{Views} in dem entworfenem System. Sie umfasst grundlegend die Spielwelt, in der sich der Player-Avatar zur Laufzeit des Spiels bewegt. Die Spielwelt ist dabei so aufgebaut, dass es in einem der Submodule des Projekts Basismodelle für die Spielwelt gibt, die jeweils als Prefab Variant in diesem Projekt angepasst werden kann. Dadurch wird gewährleistet, dass der Kern der Spielwelt in der Anwendung des Players als auch des Watchers identisch bleibt und nur die gewünschten Unterschiede eingebaut werden können.
 
 \paragraph{Steuerung der Anwendung}
-
 Ein Kern der Player-Anwendung ist die Steuerung des Avatars. Im Ursprungsprojekt war geplant, dass der Spieler die Anwendung an einem Touchmonitor, entweder einem kleinen oder einem Smartboard, spielen kann.
 
 \cite{reinhard_augmented_2022} stellt heraus, dass Multitouch-Anwendungen Pan (Drag-Bewegung nach Links-Recht-Oben-Unten), Zoom, Yaw (Finger-Rotierend) und Pitch (Neigungswinkelveränderung) Steuerungselemente enthalten können. 
@@ -280,6 +279,14 @@ Die Watcher-Anwendung ist wie die Player-Anwendung eine der beiden \say{Views} d
 Im Vergleich zum Player besitzt die Watcher-Anwendung jedoch zwei unterschiedliche Spielmodi. Der Watcher kann entweder mit der \ac{AR}-Integration einer Session beitreten oder über die \ac{3D}-Integration. Die \ac{3D}-Integration wurde grundlegend für die Entwicklung entworfen, da durch sie das Testen der bestehenden Entwicklungsstände einfach war. So musste die Anwendung nicht für das entsprechende Smartphone gebaut werden und konnte direkt im Editor getestet werden.
 
 \paragraph{Steuerung der Anwendung}
+Wie bereits in der Player-Anwendung ist auch hier ein großer Teil die Steuerung der Kamera innerhalb der Anwendung. Jedoch muss diese im Vergleich zur Player-Anwendung differenzierter betrachtet werden. 
+
+In der \ac{AR}-Variante der Anwendung benötigt der Spieler keine umfassende Kamerasteuerung, da diese vom Smartphone \say{selbst} übernommen. \cite{reinhard_augmented_2022} zeigt dies in der Vorstellung der verschiedenen Touchsteuerungen aus (vgl. S.66ff). Der Spieler benötigt lediglich eine Single-Touch-Interaktion um mit der Anwendung interagieren zu können.
+
+In der \ac{3D}-Variante muss, wie auch schon beim Player, auf die verschiedenen Steuerungsmöglichkeiten von \cite{reinhard_augmented_2022} zurückgegriffen werden. Zunächst ist jedoch zu entscheiden, welche Art von Kamerasystem die \ac{3D}-Anwendung haben soll. 
+
+[hier jetzt steuerungen von ein paar spielen nennen die es so gibt]
+
 
 \paragraph{Aufbau des Nutzerflows}
 

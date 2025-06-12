@@ -216,14 +216,74 @@ Für die bisherig Implementierten \ac{UI}-Elemente wurden bestehende Bilder oder
 \end{itemize}
 
 \section{Aufbau des Prototyps}
-Der Prototyp ist wie der zugrunde liegende Prototyp in drei Einzelprojekte unterteilt. Die Projekte des Players, Watchers und des Servers werden wie im alten Prototyp in die \ac{MVC}-Architektur eingegliedert.
+Der Prototyp ist wie der zugrunde liegende Prototyp in drei Einzelprojekte unterteilt. Die drei Einzelprojekte, die des Players, Watchers und des Servers, werden wie auch das vorangegangene Projekt in den Aufbau der \ac{MVC}-Architektur eingegliedert. Die Server-Anwendung aus dem vorangegangenem Projekt konnte weitergeführt und weiterentwickelt werden und funktionierte so nur in dieser bestimmten Architektur. Außerdem wurde diese gewählt, da im vorangegangenem Projekt jedes Gruppenmitglied einen eigenen Umsetzungsteil abgeben musste und diese Architektur das getrennte Entwickeln ermöglicht.
+% Die Projekte des Players, Watchers und des Servers werden wie im alten Prototyp in die \ac{MVC}-Architektur eingegliedert.
 
 \subsection{Player-Anwendung}
-Die Player Anwendung umfasst die Spielszenen, die Spielszenen und die Version der Spielwelt in welcher er sich bewegt.
+Die Player-Anwendung dient als die eine der beiden \say{Views} in dem entworfenem System. Sie umfasst grundlegend die Spielwelt, in der sich der Player-Avatar zur Laufzeit des Spiels bewegt. Die Spielwelt ist dabei so aufgebaut, dass es in einem der Submodule des Projekts Basismodelle für die Spielwelt gibt, die jeweils als Prefab Variant in diesem Projekt angepasst werden kann. Dadurch wird gewährleistet, dass der Kern der Spielwelt in der Anwendung des Players als auch des Watchers identisch bleibt und nur die gewünschten Unterschiede eingebaut werden können.
+
+\paragraph{Steuerung der Anwendung}
+
+Ein Kern der Player-Anwendung ist die Steuerung des Avatars. Im Ursprungsprojekt war geplant, dass der Spieler die Anwendung an einem Touchmonitor, entweder einem kleinen oder einem Smartboard, spielen kann.
+
+\cite{reinhard_augmented_2022} stellt heraus, dass Multitouch-Anwendungen Pan (Drag-Bewegung nach Links-Recht-Oben-Unten), Zoom, Yaw (Finger-Rotierend) und Pitch (Neigungswinkelveränderung) Steuerungselemente enthalten können. 
+
+Das bedeutet für die Anwendung, dass nun bestimmt werden muss, wie die Ansicht auf die Spielwelt und des Avatars ist, der innerhalb der Spielszene beegt wird. Unity bietet für Kamerafahrten, Kameraführungen und Kamerasteuerungen ein kostenloses Paket an. Die Cinemachine bietet verschiedene Kamera-Arten an, unter anderem das Kamera-System der \say{Free-Look-Camera}, durch welche der Nutzer in den bereitgestellten Komponenten ein \say{Follow} und \say{Look-At} Objekt hinterlegen muss um sich frei um dieses Objekt bewegen zu können. Für diese Anwendung wäre das ideal, da nun automatisiert die Kamera dem Avatar folgen kann. Allerdings wird die Cinemachine bei Anwendungen mit Maussteuerung verwendet, da die Input-Actions der Maus direkt mit den Komponenten verbunden ist. Daher müssen nun die von Reinhard aufgezeigten Steuerungen eingebaut werden, damit die Cinemachine Free-Look-Camera auch mit einem Touchmonitor zu spielen ist. 
+
+Die Pan-Geste, bei der mit einem Finger über den Bildschirm auf zwei Achsen vor/zurück oder nach rechts/links bewegt wird, eignet sich für die Drehung der Kamera um den Avatar. Sie ersetzt damit die Bewegung der Maus, durch welche um das Look-At Objekt gedreht wird. Da die Free-Look Komponente in der Mausteuerung auch automatisiert näher an das Objekt gefahren werden kann, muss die Funktion ebenfalls eingebaut werden. Die Zoom-Bewegung, bei der zwei Finger auf dem Bildschirm entweder zueinander oder voneinander weg bewegt werden, übernimmt die Kamerafahrt näher zum Objekt.
+
+Es fehlt nun nur noch die Bewegung des Avatars. Dafür reicht die grundlegenden Single-Touch Touch Aktion, durch welche auf die Spielwelt geklickt wird und sich der Avatar zu dieser Position bewegen soll. Um die Bewegung des Avatars zu ermöglichen, wurde das System der NavMesh Agents verwendet. Das System ermöglicht durch einen Path-Finding Algorithmus dass sich der Agent selbständig an ein gewünschtes Ziel bewegen kann. Zunächst muss ein Surface der Spielwelt erstellt werden, anschließend kann dem Agent eine Zielposition übermittelt werden und der bewegt sich selbständig an die gewünschte Position. Durch das Follow der Cinemachine-Komponente folgt das Kamerasystem dem Avatar selbständig.
+
+\paragraph{Questsystem}
+Da die Rätsel und Hindernisse nicht einfach irgendwie in der Spielwelt eingebaut wurden, wurde für diesen Zweck ein kleines System entworfen, durch welches verschiedene Rätsel zusammengebaut werden können.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/QuestSystem.drawio.png}
+\caption{UML-Diagramm zum Questsystem (Quelle: eigene Darstellung), (vollständig in Anhang \ref{})}
+\label{fig:quest-system-uml}
+\end{figure}
+
+Abbildung \ref{fig:quest-system-uml} zeigt das entworfene \say{Questsystem}. Die einzelnen Herausforderungen wurden in Anlehnung an Quests aus \ac{RPG}-Spielen als solche benannt. Dieses System ist so generisch aufgebaut, dass es sowohl in der Player als auch in der Watcher Anwendung eingebaut werden konnte. Die Inhalte dieses und des folgenden Kapitels gälten auch für die Watcher-Anwendung.
+
+Der \say{QuestController} ist das überwachende Element innerhalb des Systems. Er besitzt zu allen \say{Quests}, die in der Spielszene erstellt wurden, eine Referenz. Er empfängt alle gelösten \say{Quests} vom Server und leitet diese an die jeweiligen \say{Quests} weiter. Außerdem ist es dafür verantwortlich, dass gelöste \say{Quests} an den Server übermittelt werden. Sobald eine neue \say{Quest} gestartet, also ein weiteres Rätsel freigeschaltet wurde, da ein weiterer Raum nun zugänglich gemacht wurde, leitet der \say{QuestController} diese ebenfalls an den Server weiter, damit diese zur Liste der bislang aktiven und zum Teil gelösten \say{Quests} hinzugefügt wird.
+
+Die \say{Quest} für sich verteilt bestimmte Aufgaben an weitere Komponenten weiter. Sie besitzt ihre \say{Quest}-Daten, also ihren Namen, eine ID und ob sie gelöst wurde oder nicht, und überprüft sich selbst, ob sie gelöst wurde und würde dies an den \say{QuestController} weiterleiten. Damit die \say{Quest} weiß ob sie gelöst wurde, besitzt die Referenzen auf alles \say{QuestSolver}, die mit ihr in Verbindung stehen. Im Beispiel des Diagramms wäre es eine Druckplatte, die die Fähigkeiten eines Platzierungs-Aktivator hat, der aktiv wird, sobald innerhalb des eigenen Colliders ein richtiger Gegenstand platziert wurde. Sobald alle \say{QuestSolver} ausgelöst wurden, kann die Quest bestimmen ob sie gelöst wurde. 
+
+Bevor eine \say{Quest} gelöst werden kann, muss sie zunächst gestartet werden. Dies geschieht durch \say{QuestActivator}, zu welchen die \say{Quest} ebenfalls Referenzen besitzt. Werden alles Aktivatoren ausgelöst, so wird die \say{Quest} gestartet und kann gelöst werden. Im Beispiel der Abbildung existiert eine Komponente mit dem Namen \say{CollidableQuestActivator} die ausgelöst wird, sobald der Avatar des Players innerhalb des Colliders des Spielobjektes ist.
+
+Nachdem die \say{Quest} gelöst wurde, führen alle mit der \say{Quest} verbundenen \say{QuestSolveExecuter} ihre jeweiligen Tätigkeiten aus. Jede \say{Quest} besitzt eine Referenz auf alle verbunden \say{Executer}. Im Beispiel der Abbildung ist es eine Gefängnistür, welche beim lösen einer \say{Quest} über den enthaltenen Animator aufgeht.
+
+\paragraph{Pathsystem}
+Wie das Questsystem wurde das Pathsystem ebenfalls möglichst generisch gehalten, dass es auch in der Anwendung des Watchers eingebaut werden kann. Das Pathsystem ist deshalb wichtig, da zur Laufzeit des Spiels weitere Wege und Räume zugänglich gemacht werden und diese auf eine Weise mit der Logik der Rätsel verbunden sein müssen.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/PathSystem.drawio.png}
+\caption{UML-Diagramm zum Pathsystem (Quelle: eigene Darstellung), (vollständig in Anhang \ref{})}
+\label{fig:path-system-uml}
+\end{figure}
+
+Abbildung \ref{fig:path-system-uml} zeigt das entworfene generische Pathsystem für die Player- und Watcher-Anwendung.
+
+Wie auch im Questsystem, besitzt das Pathsystem mit der Klasse \say{PathController} ein überwachendes Element, der wie der \say{QuestController} dafür zuständig ist, Daten vom Server zu empfangen und an ihn zurückzusenden. Außerdem besitzt er Referenzen auf alle konfigurierten Wegen der Spielwelt (\say{Pathways}). Erhält der \say{PathController} neue \say{Path}-Daten, werden diese an die jeweiligen \say{Pathway}-Komponenten weitergegeben.
+
+Jeder \say{Pathway} besitzt Referenzen auf Aktivatoren (\say{PathActivator}) und Deaktivieren (\say{PathForgetter}), die je nach Anwendungsfall einen Weg entweder freischalten oder wieder deaktivieren. Zudem hat er zum eigentlichen Weg-Objekt, also dem Objekt, das in der Spielwelt diesen \say{Pathway} symbolisiert, und einer Collider-Klasse Referenzen. Diese werden jeweils bei Aktivierung und Deaktivierung des Weges relevant.
+
+Da in dem konzipierten Tutorial kein Weg wieder deaktiviert wird, existiert dafür kein Beispiel. Die \say{QuestPathActivator}-Klasse ist im Beispiel des Diagramms dafür verantwortlich, nach lösen einer \say{Quest} den mit dieser \say{Quest} verbundenen \say{Pathway} zu entdecken.
+
+Wurde ein \say{Pathway} entdeckt, wird in der Komponente des \say{PathObjects} das entsprechende \ac{3D}-Objekt in der Spielszene aktiviert und die Collider für den Raum in der Komponente des \say{PathColliders} deaktiviert. Die Wichtigkeit der \say{PathCollider} werden in einem späteren Kapitel \ref{} erklärt. 
+
+% Da die Anwendung in einer Top-Down-Ansicht gespielt werden soll, kann über die Single-Touch Steuerung der Avatar 
+
+
+
+% Die Player Anwendung umfasst die Spielszenen, die Spielszenen und die Version der Spielwelt in welcher er sich bewegt.
 
 % spielwelten
 % kameraführung mit bezug auf das paper zur maps steuerung
 % basis uml von kern ding des players/ tragen von gegenständen
+% quest/ path system
 
 \subsection{Watcher-Anwendung}
 
@@ -231,6 +291,7 @@ Die Player Anwendung umfasst die Spielszenen, die Spielszenen und die Version de
 % zwei versionen innerhalb des projekts 3D/AR
 % bezug auf später bezüglich ar
 % steuerungen in ar und 3d erwähnen mit bezug auf maps paper
+% quest/ path system
 
 \subsection{Server-Anwendung}
 % netzwerk topologie vorstellen (relay-system)

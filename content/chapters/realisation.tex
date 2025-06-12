@@ -244,7 +244,7 @@ Da die Rätsel und Hindernisse nicht einfach irgendwie in der Spielwelt eingebau
 \label{fig:quest-system-uml}
 \end{figure}
 
-Abbildung \ref{fig:quest-system-uml} zeigt das entworfene \say{Questsystem}. Die einzelnen Herausforderungen wurden in Anlehnung an Quests aus \ac{RPG}-Spielen als solche benannt. Dieses System ist so generisch aufgebaut, dass es sowohl in der Player- als auch in der Watcher-Anwendung eingebaut werden konnte. Die Inhalte dieses und des folgenden Kapitels gelten auch für die Watcher-Anwendung.
+Abbildung \ref{fig:quest-system-uml} zeigt das entworfene \say{Questsystem}. Die einzelnen Herausforderungen wurden in Anlehnung an Quests aus \ac{RPG}-Spielen als solche benannt. Dieses System ist so modular aufgebaut, dass es sowohl in der Player- als auch in der Watcher-Anwendung eingebaut werden konnte. Die Inhalte dieses und des folgenden Kapitels gelten auch für die Watcher-Anwendung.
 
 Der \say{QuestController} ist das überwachende Element innerhalb des Systems. Er besitzt zu allen \say{Quests}, die in der Spielszene erstellt wurden, eine Referenz. Er empfängt alle gelösten \say{Quests} vom Server und leitet diese an die jeweiligen \say{Quests} weiter. Außerdem ist er dafür verantwortlich, dass gelöste \say{Quests} an den Server übermittelt werden. Sobald eine neue \say{Quest} gestartet, also ein weiteres Rätsel freigeschaltet wurde, da ein weiterer Raum nun zugänglich gemacht wurde, leitet der \say{QuestController} diese ebenfalls an den Server weiter, damit diese zur Liste der bislang aktiven und zum Teil gelösten \say{Quests} hinzugefügt wird.
 
@@ -255,7 +255,7 @@ Bevor eine \say{Quest} gelöst werden kann, muss sie zunächst gestartet werden.
 Nachdem die \say{Quest} gelöst wurde, führen alle mit der \say{Quest} verbundenen \say{QuestSolveExecuter} ihre jeweiligen Tätigkeiten aus. Jede \say{Quest} besitzt eine Referenz auf alle verbundenen \say{Executer}. Im Beispiel der Abbildung ist es eine Gefängnistür, welche beim Lösen einer \say{Quest} über den enthaltenen Animator aufgeht.
 
 \paragraph{Pathsystem}
-Wie das Questsystem wurde das Pathsystem ebenfalls möglichst generisch gehalten, dass es auch in der Anwendung des Watchers eingebaut werden kann. Das Pathsystem ist deshalb wichtig, da zur Laufzeit des Spiels weitere Wege und Räume zugänglich gemacht werden und diese auf eine Weise mit der Logik der Rätsel verbunden sein müssen.
+Wie das Questsystem wurde das Pathsystem ebenfalls möglichst modular gehalten, dass es auch in der Anwendung des Watchers eingebaut werden kann. Das Pathsystem ist deshalb wichtig, da zur Laufzeit des Spiels weitere Wege und Räume zugänglich gemacht werden und diese auf eine Weise mit der Logik der Rätsel verbunden sein müssen.
 
 \begin{figure}[ht]
 \centering
@@ -264,7 +264,7 @@ Wie das Questsystem wurde das Pathsystem ebenfalls möglichst generisch gehalten
 \label{fig:path-system-uml}
 \end{figure}
 
-Abbildung \ref{fig:path-system-uml} zeigt das entworfene generische Pathsystem für die Player- und Watcher-Anwendung.
+Abbildung \ref{fig:path-system-uml} zeigt das entworfene modulares Pathsystem für die Player- und Watcher-Anwendung.
 
 Wie auch im Questsystem, besitzt das Pathsystem mit der Klasse \say{PathController} ein überwachendes Element, das wie der \say{QuestController} dafür zuständig ist, Daten vom Server zu empfangen und an ihn zurückzusenden. Außerdem besitzt er Referenzen auf alle konfigurierten Wege der Spielwelt (\say{Pathways}). Erhält der \say{PathController} neue \say{Path}-Daten, werden diese an die jeweiligen \say{Pathway}-Komponenten weitergegeben.
 
@@ -272,10 +272,16 @@ Jeder \say{Pathway} besitzt Referenzen auf Aktivatoren (\say{PathActivator}) und
 
 Da in dem konzipierten Tutorial kein Weg wieder deaktiviert wird, existiert dafür kein Beispiel. Die \say{QuestPathActivator}-Klasse ist im Beispiel des Diagramms dafür verantwortlich, nach Lösen einer \say{Quest} den mit dieser \say{Quest} verbundenen \say{Pathway} zu entdecken.
 
-Wurde ein \say{Pathway} entdeckt, wird in der Komponente des \say{PathObjects} das entsprechende \ac{3D}-Objekt in der Spielszene aktiviert und die Collider für den Raum in der Komponente des \say{PathColliders} deaktiviert. Die Wichtigkeit der \say{PathCollider} wird in einem späteren Kapitel \ref{} erklärt. 
+Wurde ein \say{Pathway} entdeckt, wird in der Komponente des \say{PathObjects} das entsprechende \ac{3D}-Objekt in der Spielszene aktiviert und die Collider für den Raum in der Komponente des \say{PathColliders} deaktiviert. Die Wichtigkeit der \say{PathCollider} wird im späteren Kapitel \ref{sec:difficulties} erklärt. 
 
 \subsection{Watcher-Anwendung}
+Die Watcher-Anwendung ist wie die Player-Anwendung eine der beiden \say{Views} der \ac{MVC}-Architektur. Auch sie umfasst die grundlegende Spielwelt aus der Sicht des Watchers und wie er mit dieser interagiert. In der Gestaltung der Spielwelt, wie sie der Watcher sieht gilt hier ebenfalls das gleiche wie beim Player. Sie enthält die Basisobjekte der Spielwelt, welcher innerhalb von Prefabs Variants editiert wurden.
 
+Im Vergleich zum Player besitzt die Watcher-Anwendung jedoch zwei unterschiedliche Spielmodi. Der Watcher kann entweder mit der \ac{AR}-Integration einer Session beitreten oder über die \ac{3D}-Integration. Die \ac{3D}-Integration wurde grundlegend für die Entwicklung entworfen, da durch sie das Testen der bestehenden Entwicklungsstände einfach war. So musste die Anwendung nicht für das entsprechende Smartphone gebaut werden und konnte direkt im Editor getestet werden.
+
+\paragraph{Steuerung der Anwendung}
+
+\paragraph{Aufbau des Nutzerflows}
 
 % spielwelten
 % zwei versionen innerhalb des projekts 3D/AR
@@ -287,7 +293,7 @@ Wurde ein \say{Pathway} entdeckt, wird in der Komponente des \say{PathObjects} d
 % netzwerk topologie vorstellen (relay-system)
 % vorstellen der prototkolle und warum udp
 
-\section{Herausforderungen in der Umsetzung}
+\section{Herausforderungen in der Umsetzung}\label{sec:difficulties}
 % erste Ansätze im Levelbuilding erwähnen
 
 % hier kommt das placing also die positionen in der spielwelt

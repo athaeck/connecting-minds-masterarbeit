@@ -273,6 +273,8 @@ Da in dem konzipierten Tutorial kein Weg wieder deaktiviert wird, existiert daf�
 
 Wurde ein \say{Pathway} entdeckt, wird in der Komponente des \say{PathObjects} das entsprechende \ac{3D}-Objekt in der Spielszene aktiviert und die Collider für den Raum in der Komponente des \say{PathColliders} deaktiviert. Die Wichtigkeit der \say{PathCollider} wird im späteren Kapitel \ref{sec:difficulties} erklärt. 
 
+[TODO: ich müsste npch die Toolbar vom Player irgendwo zeigen]
+
 \subsection{Watcher-Anwendung}
 Die Watcher-Anwendung ist wie die Player-Anwendung eine der beiden \say{Views} der \ac{MVC}-Architektur. Auch sie umfasst die grundlegende Spielwelt aus der Sicht des Watchers und wie er mit dieser interagiert. In der Gestaltung der Spielwelt, wie sie der Watcher sieht gilt hier ebenfalls das gleiche wie beim Player. Sie enthält die Basisobjekte der Spielwelt, welcher innerhalb von Prefabs Variants editiert wurden.
 
@@ -311,7 +313,43 @@ Zunächst kann der Spieler sich frei durch die Spielwelt bewegen (1). Sobald der
 
 Nicht nur der Nutzerfluss des Baumenüs wurde übernommen, sondern auch die Eindrücke des \ac{UI}s haben einen sehr starken Einfluss auf die ersten \ac{UI}s der Anwendung.
 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/PlacementFlow.png}
+\caption{Nutzerfluss des Platzieren eines Gegenstandes (Quelle: eigene Darstellung), (groß in Anhang \ref{})}
+\label{fig:userflow-placement-cm}
+\end{figure}
 
+Abbildung \ref{fig:userflow-placement-cm} zeigt den Nutzerfluss den ein Spieler durchgeht, wenn er einen Gegenstand platzieren will. Er ähnelt sehr stark dem aus Outlanders. Zunächst kann sich der Watcher frei durch die Spielwelt bewegen (1). Nun muss er an einer bestimmten Stelle einen Gegenstand platzieren. Er klickt auf das Platzieren Menü und ein Overlay-Menü öffnet sich (2). Über das Menü kann er nun einen Gegenstand zum platzieren auswählen (3). Sobald ein Gegenstand ausgewählt wurde öffnet sich ein Menü, welches einen kleineren Teil des Bildschirms abdeckt und den Watcher auffordert eine Position zu wählen (3). Nachdem eine Position gewählt wurde, sieht der Watcher das zukünftig platzierte Objekt auf der gewählten Position (4). Über das noch aktive Menü kann der Nutzer nun die Platzierung des Gegenstandes bestätigen (5). Wurde die Wahl bestätigt, so steht nun an der gewählten Stelle der gewünschte Gegenstand (6). 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/RemovePlacementFlow.png}
+\caption{Nutzerfluss des Entfernen eines Gegenstandes (Quelle: eigene Darstellung), (groß in Anhang \ref{})}
+\label{fig:userflow-removement-cm}
+\end{figure}
+
+Abbildung \ref{fig:userflow-removement-cm} zeigt den Nutzerfluss den ein Watcher durchläuft, sobald er einen platzierten Gegenstand wieder entfernen möchte. Zunächst kann sich auch hier der Watcher frei durch die Welt bewegen. Er muss nun aber einen Gegenstand entfernen, damit er ihn an einer anderen Stelle wieder platzieren kann. Er klickt nun auf den in der Spielwelt platzierten Gegenstand (1). Das Tooltip des ausgewählten Gegenstands verändert sich farblich um dem Spieler zu zeigen, welcher Gegenstand ausgewählt wurde. Außerdem öffnet sich ein kleines Menü am unteren Ende des Bildschirmes, über welches der Watcher das Entfernen des Gegenstandes bestätigen kann (2). Nachdem das Entfernen bestätigt wurde kann sich der Watcher wieder frei durch die Welt bewegen (3).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/PreviewFlow.png}
+\caption{Nutzerfluss des Previewen eines Gegenstandes (Quelle: eigene Darstellung), (groß in Anhang \ref{})}
+\label{fig:userflow-preview-cm}
+\end{figure}
+
+Neben dem Platzieren eines Gegenstandes ist auch das Schicken eines Gegenstandes an den Player eine wichtige Aufgabe des Watchers. Der vorangegangene Nutzerfluss aus der Vorlage von Outlanders und der bereits erfolgreichen Integration in den Nutzerfluss des Platzierens wurde dieser nun auch für das Previewen von Gegenständen eingesetzt.
+
+Nachdem sich der Watcher frei durch die Spielwelt bewegen konnte muss er nun dem Player einen bestimmten Gegenstand schicken (1). Über das \say{Preview}-Menü, rechts neben dem \say{Platzieren}-Menü, kann der Watcher das Schicken initialisieren. Klickt er auf das Menü, öffnet sich auch hier eine Galerie, die über den ganzen Bildschirm geöffnet wurde. Hier kann der Spieler nun den gewünschten Gegenstand auswählen (2). Sobald ein Gegenstand ausgewählt wurde, öffnet sich ein Bestätigungsmenü, bei dem er die Auswahl bestätigen muss (3). Nachdem die Auswahl bestätigt wurde, kann sich der Watcher auch hier wieder frei durch die Welt bewegen und sieht dann der rechten, halb hohen Seite, den Gegenstand, den der Player nun trägt (4).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/RemovePreviewFlow.png}
+\caption{Nutzerfluss des Entfernen der Preview eines Gegenstandes (Quelle: eigene Darstellung), (groß in Anhang \ref{})}
+\label{fig:userflow-remove-preview-cm}
+\end{figure}
+
+Abbildung \ref{fig:userflow-remove-preview-cm} zeigt den Nutzerfluss des entsprechenden Entfernens der Preview eines Gegenstandes. Zunächst kann sich der Watcher noch frei durch die Welt bewegen. Sobald er einen Hinweis bekommt, dass er einen Gegenstand wieder entfernen soll, kann er wie beim Schicken eines Gegenstandes auf das \say{Preview}-Menü klicken (1). Nachdem er darauf geklickt hat, öffnet sich nicht wie beim ersten mal ein Menü, sondern direkt das Überprüfungs-Menü, ob er den Gegenstand, den der Player gerade trägt, entfernen will (2). Bestätigt er das entfernen, so kann er sich wieder frei durch die Spielwelt bewegen. Außerdem wird der Gegenstand an der Rechten-Halbhohen Seite auch nicht mehr angezeigt (3). 
 
 % spielwelten
 % zwei versionen innerhalb des projekts 3D/AR

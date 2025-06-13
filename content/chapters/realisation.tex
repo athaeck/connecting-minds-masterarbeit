@@ -285,10 +285,33 @@ In der \ac{AR}-Variante der Anwendung benötigt der Spieler keine umfassende Kam
 
 In der \ac{3D}-Variante muss, wie auch schon beim Player, auf die verschiedenen Steuerungsmöglichkeiten von \cite{reinhard_augmented_2022} zurückgegriffen werden. Zunächst ist jedoch zu entscheiden, welche Art von Kamerasystem die \ac{3D}-Anwendung haben soll. 
 
-[hier jetzt steuerungen von ein paar spielen nennen die es so gibt]
+Viele Spiele für mobile Endgeräte besitzen keine freie Bewegung der Kamera. Manche besitzen ein Follow des Spieler-Avatars und der Rest besitzt keine freie Bewegung in der Spielwelt. Die Häufigsten Umsetzungen für Steuerungselemente in Spielen für Touch-Endgeräte sind entweder die Steuerung über die verschiedenen Touch-Gesten, die \cite{reinhard_augmented_2022} in seiner Arbeit aufgelistet hat, oder Joystick-ähnliche \ac{HUD}-Elemente [statistiken suchen]. 
+So steuert der Spieler im Spiel \say{Botworld Adventure} (vgl. \cite{noauthor_botworld_nodate}) über Joystick-Elemente, oder in den Spielen \say{Die Sims Mobile} (vgl. \cite{arts_sims_2017}) und \say{Outlanders} (vgl. \cite{noauthor_outlanders_2025}) über verschiedene Touch-Gesten. 
 
+Das Nutzen eines Joystick-Overlays würde den Sinn des Nutzens eines Touchmonitors nicht unterstützen, weshalb dieser Ansatz nicht weiter betrachtet wurde. Daher wurden die Kamera Systeme der anderen Steuerungsverwendungen betrachtet. In Sims Online und Outlanders wird ein ähnliches Kamera-System verwendet, wie es bereits aus Spielen wie der \say{Anno-Reihe} (vgl. \cite{noauthor_ubisoft_nodate}) bekannt ist. Sie nutzen ein sog. \say{Real-Time-Strategy}-System, bei dem die Kamera ein unsichtbares Objekt verfolgt, welches durch Nutzereingaben bewegt wird. [Quellen mit Eigenschaften suchen] 
 
+Der Ansatz der \ac{RTS}-Kameraführung wurde bei der Entwicklung der \ac{3D}-Anwendung verfolgt. Über die Single-Touch-Interaktion soll der Spieler Gegenstände platzieren können. Über die Yaw-Geste kann der Spieler die Ansicht auf die Spielszene drehen um von einer anderen Blickrichtung neue Eindrücke sammeln zu können. Wie auch in der Player-Anwendung kann der Spieler über die Zoom-Geste an die Spielwelt heranzoomen. Über die Pan-Bewegung kann der Spieler das \ac{RTS}-Kamerasystem durch die Spielwelt steuern. In der jetzigen Umsetzung gab es noch keinen Nutzen für die Pitch-Geste.
+
+% [hier jetzt steuerungen von ein paar spielen nennen die es so gibt]
 \paragraph{Aufbau des Nutzerflows}
+Da die Hauptaufgabe des Watchers das Verwalten und Platzieren von Gegenstände ist muss zunächst analysiert werden, wie ein für die Anforderungen an die Anwendungen passender Nutzerfluss konzipiert und umgesetzt werden kann.
+
+Das Spiel \say{Outlanders} (vgl. \cite{noauthor_outlanders_2025}) passte in seinem Spielaufbau und seiner Führung durch die Menüs zu der Anforderung der Watcher Anwendung, bei der sich der Spieler zunächst frei durch die Spielwelt bewegen kann (entweder als \ac{AR}-Kamera oder über das RTS-Kamerasystem) und über ein Menü Gegenstände platzieren oder dem Player schicken kann.
+
+In \say{Outlanders} muss der Spieler als Anführer der gemeinen Bevölkerung eine Stadt errichten. Dies kann er über ein Hauptmenü initiieren, welches sich in seiner Menüleiste befindet.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/Nutzerflow.png}
+\caption{Nutzerfluss beim Gebäudebau in Outlanders (Screenshots von \cite{coates_game_nodate}), (Quelle: eigene Darstellung), (groß in Anhang \ref{})}
+\label{fig:userflow-outlanders-build}
+\end{figure}
+
+Zunächst kann der Spieler sich frei durch die Spielwelt bewegen (1). Sobald der Spieler ein Gebäude für seine Bevölkerung bauen möchte, muss er in der Menüleiste am unteren Ende des Bildschirms auf den Reiter \say{Build} klicken (2). Darauffolgend öffnet sich ein Overlay-Menü, welches das Baumenü darstellt. In ihm kann der Spieler zwischen verschiedenen Kategorien von Gebäuden und anderen Bauelementen wechseln. Klickt er auf ein gewünschtes Gebäude, schließt sich das Menü und er muss nun in der Spielwelt auf die Stelle klicken, wohin das ausgewählte Gebäude platziert werden soll (3). Wurde eine Position gewählt, öffnet sich ein weiteres Menü, welches nur über die Hälfte des Bildschirmes geht, in welchem der Spieler bestätigen muss, dass das Gebäude an diese Stelle platziert werden soll (4). Nachdem er bestätigt hat, wurde das Gebäude platziert und das Bestätigungs-Menü geschlossen. Der Spieler kann nun wieder frei durch die Spielwelt navigieren (5).
+
+Nicht nur der Nutzerfluss des Baumenüs wurde übernommen, sondern auch die Eindrücke des \ac{UI}s haben einen sehr starken Einfluss auf die ersten \ac{UI}s der Anwendung.
+
+
 
 % spielwelten
 % zwei versionen innerhalb des projekts 3D/AR

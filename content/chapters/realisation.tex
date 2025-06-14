@@ -360,7 +360,19 @@ Abbildung \ref{fig:userflow-remove-preview-cm} zeigt den Nutzerfluss des entspre
 \subsection{Server-Anwendung}
 % netzwerk topologie vorstellen (relay-system)
 % vorstellen der prototkolle und warum udp
+Die Server-Anwendung ist wie bereits in der Einleitung zu diesem Kapitel erwähnt wurde, das zentrale Element der \ac{MVC}-Architektur ist. 
 
+Nun stellt sich die Frage, auf welche weise und durch welche Netzwerkprotokolle wird die Kommunikation zwischen den Anwendungen aufgebaut. Zunächst muss die Art des Servers bestimmt werden. Über den Aufbau der \ac{MVC}-Architektur geht hervor, dass die View getrennt vom Model und vom Controller steht, das beutetet, dass ein eigenständiges System für den Server geschaffen werden muss, mit dem die einzelnen Views kommunizieren können. Die in den Grundlagen der Netzwerkinfrastrukturen vorgestellten Ansätze können anhand der Architektur-Anforderung nun schematisch aussortiert werden. 
+
+Eine klassische Client/ Server Netzwerkinfrastruktur kann ausgeschlossen werden, da weder der Server noch ein bestimmter Client als Server die Simulation der Spielwelt soll. Die einzelnen Views übernehmen das für sich und geben nur Veränderungen in den Kern-Datenelementen an den Server weiter. 
+
+Ein \ac{P2P}-Modell ist in diesem Anwendungsfall auch nicht zielführend, da jede Anwendung mit den anderen Anwendungen verbunden sein müsste. Es würde ein zu großes Kommunikationsnetz mit aktualisierten Spielzustände geben, welche ab einer bestimmten Spielgröße nicht mehr gewährleistet werde kann. 
+
+Übrig bleiben daher nur noch das Modell der \say{distributed authroities} und das Relay-System. Eine Relay-Architektur unterstützt eine Multiplayer-Anwendung bei der kein dedizierter Spielserver verwendet werden muss, der die Spiellogik simuliert. Er ist nur für die Kommunikation zwischen den Verbundenen Anwendungen zuständig. Im Modell der distributed authorities ist jeder Verbundene Client für die Simulation der Spielwelt selbst verantwortlich ist. Sie geben aktualisierte Spielzustände an einen Service weiter, der einen Überblick über den gesamten Spielzustand besitzt und gibt diesen an die anderen verbundenen Clients weiter. Die Kombination aus beiden Modellen wäre die ideale Architektur für den Spielserver von Connecting-Minds.
+
+Nachdem eine Topologie bestimmt werden konnte [Abbildung hinzufügen], muss nun bestimmt werden, auf welche weise die Anwendungen im Detail miteinander kommunizieren.
+
+% Einen \say{Distributed Authority} Ansatz kann es im Aufbau des Prototyps nicht gehebn
 
 
 \section{Herausforderungen in der Umsetzung}\label{sec:difficulties}

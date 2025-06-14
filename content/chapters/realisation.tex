@@ -364,15 +364,62 @@ Die Server-Anwendung ist wie bereits in der Einleitung zu diesem Kapitel erwähn
 
 Nun stellt sich die Frage, auf welche weise und durch welche Netzwerkprotokolle wird die Kommunikation zwischen den Anwendungen aufgebaut. Zunächst muss die Art des Servers bestimmt werden. Über den Aufbau der \ac{MVC}-Architektur geht hervor, dass die View getrennt vom Model und vom Controller steht, das beutetet, dass ein eigenständiges System für den Server geschaffen werden muss, mit dem die einzelnen Views kommunizieren können. Die in den Grundlagen der Netzwerkinfrastrukturen vorgestellten Ansätze können anhand der Architektur-Anforderung nun schematisch aussortiert werden. 
 
+\paragraph{Bestimmung der Netzwerk-Topologie}
+
 Eine klassische Client/ Server Netzwerkinfrastruktur kann ausgeschlossen werden, da weder der Server noch ein bestimmter Client als Server die Simulation der Spielwelt soll. Die einzelnen Views übernehmen das für sich und geben nur Veränderungen in den Kern-Datenelementen an den Server weiter. 
 
 Ein \ac{P2P}-Modell ist in diesem Anwendungsfall auch nicht zielführend, da jede Anwendung mit den anderen Anwendungen verbunden sein müsste. Es würde ein zu großes Kommunikationsnetz mit aktualisierten Spielzustände geben, welche ab einer bestimmten Spielgröße nicht mehr gewährleistet werde kann. 
 
-Übrig bleiben daher nur noch das Modell der \say{distributed authroities} und das Relay-System. Eine Relay-Architektur unterstützt eine Multiplayer-Anwendung bei der kein dedizierter Spielserver verwendet werden muss, der die Spiellogik simuliert. Er ist nur für die Kommunikation zwischen den Verbundenen Anwendungen zuständig. Im Modell der distributed authorities ist jeder Verbundene Client für die Simulation der Spielwelt selbst verantwortlich ist. Sie geben aktualisierte Spielzustände an einen Service weiter, der einen Überblick über den gesamten Spielzustand besitzt und gibt diesen an die anderen verbundenen Clients weiter. Die Kombination aus beiden Modellen wäre die ideale Architektur für den Spielserver von Connecting-Minds.
+Übrig bleiben daher nur noch das Modell der \say{distributed authorities} und das Relay-System. Eine Relay-Architektur unterstützt eine Multiplayer-Anwendung bei der kein dedizierter Spielserver verwendet werden muss, der die Spiellogik simuliert. Er ist nur für die Kommunikation zwischen den Verbundenen Anwendungen zuständig. Im Modell der distributed authorities ist jeder Verbundene Client für die Simulation der Spielwelt selbst verantwortlich ist. Sie geben aktualisierte Spielzustände an einen Service weiter, der einen Überblick über den gesamten Spielzustand besitzt und gibt diesen an die anderen verbundenen Clients weiter. Die Kombination aus beiden Modellen wäre die ideale Architektur für den Spielserver von Connecting-Minds.
 
-Nachdem eine Topologie bestimmt werden konnte [Abbildung hinzufügen], muss nun bestimmt werden, auf welche weise die Anwendungen im Detail miteinander kommunizieren.
+\paragraph{Bestimmung der Kommunikationsprotokolle}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/CM-Archticture.png}
+\caption{Connecting-Minds Infrastruktur (Quelle: eigene Darstellung)}
+\label{fig:cm-topology}
+\end{figure}
+
+Nachdem eine Topologie bestimmt werden konnte (vgl. Abbildung \ref{fig:cm-topology}), muss nun bestimmt werden, auf welche weise die Anwendungen im Detail miteinander kommunizieren. 
+
+% Durch das \ac{OSI}-Modell 
+Das \ac{OSI}-Modell zeigt auf, welche verschiedenen Schichten in der Netzwerkkommunikation durchlaufen werden können (vgl. \cite{noauthor_osi-modell_nodate}). Jedes Netzwerkkommunikation zwischen Anwendungen muss dabei durch den Transport-Layer der jeweiligen Endgeräte gehen. Innerhalb dieser Transportschicht existieren einige Protokolle, die den Transport der versendeten Datenpakete übernehmen. Die am häufigsten verwendeten Protokolle sind dabei das \ac{UDP} und das \ac{TCP} (vgl. \cite{noauthor_transport_nodate}). 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.5\linewidth]{content/pictures/TCP-Network.png}
+\caption{Kommunikationsverbindung über TCP (vgl. \cite{mygames_unity_2024})}
+\label{fig:tcp}
+\end{figure}
+
+% Abbildung 
+\ac{TCP} ist ein verbindungsorientiertes Protokoll, das zunächst eine Verbindung zu seinem Kommunikationspartner aufbaut um Daten auszutauschen. Durch die Verbindung gewährleistet es einen zuverlässigen Datenaustausch, bei dem auch alle übertragenen Daten in der richtigen Reihenfolge beim Empfänger ankommen. Abbildung \ref{fig:tcp} zeigt diesen Verbindungsaufbau.
+Zunächst erstellen der Client und Server einen Socket, um Daten über \ac{TCP} auszutauschen. Im Anschluss sendet der Client ein \ac{SYN}-Segment an den Server mit einem gewünschten Zielport. Anschließend akzeptiert der Server das \ac{SYN}-Segment, erstellt einen eigenen Socket und sendet an den Client ein \ac{SYN}-\ac{ACK}-Segment zurück. Der Client beantwortet dies mit einem \ac{ACK}-Segment. Nun besteht eine bidirektionale Verbindung  (vgl. \cite{mygames_unity_2024}).
 
 % Einen \say{Distributed Authority} Ansatz kann es im Aufbau des Prototyps nicht gehebn
+\ac{UDP} ist ein einfacheres Protokoll als \ac{TCP}, es garantiert weder die Zustellung noch die Reihenfolge der versendeten Pakete. Es baut zudem keine Verbindung zu seinem Kommunikationspartner auf, sondern sendet diese direkt an den Kommunikationsteilnehmer. Dadurch ist es wesentlich schneller als \ac{TCP} und wird häufig in Online-Spielen verwendet, die eine Echtzeitdatenübertragung erfordern (vgl. Abbildung \ref{fig:udp}). Da \ac{UDP} keine Zustellung garantiert, benötigt die Verwendung eine sorgfältige Handhabung (vgl. \cite{mygames_unity_2024}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.5\linewidth]{content/pictures/UDP-Network.png}
+\caption{Kommunikation über UDP (vgl. \cite{mygames_unity_2024})}
+\label{fig:udp}
+\end{figure}
+
+Auf Basis der Grundprotokolle \ac{TCP} und \ac{UDP} existieren auch Erweiterungen zu diesen. So ist das WebSocket Protokoll ein Application-Level Protokoll, das auf \ac{TCP} basiert. Es ermöglicht eine Erstellung einer Verbindung zwischen zwei Kommunikationsteilnehmern (etwa einem Browser und seinem Server). Im Vergleich zum \ac{HTTP}-Protokoll ermöglicht es eine bidirektionale Kommunikation zwischen den Teilnehmern. So kann der Server seinen Clients Nachrichten senden, ohne dass zuvor eine \ac{HTTP}-Nachricht versendet wurde (vgl. \cite{mygames_unity_2024}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.5\linewidth]{content/pictures/WebSocket-Network.png}
+\caption{Kommunikation über WebSocket (vgl. \cite{mygames_unity_2024})}
+\label{fig:ws}
+\end{figure}
+
+Für die entworfene Topologie ist die Kommunikation über das WebSocket-Protokoll das geeignetste. Es besteht eine persistente Verbindung der einzelnen verbundenen Anwendungen zum Server, welcher je nach Zustandsänderung an alle mit der Spielsitzung verbundenen Teilnehmer die Änderungen mitteilen kann. Dabei müssen sich die Teilnehmer nicht um eine Aktualisierung ihrer Zustände kümmern und erhalten zu jeder Zeit ein Update vom verbundenen Server (vgl. Abbildung \ref{fig:ws}).
+
+\paragraph{Einbettung des Server}
+
 
 
 \section{Herausforderungen in der Umsetzung}\label{sec:difficulties}

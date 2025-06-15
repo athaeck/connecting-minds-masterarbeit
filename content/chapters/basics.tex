@@ -187,17 +187,17 @@ Wie Abbildung \ref{fig:lotz_multiplayer_types} zeigt, können Multiplayer-Spiele
 Spiele wie \say{Mario Kart} oder \say{Minecraft} können nur auf der gleiche Plattform gespielt werden. Bei Spielen wie \say{Among Us} oder \say{Fortnite} ist die Plattform, auf der gespielt wird, nicht relevant, da eine Cross-Play-Funktionalität gegeben ist. Jeder kann mit Spielern auf der Plattform spielen, die er zu zuhause hat. Die dritte Kategorie umfasst Spiele, bei denen die Spieler gezwungen werden, unterschiedliche Plattformen zu nutzen. In \say{Keep talking and nobody explodes} ist dies der Kern des Gamedesigns.
 
 \section{Spielweisen von Multiplayer-Spielen}
-Nachdem die unterschiedlichen Strukturen und technischen Formen von Multiplayer-Spielen behandelt wurden, ist es nun wichtig, darauf zu schauen, welche unterschiedlichen Spielweisen sie haben können. Multiplayer-Spiele können dabei in 3 unterschiedliche Spielformen unterschieden werden:
-auf competitive, collaborative und cooperative Spielweisen. [Quelle finden]
+Nachdem die unterschiedlichen Strukturen und technischen Formen von Multiplayer-Spielen behandelt wurden, ist es nun wichtig, die verschiedenen Spielweisen zu betrachten. Multiplayer-Spiele können dabei in drei Hauptspielformen unterteilen:
+auf kompetitive, kollaborative und kooperative Spielweisen. [Quelle finden]
 
-\subsection{Kompetetiv}
-Kompetitive Spiele sind Spiele, bei denen Kombinationen von verschiedenen Spielern gewinnen müssen, während eine andere Kombination von Spielern verlieren oder gemeinsam gewinnen muss. Das Spiel selbst kann weder verlieren noch gewinnen (vgl. \cite{noauthor_game_2014}). [noch andere Quellen suchen]
+\subsection{Kompetitiv}
+Kompetitive Spiele sind solche, bei denen Spieler oder Teams gegeneinander antreten, um ein bestimmtes Ziel zu erreichen, wobei der Erfolg des einen oft den Misserfolg des anderen bedeutet. In diesen Spielen ist das Spiel selbst neutral und agiert nicht aktiv im Wettbewerb (vgl. \cite{noauthor_game_2014}). [noch andere Quellen suchen]
 
 \subsection{Kollaborativ}
-Kollaborative Spiele sind solche, bei denen alle Spieler wie in einem Kooperationsspiel gemeinsam gegen das Spiel verlieren können. Alle zusammen können aber nicht gewinnen. Diese Spiele sind im Kern meist kompetitiv, beinhalten aber die Möglichkeit einer kollektiven Niederlage. Die Spieler müssen zu einem gewissen Maße zusammenarbeiten um nicht zu verlieren (vgl. \cite{noauthor_game_2014}). [noch andere Quellen suchen]
+Kollaborative Spiele sind solche, bei denen alle Spieler - ähnlich wie in Kooperationsspielen - gemeinsam gegen das Spiel verlieren können. Allerdings können sie nicht gemeinsam gewinnen. Diese Spiele sind im Kern meist kompetitiv, beeinhalten jedoch die Möglichkeit einer kollektiven Niederlage. Die Spieler müssen zu einem gewissen Maß zusammenarbeiten, um nicht zu verlieren (vgl. \cite{noauthor_game_2014}). [noch andere Quellen suchen]
 
 \subsection{Kooperativ}
-Bei Kooperationsspielen ist es möglich, dass alle Spieler gemeinsam gegen das Spiel verlieren oder gewinnen können. Ein Sieg wird erreicht, wenn das Spiel gemeinsam \say{besiegt} wird, oder dadurch dass ein festgelegtes Ziel gemeinsam oder individuell erreicht werden konnte (vgl. \cite{noauthor_game_2014}). [noch andere Quellen suchen]
+Bei Kooperationsspielen ist es möglich, dass alle Spieler gemeinsam gegen das Spiel verlieren oder gemeinsam gewinnen können. Ein Sieg wird erreicht, wenn das Spiel gemeinsam \say{besiegt} wird oder dadurch dass ein festgelegtes Ziel kollektiv oder individuell erreicht werden kann (vgl. \cite{noauthor_game_2014}). [noch andere Quellen suchen]
 
 % \section{Artverwandte Spiele}
 % Nachdem nun die einzelnen Charakteristiken von Multiplayer-Spielen aufgezeigt wurden, werden nun Spiele vorgestellt, welche im Rahmen dieser Arbeit näher betrachtet wurden.
@@ -213,11 +213,11 @@ Bei Kooperationsspielen ist es möglich, dass alle Spieler gemeinsam gegen das S
 % Im März 2025 erschien das Spiel \say{\textbf{Myrmidon}} vom Studio Studio Popot, welches ein asymmetrischer kooperativer Multiplayer ist, bei dem zwei Spieler zusammen, in zwei verschiedenen Rollen, miteinander spielen können. Eine Rolle ist dabei die Stop-Motion Puppe, welche in einer Stop-Motion Welt Hindernisse überqueren und über verschiedene Plattformen springen muss um ans Ziel zu kommen. Unterstützt wird die Puppe dabei vom Animator, der die Kulisse des Stop-Motion Films bedienen muss, damit die Puppe an ihr Ziel gelangt (vgl. \cite{noauthor_myrmidon_2024}).
 
 \section{Netzwerkinfrastrukturen}\label{sec:basics-network-structures}
-Um ein Multiplayer-Spiel entwickeln zu können, muss zunächst geklärt werden wie die Netzwerk-Infrastruktur der Anwendung auszusehen hat. Es gibt viele verschiedene Ansätze, die für verschiedene Anwendungszwecke gedacht sind.
+Um ein Multiplayer-Spiel entwickeln zu können, muss zunächst geklärt werden, wie die Netzwerkinfrastruktur der Anwendung aufgebaut sein soll. Es existieren zahlreiche Ansätze, die jeweils für verschiedene Anwendungszwecke konzipiert sind.
 
 \subsection{Distributed Authority}
-Bei einer \say{Distributed Authority}-Netzwerktopologie übernimmt jeder im Netzwerk verbundene Spielclient gemeinsam jeweils die Verantwortung für das Erstellen und Verwalten von Objekten im Netzwerk. Jeder Client simuliert dabei seinen Teil der Spielwelt selbst und steuert Objekte über seine Autorität.
-Damit Positionen und andere Daten an alle anderen Clients im Netzwerk weitergeleitet werden können, enthält die Topologie einen zentralen und leichtgewichtigen Statusdienst, der diese Funktion übernimmt. Dabei simuliert er die Anwendung nicht, sondern ist nur für die Weiterleitung der nötigen Informationen zuständig (vgl. \cite{noauthor_distributed_2025}).
+Bei einer \say{Distributed Authority}-Netzwerktopologie übernimmt jeder im Netzwerk verbundene Spielclient gemeinsam jeweils die Verantwortung für das Erstellen und Verwalten von Objekten im Netzwerk. Jeder Client simuliert dabei seinen Teil der Spielwelt selbst und steuert Objekte über die er Autorität besitzt.
+Damit Positionen und andere relevanten Daten an alle anderen Clients im Netzwerk weitergeleitet werden können,wird ein zentraler, leichtgewichtiger Statusdienst verwendet, der ausschließlich für die Verteilung der notwendigen Informationen zuständig ist, ohne selbst die Anwendung zu simulieren (vgl. \cite{noauthor_distributed_2025}).
 
 \begin{figure}[ht]
 \centering
@@ -226,7 +226,7 @@ Damit Positionen und andere Daten an alle anderen Clients im Netzwerk weitergele
 \label{fig:distributed_authority_topology}
 \end{figure}
 
-Spiele wie \say{Journey}, \say{God of War: Ascension}, \say{Mercenaries 2}, \say{GTA: Online}, \say{Dark Souls} und \say{Destiny} verwenden diese Netzwerkinfrastruktur. Genutzt wird diese Topologie häufig, wenn ein bestehendes Singleplayer-Spiel eine Multiplayer-Erweiterung erhält (Journey, GTA und Dark Souls), ohne dabei den Kern des Quellcodes umzustrukturieren. Für diesen Anwendungszweck wird kein dedizierter Server gefordert, das Spiel hat eine große, offene Spielwelt (Dark Souls, GTA) und hat keine deterministische Physik bzw. hat kein deterministisches Spielkonzept wodurch eine Integration nicht zu aufwändig wäre. Außerdem empfiehlt es sich bei Spielen zu integrieren, bei denen die Rechner-CPU (bspw. durch die Physik) stark belastet wird. Bei Spielen mit kooperativer Spielmechanik oder leichten kompetitiven Elementen, sowie innovativen Mehrspielermechaniken lohnt es sich, diese Infrastruktur zu wählen (vgl. \cite{noauthor_choosing_2024}).
+Spiele wie \say{Journey}, \say{God of War: Ascension}, \say{Mercenaries 2}, \say{GTA: Online}, \say{Dark Souls} und \say{Destiny} nutzen diese Netzwerkinfrastruktur. Häufig kommt diese Topologie zum Einsatz, wenn ein bestehendes Single-Player um eine Multiplayer-Komponente erweitert werden soll (Journey, GTA und Dark Souls), ohne den Kern des Quellcodes grundlegend umzustrukturieren. Diese Architektur erfordert keinen dedizierten Server, eignet sich für Spiele mit großen, offenen Spielwelten (Dark Souls, GTA) und kommt häufig zum Einsatz, wenn keine deterministische Physik benötigt wird bzw. kein vollständig deterministisches Spielkonzept vorliegt. Sie eignet sich zudem besonders für Spiele, bei denen die Prozessorleistung (z.B. durch Physiksimulationen= stark beansprucht wird. Für Spiele mit kooperativen Spielmechaniken, leichten kompetitiven Elementen oder innovativen Multiplayer-Ideen ist diese Infrastruktur eine sinnvolle Wahl (vgl. \cite{noauthor_choosing_2024}).
 
 \subsection{Pure Client/Server}
 Bei der Client-Server-Architektur übernimmt ein zentraler Server die Hauptsimulation und verwaltet alle Aspekte des Spiels. Darunter fällt die Physiksimulation, die Erzeugung und Entfernung von Objekten, sowie die Autorisierung von Client-Anfragen. Aus der Sicht der Clients, besitzen diese die Anwendung, mit der sie sich mit dem Server verbinden können, und bekommen über die Verbindung das Spiel zu sehen.

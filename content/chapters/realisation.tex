@@ -466,7 +466,7 @@ Um das Generieren der Spielwelt zu ermöglichen, muss zunächst ein Repository a
 
 Allerdings setzt dieses Paket voraus, dass jedes Struktur gebende \ac{3D}-Objekt in seine 1*1*1 Meter große Basis zerlegt wird. Das wäre bei Assets, die über den Asset-Store hinzugenommen wurden ein viel zu großer Aufwand geworden.
 
-Daher wurde nach einem Generator geschaut, der fertige Strukturelemente wie Boden-Modelle oder Wand-Elemente verwenden kann. \cite{mysticforge_low_nodate} stellt einen Generator bereit, bei dem für verschiedene Abschnitte, wie Links/ Rechts Kurven, zweier oder dreier Kreuzungen oder geraden Stücken, verschiedene Varianten bereitgestellt werden können und der Generator aus diesen eine Spielwelt generiert. Zusätzlich konnten auch angefertigte Räume mit bereitgestellt werden, in welchen im späteren Verlauf die Rätsel eingebaut werden können. Die Elemente, die zwischen diesen Räumen generiert wurden, können so als Verbindungsstücke dienen, durch welcher der Watcher den Player navigieren müsste. Auch dieser Generator benötigt Modelle in einer bestimmten Größen-Norm. Diese ist jedoch im Vergleich zum Generator von \cite{alasl_autolevel_nodate} nicht zu kleinteilig und bezieht sich auf Strukturgebende Elemente wie Wädne als Ganzes.
+Daher wurde nach einem Generator geschaut, der fertige Strukturelemente wie Boden-Modelle oder Wand-Elemente verwenden kann. \cite{mysticforge_low_nodate} stellt einen Generator bereit, bei dem für verschiedene Abschnitte, wie Links/ Rechts Kurven, zweier oder dreier Kreuzungen oder geraden Stücken, verschiedene Varianten bereitgestellt werden können und der Generator aus diesen eine Spielwelt generiert. Zusätzlich konnten auch angefertigte Räume mit bereitgestellt werden, in welchen im späteren Verlauf die Rätsel eingebaut werden können. Die Elemente, die zwischen diesen Räumen generiert wurden, können so als Verbindungsstücke dienen, durch welcher der Watcher den Player navigieren müsste. Auch dieser Generator benötigt Modelle in einer bestimmten Größen-Norm. Diese ist jedoch im Vergleich zum Generator von \cite{alasl_autolevel_nodate} nicht zu kleinteilig und bezieht sich auf Strukturgebende Elemente wie Wände als Ganzes.
 
 \begin{figure}[ht]
 \centering
@@ -475,7 +475,7 @@ Daher wurde nach einem Generator geschaut, der fertige Strukturelemente wie Bode
 \label{fig:dungeon-generator}
 \end{figure}
 
-Allerdings werden die verschiedenen Elemente zufällig hintereinander gereiht. Deshalb wurde der Ansatz aus dem vorangegangenem Generator mit eingebaut. So konnte nun bestimmt werden, welche Objekte auf welche Folgen und welche zuvor kommen sollen (vgl. \cite{hacker_general_nodate}). Abbildung \ref{fig:athaeck-dungeon-generator} zeigt das Ergebnis aus den in einer in Norm erstellten Strukturelementen (oberes Bild) generierte Wege zwischen den Räumen (unteres Bild). Leider ist es so, dass durch das Zufallsprinzip, zu welcher Wahrscheinlichkeit wann welche Elemente kommen, zu viel Unruhe entsteht und das Ergebnis so für den Anwendungszweck nicht nutzbar ist.
+Allerdings werden die verschiedenen Elemente zufällig hintereinander gereiht. Deshalb wurde der Ansatz aus dem vorangegangenem Generator mit eingebaut. So konnte nun bestimmt werden, welche Objekte auf welche Folgen und welche zuvor kommen sollen. Abbildung \ref{fig:athaeck-dungeon-generator} zeigt das Ergebnis aus den in einer in Norm erstellten Strukturelementen (oberes Bild) generierte Wege zwischen den Räumen (unteres Bild). Leider ist es so, dass durch das Zufallsprinzip, zu welcher Wahrscheinlichkeit wann welche Elemente kommen, zu viel Unruhe entsteht und das Ergebnis so für den Anwendungszweck nicht nutzbar ist.
 
 \begin{figure}[ht]
 \centering
@@ -487,6 +487,7 @@ Allerdings werden die verschiedenen Elemente zufällig hintereinander gereiht. D
 Jedoch hatte dieser nicht weitergeführte Ansatz auch ein positives Ergebnis. Da die einzelnen Elemente der Strukturelemente in einer bestimmten selbst definierten Norm angepasst werden mussten, konnte im weitere Verlauf des Leveldesign mit diesen Maßstäben die weiteren hinzugenommenen Assets anpassen und verwendet werden.
 
 \subsection{Physik-System von Unity}
+
 
 \subsection{Platzieren von Gegenständen außerhalb der Spielwelt}
 

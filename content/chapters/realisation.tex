@@ -431,7 +431,7 @@ Abbildung \ref{fig:cm-server} zeigt den Aufbau des Servers. Der physische Server
 
 Werden Sessions verlassen, werden diese vom WebSocket Server gespeichert. Dies geschieht durch \ac{HTTP}-Anfragen an den Basis Node-Server, welcher über seine Endpunkte die entsprechenden Daten abspeichert. Sie können durch das Beitreten einer bereits existierenden Session wieder geladen werden. Senden Player als auch Watcher eine Beitritts-Anfrage an den WebSocket-Server, so lädt dieser über den Node-Server und den entsprechenden Endpunkt diese Session und lässt die Anfrager, sofern eine Session gefunden wurde, beitreten.
 
-\paragraph{Vorstellung der Datenmodelle}
+% \paragraph{Vorstellung der Datenmodelle}
 
 \section{Herausforderungen in der Umsetzung}\label{sec:difficulties}
 Die Umsetzung einer Spielidee stellt oft im Verlauf des Entwicklungsprozesses Hürden bereit, welche auf verschiedenste Weisen gelöst werden müssen. Auch  diese Arbeit ist davon nicht verschont gewesen und stieß auf so manche Herausforderungen. 
@@ -510,12 +510,12 @@ Abbildung \ref{fig:new-collision-system} zeigt die neue Klasse des \say{Verursac
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=1\linewidth]{content/pictures/Quest-Extension.drawio.png}
+\includegraphics[width=0.8\linewidth]{content/pictures/Quest-Extension.drawio.png}
 \caption{Kollisions-Empfänger im Quest-System (Quelle: eigene Darstellung)}
 \label{fig:new-collision-system-in-quests}
 \end{figure}
 
-\subsection{Platzieren von Gegenständen innerhalb und außerhalb der Spielwelt}\label{sec:difficulties-placement}
+\subsection{Platzieren von Gegenständen außerhalb der Spielwelt}\label{sec:difficulties-placement}
 Wie bereits erwähnt, besitzen der Player und der Watcher zum Teil unterschiedliche Ansichten der Räume. Am Beispiel des Sicherheitsraumes wird das folgende Problem, das das Platzieren von Gegenständen mit sich führen kann, vorgestellt. 
 
 Im Sicherheitsraum befindet sich der Player innerhalb des Gebäudes, wohingegen der Watcher zusätzlich einen kleinen Außenbereich sieht, auf den er einen gefundenen Stromgenerator platzieren muss. Da sich für den Watcher ein Bereich geöffnet hat, kann er auf diesen den Generator ohne Probleme platzieren. Da jedoch alle in der Session platzierten Gegenstände sowohl beim Watcher als auch beim Player platziert werden, stößt dies auf ein Problem. Der Player darf keine Gegenstände sehen, welche in nicht aktiven Bereichen liegen. 
@@ -523,6 +523,8 @@ Im Sicherheitsraum befindet sich der Player innerhalb des Gebäudes, wohingegen 
 Aus diesem Grund wurde für jeden Bereich Collider in die Spielwelt platziert, die dafür verantwortlich sind, Gegenstände zu aktivieren oder deaktivieren, je nachdem, ob der Bereich aktiv oder inaktiv ist. Das umgeänderte System aus dem vorangegangenen Kapitel \nameref{sec:unity-physics-system} und die Klasse \say{PathCollider} aus dem Kapitel \nameref{sec:path-system} spielen hier dabei zusammen und ermöglichen es, dass sowohl Player als auch Watcher keine \say{falschen} Objekte außerhalb der aktiven Weltgebiete sehen können.
 
 Jedoch fielen in der Evaluation der Anwendungen Grenzfälle auf, die im Kapitel \nameref{sec:prospect} weiter behandelt werden.
+
+
 
 % erste Ansätze im Levelbuilding erwähnen
 
@@ -543,7 +545,11 @@ Jedoch fielen in der Evaluation der Anwendungen Grenzfälle auf, die im Kapitel 
 % die anwendung vom playewr
 
 \section{Probleme in der Umsetzung}
+Für die Evaluation ist geplant gewesen, dass die Anwendung des Watchers über eine \ac{AR}-Integration verfügt. Ein Kernelement einer funktionierenden \ac{AR}-Anwendung ist das Platzieren des entsprechenden \ac{3D}-Objektes in den virtuellen Raum, der durch die Sicht des Smartphones aussieht, als wäre er im echten Raum platziert. Damit das Platzieren des Weltobjektes der Anwendung des Watchers auch gut verankert ist, wurde das \say{Place detection}-Modul der \ac{AR}Foundation verwendet. Zusätzlich wurden auf der ausgewählten Plane ein \ac{AR}Anchor platziert, welcher mitHilfe des Anchor-Managers eine zuverlässigeres Platzieren \ac{AR} gewährleisten soll.
 
+Das Ergebnis, das dabei heraus kam, war, dass sich die platzierte Spielwelt in einem bestimmten Abstand zur Kamera immer mitbewegt hat. Zusehen ist dies ebenfalls in diesem Unity-Forum im vorletzten Beitrag von Howard258 \cite{noauthor_unity_2025}. Es wurden einige Lösungsversuche, wie das Umstellen der Zuordnung in der Anchor und Plane Platzierung, oder das Umstellen der Weltknoten, versucht. Jeder neue Ansatz brachte leider keine Lösung für das Platzierungsproblem. In einem weiteren Forum (vgl. \cite{noauthor_ar_2023}) wurde gezeigt, dass die genutzte Version der \ac{AR}Foundation und der Unity-Editor Version ein Grund für die deffekte \ac{AR}-Platzierung ist. Dieser Lösungsweg wurde aus zeitlichen Gründen nicht mehr umgesetzt, da eine Versions-Änderung des Editors und seine enthaltenen Assets auch zu weiteren Problemen führen könnten. 
+
+Ebenfalls wurde auch keine weitere Platzierungsmethode wie das \say{Image tracking} verwendet, da sich der Watcher frei in seiner physischen Welt bewegen soll und die Gefahr besteht, dass das Vergleichsbild nicht meehr gesehen wird und der Spieler keine Spielwelt vor sich sieht.
 % AR
 
 % Gerätefindung im selben Netzwerk -> eher Herausforderungen in der Evaluation

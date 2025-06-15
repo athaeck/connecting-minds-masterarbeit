@@ -287,16 +287,16 @@ In der \ac{AR}-Variante der Anwendung benötigt der Spieler keine umfassende Kam
 
 In der \ac{3D}-Variante muss, wie auch schon beim Player, auf die verschiedenen Steuerungsmöglichkeiten von \cite{reinhard_augmented_2022} zurückgegriffen werden. Zunächst ist jedoch zu entscheiden, welche Art von Kamerasystem die \ac{3D}-Anwendung haben soll. 
 
-Viele Spiele für mobile Endgeräte besitzen keine freie Bewegung der Kamera. Manche besitzen ein Follow des Spieler-Avatars und der Rest besitzt keine freie Bewegung in der Spielwelt. Die Häufigsten Umsetzungen für Steuerungselemente in Spielen für Touch-Endgeräte sind entweder die Steuerung über die verschiedenen Touch-Gesten, die \cite{reinhard_augmented_2022} in seiner Arbeit aufgelistet hat, oder Joystick-ähnliche \ac{HUD}-Elemente [statistiken suchen]. 
+Viele Spiele für mobile Endgeräte besitzen keine freie Bewegung der Kamera. Manche besitzen ein Follow des Spieler-Avatars und der Rest besitzt keine freie Bewegung in der Spielwelt. Die häufigsten Umsetzungen für Steuerungselemente in Spielen für Touch-Endgeräte sind entweder die Steuerung über die verschiedenen Touch-Gesten, die \cite{reinhard_augmented_2022} in seiner Arbeit aufgelistet hat, oder Joystick-ähnliche \ac{HUD}-Elemente [statistiken suchen]. 
 So steuert der Spieler im Spiel \say{Botworld Adventure} (vgl. \cite{noauthor_botworld_nodate}) über Joystick-Elemente, oder in den Spielen \say{Die Sims Mobile} (vgl. \cite{arts_sims_2017}) und \say{Outlanders} (vgl. \cite{noauthor_outlanders_2025}) über verschiedene Touch-Gesten. 
 
-Das Nutzen eines Joystick-Overlays würde den Sinn des Nutzens eines Touchmonitors nicht unterstützen, weshalb dieser Ansatz nicht weiter betrachtet wurde. Daher wurden die Kamera Systeme der anderen Steuerungsverwendungen betrachtet. In Sims Online und Outlanders wird ein ähnliches Kamera-System verwendet, wie es bereits aus Spielen wie der \say{Anno-Reihe} (vgl. \cite{noauthor_ubisoft_nodate}) bekannt ist. Sie nutzen ein sog. \say{Real-Time-Strategy}-System, bei dem die Kamera ein unsichtbares Objekt verfolgt, welches durch Nutzereingaben bewegt wird. [Quellen mit Eigenschaften suchen] 
+Das Nutzen eines Joystick-Overlays würde den Sinn des Nutzens eines Touchmonitors nicht unterstützen, weshalb dieser Ansatz nicht weiter betrachtet wurde. Daher wurden die Kamerasysteme der anderen Steuerungsverwendungen betrachtet. In Sims Online und Outlanders wird ein ähnliches Kamera-System verwendet, wie es bereits aus Spielen wie der \say{Anno-Reihe} (vgl. \cite{noauthor_ubisoft_nodate}) bekannt ist. Sie nutzen ein sog. \say{Real-Time-Strategy}-System, bei dem die Kamera ein unsichtbares Objekt verfolgt, welches durch Nutzereingaben bewegt wird. [Quellen mit Eigenschaften suchen] 
 
-Der Ansatz der \ac{RTS}-Kameraführung wurde bei der Entwicklung der \ac{3D}-Anwendung verfolgt. Über die Single-Touch-Interaktion soll der Spieler Gegenstände platzieren können. Über die Yaw-Geste kann der Spieler die Ansicht auf die Spielszene drehen um von einer anderen Blickrichtung neue Eindrücke sammeln zu können. Wie auch in der Player-Anwendung kann der Spieler über die Zoom-Geste an die Spielwelt heranzoomen. Über die Pan-Bewegung kann der Spieler das \ac{RTS}-Kamerasystem durch die Spielwelt steuern. In der jetzigen Umsetzung gab es noch keinen Nutzen für die Pitch-Geste.
+Der Ansatz der \ac{RTS}-Kameraführung wurde bei der Entwicklung der \ac{3D}-Anwendung verfolgt. Über die Single-Touch-Interaktion soll der Spieler Gegenstände platzieren können. Über die Yaw-Geste kann der Spieler die Ansicht auf die Spielszene drehen, um von einer anderen Blickrichtung neue Eindrücke sammeln zu können. Wie auch in der Player-Anwendung, kann der Spieler über die Zoom-Geste an die Spielwelt heranzoomen. Über die Pan-Bewegung kann der Spieler das \ac{RTS}-Kamerasystem durch die Spielwelt steuern. In der jetzigen Umsetzung gab es noch keinen Nutzen für die Pitch-Geste.
 
 % [hier jetzt steuerungen von ein paar spielen nennen die es so gibt]
 \paragraph{Aufbau des Nutzerflows}
-Da die Hauptaufgabe des Watchers das Verwalten und Platzieren von Gegenstände ist muss zunächst analysiert werden, wie ein für die Anforderungen an die Anwendungen passender Nutzerfluss konzipiert und umgesetzt werden kann.
+Da die Hauptaufgabe des Watchers das Verwalten und Platzieren von Gegenständen ist, muss zunächst analysiert werden, wie ein für die Anforderungen an die Anwendungen passender Nutzerfluss konzipiert und umgesetzt werden kann.
 
 Das Spiel \say{Outlanders} (vgl. \cite{noauthor_outlanders_2025}) passte in seinem Spielaufbau und seiner Führung durch die Menüs zu der Anforderung der Watcher Anwendung, bei der sich der Spieler zunächst frei durch die Spielwelt bewegen kann (entweder als \ac{AR}-Kamera oder über das RTS-Kamerasystem) und über ein Menü Gegenstände platzieren oder dem Player schicken kann.
 
@@ -316,20 +316,20 @@ Nicht nur der Nutzerfluss des Baumenüs wurde übernommen, sondern auch die Eind
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/PlacementFlow.png}
-\caption{Nutzerfluss des Platzieren eines Gegenstandes (Quelle: eigene Darstellung), (groß in Anhang \ref{})}
+\caption{Nutzerfluss des Platzierens eines Gegenstandes (Quelle: eigene Darstellung), (groß in Anhang \ref{})}
 \label{fig:userflow-placement-cm}
 \end{figure}
 
-Abbildung \ref{fig:userflow-placement-cm} zeigt den Nutzerfluss den ein Spieler durchgeht, wenn er einen Gegenstand platzieren will. Er ähnelt sehr stark dem aus Outlanders. Zunächst kann sich der Watcher frei durch die Spielwelt bewegen (1). Nun muss er an einer bestimmten Stelle einen Gegenstand platzieren. Er klickt auf das Platzieren Menü und ein Overlay-Menü öffnet sich (2). Über das Menü kann er nun einen Gegenstand zum platzieren auswählen (3). Sobald ein Gegenstand ausgewählt wurde öffnet sich ein Menü, welches einen kleineren Teil des Bildschirms abdeckt und den Watcher auffordert eine Position zu wählen (3). Nachdem eine Position gewählt wurde, sieht der Watcher das zukünftig platzierte Objekt auf der gewählten Position (4). Über das noch aktive Menü kann der Nutzer nun die Platzierung des Gegenstandes bestätigen (5). Wurde die Wahl bestätigt, so steht nun an der gewählten Stelle der gewünschte Gegenstand (6). 
+Abbildung \ref{fig:userflow-placement-cm} zeigt den Nutzerfluss, den ein Spieler durchgeht, wenn er einen Gegenstand platzieren will. Er ähnelt sehr stark dem aus Outlanders. Zunächst kann sich der Watcher frei durch die Spielwelt bewegen (1). Nun muss er an einer bestimmten Stelle einen Gegenstand platzieren. Er klickt auf das Platzieren Menü und ein Overlay-Menü öffnet sich (2). Über das Menü kann er nun einen Gegenstand zum Platzieren auswählen (3). Sobald ein Gegenstand ausgewählt wurde, öffnet sich ein Menü, welches einen kleineren Teil des Bildschirms abdeckt und den Watcher auffordert eine Position zu wählen (3). Nachdem eine Position gewählt wurde, sieht der Watcher das zukünftig platzierte Objekt auf der gewählten Position (4). Über das noch aktive Menü kann der Nutzer nun die Platzierung des Gegenstandes bestätigen (5). Wurde die Wahl bestätigt, so steht nun an der gewählten Stelle der gewünschte Gegenstand (6). 
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/RemovePlacementFlow.png}
-\caption{Nutzerfluss des Entfernen eines Gegenstandes (Quelle: eigene Darstellung), (groß in Anhang \ref{})}
+\caption{Nutzerfluss des Entfernens eines Gegenstandes (Quelle: eigene Darstellung), (groß in Anhang \ref{})}
 \label{fig:userflow-removement-cm}
 \end{figure}
 
-Abbildung \ref{fig:userflow-removement-cm} zeigt den Nutzerfluss den ein Watcher durchläuft, sobald er einen platzierten Gegenstand wieder entfernen möchte. Zunächst kann sich auch hier der Watcher frei durch die Welt bewegen. Er muss nun aber einen Gegenstand entfernen, damit er ihn an einer anderen Stelle wieder platzieren kann. Er klickt nun auf den in der Spielwelt platzierten Gegenstand (1). Das Tooltip des ausgewählten Gegenstands verändert sich farblich um dem Spieler zu zeigen, welcher Gegenstand ausgewählt wurde. Außerdem öffnet sich ein kleines Menü am unteren Ende des Bildschirmes, über welches der Watcher das Entfernen des Gegenstandes bestätigen kann (2). Nachdem das Entfernen bestätigt wurde kann sich der Watcher wieder frei durch die Welt bewegen (3).
+Abbildung \ref{fig:userflow-removement-cm} zeigt den Nutzerfluss, den ein Watcher durchläuft, sobald er einen platzierten Gegenstand wieder entfernen möchte. Zunächst kann sich auch hier der Watcher frei durch die Welt bewegen. Er muss nun aber einen Gegenstand entfernen, damit er ihn an einer anderen Stelle wieder platzieren kann. Er klickt nun auf den in der Spielwelt platzierten Gegenstand (1). Das Tooltip des ausgewählten Gegenstands verändert sich farblich, um dem Spieler zu zeigen, welcher Gegenstand ausgewählt wurde. Außerdem öffnet sich ein kleines Menü am unteren Ende des Bildschirmes, über welches der Watcher das Entfernen des Gegenstandes bestätigen kann (2). Nachdem das Entfernen bestätigt wurde, kann sich der Watcher wieder frei durch die Welt bewegen (3).
 
 \begin{figure}[ht]
 \centering
@@ -340,16 +340,16 @@ Abbildung \ref{fig:userflow-removement-cm} zeigt den Nutzerfluss den ein Watcher
 
 Neben dem Platzieren eines Gegenstandes ist auch das Schicken eines Gegenstandes an den Player eine wichtige Aufgabe des Watchers. Der vorangegangene Nutzerfluss aus der Vorlage von Outlanders und der bereits erfolgreichen Integration in den Nutzerfluss des Platzierens wurde dieser nun auch für das Previewen von Gegenständen eingesetzt (vgl. Abbildung \ref{fig:userflow-preview-cm}).
 
-Nachdem sich der Watcher frei durch die Spielwelt bewegen konnte muss er nun dem Player einen bestimmten Gegenstand schicken (1). Über das \say{Preview}-Menü, rechts neben dem \say{Platzieren}-Menü, kann der Watcher das Schicken initialisieren. Klickt er auf das Menü, öffnet sich auch hier eine Galerie, die über den ganzen Bildschirm geöffnet wurde. Hier kann der Spieler nun den gewünschten Gegenstand auswählen (2). Sobald ein Gegenstand ausgewählt wurde, öffnet sich ein Bestätigungsmenü, bei dem er die Auswahl bestätigen muss (3). Nachdem die Auswahl bestätigt wurde, kann sich der Watcher auch hier wieder frei durch die Welt bewegen und sieht dann der rechten, halb hohen Seite, den Gegenstand, den der Player nun trägt (4).
+Nachdem sich der Watcher frei durch die Spielwelt bewegen konnte, muss er nun dem Player einen bestimmten Gegenstand schicken (1). Über das \say{Preview}-Menü, rechts neben dem \say{Platzieren}-Menü, kann der Watcher das Schicken initialisieren. Klickt er auf das Menü, öffnet sich auch hier eine Galerie, die über den ganzen Bildschirm geöffnet wurde. Hier kann der Spieler nun den gewünschten Gegenstand auswählen (2). Sobald ein Gegenstand ausgewählt wurde, öffnet sich ein Bestätigungsmenü, bei dem er die Auswahl bestätigen muss (3). Nachdem die Auswahl bestätigt wurde, kann sich der Watcher auch hier wieder frei durch die Welt bewegen und sieht dann der rechten, halb hohen Seite, den Gegenstand, den der Player nun trägt (4).
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/RemovePreviewFlow.png}
-\caption{Nutzerfluss des Entfernen der Preview eines Gegenstandes (Quelle: eigene Darstellung), (groß in Anhang \ref{})}
+\caption{Nutzerfluss des Entfernens der Preview eines Gegenstandes (Quelle: eigene Darstellung), (groß in Anhang \ref{})}
 \label{fig:userflow-remove-preview-cm}
 \end{figure}
 
-Abbildung \ref{fig:userflow-remove-preview-cm} zeigt den Nutzerfluss des entsprechenden Entfernens der Preview eines Gegenstandes. Zunächst kann sich der Watcher noch frei durch die Welt bewegen. Sobald er einen Hinweis bekommt, dass er einen Gegenstand wieder entfernen soll, kann er wie beim Schicken eines Gegenstandes auf das \say{Preview}-Menü klicken (1). Nachdem er darauf geklickt hat, öffnet sich nicht wie beim ersten mal ein Menü, sondern direkt das Überprüfungs-Menü, ob er den Gegenstand, den der Player gerade trägt, entfernen will (2). Bestätigt er das entfernen, so kann er sich wieder frei durch die Spielwelt bewegen. Außerdem wird der Gegenstand an der Rechten-Halbhohen Seite auch nicht mehr angezeigt (3). 
+Abbildung \ref{fig:userflow-remove-preview-cm} zeigt den Nutzerfluss des entsprechenden Entfernens der Preview eines Gegenstandes. Zunächst kann sich der Watcher noch frei durch die Welt bewegen. Sobald er einen Hinweis bekommt, dass er einen Gegenstand wieder entfernen soll, kann er wie beim Schicken eines Gegenstandes auf das \say{Preview}-Menü klicken (1). Nachdem er darauf geklickt hat, öffnet sich nicht wie beim ersten Mal ein Menü, sondern direkt das Überprüfungs-Menü, ob er den Gegenstand, den der Player gerade trägt, entfernen will (2). Bestätigt er das entfernen, so kann er sich wieder frei durch die Spielwelt bewegen. Außerdem wird der Gegenstand an der Rechten-Halbhohen Seite auch nicht mehr angezeigt (3). 
 
 % spielwelten
 % zwei versionen innerhalb des projekts 3D/AR
@@ -360,7 +360,7 @@ Abbildung \ref{fig:userflow-remove-preview-cm} zeigt den Nutzerfluss des entspre
 \subsection{Server-Anwendung}
 % netzwerk topologie vorstellen (relay-system)
 % vorstellen der prototkolle und warum udp
-Die Server-Anwendung ist wie bereits in der Einleitung zu diesem Kapitel erwähnt wurde, das zentrale Element der \ac{MVC}-Architektur ist. 
+Die Server-Anwendung ist, wie bereits in der Einleitung zu diesem Kapitel erwähnt wurde, das zentrale Element der \ac{MVC}-Architektur ist. 
 
 Nun stellt sich die Frage, auf welche weise und durch welche Netzwerkprotokolle wird die Kommunikation zwischen den Anwendungen aufgebaut. Zunächst muss die Art des Servers bestimmt werden. Über den Aufbau der \ac{MVC}-Architektur geht hervor, dass die View getrennt vom Model und vom Controller steht, das beutetet, dass ein eigenständiges System für den Server geschaffen werden muss, mit dem die einzelnen Views kommunizieren können. Die in den Grundlagen der Netzwerkinfrastrukturen vorgestellten Ansätze können anhand der Architektur-Anforderung nun schematisch aussortiert werden. 
 
@@ -368,9 +368,9 @@ Nun stellt sich die Frage, auf welche weise und durch welche Netzwerkprotokolle 
 
 Eine klassische Client/ Server Netzwerkinfrastruktur kann ausgeschlossen werden, da weder der Server noch ein bestimmter Client als Server die Simulation der Spielwelt soll. Die einzelnen Views übernehmen das für sich und geben nur Veränderungen in den Kern-Datenelementen an den Server weiter. 
 
-Ein \ac{P2P}-Modell ist in diesem Anwendungsfall auch nicht zielführend, da jede Anwendung mit den anderen Anwendungen verbunden sein müsste. Es würde ein zu großes Kommunikationsnetz mit aktualisierten Spielzustände geben, welche ab einer bestimmten Spielgröße nicht mehr gewährleistet werde kann. 
+Ein \ac{P2P}-Modell ist in diesem Anwendungsfall auch nicht zielführend, da jede Anwendung mit den anderen Anwendungen verbunden sein müsste. Es würde ein zu großes Kommunikationsnetz mit aktualisierten Spielzuständen geben, welche ab einer bestimmten Spielgröße nicht mehr gewährleistet werden kann. 
 
-Übrig bleiben daher nur noch das Modell der \say{distributed authorities} und das Relay-System. Eine Relay-Architektur unterstützt eine Multiplayer-Anwendung bei der kein dedizierter Spielserver verwendet werden muss, der die Spiellogik simuliert. Er ist nur für die Kommunikation zwischen den Verbundenen Anwendungen zuständig. Im Modell der distributed authorities ist jeder Verbundene Client für die Simulation der Spielwelt selbst verantwortlich ist. Sie geben aktualisierte Spielzustände an einen Service weiter, der einen Überblick über den gesamten Spielzustand besitzt und gibt diesen an die anderen verbundenen Clients weiter. Die Kombination aus beiden Modellen wäre die ideale Architektur für den Spielserver von Connecting-Minds.
+Übrig bleiben daher nur noch das Modell der \say{distributed authorities} und das Relay-System. Eine Relay-Architektur unterstützt eine Multiplayer-Anwendung, bei der kein dedizierter Spielserver verwendet werden muss, der die Spiellogik simuliert. Er ist nur für die Kommunikation zwischen den verbundenen Anwendungen zuständig. Im Modell der distributed authorities ist jeder verbundene Client für die Simulation der Spielwelt selbst verantwortlich ist. Sie geben aktualisierte Spielzustände an einen Service weiter, der einen Überblick über den gesamten Spielzustand besitzt und gibt diesen an die anderen verbundenen Clients weiter. Die Kombination aus beiden Modellen wäre die ideale Architektur für den Spielserver von Connecting-Minds.
 
 \paragraph{Bestimmung der Kommunikationsprotokolle}
 
@@ -384,7 +384,7 @@ Ein \ac{P2P}-Modell ist in diesem Anwendungsfall auch nicht zielführend, da jed
 Nachdem eine Topologie bestimmt werden konnte (vgl. Abbildung \ref{fig:cm-topology}), muss nun bestimmt werden, auf welche weise die Anwendungen im Detail miteinander kommunizieren. 
 
 % Durch das \ac{OSI}-Modell 
-Das \ac{OSI}-Modell zeigt auf, welche verschiedenen Schichten in der Netzwerkkommunikation durchlaufen werden können (vgl. \cite{noauthor_osi-modell_nodate}). Jedes Netzwerkkommunikation zwischen Anwendungen muss dabei durch den Transport-Layer der jeweiligen Endgeräte gehen. Innerhalb dieser Transportschicht existieren einige Protokolle, die den Transport der versendeten Datenpakete übernehmen. Die am häufigsten verwendeten Protokolle sind dabei das \ac{UDP} und das \ac{TCP} (vgl. \cite{noauthor_transport_nodate}). 
+Das \ac{OSI}-Modell zeigt auf, welche verschiedenen Schichten in der Netzwerkkommunikation durchlaufen werden können (vgl. \cite{noauthor_osi-modell_nodate}). Jede Netzwerkkommunikation zwischen Anwendungen muss dabei durch den Transport-Layer der jeweiligen Endgeräte gehen. Innerhalb dieser Transportschicht existieren einige Protokolle, die den Transport der versendeten Datenpakete übernehmen. Die am häufigsten verwendeten Protokolle sind dabei das \ac{UDP} und das \ac{TCP} (vgl. \cite{noauthor_transport_nodate}). 
 
 \begin{figure}[ht]
 \centering
@@ -394,7 +394,7 @@ Das \ac{OSI}-Modell zeigt auf, welche verschiedenen Schichten in der Netzwerkkom
 \end{figure}
 
 % Abbildung 
-\ac{TCP} ist ein verbindungsorientiertes Protokoll, das zunächst eine Verbindung zu seinem Kommunikationspartner aufbaut um Daten auszutauschen. Durch die Verbindung gewährleistet es einen zuverlässigen Datenaustausch, bei dem auch alle übertragenen Daten in der richtigen Reihenfolge beim Empfänger ankommen. Abbildung \ref{fig:tcp} zeigt diesen Verbindungsaufbau.
+\ac{TCP} ist ein verbindungsorientiertes Protokoll, das zunächst eine Verbindung zu seinem Kommunikationspartner aufbaut, um Daten auszutauschen. Durch die Verbindung gewährleistet es einen zuverlässigen Datenaustausch, bei dem auch alle übertragenen Daten in der richtigen Reihenfolge beim Empfänger ankommen. Abbildung \ref{fig:tcp} zeigt diesen Verbindungsaufbau.
 Zunächst erstellen der Client und Server einen Socket, um Daten über \ac{TCP} auszutauschen. Im Anschluss sendet der Client ein \ac{SYN}-Segment an den Server mit einem gewünschten Zielport. Anschließend akzeptiert der Server das \ac{SYN}-Segment, erstellt einen eigenen Socket und sendet an den Client ein \ac{SYN}-\ac{ACK}-Segment zurück. Der Client beantwortet dies mit einem \ac{ACK}-Segment. Nun besteht eine bidirektionale Verbindung  (vgl. \cite{mygames_unity_2024}).
 
 % Einen \say{Distributed Authority} Ansatz kann es im Aufbau des Prototyps nicht gehebn
@@ -418,7 +418,7 @@ Auf Basis der Grundprotokolle \ac{TCP} und \ac{UDP} existieren auch Erweiterunge
 
 Für die entworfene Topologie ist die Kommunikation über das WebSocket-Protokoll das geeignetste. Es besteht eine persistente Verbindung der einzelnen verbundenen Anwendungen zum Server, welcher je nach Zustandsänderung an alle mit der Spielsitzung verbundenen Teilnehmer die Änderungen mitteilen kann. Dabei müssen sich die Teilnehmer nicht um eine Aktualisierung ihrer Zustände kümmern und erhalten zu jeder Zeit ein Update vom verbundenen Server (vgl. Abbildung \ref{fig:ws}).
 
-\paragraph{Einbettung des Server}
+\paragraph{Einbettung des Servers}
 
 \begin{figure}[ht]
 \centering
@@ -427,19 +427,19 @@ Für die entworfene Topologie ist die Kommunikation über das WebSocket-Protokol
 \label{fig:cm-server}
 \end{figure}
 
-Abbildung \ref{fig:cm-server} zeigt den Aufbau des Servers. Der physische Server führt dabei eine MongoDB Datenbank und und einen Node-Server aus. Die MongoDB wird für die persistente Speicherung der einzelnen Sessions verwendet. Der Node-Server ist das Basis-Element der Server-Anwendung, da dieser den WebSocket Server startet, mit welchem sich die Spielteilnehmer verbinden werden. Der WebSocket Server ist zu dem dafür zuständig, dass durch die Aufforderung des Players neue Sessions erstellt werden. Wurde eine Session erstellt, wird der Player ihr automatisch beitreten. Ein Watcher kann nun ebenfalls der Session über den WebSocket Server beitreten. Die einzelnen mit dem Server verbundenen Clients kommunizieren nun über den Server mit der entsprechenden Session, welche über den Server Informationen zurückgibt. Die Clients kommunizieren dabei über das genannte WebSocket Protokoll.
+Abbildung \ref{fig:cm-server} zeigt den Aufbau des Servers. Der physische Server führt dabei eine MongoDB Datenbank und einen Node-Server aus. Die MongoDB wird für die persistente Speicherung der einzelnen Sessions verwendet. Der Node-Server ist das Basis-Element der Server-Anwendung, da dieser den WebSocket Server startet, mit welchem sich die Spielteilnehmer verbinden werden. Der WebSocket Server ist zu dem dafür zuständig, dass durch die Aufforderung des Players neue Sessions erstellt werden. Wurde eine Session erstellt, wird der Player ihr automatisch beitreten. Ein Watcher kann nun ebenfalls der Session über den WebSocket Server beitreten. Die einzelnen mit dem Server verbundenen Clients kommunizieren nun über den Server mit der entsprechenden Session, welche über den Server Informationen zurückgibt. Die Clients kommunizieren dabei über das genannte WebSocket Protokoll.
 
-Werden Sessions verlassen, werden diese vom WebSocket Server gespeichert. Dies geschieht durch \ac{HTTP}-Anfragen an den Basis Node-Server, welcher über seine Endpunkte die entsprechenden Daten abspeichert. Sie können durch das beitreten einer bereits existierenden Session wieder geladen werden. Senden Player als auch Watcher eine Beitritts-Anfrage an den WebSocket-Server, so lädt dieser über den Node-Server und den entsprechenden Endpunkt diese Session und lässt die Anfrager, sofern eine Session gefunden wurde, beitreten.
+Werden Sessions verlassen, werden diese vom WebSocket Server gespeichert. Dies geschieht durch \ac{HTTP}-Anfragen an den Basis Node-Server, welcher über seine Endpunkte die entsprechenden Daten abspeichert. Sie können durch das Beitreten einer bereits existierenden Session wieder geladen werden. Senden Player als auch Watcher eine Beitritts-Anfrage an den WebSocket-Server, so lädt dieser über den Node-Server und den entsprechenden Endpunkt diese Session und lässt die Anfrager, sofern eine Session gefunden wurde, beitreten.
 
 \paragraph{Vorstellung der Datenmodelle}
 
 \section{Herausforderungen in der Umsetzung}\label{sec:difficulties}
-Die Umsetzung einer Spielidee stellt oft im Verlauf des Entwicklungsprozesses Hürden bereit, welche auf verschiedenste weisen gelöst werden müssen. Auch  diese Arbeit ist davon nicht verschont gewesen und stieß auf so manche Herausforderungen. 
+Die Umsetzung einer Spielidee stellt oft im Verlauf des Entwicklungsprozesses Hürden bereit, welche auf verschiedenste Weisen gelöst werden müssen. Auch  diese Arbeit ist davon nicht verschont gewesen und stieß auf so manche Herausforderungen. 
 
 \subsection{Erste Schritte im Leveldesign}
-Zu Beginn der Schaffung der Spielwelt wurde überlegt, wie die Spielwelt auf einfache weise gebaut werden kann, damit sich hinterher nur noch überlegt werden muss wie die enthaltenen Rätsel aussehen können. Um einzelne Spielräume generativ bauen zu können wurde das Unity-Package von \cite{alasl_autolevel_nodate} näher betrachtet.
+Zu Beginn der Schaffung der Spielwelt wurde überlegt, wie die Spielwelt auf einfache weise gebaut werden kann, damit sich hinterher nur noch überlegt werden muss, wie die enthaltenen Rätsel aussehen können. Um einzelne Spielräume generativ bauen zu können, wurde das Unity-Package von \cite{alasl_autolevel_nodate} näher betrachtet.
 
-Das Asset umfasst einen Level-Builder, der aus den Konfigurierten Modellen aus einem Repository generativ eine Spielwelt baut. Abbildung \ref{fig:level_builder} zeigt ihn in der Anwendung. Der Nutzer kann innerhalb des bestimmten Rasters einzelne Teile auswählen und dem Generator mitteilen, dass manche Stellen einen Hohlraum oder zusätzliche Elemente aus anderen Repositories haben sollen.
+Das Asset umfasst einen Level-Builder, der aus den konfigurierten Modellen aus einem Repository generativ eine Spielwelt baut. Abbildung \ref{fig:level_builder} zeigt ihn in der Anwendung. Der Nutzer kann innerhalb des bestimmten Rasters einzelne Teile auswählen und dem Generator mitteilen, dass manche Stellen einen Hohlraum oder zusätzliche Elemente aus anderen Repositorys haben sollen.
 
 \begin{figure}[ht]
 \centering
@@ -448,7 +448,7 @@ Das Asset umfasst einen Level-Builder, der aus den Konfigurierten Modellen aus e
 \label{fig:level_builder}
 \end{figure}
 
-Abbildung \ref{fig:level_builder_edit} zeigt dies anschaulich. Eine Teilfläche um die obere Ende des Level-Builder Umfangs wurde über ein Menü des Builders ausgewählt und soll nun eine Anweisung für den Generator erhalten. In diesem Fall kann der Nutzer nun dem ausgewählten Bereich eine \say{Empty}-Eigenschaft geben, sodass an dieser Stelle kein Raum generiert wird.
+Abbildung \ref{fig:level_builder_edit} zeigt dies anschaulich. Eine Teilfläche um das obere Ende des Level-Builder-Umfangs wurde über ein Menü des Builders ausgewählt und soll nun eine Anweisung für den Generator erhalten. In diesem Fall kann der Nutzer nun dem ausgewählten Bereich eine \say{Empty}Eigenschaft geben, sodass an dieser Stelle kein Raum generiert wird.
 
 \begin{figure}[ht]
 \centering
@@ -457,7 +457,7 @@ Abbildung \ref{fig:level_builder_edit} zeigt dies anschaulich. Eine Teilfläche 
 \label{fig:level_builder_edit}
 \end{figure}
 
-Um das Generieren der Spielwelt zu ermöglichen, muss zunächst ein Repository an Objekten erstellt werden, welche der Algorithmus verwendet. Ein Repository besteht aus einzelnen verschieden aussehenden 1*1*1 Meter großen modulare Einzelteile, die über das in Abbildung \ref{fig:repository-generator} gezeigte Menü zusammengesteckt werden können. So können aus den sechs Einzelteilen in der Abbildung viele verschiedene 2*3 große Teile ergeben, welche der Level Builder generieren kann.
+Um das Generieren der Spielwelt zu ermöglichen, muss zunächst ein Repository an Objekten erstellt werden, welche der Algorithmus verwendet. Ein Repository besteht aus einzelnen verschieden aussehenden 1x1x1 Meter großen modulare Einzelteile, die über das in Abbildung \ref{fig:repository-generator} gezeigte Menü zusammengesteckt werden können. So können aus den sechs Einzelteilen in der Abbildung viele verschiedene 2x3 große Teile ergeben, welche der Level Builder generieren kann.
 
 \begin{figure}[ht]
 \centering
@@ -466,9 +466,9 @@ Um das Generieren der Spielwelt zu ermöglichen, muss zunächst ein Repository a
 \label{fig:repository-generator}
 \end{figure}
 
-Allerdings setzt dieses Paket voraus, dass jedes Struktur gebende \ac{3D}-Objekt in seine 1*1*1 Meter große Basis zerlegt wird. Das wäre bei Assets, die über den Asset-Store hinzugenommen wurden ein viel zu großer Aufwand geworden.
+Allerdings setzt dieses Paket voraus, dass jedes Struktur gebende \ac{3D}-Objekt in seine 1x1x1 Meter große Basis zerlegt wird. Das wäre bei Assets, die über den Asset-Store hinzugenommen wurden, ein viel zu großer Aufwand geworden.
 
-Daher wurde nach einem Generator geschaut, der fertige Strukturelemente wie Boden-Modelle oder Wand-Elemente verwenden kann. \cite{mysticforge_low_nodate} stellt einen Generator bereit, bei dem für verschiedene Abschnitte, wie Links/ Rechts Kurven, zweier oder dreier Kreuzungen oder geraden Stücken, verschiedene Varianten bereitgestellt werden können und der Generator aus diesen eine Spielwelt generiert. Zusätzlich konnten auch angefertigte Räume mit bereitgestellt werden, in welchen im späteren Verlauf die Rätsel eingebaut werden können. Die Elemente, die zwischen diesen Räumen generiert wurden, können so als Verbindungsstücke dienen, durch welcher der Watcher den Player navigieren müsste. Auch dieser Generator benötigt Modelle in einer bestimmten Größen-Norm. Diese ist jedoch im Vergleich zum Generator von \cite{alasl_autolevel_nodate} nicht zu kleinteilig und bezieht sich auf Strukturgebende Elemente wie Wände als Ganzes.
+Daher wurde nach einem Generator geschaut, der fertige Strukturelemente wie Boden-Modelle oder Wand-Elemente verwenden kann. \cite{mysticforge_low_nodate} stellt einen Generator bereit, bei dem für verschiedene Abschnitte, wie Links/ Rechts Kurven, zweier oder dreier Kreuzungen oder geraden Stücken, verschiedene Varianten bereitgestellt werden können und der Generator aus diesen eine Spielwelt generiert. Zusätzlich konnten auch angefertigte Räume mit bereitgestellt werden, in welchen im späteren Verlauf die Rätsel eingebaut werden können. Die Elemente, die zwischen diesen Räumen generiert wurden, können so als Verbindungsstücke dienen, durch welcher der Watcher den Player navigieren müsste. Auch dieser Generator benötigt Modelle in einer bestimmten Größen-Norm. Diese ist jedoch im Vergleich zum Generator von \cite{alasl_autolevel_nodate} nicht zu kleinteilig und bezieht sich auf strukturgebende Elemente wie Wände als Ganzes.
 
 \begin{figure}[ht]
 \centering
@@ -486,7 +486,7 @@ Allerdings werden die verschiedenen Elemente zufällig hintereinander gereiht. D
 \label{fig:athaeck-dungeon-generator}
 \end{figure}
 
-Jedoch hatte dieser nicht weitergeführte Ansatz auch ein positives Ergebnis. Da die einzelnen Elemente der Strukturelemente in einer bestimmten selbst definierten Norm angepasst werden mussten, konnte im weitere Verlauf des Leveldesign mit diesen Maßstäben die weiteren hinzugenommenen Assets anpassen und verwendet werden.
+Jedoch hatte dieser nicht weitergeführte Ansatz auch ein positives Ergebnis. Da die einzelnen Elemente der Strukturelemente in einer bestimmten selbst definierten Norm angepasst werden mussten, konnte im weitere Verlauf das Leveldesign mit diesen Maßstäben die weiteren hinzugenommenen Assets anpassen und verwendet werden.
 
 \subsection{Physik-System von Unity}\label{sec:unity-physics-system}
 Die Kern-Mechanik des Lösens von Hindernissen in diesem Prototyp ist das Platzieren von Gegenständen an bestimmte Stellen. Zu einem Teil werden die Platzierungen der Objekte über das Physik-System von Unity überprüft. Jeder platzierte Gegenstand besitzt einen Collider, der auf Kollisionen mit anderen Collidern, wie dem des Player-Avatars reagiert. Wie in den Beispielen der \say{QuestSolver} (vgl. Abschnitt \nameref{sec:quest-system}) oder \say{PathActivator} (vgl. Abschnitt \nameref{sec:path-system}) reagieren nun diese Komponenten auf die Collider der Gegenstände, die innerhalb der eigenen Collider platziert werden. 
@@ -495,9 +495,9 @@ Die Kern-Mechanik des Lösens von Hindernissen in diesem Prototyp ist das Platzi
 
 Sobald ein Gegenstand innerhalb eines anderen Colliders platziert wird, errechnet das Physik-System eine Kollision, welche in den gehandhabten Klassen nun empfangen werden kann. Das \say{Script lifecycle flowchart} von Unity in \cite{technologies_unity_nodate} zeigt dies anschaulich. Nachdem ein neuer Knoten in die Spielwelt instanziiert wurde, beginnt zunächst die Initialisierung der enthaltenen Skripte. Anschließend erfolgt die Errechnung des Physik-Systems, ehe es weiter über Input-Events und die Spiellogik geht.
 
-Jedoch gab es Probleme beim Entfernen der einzelnen Objekte aus den genannten Zielradien der Collider. Der Lebenszyklus von Unity errechnet nachdem ein Gegenstand entfernt wurde keine Physikalischen Veränderungen des entfernten Objekts (In der Abbildung nach \say{OnApplicationQuit} zu sehen). Für das Lösungssystem der Hindernisse und der Aktivierung oder Deaktivierung von bestimmten Pfaden ist dies ein Problem.
+Jedoch gab es Probleme beim Entfernen der einzelnen Objekte aus den genannten Zielradien der Collider. Der Lebenszyklus von Unity errechnet, nachdem ein Gegenstand entfernt wurde, keine physikalischen Veränderungen des entfernten Objekts (in der Abbildung nach \say{OnApplicationQuit} zu sehen). Für das Lösungssystem der Hindernisse und der Aktivierung oder Deaktivierung von bestimmten Pfaden ist dies ein Problem.
 
-Aus diesem Grund wurde eine Basisklasse geschrieben, die an den zur Laufzeit hinzugefügten und entfernten Objekten liegt. Von ihr aus sollen nun Kollisionen ausgeführt werden. In der Vergangenheit wurde jeweils an den Objekten, die die Kollisionen empfangen diese behandelt. Zum Teil bleibt dieses Prinzip erhalten, nur ist diesmal der Verursacher auch derjenige, der zur Laufzeit entfernt wird.
+Aus diesem Grund wurde eine Basisklasse geschrieben, die an den zur Laufzeit hinzugefügten und entfernten Objekten liegt. Von ihr aus sollen nun Kollisionen ausgeführt werden. In der Vergangenheit wurde jeweils an den Objekten, die die Kollisionen empfangen, diese behandelt. Zum Teil bleibt dieses Prinzip erhalten, nur ist diesmal der Verursacher auch derjenige, der zur Laufzeit entfernt wird.
 
 \begin{figure}[ht]
 \centering
@@ -506,7 +506,7 @@ Aus diesem Grund wurde eine Basisklasse geschrieben, die an den zur Laufzeit hin
 \label{fig:new-collision-system}
 \end{figure}
 
-Abbildung \ref{fig:new-collision-system} zeigt die neue Klasse des \say{Verursachers} von Kollisionen (in letzter Vererbungs-Stufe das \say{Item}-Skript, welches am Gegenstandobjekt liegt, welches platziert wird) und das Empfänger-Interface, das nun wie in Abbildung \ref{fig:new-collision-system-in-quests} vom der \say{BasePlaceableActivator} Basis-Klasse vererbt wird. 
+Abbildung \ref{fig:new-collision-system} zeigt die neue Klasse des \say{Verursachers} von Kollisionen (in letzter Vererbungs-Stufe das \say{Item}-Skript, welches am Gegenstandobjekt liegt, welches platziert wird) und das Empfänger-Interface, das nun wie in Abbildung \ref{fig:new-collision-system-in-quests} von der \say{BasePlaceableActivator} Basis-Klasse vererbt wird. 
 
 \begin{figure}[ht]
 \centering
@@ -516,11 +516,11 @@ Abbildung \ref{fig:new-collision-system} zeigt die neue Klasse des \say{Verursac
 \end{figure}
 
 \subsection{Platzieren von Gegenständen innerhalb und außerhalb der Spielwelt}\label{sec:difficulties-placement}
-Wie bereits erwähnt besitzen der Player und der Watcher zum Teil unterschiedliche Ansichten der Räume. Am Beispiel des Sicherheitsraumes wird das folgende Problem, das das Platzieren von Gegenständen mit sich führen kann, vorgestellt. 
+Wie bereits erwähnt, besitzen der Player und der Watcher zum Teil unterschiedliche Ansichten der Räume. Am Beispiel des Sicherheitsraumes wird das folgende Problem, das das Platzieren von Gegenständen mit sich führen kann, vorgestellt. 
 
-Im Sicherheitsraum befindet sich der Player innerhalb des Gebäudes, wohingegen der Watcher zusätzlich einen kleinen Außenbereich sieht, auf den er einen gefundenen Stromgenerator platzieren muss. Da sich für dem Watcher ein Bereich geöffnet hat, kann er auf diesen den Generator ohne Probleme platzieren. Da jedoch alle in der Session platzierten Gegenstände sowohl beim Watcher als auch beim Player platziert werden, stößt dies auf ein Problem. Der Player darf keine Gegenstände sehen, welche in nicht aktiven Bereichen liegen. 
+Im Sicherheitsraum befindet sich der Player innerhalb des Gebäudes, wohingegen der Watcher zusätzlich einen kleinen Außenbereich sieht, auf den er einen gefundenen Stromgenerator platzieren muss. Da sich für den Watcher ein Bereich geöffnet hat, kann er auf diesen den Generator ohne Probleme platzieren. Da jedoch alle in der Session platzierten Gegenstände sowohl beim Watcher als auch beim Player platziert werden, stößt dies auf ein Problem. Der Player darf keine Gegenstände sehen, welche in nicht aktiven Bereichen liegen. 
 
-Aus diesem Grund wurde für jeden Bereich Collider in die Spielwelt platziert, die dafür verantwortlich sind, Gegenstände zu aktivieren oder deaktivieren, je nachdem ob der Bereich aktiv oder inaktiv ist. Das umgeänderte System aus dem vorangegangenen Kapitel \nameref{sec:unity-physics-system} und die Klasse \say{PathCollider} aus dem Kapitel \nameref{sec:path-system} spielen hier dabei zusammen und ermöglichen es, dass sowohl Player als auch Watcher keine \say{falschen} Objekte außerhalb der aktiven Weltgebiete sehen können.
+Aus diesem Grund wurde für jeden Bereich Collider in die Spielwelt platziert, die dafür verantwortlich sind, Gegenstände zu aktivieren oder deaktivieren, je nachdem, ob der Bereich aktiv oder inaktiv ist. Das umgeänderte System aus dem vorangegangenen Kapitel \nameref{sec:unity-physics-system} und die Klasse \say{PathCollider} aus dem Kapitel \nameref{sec:path-system} spielen hier dabei zusammen und ermöglichen es, dass sowohl Player als auch Watcher keine \say{falschen} Objekte außerhalb der aktiven Weltgebiete sehen können.
 
 Jedoch fielen in der Evaluation der Anwendungen Grenzfälle auf, die im Kapitel \nameref{sec:prospect} weiter behandelt werden.
 
@@ -546,4 +546,4 @@ Jedoch fielen in der Evaluation der Anwendungen Grenzfälle auf, die im Kapitel 
 
 % AR
 
-% Gerätefindung im selben Netzwerk
+% Gerätefindung im selben Netzwerk -> eher Herausforderungen in der Evaluation

@@ -233,7 +233,7 @@ Die Pan-Geste, bei der mit einem Finger über den Bildschirm auf zwei Achsen vor
 
 Es fehlt nun nur noch die Bewegung des Avatars. Dafür reicht die grundlegenden Single-Touch Touch Aktion, durch welche auf die Spielwelt geklickt wird und sich der Avatar zu dieser Position bewegen soll. Um die Bewegung des Avatars zu ermöglichen, wurde das System der NavMesh Agents verwendet. Das System ermöglicht durch einen Path-Finding Algorithmus dass sich der Agent selbständig an ein gewünschtes Ziel bewegen kann. Zunächst muss ein Surface der Spielwelt erstellt werden, anschließend kann dem Agent eine Zielposition übermittelt werden und der bewegt sich selbständig an die gewünschte Position. Durch das Follow der Cinemachine-Komponente folgt das Kamerasystem dem Avatar selbständig.
 
-\paragraph{Questsystem}
+\paragraph{Questsystem}\label{sec:quest-system}
 Da die Rätsel und Hindernisse nicht einfach irgendwie in der Spielwelt eingebaut wurden, wurde für diesen Zweck ein kleines System entworfen, durch welches verschiedene Rätsel zusammengebaut werden können.
 
 \begin{figure}[ht]
@@ -253,7 +253,7 @@ Bevor eine \say{Quest} gelöst werden kann, muss sie zunächst gestartet werden.
 
 Nachdem die \say{Quest} gelöst wurde, führen alle mit der \say{Quest} verbundenen \say{QuestSolveExecuter} ihre jeweiligen Tätigkeiten aus. Jede \say{Quest} besitzt eine Referenz auf alle verbundenen \say{Executer}. Im Beispiel der Abbildung ist es eine Gefängnistür, welche beim Lösen einer \say{Quest} über den enthaltenen Animator aufgeht.
 
-\paragraph{Pathsystem}
+\paragraph{Pathsystem}\label{sec:path-system}
 Wie das Questsystem wurde das Pathsystem ebenfalls möglichst modular gehalten, dass es auch in der Anwendung des Watchers eingebaut werden kann. Das Pathsystem ist deshalb wichtig, da zur Laufzeit des Spiels weitere Wege und Räume zugänglich gemacht werden und diese auf eine Weise mit der Logik der Rätsel verbunden sein müssen.
 
 \begin{figure}[ht]
@@ -271,7 +271,7 @@ Jeder \say{Pathway} besitzt Referenzen auf Aktivatoren (\say{PathActivator}) und
 
 Da in dem konzipierten Tutorial kein Weg wieder deaktiviert wird, existiert dafür kein Beispiel. Die \say{QuestPathActivator}-Klasse ist im Beispiel des Diagramms dafür verantwortlich, nach Lösen einer \say{Quest} den mit dieser \say{Quest} verbundenen \say{Pathway} zu entdecken.
 
-Wurde ein \say{Pathway} entdeckt, wird in der Komponente des \say{PathObjects} das entsprechende \ac{3D}-Objekt in der Spielszene aktiviert und die Collider für den Raum in der Komponente des \say{PathColliders} deaktiviert. Die Wichtigkeit der \say{PathCollider} wird im späteren Kapitel \ref{sec:difficulties} erklärt. 
+Wurde ein \say{Pathway} entdeckt, wird in der Komponente des \say{PathObjects} das entsprechende \ac{3D}-Objekt in der Spielszene aktiviert und die Collider für den Raum in der Komponente des \say{PathColliders} deaktiviert. Die Wichtigkeit der \say{PathCollider} wird im späteren Kapitel \ref{sec:difficulties-placement} erklärt. 
 
 [TODO: ich müsste npch die Toolbar vom Player irgendwo zeigen]
 
@@ -431,6 +431,8 @@ Abbildung \ref{fig:cm-server} zeigt den Aufbau des Servers. Der physische Server
 
 Werden Sessions verlassen, werden diese vom WebSocket Server gespeichert. Dies geschieht durch \ac{HTTP}-Anfragen an den Basis Node-Server, welcher über seine Endpunkte die entsprechenden Daten abspeichert. Sie können durch das beitreten einer bereits existierenden Session wieder geladen werden. Senden Player als auch Watcher eine Beitritts-Anfrage an den WebSocket-Server, so lädt dieser über den Node-Server und den entsprechenden Endpunkt diese Session und lässt die Anfrager, sofern eine Session gefunden wurde, beitreten.
 
+\paragraph{Vorstellung der Datenmodelle}
+
 \section{Herausforderungen in der Umsetzung}\label{sec:difficulties}
 Die Umsetzung einer Spielidee stellt oft im Verlauf des Entwicklungsprozesses Hürden bereit, welche auf verschiedenste weisen gelöst werden müssen. Auch  diese Arbeit ist davon nicht verschont gewesen und stieß auf so manche Herausforderungen. 
 
@@ -486,11 +488,41 @@ Allerdings werden die verschiedenen Elemente zufällig hintereinander gereiht. D
 
 Jedoch hatte dieser nicht weitergeführte Ansatz auch ein positives Ergebnis. Da die einzelnen Elemente der Strukturelemente in einer bestimmten selbst definierten Norm angepasst werden mussten, konnte im weitere Verlauf des Leveldesign mit diesen Maßstäben die weiteren hinzugenommenen Assets anpassen und verwendet werden.
 
-\subsection{Physik-System von Unity}
+\subsection{Physik-System von Unity}\label{sec:unity-physics-system}
+Die Kern-Mechanik des Lösens von Hindernissen in diesem Prototyp ist das Platzieren von Gegenständen an bestimmte Stellen. Zu einem Teil werden die Platzierungen der Objekte über das Physik-System von Unity überprüft. Jeder platzierte Gegenstand besitzt einen Collider, der auf Kollisionen mit anderen Collidern, wie dem des Player-Avatars reagiert. Wie in den Beispielen der \say{QuestSolver} (vgl. Abschnitt \nameref{sec:quest-system}) oder \say{PathActivator} (vgl. Abschnitt \nameref{sec:path-system}) reagieren nun diese Komponenten auf die Collider der Gegenstände, die innerhalb der eigenen Collider platziert werden. 
 
+[TODO: Zur veranschaulichung eine Zeichnung eimbauen?]
 
-\subsection{Platzieren von Gegenständen außerhalb der Spielwelt}
+Sobald ein Gegenstand innerhalb eines anderen Colliders platziert wird, errechnet das Physik-System eine Kollision, welche in den gehandhabten Klassen nun empfangen werden kann. Das \say{Script lifecycle flowchart} von Unity in \cite{technologies_unity_nodate} zeigt dies anschaulich. Nachdem ein neuer Knoten in die Spielwelt instanziiert wurde, beginnt zunächst die Initialisierung der enthaltenen Skripte. Anschließend erfolgt die Errechnung des Physik-Systems, ehe es weiter über Input-Events und die Spiellogik geht.
 
+Jedoch gab es Probleme beim Entfernen der einzelnen Objekte aus den genannten Zielradien der Collider. Der Lebenszyklus von Unity errechnet nachdem ein Gegenstand entfernt wurde keine Physikalischen Veränderungen des entfernten Objekts (In der Abbildung nach \say{OnApplicationQuit} zu sehen). Für das Lösungssystem der Hindernisse und der Aktivierung oder Deaktivierung von bestimmten Pfaden ist dies ein Problem.
+
+Aus diesem Grund wurde eine Basisklasse geschrieben, die an den zur Laufzeit hinzugefügten und entfernten Objekten liegt. Von ihr aus sollen nun Kollisionen ausgeführt werden. In der Vergangenheit wurde jeweils an den Objekten, die die Kollisionen empfangen diese behandelt. Zum Teil bleibt dieses Prinzip erhalten, nur ist diesmal der Verursacher auch derjenige, der zur Laufzeit entfernt wird.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/CollisionSystem.drawio.png}
+\caption{Neue Herangehensweise an Kollisionen (Quelle: eigene Darstellung)}
+\label{fig:new-collision-system}
+\end{figure}
+
+Abbildung \ref{fig:new-collision-system} zeigt die neue Klasse des \say{Verursachers} von Kollisionen (in letzter Vererbungs-Stufe das \say{Item}-Skript, welches am Gegenstandobjekt liegt, welches platziert wird) und das Empfänger-Interface, das nun wie in Abbildung \ref{fig:new-collision-system-in-quests} vom der \say{BasePlaceableActivator} Basis-Klasse vererbt wird. 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/Quest-Extension.drawio.png}
+\caption{Kollisions-Empfänger im Quest-System (Quelle: eigene Darstellung)}
+\label{fig:new-collision-system-in-quests}
+\end{figure}
+
+\subsection{Platzieren von Gegenständen innerhalb und außerhalb der Spielwelt}\label{sec:difficulties-placement}
+Wie bereits erwähnt besitzen der Player und der Watcher zum Teil unterschiedliche Ansichten der Räume. Am Beispiel des Sicherheitsraumes wird das folgende Problem, das das Platzieren von Gegenständen mit sich führen kann, vorgestellt. 
+
+Im Sicherheitsraum befindet sich der Player innerhalb des Gebäudes, wohingegen der Watcher zusätzlich einen kleinen Außenbereich sieht, auf den er einen gefundenen Stromgenerator platzieren muss. Da sich für dem Watcher ein Bereich geöffnet hat, kann er auf diesen den Generator ohne Probleme platzieren. Da jedoch alle in der Session platzierten Gegenstände sowohl beim Watcher als auch beim Player platziert werden, stößt dies auf ein Problem. Der Player darf keine Gegenstände sehen, welche in nicht aktiven Bereichen liegen. 
+
+Aus diesem Grund wurde für jeden Bereich Collider in die Spielwelt platziert, die dafür verantwortlich sind, Gegenstände zu aktivieren oder deaktivieren, je nachdem ob der Bereich aktiv oder inaktiv ist. Das umgeänderte System aus dem vorangegangenen Kapitel \nameref{sec:unity-physics-system} und die Klasse \say{PathCollider} aus dem Kapitel \nameref{sec:path-system} spielen hier dabei zusammen und ermöglichen es, dass sowohl Player als auch Watcher keine \say{falschen} Objekte außerhalb der aktiven Weltgebiete sehen können.
+
+Jedoch fielen in der Evaluation der Anwendungen Grenzfälle auf, die im Kapitel \nameref{sec:prospect} weiter behandelt werden.
 
 % erste Ansätze im Levelbuilding erwähnen
 

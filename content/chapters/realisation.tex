@@ -16,7 +16,7 @@ Das Model definiert, welche Daten die App enthalten soll. Ändert sich der Zusta
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/mvc-architecture.png}
-\caption{\ac{MVC} Beispiel-Diagramm \cite{noauthor_mvc_2023}}
+\caption{\ac{MVC} Beispiel-Diagramm (Quelle: \cite{noauthor_mvc_2023})}
 \label{fig:mvc-diagramm}
 \end{figure}
 
@@ -389,7 +389,7 @@ Das \ac{OSI}-Modell zeigt auf, welche verschiedenen Schichten in der Netzwerkkom
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.5\linewidth]{content/pictures/TCP-Network.png}
-\caption{Kommunikationsverbindung über TCP (vgl. \cite{mygames_unity_2024})}
+\caption{Kommunikationsverbindung über TCP (Quelle: \cite{mygames_unity_2024})}
 \label{fig:tcp}
 \end{figure}
 
@@ -403,7 +403,7 @@ Zunächst erstellen der Client und Server einen Socket, um Daten über \ac{TCP} 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.5\linewidth]{content/pictures/UDP-Network.png}
-\caption{Kommunikation über UDP (vgl. \cite{mygames_unity_2024})}
+\caption{Kommunikation über UDP (Quelle: \cite{mygames_unity_2024})}
 \label{fig:udp}
 \end{figure}
 
@@ -412,7 +412,7 @@ Auf Basis der Grundprotokolle \ac{TCP} und \ac{UDP} existieren auch Erweiterunge
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.5\linewidth]{content/pictures/WebSocket-Network.png}
-\caption{Kommunikation über WebSocket (vgl. \cite{mygames_unity_2024})}
+\caption{Kommunikation über WebSocket (Quelle: \cite{mygames_unity_2024})}
 \label{fig:ws}
 \end{figure}
 
@@ -444,7 +444,7 @@ Das Asset umfasst einen Level-Builder, der aus den konfigurierten Modellen aus e
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/FirstSteps00.png}
-\caption{Level Builder Komponente \cite{alasl_autolevel_nodate}}
+\caption{Level Builder Komponente (Quelle: \cite{alasl_autolevel_nodate})}
 \label{fig:level_builder}
 \end{figure}
 
@@ -453,7 +453,7 @@ Abbildung \ref{fig:level_builder_edit} zeigt dies anschaulich. Eine Teilfläche 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/FirstSteps01.png}
-\caption{Level Builder Komponente \cite{alasl_autolevel_nodate}}
+\caption{Level Builder Komponente (Quelle: \cite{alasl_autolevel_nodate})}
 \label{fig:level_builder_edit}
 \end{figure}
 
@@ -462,7 +462,7 @@ Um das Generieren der Spielwelt zu ermöglichen, muss zunächst ein Repository a
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/FirstSteps02.png}
-\caption{Level Builder Komponente \cite{alasl_autolevel_nodate}}
+\caption{Level Builder Komponente (Quelle: \cite{alasl_autolevel_nodate})}
 \label{fig:repository-generator}
 \end{figure}
 
@@ -473,7 +473,7 @@ Daher wurde nach einem Generator geschaut, der fertige Strukturelemente wie Bode
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/FirstSteps03.png}
-\caption{Low-Poly Dungeon Generator \cite{past12pm_low_2024}}
+\caption{Low-Poly Dungeon Generator (Quelle: \cite{past12pm_low_2024})}
 \label{fig:dungeon-generator}
 \end{figure}
 
@@ -489,9 +489,16 @@ Allerdings werden die verschiedenen Elemente zufällig hintereinander gereiht. D
 Jedoch hatte dieser nicht weitergeführte Ansatz auch ein positives Ergebnis. Da die einzelnen Elemente der Strukturelemente in einer bestimmten selbst definierten Norm angepasst werden mussten, konnte im weitere Verlauf das Leveldesign mit diesen Maßstäben die weiteren hinzugenommenen Assets anpassen und verwendet werden.
 
 \subsection{Physik-System von Unity}\label{sec:unity-physics-system}
-Die Kern-Mechanik des Lösens von Hindernissen in diesem Prototyp ist das Platzieren von Gegenständen an bestimmte Stellen. Zu einem Teil werden die Platzierungen der Objekte über das Physik-System von Unity überprüft. Jeder platzierte Gegenstand besitzt einen Collider, der auf Kollisionen mit anderen Collidern, wie dem des Player-Avatars reagiert. Wie in den Beispielen der \say{QuestSolver} (vgl. Abschnitt \nameref{sec:quest-system}) oder \say{PathActivator} (vgl. Abschnitt \nameref{sec:path-system}) reagieren nun diese Komponenten auf die Collider der Gegenstände, die innerhalb der eigenen Collider platziert werden. 
+Die Kern-Mechanik des Lösens von Hindernissen in diesem Prototyp ist das Platzieren von Gegenständen an bestimmte Stellen. Zu einem Teil werden die Platzierungen der Objekte über das Physik-System von Unity überprüft. Jeder platzierte Gegenstand besitzt einen Collider, der auf Kollisionen mit anderen Collidern, wie dem des Player-Avatars reagiert. Wie in den Beispielen der \say{QuestSolver} (vgl. Abschnitt \nameref{sec:quest-system}) oder \say{PathActivator} (vgl. Abschnitt \nameref{sec:path-system}) reagieren nun diese Komponenten auf die Collider der Gegenstände, die innerhalb der eigenen Collider platziert werden (vgl. Abbildung \ref{fig:collision-sketch}). 
 
-[TODO: Zur veranschaulichung eine Zeichnung eimbauen?]
+% [TODO: Zur veranschaulichung eine Zeichnung eimbauen?]
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/CollisionSketch.png}
+\caption{Kollision zweier Collider in dem Raum, bei dem blau und rot sich kreuzen (Quelle: eigene Darstellung)}
+\label{fig:collision-sketch}
+\end{figure}
+
 
 Sobald ein Gegenstand innerhalb eines anderen Colliders platziert wird, errechnet das Physik-System eine Kollision, welche in den gehandhabten Klassen nun empfangen werden kann. Das \say{Script lifecycle flowchart} von Unity in \cite{technologies_unity_nodate} zeigt dies anschaulich. Nachdem ein neuer Knoten in die Spielwelt instanziiert wurde, beginnt zunächst die Initialisierung der enthaltenen Skripte. Anschließend erfolgt die Errechnung des Physik-Systems, ehe es weiter über Input-Events und die Spiellogik geht.
 

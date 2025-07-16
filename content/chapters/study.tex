@@ -1,8 +1,58 @@
-\chapter{Vorbereitungs-Testphase der Anwendungen}
+\chapter{Vorbereitungs-Testphase der Anwendungen}\label{sec:pre-study}
+Dieser Abschnitt behandelt eine Vorbereitungstestphase zu den im kommenden Kapitel \ref{sec:study} vorgestellten Versuchsdurchführungen. Sie soll erste gebrauchstaugliche Probleme der Anwendungen offenlegen, damit diese vor den ersten Testdurchläufen angepasst oder in der Versuchsdurchführung angesprochen werden können.
 
-\chapter{Evaluation des Prototyps sowie der Wirkung des Prototyps auf das Kommunikationsverhalten der Probanden}
+\section{Methodik}
+In diesem Kapitel wird die methodische Herangehensweise der Testphase in Bezug auf erste gebrauchstaugliche Mängel der Anwendungen und des Infrastruktur Aufbaus vorgestellt. Ziel ist es, die Infrastruktur der Anwendungen aufzubauen und über erste Testspielsitzungen einen Eindruck auf die Schwierigkeit der Rätsel und der Handhabung der Anwendungen zu erhalten. Dabei wurde ein qualitatives Verfahren anhand der Thinking-Aloud Methode durchgeführt.
 
-Dieser Abschnitt behandelt das Testen der umgesetzten Anwendung sowie das Messen des Effektes, den die Anwendung haben soll. Er zeigt auf, an welchen Elementen des Prototyps Weiterentwicklungen von Nöten sind und gibt erste Ergebnisse darauf, wie seine Wirkung ist.
+\subsection{Forschungsdesign}
+Um erste gebrauchstaugliche Mängel der Anwendungen identifizieren zu können wurde das praxisorientierte Thinking-Aloud Verfahren angewandt. Im Fokus standen dabei die umgesetzten Steuerungen der Player und Watcher Anwendung.
+
+\subsection{Erhebnungsinstrumente}
+% Die durch die Thinking-Aloud Methode angesprochenen Gedankengänge und Hinweise der Probanden werden stichpunktartig dokumentiert und in einem zweiten Schritt nach den Tests ausgewertet.
+Zur Erfassung der während der Thinking-Aloud-Methode geäußerten Gedanken und Hinweise der Probanden wurde ein Beobachtungsprotokoll als Erhebungsinstrument verwendet. Die verbalen Äußerungen der Probanden wurde dabei stichpunktartig dokumentiert, wobei der Fokus auf spontanen Kommentaren zur Steuerung und der Rätsel und zu auftretenden Schwierigkeiten lag. Eine audiovisuelle Aufzeichnung wurde nicht eingesetzt, da die Testsituation möglichst natürlich gestaltet wurde. Die dokumentierten Aussagen wurden im Anschluss an die Tests qualitativ ausgewertet.
+
+\subsection{Stichporengröße}
+Bei der Wahl der Stichprobengröße musste der Aspekt des \say{verbrauchens von Probanden} berücksichtigt werden, da die ausgewählten Teilnehmer nicht an der großen Versuchsdurchführung teilnehmen durften. Sie würden voreingenommen in das Szenario gehen und würden dabei das Wirkungsergebnisse verfälschen.
+
+Aus diesem Grund wurde bei der Wahl der Stichprobe die kleinstmögliche Anzahl ausgewählt, durch welche alle Aspekte der Gebrauchstauglichkeit gesammelt werden können. Aus diesem Grund wurden nach Turner \cite[S. 3088]{turner_determining_2006} sieben Probanden ausgewählt, welche die erste Version des Prototyps spielen durften.
+
+\subsection{Durchführung der Studie}
+Für die Durchführung der ersten Testdurchläufe wurden gezielte Teilnehmer aus dem näheren Umfeld angefragt und ausgewählt. Diese kannten bis zu einem gewissen Grad das Thema des Prototyps und der Studie oder waren in der vorausgehenden Ausarbeitung Teil des Projektes.
+
+Sie wurden jeweils in Dyaden eingeladen und sind nacheinander an der Reihe gewesen.
+
+Nach einer kurzen Begrüßung der Probanden wurde ihnen eine kleine Einführung in die Geschichte des Prototyps und der Steuerung gegeben. Im Anschluss durften sie sich an die jeweiligen Geräte setzen, an denen die Anwendung ihrer Spielerrolle gespielt wird.
+
+Während des Spielens sollten sie ihre Gedanken laut aussprechen, was ihnen durch den Kopf ging. 
+
+Nachdem die Probanden den Prototyp bis zum Ende hin durchgespielt haben, wurden sie verabschiedet und die nächste Dyade durfte an die Reihe.
+
+Jeder Durchlauf pro Dyade dauerte dabei 45 Minuten.
+
+\subsection{Rahmenbedingungen}\label{sec:pre-study-rahmen}
+Für die Durchführung der Prototyp-Tests wurde im I Bau der ehemaligen Fakultät Digitale Medien der Aufbau im Masterpool aufgebaut. Die Probandentests fanden nach den offiziellen Vorlesungen und Besprechungen statt, wodurch diese Tests in einer ruhigen Umgebung durchgeführt werden konnten.
+
+Da für das Durchführen der Probandentests einiges an Hardware benötigt wurde, wurde diese bei der Fakultäts-\ac{IT} und dem \ac{IIIUS}. Über die \ac{IT} wurden der Rechner, Bildschirm, Tastatur und Maus ausgeliehen, über welchen der Player seine Anwendung spielen konnte. Über das \ac{IIIUS} wurde das Google Pixel 7, ein Stativ und die Aufnahme Kamera von Sony ausgeliehen. Über das Smartphone konnte der Watcher seine Anwendung spielen. Außerdem wurde bei Herrn Prof. Dr. Schnell ein TP-Link Router ausgeliehen, da sich die Anwendung des Players und des Watchers innerhalb des gleichen Netzwerkes befinden müssen um sich mit dem Server zu verbinden. Das Netzwerk der Hochschule verbietet es, dass sich Geräte innerhalb des Netzwerkes finden können.
+Auf einem privaten Laptop liefen der Docker-Container der MongoDB und der Node-Server über den der WebSocket Server erzeugt wird. Außerdem wurde ein Wimaxit 15-Zoll Touchmonitor verwendet, über den der Player seinen Avatar durch die Spielwelt steuern konnte.
+
+Die Teilnehmer der Dyade sollten sich gegenüber voneinander setzen, damit sie sich nicht gegenseitig in die Anwendung schauen können.
+
+\section{Ergebnisse}
+In diesem Abschnitt werden die gesammelten Probleme der ersten Prototypversion vorgestellt.
+
+
+
+\section{Handlungsempfehlungen}
+
+\section{Zusammenfassung und Interpretation der Ergebnisse}
+
+\section{Methodendiskussion}
+
+\chapter{Evaluation des Prototyps sowie der Wirkung des Prototyps auf das Kommunikationsverhalten der Probanden} \label{sec:study}
+
+Dieser Abschnitt behandelt das Testen der umgesetzten Anwendung sowie das Messen des Effektes, den die Anwendung haben soll. Er zeigt auf, an welchen Elementen des Prototyps Weiterentwicklungen von Nöten sind und gibt erste Ergebnisse auf seine Wirkung. 
+
+% \subsection{Methodik}
 
 % Die beiden Studienschwerpunkte 
 
@@ -96,15 +146,14 @@ Wie im Vortest hatten die Probanden hierfür ebenfalls zehn Minuten Zeit. Außer
 
 Nach Abschluss wurden die letzten Fragebögen von den Probanden ausgefüllt. Sie behandelten Vergleichswerte im Bezug auf die gegenseitige Beziehung und dem affektiven Status. Außerdem mussten sie Fragebögen zum Thema Leadership und dem Umgang mit Menschen in diesem Versuchsaufbau ausfüllen. Zuletzt hatten sie noch ein Freitextfeld, bei dem ihr qualitatives Feedback zur Anwendung gegeben werden konnte.
 
-Nachdem alle Fragebögen ausgefüllt wurden, wurde die Aufnahme beendet und es wurde sich bei den Probanden für die Teilnahme bedankt. Sie durften sich noch etwas von den bereitgestellten Snacks nehmen und wurden im Anschluss entlassen.
+Nachdem alle Fragebögen ausgefüllt wurden, wurde die Aufnahme beendet und es wurde sich bei den Probanden für die Teilnahme bedankt. Sie durften sich noch etwas von den bereitgestellten Süßigkeiten nehmen und wurden im Anschluss entlassen.
 
-Die gesamte Versuchsdurchführung dauerte etwa 75 Minuten pro Probanden-paar.
+Die gesamte Versuchsdurchführung dauerte etwa 75 Minuten pro Dyade.
 
 \subsection{Rahmenbedingungen}
 Für die Durchführung des Versuchsaufbaus wurde im I Bau der ehemaligen Fakultät Digitale Medien der Seminarraum reserviert. 
 
-Da für das Durchführen der Probandentests einiges an Hardware benötigt wurde, wurde diese bei der Fakultäts-\ac{IT} und dem \ac{IIIUS}. Über die \ac{IT} wurden der Rechner, Bildschirm, Tastatur und Maus ausgeliehen, über welchen der Player seine Anwendung spielen konnte. Über das \ac{IIIUS} wurde das Google Pixel 7, ein Stativ und die Aufnahme Kamera von Sony ausgeliehen. Über das Smartphone konnte der Watcher seine Anwendung spielen. Die Kamera und das Stativ wurden gebraucht, um die Versuchsdurchführung aufzunehmen. Außerdem wurde bei Herrn Prof. Dr. Schnell ein TP-Link Router ausgeliehen, da sich die Anwendung des Players und des Watchers innerhalb des gleichen Netzwerkes befinden müssen um sich mit dem Server zu verbinden. Das Netzwerk der Hochschule verbietet es, dass sich Geräte innerhalb des Netzwerkes finden können.
-Auf einem privaten Laptop liefen der Docker-Container der MongoDB und der Node-Server über den der WebSocket Server erzeugt wird. Außerdem wurde ein Wimaxit 15-Zoll Touchmonitor verwendet, über den der Player seinen Avatar durch die Spielwelt steuern konnte.
+Im Vergleich zu den Rahmenbedingungen bei den vorangegangenen Probandentests in Kapitel \ref{sec:pre-study-rahmen} wurden die Versuchsdurchführungen mithilfe der Kamera und des Stativs aufgenommen.
 
 \begin{figure}[ht]
 \centering
@@ -135,7 +184,9 @@ Am hinteren linken Bildrand von Abbildung \ref{fig:study-experiment-00} steht ei
 
 \section{Ergebnisse}
 In diesem Abschnitt werden die Ergebnisse der verschiedenen Fragebögen und der Aufzeichnungen der Versuchsdurchführungen vorgestellt.
-Die Vorstellung erfolgt in drei Abschnitten. Zunächst werden die Ergebnisse der Demographischen Daten vorgestellt, im Anschluss erfolgt die Vorstellung der Ergebnisse bezüglich des Prototyps und zum Schluss werden die Kenntnisse aus den Aufnahmen vorgestellt.
+Die Vorstellung erfolgt in einzelnen Abschnitten je nach übergeordneten Themenbezug.
+
+
 
 \subsection{Vorstellung der demographischen Daten}
 An der Versuchsdurchführung haben N=14 freiwillige Probanden (3 weibliche und 11 männliche; M = 25,86; SD = 4,52 Jahre) teilgenommen. Daraus ergeben sich für die Versuchsdurchführung 7-Zweierpaare. Zwei Probanden kannten sich zum Start der Versuchsdurchführung nicht, bzw. kannten sich nur vom Sehen. 12 der Probanden haben angegeben, dass sie bereits Erfahrungen mit Video- und Computerspielen gemacht haben, zwei hingeben haben bislang keine Erfahrungen gesammelt (fünf spielen mehr als 10 Stunden pro Woche, drei 6-10 Stunden, jeweils zwei spielen 3-5 und 1-2 Stunden pro Woche und zwei 0 Stunden die Woche. 13 von ihnen haben angegeben, dass sie bereits Erfahrungen mit Multiplayer-Spielen gesammelt haben, eine Person nicht (drei von ihnen spielen mehr als 10 Stunden Multiplayer-Spiele, einer 6-10 Stunden, vier 3-5 Stunden, fünf 1-2 Stunden und wieder eine Person 0 Stunden in der Woche). Insgesamt spielen 11 der Probanden kompetitive Multiplayer-Spiele, 10 kooperative, fünf kollaborative und eine Person andere Arten.

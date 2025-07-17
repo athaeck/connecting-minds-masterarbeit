@@ -11,7 +11,7 @@ Um erste gebrauchstaugliche Mängel der Anwendungen identifizieren zu können wu
 % Die durch die Thinking-Aloud Methode angesprochenen Gedankengänge und Hinweise der Probanden werden stichpunktartig dokumentiert und in einem zweiten Schritt nach den Tests ausgewertet.
 Zur Erfassung der während der Thinking-Aloud-Methode geäußerten Gedanken und Hinweise der Probanden wurde ein Beobachtungsprotokoll als Erhebungsinstrument verwendet. Die verbalen Äußerungen der Probanden wurde dabei stichpunktartig dokumentiert, wobei der Fokus auf spontanen Kommentaren zur Steuerung und der Rätsel und zu auftretenden Schwierigkeiten lag. Eine audiovisuelle Aufzeichnung wurde nicht eingesetzt, da die Testsituation möglichst natürlich gestaltet wurde. Die dokumentierten Aussagen wurden im Anschluss an die Tests qualitativ ausgewertet.
 
-\subsection{Stichporengröße}
+\subsection{Stichporengröße}\label{sec:pre-study-sample}
 Bei der Wahl der Stichprobengröße musste der Aspekt des \say{verbrauchens von Probanden} berücksichtigt werden, da die ausgewählten Teilnehmer nicht an der großen Versuchsdurchführung teilnehmen durften. Sie würden voreingenommen in das Szenario gehen und würden dabei das Wirkungsergebnisse verfälschen.
 
 Aus diesem Grund wurde bei der Wahl der Stichprobe die kleinstmögliche Anzahl ausgewählt, durch welche alle Aspekte der Gebrauchstauglichkeit gesammelt werden können. Aus diesem Grund wurden nach Turner \cite[S. 3088]{turner_determining_2006} sieben Probanden ausgewählt, welche die erste Version des Prototyps spielen durften.
@@ -72,12 +72,32 @@ Im Kontext der Verbesserung der Gebrauchstauglichkeit für die kommende Nutzerst
 \label{fig:handlungsempfehlungen-vorstudie}
 \end{figure}
 
-[hier weiterschreiben morgen früh]
 
+Die besorgniserregendsten Aspekte, die für die große Nutzerstudie bearbeitet werden müssen, umfassen die Anpassungen der Steuerung der Watcher Anwendung, sowie der Rätsel im Sicherheitsraum und das beseitigen des Fehlers im Uhrenrätsel. Außerdem ist es wichtig, den Einstieg über die Starträume zu optimieren und diese differenzierter zu gestalten. Dies ist ebenso wichtig, da der Einstieg in das kommunikative Verhalten der Testpersonen der Kern der Gesamtstudie ausmacht. Bisher versuchten es die Probanden über das Trial-and-Error Prinzip und schauten sich die Spielwelt nicht genau genug an. Weniger komplexe auf aufwändige gebrauchstauglichen Mängel umfassen die Anpassungen der \ac{UI}s und Umbenennungen von bestimmten Bezeichnungen. Die Anpassungen der Player-Anwendung wären wünschenswert, falls diese eingebaut werden würden, jedoch haben sie für das Gesamtpaket der Anwendung zunächst keine hohe Relevanz.
+
+Außerdem ist es ratsam eine weitere Zwischentest-Phase vor der großen Nutzerstudie durchzuführen, um die Verbesserungen der Gebrauchstauglichkeit und der Anwendungen erneut überprüfen zu können. Auf diese Weise kann nochmals ein Zwischenfazit eingeholt werden, das auch ein gutes Ergebnisse in der großen Nutzerstudie ermöglichen kann.
 
 \section{Zusammenfassung und Interpretation der Ergebnisse}
+Die Schwerpunkte der angesprochenen Aspekte beinhalten die Steuerungsmechaniken der Anwendungen des Watchers und Players. Außerdem umfassen sie Aspekte des entworfenen Environments und der Rätsel, die eine erste Überarbeitung benötigen. Des weiteren vielen Probleme in der Darstellung mancher \ac{UI}-Elemente auf, die nicht ihre gewünschte Position inne hatten, oder eine Überarbeitung im Aussehen benötigen. Auch manche Benennungen von Aktionen oder Menüs führten für Verwirrungen und müssen angepasst werden.
+
+Die Ergebnisse geben einen Hinweis darauf, an welchen Aspekten der Prototyp noch Mängel aufweist, welche beseitigt werden müssen. Für eine erste Testphase sind die Ergebnisse sehr aufschlussreich und in seinem Umfang sehr gering. Das zeigt, dass in der Entwicklungsphase der Anwendung ein hohes Maß an Tests durchgeführt wurde, die Edge-Cases und mögliche Fehlerpotenziale minimiert haben.
 
 \section{Methodendiskussion}
+Die folgende Diskussion betrachtet wie auch in Kapitel \ref{sec:analysis-discussion} die hier gewählte Methodik kritisch.
+
+Zunächst wird auf die gewählte Methodik und Erkenntnisqualität der Ergebnisse eingegangen.
+Die angewandte Thinking-Aloud Methode und das gleichzeitige Beobachten der Probanden konnten einen guten ersten Eindruck in das Verhalten der Anwendungen bei Nutzung von Probanden erfasst und dokumentiert werden. Sie zeigte qualitative Mängel, welche für die weitere Planung der Arbeit verbessert werden müssen. Gerade eine solche Art von Probandentest kann hilfreich sein, da der Fokus nicht auf quantitativen Messungen bestehen, sondern auf das tiefere Verständnis der Nutzerwahrnehmung eingegangen werden kann. Allerdings ist diese Methodik durch das Fehlen quantitativer Messungen unwissenschaftlicher, da nicht anhand von Metriken die Qualität festgehalten werden kann.
+
+Im nächsten Schritt wir auf den Zeitpunkt der Vorbereitungs-Testphase und die Planung eingegangen.
+Der für die durchgeführten Test eingeplante Zeitraum lag einen Tag vor der eigentlichen Nutzerstudie. In einem idealen Fall, sollten Vorbereitungs-Test um erste Hinweise auf die Gebrauchstauglichkeit der Anwendungen zu erhalten ein paar Wochen vor der eigentlichen Nutzerstudie stattfinden, damit genügend Zeit bleibt, das erhaltene Feedback zu verbessern. Es wurde hierbei zu viel Zeit in der eigentlichen Entwicklung der Rätsel und Anwendung investiert, ohne dabei eine Möglichkeit zu haben, sie durch außenstehende Probanden zu testen. Ein wichtiger Aspekt, der hierbei jedoch beachtet werden muss, ist die Größe des Aufbaus um den Prototyp testen zu lassen. Während der Entwicklung hätte ein Hosting der Server-Anwendungen und Docker-Container stattfinden müssen, damit die durchgeführten Nutzertests über ein digitales Medium durchgeführt werden können. Da hierbei die Ressourcen fehlten, mussten die Tests vor Ort durchgeführt werden, welche eine Organisation der entsprechenden Hardware und der Räumlichkeiten für die Durchführung voraussetzt. Zusätzlich ist wie im Kapitel \ref{sec:pre-study-sample} angesprochen, die Wahl der Probanden ebenfalls ein relevanter Aspekt. Die Teilnehmer, die hier teilgenommen haben, durften nicht an der großen Versuchsdurchführung teilnehmen, da sie voreingenommen in den Versuch gehen würden und auch die Rätsel und den Prototyp bereits kennen. Deshalb wurden hierfür die Probanden gewählt, die bereits von dem Projekt wussten oder bereits damit in Berührung kamen. Für die Ergebnisse der weiteren Studie wurde hier die richtige Wahl getroffen. 
+Auch die Menge an ausgewählten Personen reichte im Hinblick auf das Erfassen aller Gebrauchstauglichen Aspekte aus. Die wichtigsten Aspekte wurden bereits angesprochen und müssen für den weiteren Verlauf angepasst werden.
+
+Allerdings hätten während der Entwicklungsphase des Anwendungen mehrere solcher Tests stattfinden sollen, damit frühzeitiger das Hauptaugenmerk auf kritische gebrauchstaugliche Mängel gelegt werden können.
+
+Im letzten Schritt wird auf die technische Infrastruktur der Anwendungen eingegangen.
+Wie bereits angesprochen musste die Vorbereitungstestphase der Anwendungen in Präsenz stattfinden. Dafür musste zunächst die nötige Hardware ausgeliehen werden. Es zeigte sich, dass nicht an alle Aspekte gedacht wurde. Der Aufbau der Infrastruktur erfolgte nach dem Wissensstand, dass sich diverse Geräte innerhalb eines Netzwerkes finden können. Eine Sicherheitsvorkehrung der Netzinfrastruktur der Hochschule verhinderte dies. Durch die Vorbereitung der Probandentests kontre hier glücklicherweise rechtzeitig eine Lösung gefunden werden, sodass zunächst die geplanten Probandentest für die Vorbereitung durchgeführt werden konnten und auch die folgende Nutzerstudie.
+
+Zusammenfassend lässt sich sagen, dass die Planung und Durchführung der Vorbereitungstests öfters und zeitnaher passieren mussten um so ein noch besseres für die folgende Nutzerstudie zu ermöglichen.
 
 \chapter{Evaluation des Prototyps sowie der Wirkung des Prototyps auf das Kommunikationsverhalten der Probanden} \label{sec:study}
 
@@ -483,7 +503,7 @@ Sollte es eine zukünftige Forschung in dem Themenbereich dieser Arbeit geben, s
 Zusätzlich zur quantitativen Auswertung der Transkripte könnte eine quantitative Auswertung erfolgen, wodurch die Entwicklung der Art und Weise des Kommunikationsverhalten zusätzlich noch untersucht werden kann. Zuletzt konnten aufgrund des Umfangs des Projekts und der Studie nicht alle Aspekte des Spiels konzipiert und umgesetzt werden, wodurch bspw. an vielen Stellen das \ac{UI} unvollständig ist und oft erste Skizzen enthält.
 
 \section{Zusammenfassung und Interpretation der Ergebnisse}
-Nach der Auswertung der Fragebögen zum Prototyp zeigte sich, dass im Vorfeld der großen Nutzerstudie mehrere Zwischentests mit freiwilligen Probanden durchgeführt werden sollten, um auf Probleme in der Gebrauchstauglichkeit aufmerksam machen zu können. 
+Nach der Auswertung der Fragebögen zum Prototyp zeigte sich, dass im Vorfeld der großen Nutzerstudie noch mehr Zwischentests mit freiwilligen Probanden durchgeführt werden sollten, um auf Probleme in der Gebrauchstauglichkeit aufmerksam machen zu können. 
 
 Mit der signifikanten Entwicklung der sozialen Nähe kann sich das erste grundlegende Konzept von Connecting-Minds in die Reihe der Spiele einordnen, welche Menschen näher zueinander führen kann. Um weitere signifikante Änderungen in den gemessenen Aspekten beobachten zu können benötigt es weitere Versuchsdurchführungen mit einer größeren Anzahl an Probanden-Paaren. Es zeigt sich in der quantitativen Untersuchung der Vor- und Nachtest, dass Änderung der Gesprächsbeginne und Pausenreduktionen nahe an der Signifikanz liegen, aber durch zu wenige Stichproben als nicht signifikant ausfielen. Dieses Argument kann durch die beobachtete Effekt Größe unterstützt werden. 
 

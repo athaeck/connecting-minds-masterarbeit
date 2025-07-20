@@ -1,6 +1,6 @@
 \chapter{Konzeption und Aufbau des Prototyps}\label{sec:concept}
 % In diesem Kapitel wird die Konzeption des Prototyps vorgestellt.
-% % Sie enthält zunächst das methodische Vorgehen des Abschnitts, im Anschluss folgt eine Analyse der Spiele, die im Fokus der Arbeit stehen und aus welchen Aspekte in die Konzeption eingeflossen sind. Der Hauptteil der Konzeption umfassen das Game-Design des Prototyps.
+% % Sie enthält zunächst das methodische Vorgehen des Abschnitts, im Anschluss folgt eine Analyse der Spiele, die im Fokus der Arbeit stehen und die Frage aus welchen Aspekten diese in die Konzeption eingeflossen sind. Der Hauptteil der Konzeption umfassen das Game-Design des Prototyps.
 
 Nachdem durch die Literaturrecherche in Kapitel \ref{sec:related-works} wichtige Funktionalitäten im Design identifiziert werden konnten und vergleichbare Spiele in Kapitel \ref{sec:analysis} auf ihr Game- und Rätseldesign analysiert wurden, kann aus den Ergebnissen \say{Connecting-Minds} nun vollständig konzipiert werden. \cite{krekhov_puzzles_2021} beschreibt eine Taxonomie für analoge und digitale Escape-Room Spiele, die ebenfalls in die Konzeption des Spiels hineinfließen.
 
@@ -23,7 +23,7 @@ Zunächst gibt es da den 19 Jahre alten Steve Works, der Medieninformatik-Studen
 
 Uwe Kaufmann, 64 Jahre alt, ist ein erfahrenere Projektleiter und steht vor der Herausforderung ein neues Team zu formen. Sein Ziel ist es, durch Teambuilding und Motivation eine effektive Zusammenarbeit zu formen.
 
-Anja Gayms, 31 Jahre alt, ist eine introvertierte Zahnarzthelferin und such in \say{Connecting-Minds} nach einer geistigen Herausforderung und einer Möglichkeit, ihre Freundschaften zu stärken.
+Anja Gayms, 31 Jahre alt, ist eine introvertierte Zahnarzthelferin und sucht in \say{Connecting-Minds} nach einer geistigen Herausforderung und einer Möglichkeit, ihre Freundschaften zu stärken.
 
 Die 3 Personae sind in ihrer Gesamtheit in Anhang \ref{} verfügbar.
 
@@ -40,18 +40,18 @@ Das Narrativ der Handlung und der Geschichte werden durch Textuelle Hinweise und
 
 Die Hintergrundgeschichte des Spiels ist folgende:
 
-Der Protagonist der Handlung sollte in seinem Forschungsinstitut eine Simulation [Simulation zu was noch einbauen] ausprobieren. Allerdings kam es während der Simulation zu einer Anomalie, wodurch sich sein Sein aufgespalten hat. Übrig blieb sein physisches Ich, das in seinem Forschungsinstitut zurück blieb und sein abgespaltener Geist im Netz der Forschungseinrichtung. Sein aufgeteiltes Ich kann auf eine besondere Weise (vermutlich ausgelöst durch die Anomalie der Simulation) miteinander kommunizieren. Gemeinsam versuchen sie nun herauszufinden wer für diese Anomalie verantwortlich ist und wie das physische Ich wieder mit seinem Geist zu einer Person zusammengefügt werden kann.
+Der Protagonist der Handlung sollte in seinem Forschungsinstitut eine Simulation [Simulation zu was noch einbauen] ausprobieren. Allerdings kam es während der Simulation zu einer Anomalie, wodurch sich sein Sein aufgespalten hat. Übrig blieb sein physisches Ich, das in seinem Forschungsinstitut zurück blieb und sein abgespaltener Geist im Netz der Forschungseinrichtung verweilt. Sein aufgeteiltes Ich kann auf eine besondere Weise (vermutlich ausgelöst durch die Anomalie der Simulation) miteinander kommunizieren. Gemeinsam versuchen sie nun herauszufinden, wer für diese Anomalie verantwortlich ist und wie das physische Ich wieder mit seinem Geist zu einer Person zusammengefügt werden kann.
 
 % Das Genre des Spiels ist demnach ein kooperatives Adventure-Spiel das in einem Low-Poly \ac{Sci-Fi}-Setting spielt.
 
 % [Text zur Spielwelt, wo sich Schauplätze überall befinden ausdenken]
 % Zunächst befinden sich die Spieler in einem alten Verlies
-Die Spielwelt umfasst dabei zunächst ein altes Kellergewölbe der Forschungseinrichtung, in welcher der Körper des Players gebracht wurde, nachdem die Simulation schief lief. Des weiteren durchläuft der Player, mit seinem Watcher im Gepäck, die Forschungseinrichtung und sucht nach Hinweisen auf einen möglichen Antagonisten. Die Spielwelt wird erweitert durch Außenbereiche um die Forschungseinrichtung herum und geht weiter in die Privathäuser nzw Wohnungen von beteiligten Personen.
+Die Spielwelt umfasst dabei zunächst ein altes Kellergewölbe der Forschungseinrichtung, in welcher der Körper des Players gebracht wurde, nachdem die Simulation schief lief. Des weiteren durchläuft der Player, mit seinem Watcher im Gepäck, die Forschungseinrichtung und sucht nach Hinweisen auf einen möglichen Antagonisten. Die Spielwelt wird erweitert durch Außenbereiche um die Forschungseinrichtung herum und geht weiter in die Privathäuser bzw. Wohnungen von beteiligten Personen.
 
 \section{Spielkonzeption mithilfe des MDA-Frameworks}
-Aus den bisherigen Forschungen zum Thema asymmetrischen kooperativen Spielen und Kommunikation geht hervor, dass die Spielerrollen des Spiels in ihren Funktionen und/ oder ihrer Ansichten eine Abhängigkeit von einender bestehen muss. Diese Abhängigkeit darf nicht zu groß sein, da sonst der Spielfluss gestört werden würde und Frust bei den Spielern entstehen würde. 
+Aus den bisherigen Forschungen zum Thema asymmetrischen kooperativen Spielen und Kommunikation geht hervor, dass die Spielerrollen des Spiels in ihren Funktionen und/ oder ihrer Ansichten eine Abhängigkeit von einender bestehen muss. Diese Abhängigkeit darf nicht zu groß sein, da sonst der Spielfluss gestört werden würde und Frust bei den Spielern entstehen könnte.
 
-Die Analyse der artverwandten Spiele zeigten Inhalte und Funktionalitäten, die in ihrer Form so integriert werden sollten, aber auch zu viel bzw. zu eigenständig sein könnten, wodurch ein kooperatives Verhalten gestört werden kann.
+Die Analyse der artverwandten Spiele zeigten Inhalte und Funktionalitäten, die in ihrer Form integriert werden sollten, aber auch nicht zu eigenständig sein dürfen, wodurch ein kooperatives Verhalten gestört werden könnte.
 
 Aus der \say{We were here}-Spielreihe geht hervor, dass die Rätselelemente so gestaltet werden müssen, dass diese für den anderen Mitspieler beschreibbar und verständlich erklärbar sind. Außerdem sollten die Anwendungen eine höhere Dynamik zwischen sich haben, wodurch eine engere Beziehung der Spielerfahrung und der Anwendungen entsteht. 
 
@@ -61,7 +61,7 @@ Aus der \say{We were here}-Spielreihe geht hervor, dass die Rätselelemente so g
 
 \say{Myrmidon} zeigt auf, wie die einzelnen Anwendungen abhängig zueinander sein können, allerdings fehlt es an einem ausgeglichenem Spielerlebnis. Die beiden Rollen sind so gestaltet, dass der Animator die Stop-Motion Puppe unterstützt und dadurch zu wenig für sich selbst spielt. 
 
-Bei \say{Keep Talking and Nobody Explodes} ist es ähnlich wie bei \say{Myrmidon}, die Spielerrolle der Experten unterstützt hierbei nur den Bombenentschärfer.
+Bei \say{Keep Talking and Nobody Explodes} ist es ähnlich wie bei \say{Myrmidon}. Die Spielerrolle der Experten unterstützt hierbei nur den Bombenentschärfer.
 
 % Die Rückschlüsse sind folgende:
 
@@ -81,21 +81,21 @@ Bei \say{Keep Talking and Nobody Explodes} ist es ähnlich wie bei \say{Myrmidon
 Die Mechanischen Elemente des Spiels werden in die zwei jeweiligen Spielerrollen (Player und Watcher) und allgemeingültigen Mechaniken aufgeteilt.
 
 \paragraph{Player}
-Der Player steuert entweder über die Maussteuerung (Point \& Click-System) oder über Touchinputs den Avatar in der Spielwelt. Über das Mausrad oder die Zoom-Touch Steuerung kann die Höhe der Kamera zum Avatar verändert werden. Außerdem kann er die Ansicht zwischen der Standard isometrischen Perspektive und einer First-Person-Ansicht wechseln. Das \ac{UI} des Players besitzt eine Toolbar, über die der Avatar bestimmte Interaktionen mit den Weltgegenständen wie das Aufnahmen oder Platzieren vollführen kann. Außerdem kann der Player Gegenstände tragen und diese an den Watcher zurück schicken. Über die First-Person-Ansicht kann der Player ebenfalls Gegenstände platzieren.
+Der Player steuert entweder über die Maussteuerung (Point \& Click-System) oder über Touchinputs den Avatar in der Spielwelt. Über das Mausrad oder die Zoom-Touch Steuerung kann die Höhe der Kamera zum Avatar verändert werden. Außerdem kann er in der Ansicht zwischen der Standard isometrischen Perspektive und einer First-Person-Ansicht wechseln. Das \ac{UI} des Players besitzt eine Toolbar, über die der Avatar bestimmte Interaktionen mit den Weltgegenständen wie das Aufnehmen oder Platzieren vollführen kann. Außerdem kann der Player Gegenstände tragen und diese an den Watcher zurück schicken. Über die First-Person-Ansicht kann der Player ebenfalls Gegenstände platzieren.
 
 Außerdem schaltet der Player neue Gegenstände in der Spielwelt frei, in dem er so nah an sie herangeht, dass er mit ihnen interagieren kann.
 
 \paragraph{Watcher}
-Der Watcher hat in seiner \ac{AR}-Anwendung die Spielwelt vor sich platziert und kann im physischen Raum um die Spielwelt herumgehen und auch in die Spielwelt hinein um sich die Welt genauer anzusehen. Seine Aufgaben liegen darin, eine Übersicht über die Spielwelt und alle gesammelten bzw. platzierten Gegenstände zu haben. Er kann alle interagierbaren Gegenstände, die entdeckt und platziert wurden von der Spielwelt entfernen. Die Gegenstände gehen danach wieder in das Inventar über, auf welches nur er Zugriff hat. Er kann bestimmte Gegenstände in der Spielwelt über einen Touch-Input platzieren oder andere Gegenstände an den Player schicken, welche der Player dann trägt. 
+Der Watcher hat in seiner \ac{AR}-Anwendung die Spielwelt vor sich platziert und kann im physischen Raum um die Spielwelt herumgehen und auch in die Spielwelt hinein, um sich die Welt genauer anzusehen. Seine Aufgaben liegen darin, eine Übersicht über die Spielwelt und alle gesammelten bzw. platzierten Gegenstände zu bekommen. Er kann alle interagierbaren Gegenstände, die entdeckt und platziert wurden von der Spielwelt entfernen. Die Gegenstände gehen danach wieder in das Inventar über, auf welches nur er Zugriff hat. Er kann bestimmte Gegenstände in der Spielwelt über einen Touch-Input platzieren oder andere Gegenstände an den Player schicken, welche der Player dann trägt. 
 
 Im weiteren Verlauf des Spiels kann der Watcher Gegenstände nicht nur platzieren oder entfernen, sondern auch in der Größe skallieren oder drehen.
 
 \paragraph{Weltregeln}
 Leichte Gegenstände können vom Player getragen und aufgenommen werden. Diese Gegenstände kann der Player in der Spielwelt über die Interaktions-Leiste oder in der First-Person platzieren. 
 
-Schwere Gegenstände können nur vom Watcher platziert oder skaliert werden. Der Player kann jedoch über seine Interaktionen mit ihnen interagieren. Beide Arten von Gegenständen können, sobald sie entdeckt und in der Spielwelt platziert wurden vom Watcher wieder entfernt werden.
+Schwere Gegenstände können nur vom Watcher platziert oder skaliert werden. Der Player kann jedoch über seine Interaktionen mit ihnen interagieren. Beide Arten von Gegenständen können, sobald sie entdeckt und in der Spielwelt platziert wurden, vom Watcher wieder entfernt werden.
 
-Es existieren zudem Hinweise in Schrift- und Bildform, welche vom Player entdeckt und an den Watcher gesendet werden können. Sie gälten als Ergänzung zum Environmental Rätseldesign.
+Es existieren zudem Hinweise in Schrift- und Bildform, welche vom Player entdeckt und an den Watcher gesendet werden können. Sie gelten als Ergänzung zum Environmental Rätseldesign.
 
 \subsection{Dynamics}
 Die aus den Mechaniken folgenden Dynamiken beziehen sich auf die Asymmetrie in der Perspektive und den Informationen, die beide Spielerrollen haben und erhalten. Außerdem entsteht dadurch eine Kombination aus den gegebenen Informationen, um daraus die richtigen Ansätze für Lösungen zu finden. 
@@ -128,16 +128,16 @@ Die Spielabläufe des Spiels werden in zwei unterschiedliche Abschnitte untertei
 \label{fig:game-loop-watcher}
 \end{figure}
 
-Die Abläufe des Spiels sind bei den Anwendungen des Watchers und Players nahezu identisch. Es gibt allerdings einen Unterschied, der im folgenden bei der Beschreibung der Abläufe erklärt wird.
+Die Abläufe des Spiels sind bei den Anwendungen des Watchers und Players nahezu identisch. Es gibt allerdings einen Unterschied. Dieser wird in folgenden Beschreibung der Abläufe erklärt.
 Abbildung \ref{fig:game-loop-player} zeigt das Aktivitätsdiagramm der Player-Anwendung. Sobald das Spiel geladen hat, öffnet sich das Startmenü über das der Player in die Einstellungen gehen, eine neue Session starten, einer existierenden Session beitreten oder das Spiel wieder beenden kann. Über die Einstellungen kann der Player die Tasten bzw. Touchbelegung einstellen, sowie Audio und Kameraeinstellungen ändern. Sobald der Player eine neue Session startet, öffnet sich die Prolog-Szene in der es ein kleines Tutorial zu den Regeln des Spiels und den Steuerungen gibt. 
 
 Über die Tutorial-Inhalte erfährt der Spieler Informationen zu Interaktionsmöglichkeiten mit Gegenständen in der Welt. Sobald sich der Avatar des Players nahe an Gegenstände bewegt, die ein Tooltip haben, kann der Player über eine Leiste mit Interaktionen im UI mit den Gegenständen interagieren. Darunter fällt z. B. das bestätigen einer Taste bei einem Computer oder aber das Aufnehmen und Tragen von Gegenständen.
 
-Es gibt für das Tutorial die Option erklärende Inhalte zu überspringen, da es sein kann, dass der Spieler das Spiel bereits einmal gespielt hat und die Inhalte nicht erneut lesen muss. Innerhalb des Spielszene kann der Player in ein Pausenmenü schalten, worüber er Einstellungen ändern, das Spiel beenden oder die Session verlassen kann. Außerdem kann er das Spiel auch wieder fortsetzen und weiterspielen. Verlässt der Spieler die Session, so lädt erneut der Startbildschirm und kann entweder der verlassenen Session neu beitreten oder eine neue Session starten.
+Es gibt für das Tutorial die Option erklärende Inhalte zu überspringen, da es sein kann, dass der Spieler das Spiel bereits einmal gespielt hat und die Inhalte nicht erneut lesen muss. Innerhalb der Spielszene kann der Player in ein Pausenmenü schalten, worüber er Einstellungen ändern, das Spiel beenden oder die Session verlassen kann. Außerdem kann er das Spiel auch wieder fortsetzen und weiterspielen. Verlässt der Spieler die Session, so lädt erneut der Startbildschirm und kann entweder der verlassenen Session neu beitreten oder eine neue Session starten.
 
-Nach Abschließen des Tutorials wird die nächste Szene geladen, welche in der bestehenden Session gespeichert wird. Sobald der Player nun die Session verlässt und erneut beitritt so lädt die Szene des abgespeicherten Levels. Dieser Kreislauf endet erst, sobald der letzte Spielabschnitt erreicht und die Geschichte beendet wurde. Über den Endscreen gelangt der Player erneut zum Hauptmenü, worüber eine neue Session gestartet werden kann. Das Beitreten der Session des beendeten Spiels führt dazu, dass der Player wieder im Endscreen landet und zurück ins Hauptmenü gelangt oder das Spiel beenden kann.
+Nach Abschließen des Tutorials wird die nächste Szene geladen, welche in der bestehenden Session gespeichert wird. Sobald der Player nun die Session verlässt und später erneut beitritt so lädt die Szene des abgespeicherten Levels. Dieser Kreislauf endet erst, sobald der letzte Spielabschnitt erreicht und die Geschichte beendet wurde. Über den Endscreen gelangt der Player erneut zum Hauptmenü, worüber eine neue Session gestartet werden kann. Das Beitreten der Session des beendeten Spiels führt dazu, dass der Player wieder im Endscreen landet und zurück ins Hauptmenü gelangt oder das Spiel beenden kann.
 
-Bei der Anwendung des Watchers gibt es einen Unterschied zu der des Players. In Abbildung \ref{fig:game-loop-watcher} ist zu sehen, dass der Watcher nach Laden und Starten des Spiels keine Session starten sondern lediglich einer Beitreten kann. Der Watcher ist so konzipiert, dass er nicht der aktive Teilnehmer, sondern ein unterstützender Teilnehmer des Spiels ist. Außerdem erhält der Watcher im Prolog für seine Aufgaben und seine \ac{UI}s entsprechende Informationen. Er erhält Informationen darüber, dass er über das Menü \say{Platzieren} Gegenstände in die Spielwelt platzieren kann und diese über angezeigt Tooltip der Gegenstände auch wieder entfernen kann. Außerdem kann er über das Menü \say{Preview} Gegenstände an den Player senden, welche dieser trägt. Das gilt für jede Gegenstände die der Player trägt. Findet er einen Gegenstand und trägt ihn, so kann der Watcher ihn ebenfalls entfernen. Entdeckte Gegenstände werden wie platzierte Gegenstände in der Welt angezeigt.
+Bei der Anwendung des Watchers gibt es einen Unterschied zu der des Players. In Abbildung \ref{fig:game-loop-watcher} ist zu sehen, dass der Watcher nach Laden und Starten des Spiels keine Session starten sondern lediglich ein Spieler beitreten kann. Der Watcher ist so konzipiert, dass er nicht der aktive Teilnehmer, sondern ein unterstützender Teilnehmer des Spiels ist. Außerdem erhält der Watcher im Prolog für seine Aufgaben und seine \ac{UI}s entsprechende Informationen. Er erhält Informationen darüber, dass er über das Menü \say{Platzieren} Gegenstände in die Spielwelt platzieren kann und diese über den angezeigten Tooltip der Gegenstände auch wieder entfernen kann. Außerdem kann er über das Menü \say{Preview} Gegenstände an den Player senden, welche dieser trägt. Das gilt für jede Gegenstände die der Player trägt. Findet er einen Gegenstand und trägt ihn, so kann der Watcher ihn ebenfalls entfernen. Entdeckte Gegenstände werden wie platzierte Gegenstände in der Welt angezeigt.
 
 Der restliche Spielablauf des Watchers ist identisch zu dem des Players.
 

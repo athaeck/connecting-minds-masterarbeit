@@ -321,7 +321,10 @@ Damit die virtuellen Objekte in ihrer virtuellen Umgebung die reale Umgebung erw
 \label{fig:placement-ar}
 \end{figure}
 
-Die gängigste Methode ist die Markerbasierte, bei dem Anhand eines bestimmten Marker ( [morgen hier vcoll fertigf weitermachen]
+Die gängigste Methode ist die Markerbasierte, bei dem Anhand eines bestimmten Markers virtuelle Objekte platziert werden. Dabei wird zwischen den Hyperlink Methoden, bei denen physische Objekte über grafische Tags oder automatischen Identifikationstechnologien mit webbasierten Inhalten verknüpft werden, und den Kamerabasierten Methoden, bei denen über die Auswertung der Kamerabilder gedruckte Muster oder reale Objekte erkannt werden und anhand dieser virtuelle Objekte platziert werden können (vgl. \citealp[S. 3f]{el_barhoumi_assessment_2022}). 
+
+Der Markerlose Ansatz lässt sich über die sensorbasierten und kamerabasierten Methoden realisieren. Beim sensorbasierten Ansatz werden die intrinsischen Sensoren des Gerätes verwendet um die Position und Orientierung der Kamera zu bestimmen. Dabei kommen der Gyro und Beschleunigungssensor, sowie das GPS zum Einsatz. Der modellbasierte Kamera-Ansatz benötigt meist ein \ac{3D}-Modell der Umgebung. Über das Kanten- und Featurebasierte Tracking werden dabei einzelne Abschnitte, Kanten und Merkmale aus den Kamerabildern mit der Vorlage verglichen. Beim Template-Vergleich werden kleinere Bildausschnitte mit Datenbankbildern abgeglichen und beim Tiefenbildverfahren werden zusätzlich zu den Farbinformationen aus Bildern Tiefendaten verwendet, um Absände des Raumes zu erfassen.
+Beim nicht modellbasiertem Ansatz wird kein vordefiniertes Modell benötigt, stattdessen erstellt das Verfahren gleichzeitig ein \ac{3D}-Rekonstruktion der Umgebung und verfolgt die Kamerabewegung (vgl. \citealp[S. 4f]{el_barhoumi_assessment_2022}).
 
 
 \section{Netzwerkinfrastrukturen}\label{sec:basics-network-structures}

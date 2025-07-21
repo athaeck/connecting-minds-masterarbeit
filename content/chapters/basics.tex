@@ -242,7 +242,7 @@ Kollaborative Spiele sind solche, bei denen alle Spieler - ähnlich wie in Koope
 Bei Kooperationsspielen ist es möglich, dass alle Spieler gemeinsam gegen das Spiel verlieren oder gemeinsam gewinnen können. Ein Sieg wird erreicht, wenn das Spiel gemeinsam \say{besiegt} wird oder dadurch dass ein festgelegtes Ziel kollektiv oder individuell erreicht werden kann (vgl. \citealp{noauthor_game_2014}; \citealp[S. 25]{zagal_collaborative_2006}).
 
 \section{Netzwerkinfrastrukturen}\label{sec:basics-network-structures}
-Um ein Multiplayer-Spiel entwickeln zu können, muss zunächst geklärt werden, wie die Netzwerkinfrastruktur der Anwendung aufgebaut sein soll. Es existieren zahlreiche Ansätze, die jeweils für verschiedene Anwendungszwecke konzipiert sind. Diese werden im Folgenden vorgestellt.
+Um ein plattformunabhängiges Multiplayer-Spiel entwickeln zu können, muss zunächst geklärt werden, wie die Netzwerkinfrastruktur der Anwendung aufgebaut sein soll. Es existieren zahlreiche Ansätze, die jeweils für verschiedene Anwendungszwecke konzipiert sind. Diese werden im Folgenden vorgestellt.
 
 \subsection{Distributed Authority}
 Bei einer \say{Distributed Authority}-Netzwerktopologie übernimmt jeder im Netzwerk verbundene Spielclient gemeinsam jeweils die Verantwortung für das Erstellen und Verwalten von Objekten im Netzwerk. Jeder Client simuliert dabei seinen Teil der Spielwelt selbst und steuert Objekte über die er Autorität besitzt.
@@ -299,6 +299,7 @@ Der Relay-Dienst ermöglicht Multiplayer-Unterstützung ohne die Notwenigkeit ei
 \end{figure}
 
 \section{Augmented Reality}
+Im Kontext der vorliegenden Arbeit stellt \ac{AR} eine essenzielle Technologie dar. Da eine der Anwendungen dieser Arbeit als \ac{AR}-Applikation konzipiert ist, ist es notwendig, grundlegende Definitionen, Abgrenzungen sowie technologische Grundlagen darzustellen. Im folgenden werden deshalb wesentliche theoretische und technische Aspekte erläutert, um das Verständnis für die im Spiel implementierten Interaktions- und Darstellungsmöglichkeiten zu gewährleisten.
 
 \ac{AR} stellt eine Form virtueller Umgebungen (\ac{VE}) dar, bei der im Gegensatz zur vollständigen Immersion in rein virtuelle Welten, wie es in \ac{VR} der Fall ist, die Umgebung weiterhin sichtbar bleibt. Virtuelle Objekte werden dabei über die physische Welt gelegt und mit ihr kombiniert, sodass eine erweiterte Wahrnehmung entsteht. Es gewährleistet außerdem eine Interaktion mit den räumlich (\ac{3D}) registrierten virtuellen Inhalten in Echtzeit. Die technische Umsetzung kann dabei über monitorbasierte Schnittstellen, monokulare Systeme oder durchsichtige \ac{HMD}s erfolgen (vgl. \cite[S. 2f]{azuma_survey_1997}).
 

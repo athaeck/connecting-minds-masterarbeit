@@ -97,8 +97,7 @@ Dabei wurden fünf Grundsätze (Axiome) definiert, die die menschliche Kommunika
 Die o. g. Modelle bezogen sich auf den strukturellen Aufbau und Regeln kommunikativen Handelns, sowie dem Aufbau der übermittelten Nachrichten. Carl Rogers ging einen Schritt weiter und beschäftigte sich damit, wie die Kommunikation der Teilnehmer gelingen kann (empathische Kommunikation). 
 
 Er stellte dabei die drei wichtigen Prinzipien der Echtheit (Kongruenz), Empathie und Wertschätzung (Bedingungslose Akzeptanz) fest. Die Echtzeit umschreibt die Offenheit der Gesprächsteilnehmer, sowie die Vermeidung von Künstlichkeit im Verhalten dem anderen gegenüber. Dadurch soll ein Gefühl von Sicherheit entstehen. Die Empathie beschreibt das Hineinversetzten in die Lage des anderen. Dadurch soll versucht werden, die Gefühle und Gedanken aus den Perspektiven der Gesprächsteilnehmer zu verstehen. Dieses Verständnis fördert eine tiefere emotionale Verbindung. Die Wertschätzung umfasst, wie es das Wort bereits aussagt, das Wertschätzen der anderen Person, unabhängig seines Verhaltens oder Meinung. Aus der Wehrschätzung heraus sollen sich die Gesprächsteilnehmer sicher und geschützt fühlen (vgl. \cite{jesse_carl_2025}).
-% Zunächst definierte er das Menschenbild über die Kernelemente der Selbstverwirklichung, Bedürfnisse, Individualitäten, Erfahrungen und Positivität (vgl. \cite{warkentin_carl_2024}). 
- 
+
 \section{Spielertypen}
 Die Kommunikationswissenschaft umfasst zwar den Schwerpunkt dieser Arbeit, jedoch wurden auch ludologische Aspekte berücksichtigt. Dabei handelt es sich um die wissenschaftliche Auseinandersetzung mit dem Spielen selbst (vgl. \cite{ludologie_spielforschung_nodate}). 
 
@@ -147,7 +146,6 @@ stellt Spieler-Personae vor, die analog zum \ac{UCD}-Prozess eingesetzt werden k
 
 \paragraph{Bateman und Boon}
 entwickelten in ihrer 2005 erschienenen Studie zur Bestimmung des ersten Modells des Demographic Game Design (DGD1) vier Spielstile, die sie durch die Einbeziehung des \ac{MBTI} ableiteten (vgl. \cite{noauthor_mbti_nodate}; \cite{bateman_21st_2005}).
-% Conquerer (Eroberer), Manager, Wanderer (Wanderer) und Participant (Teilnehmer) waren dabei die vier Spielstile.
 Die vier Spielstile lauteten: Conquerer (Eroberer), Manager (Manager) Wanderer (Wanderer) und Participant (Teilnehmer).
 
 In einer zweiten Studie wurden vier hypothetische Spielstile entwickelt, die auf einer Untersuchung von \cite{berens_understanding_2000} basierten (vgl. \cite{bateman_player_2012}). Die daraus resultierenden Stile lauteten: Logistical, Tactical, Strategic und Diplomatic.
@@ -228,30 +226,71 @@ Kollaborative Spiele sind solche, bei denen alle Spieler - ähnlich wie in Koope
 \subsection{Kooperativ}
 Bei Kooperationsspielen ist es möglich, dass alle Spieler gemeinsam gegen das Spiel verlieren oder gemeinsam gewinnen können. Ein Sieg wird erreicht, wenn das Spiel gemeinsam \say{besiegt} wird oder dadurch dass ein festgelegtes Ziel kollektiv oder individuell erreicht werden kann (vgl. \cite{noauthor_game_2014}), (vgl. \cite[S. 25]{zagal_collaborative_2006}).
 
+
+\section{Netzwerkinfrastrukturen}\label{sec:basics-network-structures}
+Um ein Multiplayer-Spiel entwickeln zu können, muss zunächst geklärt werden, wie die Netzwerkinfrastruktur der Anwendung aufgebaut sein soll. Es existieren zahlreiche Ansätze, die jeweils für verschiedene Anwendungszwecke konzipiert sind.
+
+\subsection{Distributed Authority}
+Bei einer \say{Distributed Authority}-Netzwerktopologie übernimmt jeder im Netzwerk verbundene Spielclient gemeinsam jeweils die Verantwortung für das Erstellen und Verwalten von Objekten im Netzwerk. Jeder Client simuliert dabei seinen Teil der Spielwelt selbst und steuert Objekte über die er Autorität besitzt.
+Damit Positionen und andere relevanten Daten an alle anderen Clients im Netzwerk weitergeleitet werden können, wird ein zentraler, leichtgewichtiger Statusdienst verwendet, der ausschließlich für die Verteilung der notwendigen Informationen zuständig ist, ohne selbst die Anwendung zu simulieren (vgl. \cite{noauthor_distributed_2025}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/distributed-authority-service.jpg}
+\caption{Netzwerktopologie der Distributed Authority (Quelle: \cite{noauthor_distributed_2025})}
+\label{fig:distributed_authority_topology}
+\end{figure}
+
+Spiele wie \say{Journey}, \say{God of War: Ascension}, \say{Mercenaries 2}, \say{GTA: Online}, \say{Dark Souls} und \say{Destiny} nutzen diese Netzwerkinfrastruktur. Häufig kommt diese Topologie zum Einsatz, wenn ein bestehendes Single-Player um eine Multiplayer-Komponente erweitert werden soll (Journey, GTA und Dark Souls), ohne den Kern des Quellcodes grundlegend umzustrukturieren. Diese Architektur erfordert keinen dedizierten Server, eignet sich für Spiele mit großen, offenen Spielwelten (Dark Souls, GTA) und kommt häufig zum Einsatz, wenn keine deterministische Physik benötigt wird bzw. kein vollständig deterministisches Spielkonzept vorliegt. Sie eignet sich zudem besonders für Spiele, bei denen die Prozessorleistung (z.B. durch Physiksimulationen) stark beansprucht wird. Für Spiele mit kooperativen Spielmechaniken, leichten kompetitiven Elementen oder innovativen Multiplayer-Ideen ist diese Infrastruktur eine sinnvolle Wahl (vgl. \cite{noauthor_choosing_2024}).
+
+\subsection{Pure Client/Server}
+Bei der Client-Server-Architektur übernimmt ein zentraler Server die Hauptsimulation und verwaltet alle wesentlichen Aspekte des Spiels. Dazu gehören unter anderem die Physiksimulation, das Erzeugen und Entfernen von Objekten sowie die Autorisierung von Anfragen der Clients. Aus Sicht der Clients besitzen diese lediglich die Anwendung, über die sie sich mit dem Server verbinden. Sie erhalten über diese Verbindung die Darstellung des Spiels (vgl. \cite{noauthor_client-server_2024}):
+\paragraph{Ein dedizierter Server} bildet eine eigenständige Instanz, die ausschließlich dem Spielbetrieb dient (vgl. Abbildung \ref{fig:dedicated_server}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/ded_server-d5369721966357b9b4d5e1fa96b05b22.png}
+\caption{Client-Server-Architektur mit dediziertem Server (Quelle: \cite{noauthor_network_2024})}
+\label{fig:dedicated_server}
+\end{figure}
+
+\paragraph{Ein Client gehosteter Server} läuft auf demselben Gerät wie die dazugehörige Client-Anwendung (vgl. Abbildung \ref{fig:client_server}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/client-hosted-16be0b1c9b5020f21325b1e6a7beca73.png}
+\caption{Client hosted Server (Quelle: \cite{noauthor_network_2024})}
+\label{fig:client_server}
+\end{figure}
+
+\subsection{Peer-to-Peer}
+Das \ac{P2P}-Architektur-Modell verbindet jeden Spieler direkt mit allen anderen. Über diese Verbindungen werden Daten zu Spielzuständen und Ereignissen ausgetauscht. Im \say{reinen} \ac{P2P}-System gibt es keinen zentralen \say{Host}. Stattdessen ist jeder Client dafür verantwortlich, seinen eigenen Avatar (oder seine Einheiten) zu verwalten und erhält gleichzeitig Updates von den anderen Clients (vgl. \cite{mygames_unity_2024}). Abbildung \ref{fig:p-2-p} zeigt die entsprechende Topologie.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/0_poGQC2fWQ3tPWPwT.png}
+\caption{Peer-to-Peer Infrastruktur (Quelle: \cite{mygames_unity_2024})}
+\label{fig:p-2-p}
+\end{figure}
+
+
+\subsection{Relay-Server}
+Der Relay-Dienst ermöglicht Multiplayer-Unterstützung ohne die Notwenigkeit eines dedizierten Spielserver. Dabei wird die Kommunikation zwischen den Spielern über sogenannte Relay-Server weitergeleitet. Nachrichten werden mithilfe einer latenzarmen Datagramm-Übertragung übermittelt, sodass keine direkte Verbindung zwischen den einzelnen Spielern erforderlich ist (vgl. \cite{noauthor_relay_nodate}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/0_o7LJU1ImxPHIM5Ej.png}
+\caption{Relay-Server Infrastruktur (Quelle: \cite{mygames_unity_2024})}
+\label{fig:relay-server}
+\end{figure}
+
 \section{Augmented Reality}
 
 \ac{AR} stellt eine Form virtueller Umgebungen (\ac{VE}) dar, bei der im Gegensatz zur vollständigen Immersion in rein virtuelle Welten, wie es in \ac{VR} der Fall ist, die Umgebung weiterhin sichtbar bleibt. Virtuelle Objekte werden dabei über die physische Welt gelegt und mit ihr kombiniert, sodass eine erweiterte Wahrnehmung entsteht. Es gewährleistet außerdem eine Interaktion mit den räumlich (\ac{3D}) registrierten virtuellen Inhalten in Echtzeit. Die technische Umsetzung kann dabei über monitorbasierte Schnittstellen, monokulare Systeme oder durchsichtige \ac{HMD}s erfolgen (vgl. \cite[S. 2f]{azuma_survey_1997}).
 
-
-
-% \cite{el_barhoumi_assessment_2022} 
-
-% Es gibt drei verschiedene Ansätze, wie virtuelle Objekte in die virtuelle Szene der Anwendung platziert werden können:
-% \begin{itemize}
-%     \item Marker basiertes \ac{AR}
-%     \item Markerloses \ac{AR}
-%     \item Hybride \ac{AR} Ansätze
-% \end{itemize}
-% Der Marker-Basierte Ansatz verwendet einen bestimmten Marker um das \ac{3D}-Objekt an eine bestimmte Position zu binden. Dies kann entweder über eine Hyperlink Verknüpfung oder Visuell-Basierenden Markern geschehen. Bei der Hyperlink-Verknüpfung wird bein physisches Objekt mit einem Web-basierendem Inhalt durch graphische Tags oder Radiofrequenz-Identifikationssysteme verbunden. Die visuell-basierte Methode funktioniert durch das erkennen und verarbeiten von bestimmten Markern, wie physische Objekte in der Umgebung oder Papier-basierende Muster, durch die Kamera (vgl. \cite[S. 3f]{el_barhoumi_assessment_2022}).
-
-% Der Markerlose Ansatz lässt sich in zwei verschiedene Typen unterteilen. Das sensorbasierte Tracking nutzt entweder das magentische Tracking-Verfahren, bei dem ein elektromagnetisches Feld und Sensoren verwendet werden um die Position und Orientierung in Echtzeit zu bestimmen. Es funktioniert unabhängig von Sichtverbindungen und ist unempfindlich gegenüber optischen Störungen. Es hat allerdings eine begrenzte Reichweite und ist störanfällig gegenüber Magnetfeldern. Das interiale Tracking verwendet.
-
-% Die Kernaspekte der \ac{AR} beziehen sich darauf, dass die physische Welt durch digitale Informationen ergänzt werden kann, indem eine digitale Sicht über sie gelegt wird. Diese Informationen können 
-
 Im Vergleich zur \ac{VR}, das eine voll-immersive Umgebung erstellt, erweitert die \ac{AR} die eigene Realität und bietet dadurch die Möglichkeit, dass sich die Nutzer frei in der Welt bewegen können und auch immer noch mit der echten Welt interagieren können (vgl. \citealp[S. 79]{billinghurst_survey_2015}; \citealp[S. 1]{stefanidi_meaningful_2024}).
 
 \subsection{Abgrenzung der Begriffe}
-% \ac{AR} und \ac{VR} werden 
 In der Vergangenheit und aktuell wird in der wissenschaftlichen Forschung nach Konzepten und Möglichkeiten der Integration und Verbesserung von \ac{AR} und \ac{VR} gesucht. Damit zwischen diesen Begriffen und den weiteren in der Forschung angewandten Begriffen \ac{MR} oder \ac{XR} unterschieden werden kann, wurde von  \cite{milgram_taxonomy_1994} das Konzept des \say{\ac{VC}s} entworfen (vgl. Abbildung \ref{fig:virtuality-continuum}).
 
 \begin{figure}[ht]
@@ -325,69 +364,4 @@ Die gängigste Methode ist die Markerbasierte, bei dem Anhand eines bestimmten M
 
 Der Markerlose Ansatz lässt sich über die sensorbasierten und kamerabasierten Methoden realisieren. Beim sensorbasierten Ansatz werden die intrinsischen Sensoren des Gerätes verwendet um die Position und Orientierung der Kamera zu bestimmen. Dabei kommen der Gyro und Beschleunigungssensor, sowie das GPS zum Einsatz. Der modellbasierte Kamera-Ansatz benötigt meist ein \ac{3D}-Modell der Umgebung. Über das Kanten- und Featurebasierte Tracking werden dabei einzelne Abschnitte, Kanten und Merkmale aus den Kamerabildern mit der Vorlage verglichen. Beim Template-Vergleich werden kleinere Bildausschnitte mit Datenbankbildern abgeglichen und beim Tiefenbildverfahren werden zusätzlich zu den Farbinformationen aus Bildern Tiefendaten verwendet, um Absände des Raumes zu erfassen.
 Beim nicht modellbasiertem Ansatz wird kein vordefiniertes Modell benötigt, stattdessen erstellt das Verfahren gleichzeitig ein \ac{3D}-Rekonstruktion der Umgebung und verfolgt die Kamerabewegung (vgl. \citealp[S. 4f]{el_barhoumi_assessment_2022}).
-
-
-\section{Netzwerkinfrastrukturen}\label{sec:basics-network-structures}
-Um ein Multiplayer-Spiel entwickeln zu können, muss zunächst geklärt werden, wie die Netzwerkinfrastruktur der Anwendung aufgebaut sein soll. Es existieren zahlreiche Ansätze, die jeweils für verschiedene Anwendungszwecke konzipiert sind.
-
-\subsection{Distributed Authority}
-Bei einer \say{Distributed Authority}-Netzwerktopologie übernimmt jeder im Netzwerk verbundene Spielclient gemeinsam jeweils die Verantwortung für das Erstellen und Verwalten von Objekten im Netzwerk. Jeder Client simuliert dabei seinen Teil der Spielwelt selbst und steuert Objekte über die er Autorität besitzt.
-Damit Positionen und andere relevanten Daten an alle anderen Clients im Netzwerk weitergeleitet werden können, wird ein zentraler, leichtgewichtiger Statusdienst verwendet, der ausschließlich für die Verteilung der notwendigen Informationen zuständig ist, ohne selbst die Anwendung zu simulieren (vgl. \cite{noauthor_distributed_2025}).
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=1\linewidth]{content/pictures/distributed-authority-service.jpg}
-\caption{Netzwerktopologie der Distributed Authority (Quelle: \cite{noauthor_distributed_2025})}
-\label{fig:distributed_authority_topology}
-\end{figure}
-
-Spiele wie \say{Journey}, \say{God of War: Ascension}, \say{Mercenaries 2}, \say{GTA: Online}, \say{Dark Souls} und \say{Destiny} nutzen diese Netzwerkinfrastruktur. Häufig kommt diese Topologie zum Einsatz, wenn ein bestehendes Single-Player um eine Multiplayer-Komponente erweitert werden soll (Journey, GTA und Dark Souls), ohne den Kern des Quellcodes grundlegend umzustrukturieren. Diese Architektur erfordert keinen dedizierten Server, eignet sich für Spiele mit großen, offenen Spielwelten (Dark Souls, GTA) und kommt häufig zum Einsatz, wenn keine deterministische Physik benötigt wird bzw. kein vollständig deterministisches Spielkonzept vorliegt. Sie eignet sich zudem besonders für Spiele, bei denen die Prozessorleistung (z.B. durch Physiksimulationen) stark beansprucht wird. Für Spiele mit kooperativen Spielmechaniken, leichten kompetitiven Elementen oder innovativen Multiplayer-Ideen ist diese Infrastruktur eine sinnvolle Wahl (vgl. \cite{noauthor_choosing_2024}).
-
-\subsection{Pure Client/Server}
-Bei der Client-Server-Architektur übernimmt ein zentraler Server die Hauptsimulation und verwaltet alle wesentlichen Aspekte des Spiels. Dazu gehören unter anderem die Physiksimulation, das Erzeugen und Entfernen von Objekten sowie die Autorisierung von Anfragen der Clients. Aus Sicht der Clients besitzen diese lediglich die Anwendung, über die sie sich mit dem Server verbinden. Sie erhalten über diese Verbindung die Darstellung des Spiels (vgl. \cite{noauthor_client-server_2024}):
-\paragraph{Ein dedizierter Server} bildet eine eigenständige Instanz, die ausschließlich dem Spielbetrieb dient (vgl. Abbildung \ref{fig:dedicated_server}).
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=1\linewidth]{content/pictures/ded_server-d5369721966357b9b4d5e1fa96b05b22.png}
-\caption{Client-Server-Architektur mit dediziertem Server (Quelle: \cite{noauthor_network_2024})}
-\label{fig:dedicated_server}
-\end{figure}
-
-\paragraph{Ein Client gehosteter Server} läuft auf demselben Gerät wie die dazugehörige Client-Anwendung (vgl. Abbildung \ref{fig:client_server}).
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=1\linewidth]{content/pictures/client-hosted-16be0b1c9b5020f21325b1e6a7beca73.png}
-\caption{Client hosted Server (Quelle: \cite{noauthor_network_2024})}
-\label{fig:client_server}
-\end{figure}
-
-% \subsection{Client-Side Prediction and Lag Compensation}
-
-% Spiele wie \say{Counterstrike}, \say{Call of Duty}, \say{Valorant} und \say{Apex legends} verwenden ein auf dem klassischen Quake-Modell basierendem Netzwerkmodell. Der Spieler steuert dabei lokal im eigenen Client, auf dem die volle Simulation läuft, ohne dabei Verzögerungen beim Laufen oder Schießen zu haben. Der Server nimmt die Eingaben samt Zeitstempel des Clients entgegen und verteilt diesen \say{State} zurück. Bspw. das Inventar, Munition oder Feuerraten. Die Korrekturen des \say{State}s werden rückwirkend auf den Client angewandt, der den Zustand bis zur aktuellen Zeit wieder herstellt (\say{Client-Side Prediction}). Schüsse und der damit einhergehende Schaden wird auf dem Server ausgewertet und an die Clients übergeben. Um das Spielerlebnis reaktionsschnell und präzise zu gestatlten, nutzt der Server ein \say{Lag Compensation} Verfahren, bei dem er anhand gespeicherter Zustände die Welt aus der Sicht der Clients zum Schlusspunkt rekonstruiert wird (vgl. \say{}.
-
-\subsection{Peer-to-Peer}
-Das \ac{P2P}-Architektur-Modell verbindet jeden Spieler direkt mit allen anderen. Über diese Verbindungen werden Daten zu Spielzuständen und Ereignissen ausgetauscht. Im \say{reinen} \ac{P2P}-System gibt es keinen zentralen \say{Host}. Stattdessen ist jeder Client dafür verantwortlich, seinen eigenen Avatar (oder seine Einheiten) zu verwalten und erhält gleichzeitig Updates von den anderen Clients (vgl. \cite{mygames_unity_2024}). Abbildung \ref{fig:p-2-p} zeigt die entsprechende Topologie.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=1\linewidth]{content/pictures/0_poGQC2fWQ3tPWPwT.png}
-\caption{Peer-to-Peer Infrastruktur (Quelle: \cite{mygames_unity_2024})}
-\label{fig:p-2-p}
-\end{figure}
-
-
-\subsection{Relay-Server}
-Der Relay-Dienst ermöglicht Multiplayer-Unterstützung ohne die Notwenigkeit eines dedizierten Spielserver. Dabei wird die Kommunikation zwischen den Spielern über sogenannte Relay-Server weitergeleitet. Nachrichten werden mithilfe einer latenzarmen Datagramm-Übertragung übermittelt, sodass keine direkte Verbindung zwischen den einzelnen Spielern erforderlich ist (vgl. \cite{noauthor_relay_nodate}).
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=1\linewidth]{content/pictures/0_o7LJU1ImxPHIM5Ej.png}
-\caption{Relay-Server Infrastruktur (Quelle: \cite{mygames_unity_2024})}
-\label{fig:relay-server}
-\end{figure}
-
-% \subsection{Verwendete Kommunikationsprotokolle}
-% [überlegung hier noch die protokolle erwähnen]
 

@@ -1,9 +1,10 @@
 \chapter{Umsetzung des Prototyps}\label{sec:realisation}
-Nachdem in Kapitel \ref{sec:concept} die Konzeption der Anwendung vorgestellt wurde kann, kann nun die Umsetzung der Anwendungen erfolgen.
+Nachdem in Kapitel \ref{sec:concept} die Konzeption der Anwendungen vorgestellt wurde, kann nun die Umsetzung der Anwendungen erfolgen.
 
-Zunächst wird dabei auf die Ausgangssituation aus dem vorangegangenem Projekt vorgestellt. Im Anschluss erfolgt eine Auflistung der verwendeten Technologien. Danach erfolgt die Vorstellung der Anwendungen, sowie die Herausforderungen und Probleme in der Umsetzung
+Zunächst wird dabei die Ausgangssituation aus dem vorangegangenem Projekt vorgestellt. Im Anschluss erfolgt eine Auflistung der verwendeten Technologien. Danach erfolgt die Vorstellung der Anwendungen, sowie die Beschreibung die Herausforderungen und Probleme in der Umsetzung.
 
 \section{Ausgangssituation}
+
 In der vorausgehenden Arbeit wurde ein Art \ac{MVP} der Spielidee umgesetzt welche aus 3 Hauptanwendungen bestand. Es gibt eine Unity-Anwendung, in welcher das Spielgeschehen des \say{Players} umgesetzt wurde. Das Spielgeschehen der \say{Watcher}-Anwendung wurde über eine Vue3-Webseite realisiert. Für die Kommunikation der beiden Anwendungen untereinander wurde auf der Basis eines \say{Express.js} Node-Servers ein WebSocket-Server entwickelt. Der Node-WebSocket-Server kommuniziert zusätzlich mit einer MongoDB Datenbank, in welcher die Fortschritte der einzelnen Sessions gespeichert werden.
 
 Die Anwendungen des \say{Players} und des \say{Watchers} sind in dieser Konstellation jeweils Anzeigende und auf die Eingaben des Nutzers reagierende Komponenten im gesamten System. Sie geben eine Rückmeldung an den Server, der die Daten zur Laufzeit abspeichert und persistent in einer Datenbank speichern kann.
@@ -11,7 +12,7 @@ Die Anwendungen des \say{Players} und des \say{Watchers} sind in dieser Konstell
 \subsection{Aufbau der Ausgangssituation}
 
 Im Softwaredesign wird dabei von einem \ac{MVC} Design-Pattern gesprochen (vgl. \cite{GlossarWiki:Reenskaug:1979a}). 
-Das Model definiert, welche Daten die App enthalten soll. Ändert sich der Zustand dieser Daten, informiert das Modell die einzelnen Views, damit die Ansicht der Daten entsprechend aktualisiert werden können. Außerdem wird manchmal auch der Controller über Änderungen informiert. Die View definiert wie die Daten angezeigt werden sollen. Der Controller verarbeitet die reinkommenden Änderungen aus den Views, die die Nutzer getätigt haben, und gibt diese an das Model oder die Views direkt weiter (vgl. \cite{noauthor_mvc_2023}); (vgl. Abbildung \ref{fig:mvc-diagramm}).
+Das Model definiert, welche Daten die App enthalten soll. Ändert sich der Zustand dieser Daten, informiert das Modell die einzelnen Views, damit die Ansicht der Daten entsprechend aktualisiert wird. Außerdem wird manchmal auch der Controller über Änderungen informiert. Die View definiert wie die Daten angezeigt werden sollen. Der Controller verarbeitet die reinkommenden Änderungen aus den Views, die die Nutzer getätigt haben, und gibt diese an das Model oder die Views direkt weiter (vgl. \cite{noauthor_mvc_2023}); (vgl. Abbildung \ref{fig:mvc-diagramm}).
 
 \begin{figure}[ht]
 \centering
@@ -20,7 +21,7 @@ Das Model definiert, welche Daten die App enthalten soll. Ändert sich der Zusta
 \label{fig:mvc-diagramm}
 \end{figure}
 
-Die MongoDB Datenbank und Klassen innerhalb des WebSocket-Servers nehmen die Rolle des Model ein, die einzelnen WebSocket-Nachricht Endpunkte übernehmen die Aufgaben des Controllers und die Anwendung des \say{Watchers} und des \say{Players} sind die Views der Architektur.
+Die MongoDB Datenbank und Klassen innerhalb des WebSocket-Servers nehmen die Rolle des Models ein. Die einzelnen WebSocket-Nachricht Endpunkte übernehmen die Aufgaben des Controllers. Die Anwendung des \say{Watchers} und des \say{Players} sind die Views der Architektur.
 
 \subsection{Beitreten einer Session}
 
@@ -31,7 +32,7 @@ Die MongoDB Datenbank und Klassen innerhalb des WebSocket-Servers nehmen die Rol
 \label{fig:old-logins}
 \end{figure}
 
-Abbildung \ref{fig:old-logins} zeigt den bereits im alten Prototyp entwickelten Startbildschirm über welchen der Player eine neue Session starten (linkes Bild, links oben) und der Watcher dieser beitreten kann (linkes Bild, rechts unten). Sobald der Player eine Session erstellt hat, erhält er vom WebSocket-Server eine Rückmeldung mit der erstellten Session-ID (rechtes Bild, links oben) welches er dem Watcher mitteilen muss, damit dieser ihr beitreten kann (rechts Bild, rechts unten).
+Abbildung \ref{fig:old-logins} zeigt den bereits im alten Prototyp entwickelten Startbildschirm über welchen der Player eine neue Session starten (linkes Bild, links oben) und der Watcher dieser beitreten kann (linkes Bild, rechts unten). Sobald der Player eine Session erstellt hat, erhält er vom WebSocket-Server eine Rückmeldung mit der erstellten Session-ID (rechtes Bild, links oben) welches er dem Watcher mitteilen muss, damit dieser  der Session bbeitreten kann (rechts Bild, rechts unten).
 
 \subsection{Einführung in die Anwendungen}
 
@@ -44,9 +45,10 @@ Abbildung \ref{fig:old-logins} zeigt den bereits im alten Prototyp entwickelten 
 
 Abbildung \ref{fig:old-introductions} zeigt die Einführung der beiden Anwendungen in die Spielwelt. Zum Start erhielt der Watcher einzelne Tooltips, mit Erklärungen zu den Grundfunktionen seiner Anwendung (erstes bis drittes Bild in der ersten Zeile und linkes Bild in der zweiten Zeile; jeweils in weiß umrandet im rechten Bildelement). Seine Anwendung enthalten zwei Dropdown-Menüs, über die Gegenstände und Positionen ausgewählt werden können, (erste Zeile, Bilder links und und in der Mitte) eine Liste mit allen platzierten Gegenstände (erste Zeile rechts Bild), die jeweils einzeln entfernt werden können und eine Top-Down-Ansicht der Spielwelt, in der sich der Player befindet (zweite Zeile, linkes Bild). 
 
-Der Player steuert seinen Avatar über eine Touch-druck auf die Spielwelt (zweite Reihe mittlere Bild, linkes Bildelement). Außerdem kann er über vertikale Swipes die Höher der Kamera zum Avatar verändern und dadurch in einem gewissen Rahmen die Ansicht verändern.
+Der Player steuert seinen Avatar über einen Touch-druck auf die Spielwelt (zweite Reihe mittlere Bild, linkes Bildelement). Außerdem kann er über vertikale Swipes die Höhe der Kamera zum Avatar verändern. Dadurch verändert sich in einem gewissen Rahmen die Ansicht.
 
 Um in der Spielwelt an das Ziel zu gelangen, müssen der Player und Watcher zusammenarbeiten und Hindernisse in der Spielwelt beseitigen. Im linken Bild in der zweiten Zeile im weiß umrandeten wird ein solches Rätselelement dargestellt, welches gelöst werden muss.
+
 \subsection{Lösen von Rätseln}
 Wie wurden im alten Prototyp die einzelnen Rätsel gelöst und durch wen erfolgte dies?
 
@@ -57,7 +59,7 @@ Wie wurden im alten Prototyp die einzelnen Rätsel gelöst und durch wen erfolgt
 \label{fig:old-solving-riddle}
 \end{figure}
 
-Der Watcher war dafür verantwortlich, dass Gegenstände auf ihre richtigen Zielpositionen platziert wurden. Sobald der Player auf eine Absperrung in der Spielwelt stieß, musste er beschreiben was er sah um dem Watcher einen Hinweis darauf zu geben, welche Gegenstände platziert werden müssen und auf welche Positionen diese gehören. Zunächst wählt der Watcher über das Gegenstände-Dropdown einen entsprechenden Gegenstand aus (linkes Bild, rechtes Bildelement). Anschließend wählt er eine vorgegebene Position aus, die im derzeitig aktiven Abschnitt der Spielwelt hinzugekommen ist (mittlere Bild, rechts Bildelement). Über den Button \say{Gegenstand platzieren} (linker Button) wird der Gegenstand in die Spielwelt des Players platziert. Sowohl der Player als auch der Watcher erhalten vom System eine Benachrichtigung, dass der Gegenstand platziert wurde (rechts Bild, beide weißen Umrandungen). Auf der rechten Seite der Watcher-Anwendung erscheint zur selben Zeit wie die Benachrichtigung der platzierte Gegenstand in der Liste der platzierten Gegenstände (rechtes Bild, rechtes Bildelement). 
+Der Watcher war dafür verantwortlich, dass Gegenstände auf ihre richtigen Zielpositionen platziert wurden. Sobald der Player auf eine Absperrung in der Spielwelt stieß, musste er beschreiben was er sah, um dem Watcher einen Hinweis darauf zu geben, welche Gegenstände wo genau platziert werden müssen. Zunächst wählt der Watcher über das Gegenstände-Dropdown einen entsprechenden Gegenstand aus (linkes Bild, rechtes Bildelement). Anschließend wählt er eine vorgegebene Position aus, die im derzeitig aktiven Abschnitt der Spielwelt hinzugekommen ist (mittlere Bild, rechts Bildelement). Über den Button \say{Gegenstand platzieren} (linker Button) wird der Gegenstand in die Spielwelt des Players platziert. Sowohl der Player als auch der Watcher erhalten vom System eine Benachrichtigung, dass der Gegenstand platziert wurde (rechts Bild, beide weißen Umrandungen). Auf der rechten Seite der Watcher-Anwendung erscheint zur selben Zeit die Information über den  platzierten Gegenstand in der Liste der Gegenstände (rechtes Bild, rechtes Bildelement). 
 
 \subsection{Freischalten von Gegenständen und Positionen}
 Sobald ein Rätsel durch das Platzieren von Gegenständen gelöst wurde, erhielten Player und Watcher die Information, dass neue Gegenstände freigeschaltet wurden (vgl. Abbildung \ref{fig:old-unlock-system}, erste Reihe linkes Bild, eingekreist in weiß). 
@@ -69,11 +71,11 @@ Sobald ein Rätsel durch das Platzieren von Gegenständen gelöst wurde, erhielt
 \label{fig:old-unlock-system}
 \end{figure}
 
-Sobald das Lösen des Rätsel das Hindernis beseitigt und einen neuen Bereich zugänglich macht, geht der Bilder-Slider in der Anwendung des Watchers auf das aktuelle Bild. Der Slider zeigt dem Watcher alle verfügbaren Abschnitte der Spielwelt (vgl. erste Reihe, rechtes Bild, in weiß umrandet in Abbildung \ref{fig:old-unlock-system}). Durch die neuen Spielabschnitte werden nicht nur neue Gegenstände freigeschaltet, sondern auch zusätzliche vordefinierte Positionen, auf denen die Gegenstände platziert werden können. Diese werden dem Watcher in den Gegenstand- und Positions-Dropdown aufgelistet (vgl. Abbildung \ref{fig:old-unlock-system}, beide Bilder in der zweiten Reihe in weiß umrandet). 
+Sobald das Lösen des Rätsel das Hindernis beseitigt und einen neuen Bereich zugänglich macht, geht der Bilder-Slider in der Anwendung des Watchers auf das aktuelle Bild. Der Slider zeigt dem Watcher alle verfügbaren Abschnitte der Spielwelt (vgl. erste Reihe, rechtes Bild, in weiß umrandet in Abbildung \ref{fig:old-unlock-system}). Durch die neuen Spielabschnitte werden nicht nur neue Gegenstände freigeschaltet, sondern auch zusätzliche vordefinierte Positionen, auf denen die Gegenstände platziert werden können. Diese werden dem Watcher in den Gegenstand- und Positions-Dropdown Liste aufgelistet (vgl. Abbildung \ref{fig:old-unlock-system}, beide Bilder in der zweiten Reihe in weiß umrandet). 
 
 \subsection{Aspekte zum Überarbeiten}
 \paragraph{Backfaces}
-In den zuvor betrachteten Abbildungen \ref{fig:old-logins} bis \ref{fig:old-unlock-system} fällt auf, dass die Wände der Spielwelt, in der sich der Player befindet (jeweils immer das linke Bildelement), \say{eigenartig} aussehen. Das liegt daran, dass die einzelnen Raum-Elemente dafür gedacht sind, dass durch die Kameraperspektive der Spieler im inneren des Raumes zu sein sollte. Man müsste für diesem Raumaufbau eine First-Person Kameraansicht wählen.
+In den zuvor betrachteten Abbildungen \ref{fig:old-logins} bis \ref{fig:old-unlock-system} fällt auf, dass die Wände der Spielwelt, in der sich der Player befindet (jeweils immer das linke Bildelement), \say{eigenartig} aussehen. Das liegt daran, dass die einzelnen Raum-Elemente dafür gedacht sind, dass durch die Kameraperspektive der Spieler im inneren des Raumes sein sollte. Man müsste für diesem Raumaufbau eine First-Person Kameraansicht wählen.
 
 \begin{figure}[ht]
 \centering
@@ -82,7 +84,7 @@ In den zuvor betrachteten Abbildungen \ref{fig:old-logins} bis \ref{fig:old-unlo
 \label{fig:missing-backfaces}
 \end{figure}
 
-Abbildung \ref{fig:missing-backfaces} zeigt fehlende Rückseiten-Oberflächen an. Die blauen Oberflächen sind die Oberflächen, die durch ihre Ausrichtung der Normalvektoren von der Game-Engine gerendert werden können. Die roten Oberflächen sind die, die von der Game-Engine nicht berücksichtigt werden. Hierbei kann es zwei unterschiedliche Ansätze geben, fehlende Rückseiten hinzuzufügen. Innerhalb der Material-Konfiguration der einzelnen Materialien kann bi-direktionales Rendering aktiviert werden oder das Modell muss pro Richtung auf die auf das Modell geschaut wird jeweils eine Oberfläche haben, die auch in diese Richtung zeigt.
+Abbildung \ref{fig:missing-backfaces} zeigt fehlende Rückseiten-Oberflächen an. Die blauen Oberflächen sind die Oberflächen, die durch ihre Ausrichtung der Normalvektoren von der Game-Engine gerendert werden können. Die roten Oberflächen sind die, die von der Game-Engine nicht berücksichtigt werden. Hierbei kann es zwei unterschiedliche Ansätze geben, fehlende Rückseiten hinzuzufügen. Innerhalb der Material-Konfiguration der einzelnen Materialien kann bi-direktionales Rendering aktiviert werden, oder das Modell muss pro Richtung, auf die auf das Modell schaut, jeweils eine Oberfläche haben, die auch in diese Richtung zeigt.
 
 Außerdem müsste für den Anwendungszweck eines Spiel mit einer Top-Down Ansicht auch eine Decke der Räume entfernt werden, da diese für den Spieler nicht sichtbar sein sollte und sonst stören würde.
 

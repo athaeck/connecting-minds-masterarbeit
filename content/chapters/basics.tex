@@ -318,19 +318,19 @@ Sowohl in der Vergangenheit als auch in der aktuellen Forschung werden intensiv 
 Auf der linken Seite des \ac{VC}s befindet sich die reale Umgebung (\ac{PR}), während auf der gegenüberliegenden rechten Seite die vollständig virtuellen Umgebung (\ac{VR}) verortet ist. Je weiter sich innerhalb des Kontinuums von der virtuellen hin zur realen Seite bewegt wird, desto stärker tritt die physische Welt in den Vordergrund, wobei virtuelle Elemente zunehmend überlagert und mit realen Inhalten kombiniert werden. 
 Die \ac{PR} umfasst ausschließlich reale Objekte und Umgebungen ohne virtuelle Erweiterungen. \ac{AR} beschreibt einen Zwischenbereich, in dem digitale Inhalte on die reale Welt eingeblendet und mit dieser in Echtzeit kombiniert werden. Im der \ac{AV} hingegen befindet sich der Nutzer in einer primär virtuellen Umgebung, die durch ausgewählte Elemente aus der realen Welt ergänzt wird. Die \ac{VR} bildet schließlich das andere Extrem des Spektrums, bei dem sich der Nutzer in einer vollständig künstlich erzeugten Umgebung aufhält und mit dieser interagiert (vgl. \citealp[S. 3]{milgram_taxonomy_1994}; \citealp[S. 8f]{knoll_augmented_2022}; \citealp[S. 3]{zuniga_gonzalez_making_2021}).
 
-Der Begriff der \ac{XR} dient als Oberkategorie für sämtliche Ausprägungen von Technologien, bei denen virtuelle Inhalte zur Erweiterung oder Ersetzung der realen Umgebung zum Einsatz kommen. Dazu zählen insbesondere \ac{AR}, \ac{AV} und \ac{VR}. Innerhalb dieses Spektrums bezeichnet \ac{MR} diejenigen Anwendungen, in denen reale und virtuelle Inhalte nicht nur koexistieren, sondern in Echtzeit miteinander interagieren. Diese schließt sowohl Szenarien ein, in denen virtuelle Objekte die physische Welt überlagern, als auch solche, in denen reale Elemente in einer primär virtuellen Umgebung integriert werden.
+Der Begriff der \ac{XR} dient als Oberkategorie für sämtliche Ausprägungen von Technologien, bei denen virtuelle Inhalte zur Erweiterung oder Ersetzung der realen Umgebung zum Einsatz kommen. Dazu zählen insbesondere \ac{AR}, \ac{AV} und \ac{VR}. Innerhalb dieses Spektrums bezeichnet \ac{MR} diejenigen Anwendungen, in denen reale und virtuelle Inhalte nicht nur koexistieren, sondern in Echtzeit miteinander interagieren. Diese schließt sowohl Szenarien ein, in denen virtuelle Objekte die physische Welt überlagern, als auch solche, in denen reale Elemente in einer primär virtuellen Umgebung integriert werden (vgl. Abbildung \ref{fig:virtuality-continuum}).
 
 \subsection{Technologische Umsetzungen}
-% Die virtuelle Welt kann über verschiedene Technologien 
-Die Einbettung der virtuellen Elemente in die physische Umgebung kann über verschiedene Techniken erfolgen. Die bekanntesten davon sind mitunter mobile Displays (Smartphone-Bildschirme oder Tablets), \ac{HMD}s oder Projektionssysteme. Im folgenden werden diese unterschiedlichen Technologien vorgestellt.
+Die Integration der virtuellen Elemente in die physische Umgebung kann mithilfe verschiedener Ansätze realisiert werden. Zu den am weitesten verbreiteten Ausgabetechnologien zählen mobile Endgeräte wie Smartphones und Tablets, \ac{HMD}s sowie projektionsbasierte Systeme. Im folgenden werden diese unterschiedlichen Technologien vorgestellt.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/devices.PNG}
 \caption{Klassifizierungen von Augmented Reality Displays (Quelle: \citealp[S. 315]{leins_comparing_2024})}
 \label{fig:ar-classes}
 \end{figure}
-\paragraph{Handheld Augmented Reality}
-% In einer Hand haltbare Geräte eignen  sich gut für \ac{AR}-Anwendungen. Die Derzeitige Hardware haben 
+
+\paragraph{\ac{HAR}}
+
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.5\linewidth]{content/pictures/handheld-ar.PNG}
@@ -338,9 +338,9 @@ Die Einbettung der virtuellen Elemente in die physische Umgebung kann über vers
 \label{fig:handheld-ar}
 \end{figure}
 
-\ac{HAR} erfolgt über Handheld-Displays, die der Benutzer in der Hand halten kann (vgl. Abbildung \ref{fig:handheld-ar}). Sie verwenden Video see-through Techniken, um virtuelle Objekte über die reale Umgebung zu legen. Um dies zu ermöglichen, nutzen sie Sensoren, wie digitale Kompasse und GPS-Geräte ein um ihre Ausrichtung und Pose zu bestimmen (vgl. \citealp[S. 347]{carmigniani_augmented_2011}).
+bezeichnet die Verwendung tragbarer Endgeräte, wie Smartphones oder Tablets, zur Darstellung erweiterter Realitäten. Diese GEräte werden in der Hand gehalten und nutzen typischerweise Video-see-through-Technologien, bei denen die reale Umgebung über die Kameralinse erfasst und auf dem Display mit virtuellen Inhalten überlagert dargestellt wird (vgl. Abbildung \ref{fig:handheld-ar}). Zur präzisen Bestimmung von Position und Ausrichtung der Kamera greifen \ac{HAR}-Systeme auf eine Kombination integrierter Sensoren zurück. Digitale Kompasse, GPS-Module, Gyroskope und Beschleunigungssensoren ermöglichen eine räumlich korrekte Platzierung virtueller Objekte in Echtzeit und unterstützen eine dynamische Interaktion mit der Umgebung (vgl. \citealp[S. 347]{carmigniani_augmented_2011}).
 
-\paragraph{Head-Mounted-Devices}
+\paragraph{\ac{HMD}}
 
 \begin{figure}[ht]
 \centering
@@ -349,11 +349,11 @@ Die Einbettung der virtuellen Elemente in die physische Umgebung kann über vers
 \label{fig:hmd-ar}
 \end{figure}
 
-Bei einem \ac{HMD} trägt der Anwender ein Displaygerät auf dem Kopf oder als Teil eines Helmes (vgl. Abbildung \ref{fig:hmd-ar}), das ihm sowohl Bilder der realen als auch virtuellen Umgebung über das Sichtfeld legt. Sie können entweder video-see-through oder optisches see-through oder über monokulare- bzw. binokulare Displayoptiken verfügen (vgl. \citealp[S. 346]{carmigniani_augmented_2011}).
+sind tragbare Anzeigesysteme, die direkt am Kopf oder als Bestandteil eines Helms getragen werden und es ermöglichen, sowohl reale als auch virtuelle Inhalte simultan im Sichtfeld des Nutzers darzustellen (vgl. Abbildung \ref{fig:hmd-ar}). Diese Geräte können verschiedene technologische Ansätze zur Überlagerung visueller Informationen verwenden, insbesondere Video-see-through- und optische see-through-Technologien, jeweils in mono- oder binokularer Ausführung (vgl. \citealp[S. 346]{carmigniani_augmented_2011}).
 
-Video see-through Systeme setzen voraus, dass der Nutzer zwei Kameras auf dem Kopf trägt, und die Bilder aus beiden Perspektiven verarbeitet werden. Dabei werden die Bilder der Kameras (der \say{reale Teil}) zusammen mit der virtuellen Szene und der enthaltenen virtuellen Objekte verrechnet. Dieser Ansatz benötigt viel Rechenleistung (bsp.: \cite{noauthor_vive_nodate}). Optische see-through Systeme hingegen benötigen nicht so viel Rechenleistung, da eine Halbspiegeltechnologie verwendet wird, um die Sicht auf die reale Umgebung zu ermöglichen und virtuelle Elemente grafisch zu überlagern (vgl. \citealp[S. 346f]{carmigniani_augmented_2011}).
+Bei Video-see-through-Systemen wird die reale Umgehung durch am \ac{HMD} montierte Kameras erfasst, deren Bilddaten in Echtzeit mit den virtuellen Inhalten verrechnet und auf dem Display ausgegeben werden. Da hierbei eine kontinuierliche Bildverarbeitung erforderlich ist, sind solche Systeme mit einem hohen Rechen aufwand verbunden. Ein aktuelles Beispiel für ein solches System die die \cite{htc_vive_2023}). Im Gegensatz dazu ermöglichen optische see-through-Systeme die direkte Sicht auf die physische Umgebung, indem sie halbtransparente Spiegel oder Displays (eine sog. Halbspiegeltechnologie) nutzen, die virtuelle Inhalte über das reale Sichtfeld projizieren. Diese Technologie erfordert vergleichsweise weniger Rechenleistung, da keine vollständige Kamerabildverarbeitung notwendig ist (vgl. \citealp[S. 346f]{carmigniani_augmented_2011}).
 
-\paragraph{Spatial Augmented Reality}
+\paragraph{\ac{SAR}}
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.5\linewidth]{content/pictures/spatial-ar.PNG}
@@ -361,12 +361,12 @@ Video see-through Systeme setzen voraus, dass der Nutzer zwei Kameras auf dem Ko
 \label{fig:spatial-ar}
 \end{figure}
 
-\ac{SAR} nutzt Videoprojektoren und weitere Tracking-Technologien um grafische Informationen direkt auf physische Objekte zu projizieren, ohne dass der Benutzer ein Display tragen oder führen muss (vgl. Abbildung \ref{fig:spatial-ar}). Außerdem trennen sie den Großteil der Technologie vom Benutzer und integrieren sie in die Umgebung (vgl. \citealp[S. 348]{carmigniani_augmented_2011}).
+Bei \ac{SAR} werden grafische Informationen mithilfe von Videoprojektoren und weiteren Tracking-Technologien direkt auf die physische Objekte in der realen Umgebung projiziert (vgl. Abbildung \ref{fig:spatial-ar}). Im gegensatz zu den anderen \ac{AR}-Systemen ist bei \ac{SAR} nicht erforderlich, dass Nutzer ein Display tragen oder ein Gerät in der Hand halten. Die Technologie wird stattdessen größtenteils in die Umgebung integriert, wodurch eine natürliche und geräteunabhängige Interaktion mit virtuellen Inhalten ermöglicht wird (vgl. \citealp[S. 348]{carmigniani_augmented_2011}).
 
-Es gibt drei verschiedene \ac{SAR}-Ansätze. Beim Bildschirmbasiertem Video see-through wird kostengünstige handelsübliche Hardware benutzt. Allerdings ist dieser Ansatz nur für stationäre Anwendungen geeignet. Räumliche optische see-through Bildschirme nutzen optische Komponenten wie Spiegelstrahler oder transparente Bildschirme, um Bilder direkt im Raum auszurichten. Sie sind jedoch ebenfalls nicht mobil einsetzbar. Projektorbasierte Displays projizieren Bilder direkt auf reale Oberflächen und ermöglichen so eine nahtlose Integration virtueller Inhalte in die physische Umgebung (vgl. \citealp[S. 348]{carmigniani_augmented_2011}).
+Grundsätzlich lassen sich drei technische Ansätze innerhalb der \ac{SAR} unterscheiden. Bildschirmbasierte Video-see-through-Systeme verwenden kostengünstige, handelsübliche Hardwarekomponenten und ermöglichen die Darstellung erweiterter Inhalte über stationäre Bildschirme. Aufgrund ihrer geringen Mobilität sind sie jedoch auf fest installierte Anwendungen beschränkt. Räumliche optische see-through-Systeme hingegen nutzen optische Komponenten wie Spiegelstrahler oder transparente Projektionsflächen, um digitale Inhalte direkt im Raum visuell zu verankern. Auch sie sind nicht für mobile Nutzung konzipiert, bieten jedoch eine realitätsnahe Integration virtueller Informationen. Projektorbasierte \ac{SAR}-Systeme projizieren Bilder unmittelbar auf reale Oberflächen und erlauben somit eine besondere immersive Verschmelzung zwischen physischer und virtueller Umgebung (vgl. \citealp[S. 348]{carmigniani_augmented_2011}).
 
 \subsection{Platzierungsmethoden virtueller Objekte}
-Damit die virtuellen Objekte in ihrer virtuellen Umgebung die reale Umgebung erweitern können, müssen diese an vorgegebenen oder gewünschten Positionen platziert werden. Um das zu erreichen gibt es verschiedene Platzierungsmethoden (vgl. Abbildung \ref{fig:placement-ar}).
+Damit virtuelle Objekte in \ac{AR}-Anwendungen sinnvoll in die physische Umgebung integriert werden können, ist eine präzise räumliche Platzierung dieser Inhalte erforderlich. Zu diesem Zweck existieren unterschiedliche Platzierungsmethoden, die je nach technologischem Ansatz, Anwendungskontext und verfügbaren Sensoren variieren. Abbildung \ref{fig:placement-ar} gibt einen Überblick über Verfahren zur Positionierung virtueller Inhalte in \ac{AR}-Systemen.
 
 \begin{figure}[ht]
 \centering
@@ -375,8 +375,9 @@ Damit die virtuellen Objekte in ihrer virtuellen Umgebung die reale Umgebung erw
 \label{fig:placement-ar}
 \end{figure}
 
-Die gängigste Methode ist die Markerbasierte, bei dem Anhand eines bestimmten Markers virtuelle Objekte platziert werden. Dabei wird zwischen den Hyperlink Methoden, bei denen physische Objekte über grafische Tags oder automatischen Identifikationstechnologien mit webbasierten Inhalten verknüpft werden, und den Kamerabasierten Methoden, bei denen über die Auswertung der Kamerabilder gedruckte Muster oder reale Objekte erkannt werden und anhand dieser virtuelle Objekte platziert werden können (vgl. \citealp[S. 3f]{el_barhoumi_assessment_2022}). 
+Eine der gebräuchlichsten Methoden zur Platzierung virtueller Inhalte in \ac{AR}-Systemen stellt der markerbasierte Ansatz dar. 
+Dabei werden virtuelle Objekte anhand spezifischer Marker in der physischen Umgebung positioniert. Grundsätzlich lassen sich zwischen Hyperlink- und kamerabasierte Methoden unterscheiden. Erstere verknüpfen physische Objekte über grafische Tags oder automatische Identifikationstechnologien mit webbasierten Inhalten. Kamerabasierte Verfahren hingegen erkennen gedruckte Muster oder reale Objekte durch Analyse des Kamerabildes, um daran orientiert virtuelle Inhalte zu plattieren (vgl. \citealp[S. 3f]{el_barhoumi_assessment_2022}). 
 
-Der Markerlose Ansatz lässt sich über die sensorbasierten und kamerabasierten Methoden realisieren. Beim sensorbasierten Ansatz werden die intrinsischen Sensoren des Gerätes verwendet um die Position und Orientierung der Kamera zu bestimmen. Dabei kommen der Gyro und Beschleunigungssensor, sowie das GPS zum Einsatz. Der modellbasierte Kamera-Ansatz benötigt meist ein \ac{3D}-Modell der Umgebung. Über das Kanten- und Featurebasierte Tracking werden dabei einzelne Abschnitte, Kanten und Merkmale aus den Kamerabildern mit der Vorlage verglichen. Beim Template-Vergleich werden kleinere Bildausschnitte mit Datenbankbildern abgeglichen und beim Tiefenbildverfahren werden zusätzlich zu den Farbinformationen aus Bildern Tiefendaten verwendet, um Absände des Raumes zu erfassen.
-Beim nicht modellbasiertem Ansatz wird kein vordefiniertes Modell benötigt, stattdessen erstellt das Verfahren gleichzeitig ein \ac{3D}-Rekonstruktion der Umgebung und verfolgt die Kamerabewegung (vgl. \citealp[S. 4f]{el_barhoumi_assessment_2022}).
+Demgegenüber stehen markerlose Verfahren, die sich in sensorbasierte und kamerabasierte Ansätze untergliedern lassen. Sensorbasierte Methoden nutze die in den mobilen Endgeräten integrieren Sensoren um Position und Orientierung der Kamera zu bestimmen. Kamerabasierte Verfahren lassen sich weiter differenzieren in modellbasierte und nicht-modellbasierte Ansätze. Modellbasierte Techniken setzen meist ein vorhandenes \ac{3D}-Modell der Umgebung voraus. Über kanten- und merkmalbasiertes Tracking werden Merkmale aus dem Kamerabild mit dem Modell abgeglichen. Auch Verfahren des Template-Matching, bei dem kleinere Bildausschnitte mit Datenbankeinträgen verglichen werden, sowie Methoden, die Tiefeninformationen zur räumlichen Erfassung nutzen, kommen in diesem Zusammenhang zum Einsatz. Nicht-modellbasierte Ansätze hingegen benötigen kein vorab erstelltes Modell. Stattdessen rekonstruieren sie die Umgebung simultan während der Kamerabewegung (vgl. \citealp[S. 4f]{el_barhoumi_assessment_2022}).
 
+Hybride \ac{AR}-Ansätze kombinieren die vorangegangenen Methoden, um deren jeweilige Nachteile zu kompensieren. Sie ermöglichen präzisiere und robustere Anwendungen bei geringerer Rechenlast (vgl. \citealp[S. 5]{el_barhoumi_assessment_2022}.

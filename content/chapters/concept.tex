@@ -201,14 +201,21 @@ Der Watcher erhält zunächst eine kurze Einführung in die grundlegenden Steuer
 \label{fig:sketch-starterrooms}
 \end{figure}
 
-Der Watcher muss auch erkennen können, wohin sie gemeinsam gehen müssen. Daher muss die Spielwelt immer so eindeutig sein, dass es entweder ein oder mehrere eindeutige Ziele geben muss, wohin der Player gelotst werden muss. Für einen ersten Abschnitt ist es allerdings einfacher, wenn ein Ziel festgelegt wird, wohin alle Wege führen. In Abbildung \ref{fig:sketch-starterrooms} ist dieses klar im Sketch zu sehen. 
+% Der Watcher muss auch erkennen können, wohin sie gemeinsam gehen müssen. Daher muss die Spielwelt immer so eindeutig sein, dass es entweder ein oder mehrere eindeutige Ziele geben muss, wohin der Player gelotst werden muss. Für einen ersten Abschnitt ist es allerdings einfacher, wenn ein Ziel festgelegt wird, wohin alle Wege führen. In Abbildung \ref{fig:sketch-starterrooms} ist dieses klar im Sketch zu sehen. 
 
-Die mit der Spielmechaniken einhergehenden Grundmechaniken und Aufgaben des Watchers müssen ebenfalls erlernt werden, darunter zählen das Platzieren, Previewen und Entfernen von Gegenständen. Das Platzieren von Gegenständen kann so initialisiert werden, dass der Watcher zum Start des Spiels bereits einen Gegenstand wie eine Säule im Inventar hat, welche nun nur noch den Ort benötigt, wo sie platziert werden kann. Durch ein weiteres Hindernis und dem Erkennen, dass der Player einen Gegenstand benötigt den er in eine bestimmte Stelle platzieren muss, bekommt der Watcher die Aufforderung dem Player einen bereits existierenden Gegenstand (bspw. eine Fackel) zu schicken. Das Entfernen von Gegenständen kann so so initialisiert werden, dass der Player in der in der Sketchzeichnung eingezeichneten Ziel-Eingangshalle ist (vgl. Abbildung \ref{fig:sketch-starterrooms}) und dort eine Tür oder ähnliches zu einem weiteren Abschnitt öffnen muss. Es werden allerdings wieder die gleichen Gegenstände benötigt, die sie in den vorangegangenen Rätseln verwendet haben. Also müssen die in der Welt platzierten Gegenstände entfernt und erneut platziert werden.
+% Die mit der Spielmechaniken einhergehenden Grundmechaniken und Aufgaben des Watchers müssen ebenfalls erlernt werden, darunter zählen das Platzieren, Previewen und Entfernen von Gegenständen. Das Platzieren von Gegenständen kann so initialisiert werden, dass der Watcher zum Start des Spiels bereits einen Gegenstand wie eine Säule im Inventar hat, welche nun nur noch den Ort benötigt, wo sie platziert werden kann. Durch ein weiteres Hindernis und dem Erkennen, dass der Player einen Gegenstand benötigt den er in eine bestimmte Stelle platzieren muss, bekommt der Watcher die Aufforderung dem Player einen bereits existierenden Gegenstand (bspw. eine Fackel) zu schicken. Das Entfernen von Gegenständen kann so so initialisiert werden, dass der Player in der in der Sketchzeichnung eingezeichneten Ziel-Eingangshalle ist (vgl. Abbildung \ref{fig:sketch-starterrooms}) und dort eine Tür oder ähnliches zu einem weiteren Abschnitt öffnen muss. Es werden allerdings wieder die gleichen Gegenstände benötigt, die sie in den vorangegangenen Rätseln verwendet haben. Also müssen die in der Welt platzierten Gegenstände entfernt und erneut platziert werden.
 
-% [Einfügen von unterschieden in der Spielwelt, erklärend aus Feedback vom vorangegangenen Projekt und hier eimbauen wie es in der Umsetzung aussehen kann]
-Darüber hinaus lernt der Watcher die Spielkarte richtig zu deuten. Es gibt in der Darstellung der Spielwelt in der Player-Anwendung teilweise kleine Unterschiede zu der des Watchers. Dieser Aspekt soll zudem die Kommunikation fördern. Umgesetzt ist dieser Aspekt durch fehlende Türen in den Starträumen, in denen der Player zu Beginn des Spiels ist, oder bei den Durchgängen zum Eingangsportal zum nächsten Abschnitt.
+Der Watcher muss darüber hinaus erkennen können, welches Ziel in der Spielwelt als nächstes angesteuert werden soll. Um dies zu ermöglichen, muss die Gestaltung der Spielumgebung so ausfallen, dass entweder ein einzelnes oder mehrere klar identifizierbare Ziele vorhanden sind, auf die sich die Spieler gemeinsam zubewegen können. Für den ersten Abschnitt des Tutorials bietet es sich an, mit einem eindeutigen Ziel zu arbeiten, zu dem alle möglichen Wege führen. Dieses Ziel ist in der Skizze von Abbildung \ref{fig:sketch-starterrooms} deutlich erkennbar.
 
-Analog zum Watcher, erhält der Player ebenfalls eine kleine Einweisung in die Steuerungsmechaniken der Anwendung. Im Allgemeinen sind in der Anwendung des Players Rätsel und Hindernisse eingebaut, partiell allerdings in der Anwendung des Watchers. Aus diesem Grund muss der Player Rätsel/ Hindernisse und Hinweise identifizieren und verwenden können. Um einen ersten Anhaltspunkt für den Start zu erhalten, sollte in den jeweiligen Starträumen des Players eine kleine Notiz eingebaut werden, welche einen Hinweis auf die Einführung der Mechaniken des Watchers und das Lösen des ersten Hindernisses gibt.
+Zudem sollen die grundlegenden Mechaniken und Funktionen, die mit der Spielerrolle des Watchers einhergehen, erlernt werden. Dazu zählen insbesondere das Platzieren, Previewen und Entfernen von Gegenständen. Das Platzieren kann eingeleitet werden, indem der Watcher zu Beginn des Spiels bereits einen Gegenstand, bspw. eine Säule, im Inventar besitzt, für den lediglich ein geeigneter Platz in der Spielwelt gefunden werden muss. Ein weiteres Lernziel wird durch ein Hindernis umgesetzt, das dem Player nur noch einen passenden Gegenstand, etwas eine Fackel, benötigt um dieses zu überwinden. Diese Konstellation fordert den Watcher dazu auf, dem Player den benötigten Gegenstand aus dem Inventar bereitzustellen.
+
+Das entfernen bereits platzierter Objekte kann wieder dadurch eingeführt werden, dass sich der Player im Zielbereich, die Eingangshalle (Der Bereich, der an das Ziel angrenzt) aus Abbildung \ref{fig:sketch-starterrooms}, befindet und dort bspw. eine Tür zu einem neuen Abschnitt öffnen muss. Hierfür werden erneut jeden Gegenstände benötigt, die bereits in den zwei vorherigen Rätseln verwendet wurden. Daraus ergibt sich die Notwendigkeit, zuvor platzierte Objekte aus der Spielwelt zu entfernen und sie an neuen Stellen erneut einzusetzen.
+
+
+Darüber hinaus erlernt der Watcher die Spielwelt zu interpretieren. Dabei existieren gezielt eingebaute Unterschiede in der Darstellung der Spielwelt zwischen der Anwendung des Players und der des Watchers. Diese Inkonsistenzen sollen gezielt die Kommunikation zwischen beiden Rollen anregen und fördern. Dieser Aspekt wurde sich in der vorangegangenen Ausarbeitung im Feedback gewünscht. Konkret wird dies durch das Fehlen bestimmter Türen in den Startbereichen des Players oder an den Durchgängen zum Eingangsportal des nächstes Abschnitts realisiert.
+
+Analog zum Watcher erhält auch der Player eine kurze Einführung in die grundlegenden Steuerungsmechaniken seiner Anwendung. Während sich die meisten Rätsel und Hindernisse innerhalb der Anwendungen des Players befinden, sind einige Interaktionen auch auf Seiten des Watchers verortet. Daher muss der Player in der Lage sein, relevante Rätsel, Hindernisse und Hinweise zu identifizieren und korrekt anzuwenden. Um den Einstieg in die Spielmechanik zu erleichtern, wird in den Starträumen des Players eine kleine Notiz platziert, die einen ersten Hinweis auf die Funktionsweise der Watcher-Mechaniken sowie auf das Lösen des ersten gemeinsamen Hindernisses gibt.
+
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/Startroom_Sketch.png}
@@ -216,11 +223,11 @@ Analog zum Watcher, erhält der Player ebenfalls eine kleine Einweisung in die S
 \label{fig:sketch-startriddle}
 \end{figure}
 
-Abbildung \ref{fig:sketch-startriddle} zeigt eine erste Überlegung, dass eine Notiz im Startraum darauf aufmerksam macht, dass ein schwerer Gegenstand auf eine Druckplatte gestellt werden muss, durch welche sich die Tür zum anliegenden Flur öffnet.
+Abbildung \ref{fig:sketch-startriddle} zeigt eine erste konzeptionelle Überlegung, bei der eine im Startraum platzierte Notiz den Player darauf hinweist, dass ein schwerer Gegenstand auf eine Druckplatte gestellt werden muss, um die Tür zum angrenzenden Flur zu öffnen. Dieses Rätsel dient als Einführung in die Spielmechanik des indirekten Türöffnen und betont zugleich die Notwendigkeit der Kooperation zwischen Player und Watcher.
 
-Außerdem soll der erste Abschnitt das Tragen und Platzieren von Gegenständen enthalten. Es kann also ein Hindernis geben, das über eine Fackelhalterung oder ähnliches gelöst werden kann. Dadurch benötigt der Player einen Gegenstand, den er vom Watcher geschickt bekommt und an die entsprechende Stelle platzieren kann.
+Darüber hinaus soll dieser erste Abschnitt das Tragen und Platzieren von Gegenständen vermitteln. Zu diesem Zweck kann ein weiteres Hindernis eingebaut werden, das bspw. durch das Einsetzen eines Objektes, wie einer Fackel in eine entsprechende Halterung, überwunden werden muss. In diesem Fall ist der Player auf die Unterstützung des Watchers angewiesen, der den benötigten Gegenstand auswählt und übermittelt. Der Player wiederum muss den Gegenstand korrekt einsetzen, um das Hindernis zu lösen.
 
-Das letzte Lernziel enthält das Freischalten von neuen Abschnitten, das sowohl für den Player als auch den Watcher gilt.
+Als letztes Lernziel in diesem Abschnitt wird das Freischalten neuer Bereiche eingeführt. Dieses Ziel betrifft sowohl den Player als auch den Watcher, da beide gemeinsam Bedingungen erfüllen müssen, um Zugang zu weiteren Abschnitten der Spielwelt zu erhalten.
 
 \paragraph{Beschreibung des Abschnittes}
 
@@ -231,7 +238,11 @@ Das letzte Lernziel enthält das Freischalten von neuen Abschnitten, das sowohl 
 \label{fig:section_00_concept}
 \end{figure}
 
-Abbildung \ref{fig:section_00_concept} zeigt eine erste Konzeptzeichnung des ersten Abschnittes. Sie beinhaltet links einen sechs-eckigen Raum, in dem der Spieler-Avatar des Players in die Spielwelt gesetzt wird. Diesen ersten Startraum gibt es, wie man auf der rechten Seite des Bildes sehen kann drei mal. Der Player muss seinem Watcher nun beschreiben in welchem der drei Räume er sich befindet. Die Räume unterscheiden sich dabei in ihrer Gestaltung. Wie in Abbildung \ref{fig:corridors} zu sehen, besitzt der erste Raum (erste Reihe, linkes Bild) einen Kronleuchter in der Mitte des Raumes, der zweite Raum (zweite Reihe, linkes Bild) einen großen Teppich und der dritte Raum (dritte Reihe, linkes Bild) eine Bank zwischen zwei Innensäulen.
+% Abbildung \ref{fig:section_00_concept} zeigt eine erste Konzeptzeichnung des ersten Abschnittes. Sie beinhaltet links einen sechs-eckigen Raum, in dem der Spieler-Avatar des Players in die Spielwelt gesetzt wird. Diesen ersten Startraum gibt es, wie man auf der rechten Seite des Bildes sehen kann drei mal. Der Player muss seinem Watcher nun beschreiben in welchem der drei Räume er sich befindet. Die Räume unterscheiden sich dabei in ihrer Gestaltung. Wie in Abbildung \ref{fig:corridors} zu sehen, besitzt der erste Raum (erste Reihe, linkes Bild) einen Kronleuchter in der Mitte des Raumes, der zweite Raum (zweite Reihe, linkes Bild) einen großen Teppich und der dritte Raum (dritte Reihe, linkes Bild) eine Bank zwischen zwei Innensäulen.
+
+Abbildung \ref{fig:section_00_concept} zeigt eine erste Konzeptzeichnung des Einstiegsabschnitts. Auf der linken Seite ist ein sechseckiger Raum dargestellt, in dem der Spieleravatar des Players zu Beginn der Spielsequenz platziert wird. Dieser Startbereich existiert, wie auf der rechten Seite der Abbildung zu erkennen ist, in drei Varianten. Der Player muss seinem Watcher mitteilen, in welchem der drei Räume er sich befindet. Dies erfordert eine gezielte Beschreibung der Umgebung und stellt somit eine erste kommunikative Aufgabe dar.
+
+Die Unterscheidung der Räume erfolgt über visuelle Merkmale in deren Gestaltung. Wie in Abbildung \ref{fig:corridors} dargestellt, besitzt der erste Raum (erste Reihe, linkes Bild) einen zentral angebrachten Kronleuchter, der zweite Raum (zweite Reihe, linkes Bild) ist durch einen großflächigen Teppich gekennzeichnet, während sich im dritten Raum (dritte Reihe, linkes Bild) eine Bank zwischen zwei Innensäulen befindet. Diese unterschiedlichen Merkmale diesen als Referenzpunkte für die verbale Orientierung und fördern die Koordination zwischen beiden Rollen zu Spielbeginn.
 
 \begin{figure}[ht]
 \centering
@@ -240,7 +251,7 @@ Abbildung \ref{fig:section_00_concept} zeigt eine erste Konzeptzeichnung des ers
 \label{fig:corridors}
 \end{figure}
 
-Wie in der Konzeptzeichnung von Abbildung \ref{fig:section_00_concept} im rechten Bild zu sehen, führen die Starträume über einen eckigen Flur in eine Eingangshalle. Dieser ist in Abbildung \ref{fig:section_00} zu sehen. An der entgegenfliegenden Wand von den drei eckigen Fluren aus ist eine Tür, durch die der Player mit Hilfe des Watchers gelangen muss, um den folgenden Abschnitt freizuschalten. 
+Wie min der rechten Darstellung der Konzeptzeichnung in Abbildung \ref{fig:section_00_concept} ersichtlich, führen die drei Starträume jeweils über einen Flur in eine zentrale Eingangshalle. Diese architektonische Verbindung ist in Abbildung \ref{fig:section_00} visualisiert. An der gegenüberliegenden wand der Flure befindet sich eine verschlossene Tür, die vom Player, in Zusammenarbeit mit dem Watcher, geöffnet werden muss, um den Zugang zum nächsten Spielabschnitt zu ermöglichen.
 
 \begin{figure}[ht]
 \centering
@@ -249,18 +260,19 @@ Wie in der Konzeptzeichnung von Abbildung \ref{fig:section_00_concept} im rechte
 \label{fig:section_00}
 \end{figure}
 
-Der Watcher sieht zum Start den gesamten ersten Abschnitt aus Abbildung \ref{fig:section_00}, wohingegen der Player nur einen der drei Starträume aus Abbildung \ref{fig:corridors} und den anliegenden Flur sehen kann. Die anderen zwei Räume samt Flur kann er nicht sehen. Auch dann nicht, wenn er in die Eingangskammer zum nächsten Abschnitt gelangt ist.
-
-% \paragraph{Lernaspekte dieses Abschnittes}
+Zu Beginn erhält der Watcher eine Übersicht über den gesamten ersten Spielabschnitt, wie in Abbildung  \ref{fig:section_00} dargestellt. Im Gegensatz dazu ist das Sichtfeld des Players zu Beginn auf einen der drei Starträume (vgl. \ref{fig:corridors}) sowie den angrenzenden Flur beschränkt. Die beiden übrigen Starträume sowie deren zugehörige Flure bleiben für den player dauerhaft unzugänglich, auch nachdem er die Eingangshalle zum nächsten Abschnitt betreten hat.
 
 \subsection{Abschnitt 2: Der Sicherheitsraum}
-Analog zu Abschnitt 1 werden zunächst die Lernziele und konzeptionelle Überlegungen vorgestellt. Abschließend wird der Abschnitt vorgestellt.
+
+Analog zum ersten Abschnitt werden zunächst die zugrunde liegenden Lernziele sowie die konzeptionellen Überlegungen erläutert, bevor im Anschluss der Aufbau des Abschnitts im Detail vorgestellt wird.
 
 \paragraph{Lernaspekte und Konzeption dieses Abschnittes}
-Im zweiten Abschnitt erlernt der Watcher, dass er weitere Räume sehen kann, die der Player für ihn freigeschaltet hat. Der Player könnte in einem solchen Szenario einen Mechanismus in Gang gesetzt haben, durch welchen ein weiterer Raum für den Watcher sichtbar wurde und in diesem das Rätsel gelöst werden muss.
 
-Außerdem sieht er Gegenstände, welche der Player entdeckt hat als neue platzierte Gegenstände in der Welt und kann diese auch entfernen. Solch ein Gegenstand kann bspw. genutzt werden um ein weiteres Rätsel zu lösen.
-In Abhängigkeit davon, erlernt der Player das Entdecken von Gegenständen, durch das nahe an ihnen vorbei gehen. Es kann so umgesetzt werden, dass der Player das Tooltip des Gegenstandes sieht und in diesem Moment der Gegenstand auch für den Watcher sichtbar wird.
+Im zweiten Abschnitt lernt der Watcher, dass ihm neue Räume angezeigt werden können (die dem Player verborgen bleiben), sobald diese vom Player freigeschaltet wurden. Der Player kann bspw. einen Mechanismus aktivieren, durch den ein bislang verborgener Bereich sichtbar wird, in welchem der Watcher anschließend ein Rätsel lösen muss.
+
+Darüber hinaus erkennt der Watcher neu entdeckte Objekte, die der Player in der Spielwelt gefunden hat, als platzierte Gegenstände. Diese Objekte kann der Watcher bei Bedarf wieder entfernen. Solche Gegenstände können bspw. zur Lösung weiterer Aufgaben genutzt werden.
+
+In diesem Zusammenhang erlernt der Player das gezielte Entdecken von Gegenständen, etwas durch das Vorbeigehen in unmittelbarer Nähe. Technisch kann dies so umgesetzt werden, dass beim Annähern ein Tooltip eingeblendet wird und der Gegenstand dadurch auch für den Watcher sichtbar wird.
 
 \paragraph{Beschreibung des Abschnittes}
 

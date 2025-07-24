@@ -136,49 +136,63 @@ In der Spielwelt sind potenzielle Lösungselemente für die Herausforderungen ve
 
 Das entsprechende Aktivitätsdiagramm des Watchers wird in der Abbildung Watcher im \ref{sec:append_levelloop}: \nameref{sec:append_levelloop} dargestellt. Der Ablauf unterscheidet sich in einzelnen Punkten von jenen des Players. Zunächst muss der Watcher durch die Beschreibung des Players dessen Standort rekonstruieren. Bereits während dieses Prozesses, sowie im weiteren Verlauf, kann er Hindernisse und Rätsel in seiner \ac{AR}-Ansicht identifizieren und deren Eigenschaften mit dem Player teilen. Dabei kann er auch unabhängig Überlegungen zu den erhaltenen Informationen anstellen, etwa zur Bedeutung oder Funktion der beobachteten Elemente.
 
-Im Unterschied zum Player ist der Watcher verantwortlich für das Platzieren oder Weiterleiten relevanter Gegenstände zur Interaktion mit der Spielwelt. Erst durch diese koordinierte Zusammenarbeit beider Rollen können Rätsel vollständig gelöst und neue Bereiche zugänglich gemacht werden. Mit jedem neu freigeschalteten Raum wiederholt sich der beschriebene Ablauf zyklisch, wobei stets eine wechselseitige Kommunikation und Aufgabenverteilung erforderlich ist.
+Im Unterschied zum Player ist der Watcher verantwortlich für das Platzieren oder Weiterleiten relevanter Gegenstände zur Interaktion mit der Spielwelt. Erst durch diese koordinierte Zusammenarbeit beider Rollen können Rätsel vollständig gelöst und neue Bereiche zugänglich gemacht werden. Mit jedem neu freigeschalteten Raum wiederholt sich der beschriebene Ablauf zyklisch, wobei stets eine wechselseitige Kommunikation und Aufgabenverteilung erforderlich bleibt.
 
 
 \section{Relation der Anwendungen}
-In der bisherigen Konzeption wurde bislang nur über die verschiedenen Rollen gesprochen, aber nicht wie viele Nutzer pro Rolle es pro Session des Spiels sein können. In der Entstehung des Projekts in der vorangegangenen Ausarbeitung war geplant, dass es pro Session immer einen Player geben muss. Außerdem können es immer mehrere Watcher geben. Es sollte also diese Regel gälten: $1\ldots n$ \quad wobei $n \geq 1$. I???? welche?? In einer Referenz-Bachelorarbeit wurde ein ähnlicher Prototyp konzipiert, bei der in der Auswertung das Feedback gegeben wurde, dass mehrere Teilnehmer in der Rolle der \say{Smartphone}-Nutzer (Navigator) nicht zielführend sind (vgl. \cite[S. 34]{lotz_konzeption_2021}). Aus diesem Grund und der Tatsache, dass die Rolle des Watchers eine ähnliche des Navigators ist, sollten pro Session jeweils ein Player mit einem Watcher gemeinsam spielen. Darüber hinaus erforschte die Arbeit von \cite[S. 197:22]{bautista_isaza_understanding_2024} den Einfluss der Gruppengrößen auf das Engagement und die Arbeitsbelastung in einem Handheld-\ac{MR} und \ac{VR} Szenario und kam zu dem Schluss, dass in kleineren Gruppen der Effekt des Engagements größer ist. Daraus ergibt sich die Regel $1\ldots1$, durch welche ein Player und ein Watcher in einer Session zusammenspielen.
-% \section{Levelablauf}
+
+In der bisherigen Konzeption wurden voranging die verschiedenen Rollen innerhalb des Spiels beschrieben, jedoch nicht spezifiziert, wie viele Nutzer jeweils eine Rolle pro Spielsitzung zugewiesen werden können. Ursprünglich sah die Planung vorm dass pro Session stets ein Player teilnehmen muss, während die Anzahl der Watcher theoretisch variabel und beliebig groß sein kann. Daraus ergab sich zunächst die Regel $1\ldots n$ \quad wobei $n \geq 1$.
+
+Im Rahmen einer früheren Bachelorarbeit, die einen vergleichbaren Prototyp entwickelte, wurde im Evaluationskapitel jedoch kritisch angemerkt, dass eine Mehrfachbesetzung der Rolle des sog. \say{Smartphone-Nutzers} (Navigator) sich nachteilig auf das Spielerlebnis auswirkt (vgl. \citealp[S. 34]{lotz_konzeption_2021}). Da die Rolle des Watchers funktional stark mit jener des Navigators vergleichbar ist, insbesondere im Hinblick auf die Aufgaben der Orientierung, Anleitung und Unterstützung, erscheint eine Einschränkung auf eine Person pro Rolle sinnvoll.
+
+Diese Annahme wird durch die Ergebnisse einer aktuellen Studie von \cite{bautista_isaza_understanding_2024} gestützt, in der der Einfluss unterschiedlicher Gruppengröße auf das Engagement und die wahrgenommene Arbeitsbelastung in einem Handheld-\ac{MR}- und \ac{VR}-Szenario untersucht wurde. Die Autoren kamen zu dem Ergebnis, dass kleinere Gruppen zu einem signifikant höheren Engagement führen (vgl. \citealp[S. 197:22]{bautista_isaza_understanding_2024}).
+
+Basierend auf diesen empirischen Erkenntnissen sowie den Beobachtungen aus vergleichbaren Projekten wurde das ursprüngliche Konzept entsprechend angepasst. Die nun gültige Regel für die Spielzusammensetzung lautet: $1\ldots1$. Das bedeutet, dass pro Session genau ein Player gemeinsam mit genau einem Watcher spielt. Dieses Setup erlaubt eine klare Rollenzuweisung, förder die Kommunikation zwischen den beiden Teilnehmern und schafft die Grundlage für eine kooperative Spielerfahrung.
 
 \section{Konzeption des Tutorials}
-% [TODO: bei den Rätsel muss noch ein Bezug aif Pattern und so erfolgen]
 
-Für diesen Prototyp wurde ein kleines Tutorial konzipiert, durch welchen der Watcher und der Spiele die grundlegenden Mechaniken und Funktionen des Spielkonzepts erlernen können. Aus dem Grund ???? des Umfangs der Umsetzungen, wurden in den Probandentests die einzelnen Funktionen und Steuerungselemente erklärt, die in einer finalen Version im Spiel enthalten sein werden. Außerdem beinhalten die Konzepte der Rätsel bereits das überarbeitete Design nach dem Feedback aus den kommenden Probandentests.
+Für den vorliegenden Prototyp wurde ein kompaktes Tutorial entwickelt, das sowohl dem Watcher als auch dem Player einen Einstieg in die grundlegenden Mechaniken und Funktionen des Spielkonzepts ermöglicht. Aufgrund des begrenzten Rahmens wurde keine vollständig selbsterklärenden Einführungselemente in die Anwendung integriert. Stattdessen übernahm der Versuchsleiter die Aufgabe, Steuerungselemente und Funktionalitäten manuell zu erläutern. Die im Prototyp enthaltenen Rätselkonzepte basieren bereits auf einer überarbeiteten Fassung, welche die Rückmeldung aus den bevorstehenden Probandentests vorwegnehmend berücksichtigt.
 
-% [Die gesamten Lernziele des Tutorials hier einbauen]
-Folgende Lernziele wurden für das Tutorial konzipiert:
-\paragraph{Watcher}
-\begin{itemize}
-    \item Steuerung in der Anwendung (Drag, Zoom, Yaw und Touch)
-    \item Auffinden der richtigen Position, an der sich der Avatar des Players befindet 
-    \item Identifizierung des Ziels, wohin er den Player navigieren muss
-    \item Identifizierung von Hinweisen und Rätseln
-    \item Platzieren von schweren Gegenständen
-    \item Previewen von leichten Gegenständen
-    \item Entfernen von platzierten Gegenständen
-    \item Identifizierung von Unterschieden in der Spielwelt
-\end{itemize}
+Für das Tutorial wurden spezifische Lernziele definiert, die auf die jeweiligen Rollen von Watcher und Player zugeschnitten sind.
 
-\paragraph{Player}
+Der Watcher soll im Verlauf des Tutorials mit den grundlegenden Steuerungsmechanismen der Anwendung vertraut gemacht werden. Dazu gehören Drag-. Zoom- und Yaw-Bewegungen sowie Touch-Interaktionen. Darüber hinaus soll der Watcher lernen, die aktuelle Position des Player-Avatars zu lokalisieren, das nächste Ziel identifizieren, Hinweise und Rätsel in der Spielwelt zu erkennen, sowie schwere Gegenstände zu platzieren, leichte Gegenstände voran zu betrachten (Preview-Funktion) und platzierte Objekte wieder zu entfernen. Ein weiteres Lernziel besteht darin, Unterschiede in der Spielwelt zu erkennen, um kontextbezogene Informationen interpretieren zu können.
 
-\begin{itemize}
-    \item Steuerung in der Anwendung (Drag, Zoom, Touch)
-    \item Identifizierung und Beschreibung der Lokalität
-    \item Identifizierung von Hinweisen und Rätseln
-    \item Tragen von Objekten (Previewen)
-    \item Interaktion mit interagierbaren Weltobjekten
-    \item Entdecken von neuen schweren und leichten Gegenständen
-\end{itemize}
+Auch für den Player wurden zielgerichtete Lernziele formuliert. Dazu zählen die Bedienung der Steuerung (Drag, Zoom, Touch), die Lokalisierung und Beschreibung der eigenen Position, das Erkennen und Kommunizieren von Hinweisen und Rätseln sowie der Umgang mit interaktiven Weltobjekten. Zudem soll der Player lernen, Gegenstände aufzunehmen und zu tragen (Preview-Funktion) sowie neue, für die Lösung von Rätseln relevante Objekte zu entdecken, sowohl schwere, die durch den Watcher platziert werden müssen, als auch leichte, die er selbst handhaben kann.
 
-Das Tutorial wurde in verschiedene Abschnitte unterteilt, welche sich in einzelne Räume gliedern. Die einzelnen Abschnitte mit ihren Lernzielen und ihre Räumen werden nun vorgestellt.
+Das Tutorial gliedert sich in drei Abschnitte, zu denen jeweils einzelne Räume in der Spielumgebung zugeordnet sind. In diesen Räumen werden die zuvor beschriebenen Lernziele gezielt aufgegriffen und durch entsprechende Aufgabenstellungen eingeübt. Im Folgenden werden die einzelnen Tutorial-Abschnitte und ihre jeweiligen Lerninhalte detailliert vorgestellt.
+
+% Folgende Lernziele wurden für das Tutorial konzipiert:
+% \paragraph{Watcher}
+% \begin{itemize}
+%     \item Steuerung in der Anwendung (Drag, Zoom, Yaw und Touch)
+%     \item Auffinden der richtigen Position, an der sich der Avatar des Players befindet 
+%     \item Identifizierung des Ziels, wohin er den Player navigieren muss
+%     \item Identifizierung von Hinweisen und Rätseln
+%     \item Platzieren von schweren Gegenständen
+%     \item Previewen von leichten Gegenständen
+%     \item Entfernen von platzierten Gegenständen
+%     \item Identifizierung von Unterschieden in der Spielwelt
+% \end{itemize}
+
+% \paragraph{Player}
+
+% \begin{itemize}
+%     \item Steuerung in der Anwendung (Drag, Zoom, Touch)
+%     \item Identifizierung und Beschreibung der Lokalität
+%     \item Identifizierung von Hinweisen und Rätseln
+%     \item Tragen von Objekten (Previewen)
+%     \item Interaktion mit interagierbaren Weltobjekten
+%     \item Entdecken von neuen schweren und leichten Gegenständen
+% \end{itemize}
+
+% Das Tutorial wurde in verschiedene Abschnitte unterteilt, welche sich in einzelne Räume gliedern. Die einzelnen Abschnitte mit ihren Lernzielen und ihre Räumen werden nun vorgestellt.
 \subsection{Abschnitt 1: Der Start}
-Zunächst werden die Lernziele dieses Abschnittes vorgestellt, aus welchen der Abschnitt konzeptionell gestaltet wird.
+Zunächst werden die Lernziele dieses Abschnittes dargelegt, welche die konzeptionelle Grundlage für dessen Ausgestaltung bilden.
+
 
 \paragraph{Lernaspekte und Konzeption dieses Abschnittes}
-Der Watcher bekommt eine kleine Einführung in die genannten Steuerungsmechaniken seiner Anwendung. Daraus resultiert, dass er sich selbständig durch die Spielwelt navigieren kann. Die Kernaufgabe des Watchers ist es, die Bewegungen des Players nachverfolgen zu können, wofür er die Position des Players benötigt. Daher sollte die Spielwelt so gestaltet sein, dass eine Positionsbeschreibung des Players automatisch erfolgen muss. Dies geschieht durch unterschiedliche Startpositionen in der Spielwelt, welche vom Player beschrieben werden muss, wodurch der Watcher den richtigen Startort suchen muss. In Abbildung \ref{fig:sketch-starterrooms} wird eine kleine Sketchzeichnung zum Startgebiet gezeigt. 
+
+Der Watcher erhält zunächst eine kurze Einführung in die grundlegenden Steuerungsmechaniken seiner Anwendung. Dadurch ist er in der Lage, sich eigenständig in der Spielwelt zu orientieren und zu navigieren. Seine zentrale Aufgabe besteht darin, die Bewegungen des Players nachzuverfolgen, wofür er dessen aktuelle Position kennen muss. Aus diesem Grund ist die Spielwelt so gestaltet, dass der Player seine Startposition zwingend beschreiben muss. Die Beschreibung ermöglicht es dem Watcher, den konkreten Standort zu identifizieren. Die unterschiedlichen Startpositionen im Raum unterstützen diesen Prozess. Abbildung \ref{fig:sketch-starterrooms} zeigt eine Skizze des Startgebietes.
 
 \begin{figure}[ht]
 \centering

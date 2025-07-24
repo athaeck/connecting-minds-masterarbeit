@@ -21,81 +21,92 @@ Die Zielgruppe entspricht derjenigen, die bereits in der vorangegangenen Konzept
 Die vollständige Ausarbeitung der Personae befinden sich im Anhang \ref{sec:append_concept_personae}: \nameref{sec:append_concept_personae}.
 
 \section{Narratives und funktionales Grundgerüst}
+Das Spiel basiert auf einem asymmetrischen Zwei-Rollen-Prinzip, bei dem zwei Spieler unterschiedliche Rollen einnehmen und gemeinsam innerhalb einer geteilten Spielwelt agieren. Diese Welt ist in mehrere räumlich und funktional voneinander abgegrenzte Abschnitte gegliedert. Der Fortschritt im Spiel wird durch kooperatives Handeln und das gemeinsame Lösen von Rätsel ermöglicht. Dabei ist die wechselseitige Abhängigkeit beider Rollen wesentlich für das Vorankommen.
 
-Das Spiel basiert auf einem asymmetrischen Zwei-Rollen-Prinzip, bei dem zwei Spieler zwei unterschiedliche Rollen spielen. Sie müssen gemeinsam in der Spielwelt agieren. Die Spielwelt ist in verschiedene Räume gegliedert. Durch das Zusammenarbeiten und das gemeinsame Lösen der Rätsel kann ein Spielfortschritt erzielt werden.
+Die narrative Struktur des Spiels entfaltet sich durch eine Kombination aus textbasierten Hinweisen, Umweltinformationen und der räumlichen Gestaltung. Das Storytelling ist dabei stark an das sog. \say{Environmental Storytelling} angelehnt, bei dem die Umgebung selbst narrative Funktionen übernimmt.
 
-Das Narrativ der Handlung und der Geschichte werden durch Textuelle Hinweise und Geschichten sowie dem Aufbau der Umgebung erzählt. 
+Die zugrundeliegende Hintergrundgeschichte lautet wie folgt:
 
-Die Hintergrundgeschichte des Spiels ist folgende:
+Der Protagonist des Spiels nimmt man einer experimentellen Simulation innerhalb seines Forschungsinstituts teil. Diese Simulation verläuft jedoch nicht wie geplant. Durch eine unerwartete Anomalie während des Prozesses wird das Selbst des Protagonisten gespalten. Zurück bleibt der physische Körper in der realen Welt, während das Bewusstsein in das digitale Netz der Forschungseinrichtung übertragen wird. Beide Entitäten, Körper und Geist, existieren fortan getrennt, können jedoch auf bislang unerklärliche Weise miteinander kommunizieren. Ziel beider Instanzen ist es, die Ursache der Anomalie zu ergründen, den oder die Verantwortlichen ausfindig zu machen und schließlich die eigene Wiedervereinigung herbeiführen.
 
-Der Protagonist der Handlung sollte in seinem Forschungsinstitut eine Simulation [Simulation zu was noch einbauen] ausprobieren. Allerdings kam es während der Simulation zu einer Anomalie, wodurch sich sein Sein aufgespalten hat. Übrig blieb sein physisches Ich, das in seinem Forschungsinstitut zurück blieb und sein abgespaltener Geist im Netz der Forschungseinrichtung verweilt. Sein aufgeteiltes Ich kann auf eine besondere Weise (vermutlich ausgelöst durch die Anomalie der Simulation) miteinander kommunizieren. Gemeinsam versuchen sie nun herauszufinden, wer für diese Anomalie verantwortlich ist und wie das physische Ich wieder mit seinem Geist zu einer Person zusammengefügt werden kann.
+Die Spielwelt bildet diesen narrativen Rahmen architektonisch und funktional ab. Beginnend in einem alten, unterirdischen Gewölbe des Forschungsinstituts, in das der leibliche Körper nach dem fehlgeschlagenen Experiment gebracht wurde, arbeiten sich die beiden Rollen durch verschiedene Abteilungen der Einrichtung. Dabei sammeln sie Hinweise auf die Hintergründe des Vorfalls und identifizieren mögliche Antagonisten. Im weiteren Verlauf öffnet sich die Spielwelt sukzessive. Sie führt zunächst durch unterschiedliche Gebäudeteile der Forschungseinrichtung, anschließend in Außenareale sowie in die privaten Wohnräume von Personen, die in den Vorfall verwickelt sein könnten. Die Erweiterung der Spielwelt entsteht dabei stets im direkten Zusammenhang mit dem narrativen Fortschritt.
 
-Die Spielwelt umfasst dabei zunächst ein altes Kellergewölbe der Forschungseinrichtung, in welcher der Körper des Players gebracht wurde, nachdem die Simulation schief lief. Des weiteren durchläuft der Player, mit seinem Watcher im Gepäck, die Forschungseinrichtung und sucht nach Hinweisen auf einen möglichen Antagonisten. Die Spielwelt wird erweitert durch Außenbereiche um die Forschungseinrichtung herum und geht weiter in die Privathäuser bzw. Wohnungen von beteiligten Personen.
 
 \section{Spielkonzeption mithilfe des MDA-Frameworks}
-Aus den bisherigen Forschungen zum Thema asymmetrischen kooperativen Spielen und Kommunikation geht hervor, dass die Spielerrollen des Spiels in ihren Funktionen und/ oder ihrer Ansichten eine Abhängigkeit von einender bestehen muss. Diese Abhängigkeit darf nicht zu groß sein, da sonst der Spielfluss gestört werden würde und Frust bei den Spielern entstehen könnte.
+% Aus den bisherigen Forschungen zum Thema asymmetrischen kooperativen Spielen und Kommunikation geht hervor, dass die Spielerrollen des Spiels in ihren Funktionen und/ oder ihrer Ansichten eine Abhängigkeit von einender bestehen muss. Diese Abhängigkeit darf nicht zu groß sein, da sonst der Spielfluss gestört werden würde und Frust bei den Spielern entstehen könnte.
 
-Die Analyse der artverwandten Spiele zeigten Inhalte und Funktionalitäten, die in ihrer Form integriert werden sollten, aber auch nicht zu eigenständig sein dürfen, wodurch ein kooperatives Verhalten gestört werden könnte.
+% Die Analyse der artverwandten Spiele zeigten Inhalte und Funktionalitäten, die in ihrer Form integriert werden sollten, aber auch nicht zu eigenständig sein dürfen, wodurch ein kooperatives Verhalten gestört werden könnte.
 
-Aus der \say{We were here}-Spielreihe geht hervor, dass die Rätselelemente so gestaltet werden müssen, dass diese für den anderen Mitspieler beschreibbar und verständlich erklärbar sind. Außerdem sollten die Anwendungen eine höhere Dynamik zwischen sich haben, wodurch eine engere Beziehung der Spielerfahrung und der Anwendungen entsteht. 
+% Aus der \say{We were here}-Spielreihe geht hervor, dass die Rätselelemente so gestaltet werden müssen, dass diese für den anderen Mitspieler beschreibbar und verständlich erklärbar sind. Außerdem sollten die Anwendungen eine höhere Dynamik zwischen sich haben, wodurch eine engere Beziehung der Spielerfahrung und der Anwendungen entsteht. 
 
-\say{Tiny Room Stories} zeigt wie einzelne Rätselelemente und freischalten von Hindernissen so zusammenhängen können, dass viele kleine Elemente zu einem großen Ziel führen können. Außerdem bietet es für die Steuerungsmechanik eine Inspirationsquelle. 
+% \say{Tiny Room Stories} zeigt wie einzelne Rätselelemente und freischalten von Hindernissen so zusammenhängen können, dass viele kleine Elemente zu einem großen Ziel führen können. Außerdem bietet es für die Steuerungsmechanik eine Inspirationsquelle. 
 
-\say{The past within} zeigt, dass ein zu hohes Forderungslevel der einzelnen Anwendungen unvorteilhaft für die Förderung der Kommunikation ist. Es führt dazu, dass jeder Spieler auf seine Anwendung fixiert ist, aber seltener ein Gefühl dafür bekommt, wann er seinen Mitspieler benötigt und wann er selbständig Rätsel lösen kann. 
+% \say{The past within} zeigt, dass ein zu hohes Forderungslevel der einzelnen Anwendungen unvorteilhaft für die Förderung der Kommunikation ist. Es führt dazu, dass jeder Spieler auf seine Anwendung fixiert ist, aber seltener ein Gefühl dafür bekommt, wann er seinen Mitspieler benötigt und wann er selbständig Rätsel lösen kann. 
 
-\say{Myrmidon} zeigt auf, wie die einzelnen Anwendungen abhängig zueinander sein können, allerdings fehlt es an einem ausgeglichenem Spielerlebnis. Die beiden Rollen sind so gestaltet, dass der Animator die Stop-Motion Puppe unterstützt und dadurch zu wenig für sich selbst spielt. 
+% \say{Myrmidon} zeigt auf, wie die einzelnen Anwendungen abhängig zueinander sein können, allerdings fehlt es an einem ausgeglichenem Spielerlebnis. Die beiden Rollen sind so gestaltet, dass der Animator die Stop-Motion Puppe unterstützt und dadurch zu wenig für sich selbst spielt. 
 
-Bei \say{Keep Talking and Nobody Explodes} ist es ähnlich wie bei \say{Myrmidon}. Die Spielerrolle der Experten unterstützt hierbei nur den Bombenentschärfer.
+% Bei \say{Keep Talking and Nobody Explodes} ist es ähnlich wie bei \say{Myrmidon}. Die Spielerrolle der Experten unterstützt hierbei nur den Bombenentschärfer.
 
-% Die Rückschlüsse sind folgende:
+Aus den bisherigen Recherchen zu asymmetrischen kooperativen Spielen und der zugrunde liegenden Spielerkommunikation geht hervor, dass zwischen den Spielerrollen eine funktionale oder perspektivische Abhängigkeit bestehen muss. Diese Abhängigkeit sollte jedoch nicht zu stark ausgeprägt sein, da ansonsten der Spielfluss beeinträchtigt und Frustration bei den Spielenden hervorgerufen werden könnte. Eine gelungene Balance zwischen Abhängigkeit und Eigenständigkeit der Rollen ist somit essenziell für ein kooperatives und motivierendes Spielerlebnis.
 
-% \begin{itemize}
-%     \item Aus der \say{We were here}-Spielreihe geht hervor, dass die Rätselelemente so gestaltet werden müssen, dass diese für den anderen Mitspieler beschreibbar und verständlich erklärbar ist.
-%     \item Außer
-%     % \item 
-%     % \item 
-%     % \item 
-% \end{itemize}
+Die Analyse verwendeter Spielkonzepte verdeutlicht, dass bestimmte Inhalte und Funktionalitäten sinnvoll integriert werden können, Gleichzeitig muss jedoch vermieden werden, dass die Rollen zu stark voneinander entkoppelt agieren, da dies die kooperative Interaktion minimieren würde.
 
-% \subsection{Inhalte aus der Literaturrecherche}
-% \subsection{Inhalte aus der Analyse der Spiele}
-% \subsection{Inhalt aus der Taxonomie}
+Die Spielreihe \say{We were here} zeigt, dass Rätselelemente so gestaltet sein müssen, dass sie durch die jeweils andere Spielpartei beschrieben und nachvollziehbar erklärt werden können. Zusätzlich zeigt sich, dass eine höhere Interaktionsdynamik zwischen den Anwendungen der beiden Rollen dazu beiträgt, eine engere Verzahnung von Spielerfahrung und Spielmechanik zu erreichen.
+
+Das Spiel \say{Tiny Room Stories} demonstriert, wie sich kleinere Rätselelemente und das schrittweise Freischalten von Hindernissen zu einem übergeordneten Ziel zusammenfügen lassen. Darüber hinaus dient er als Inspirationsquelle hinsichtlich der Steuerungsmechanik und der intuitiven Benutzerführung.
+
+\say{The Past Within} macht deutlich, dass ein zu hohes kognitives Anforderungsniveau einzelner Anwendungen die kooperative Kommunikation negativ beeinflussen kann. In solchen Fällen neigen Spieler dazu, sich ausschließlich auf ihre eigene Anwendung zu konzentrieren, wodurch die Sensibilität für kooperative Momenten, als Zeitpunkte, an denen die Unterstützung durch die andere Rolle notwendig wäre, verloren geht.
+
+\say{Myrmidon} hingegen zeigt, wie stark voneinander abhängige Anwendungsbereiche grundsätzlich gestaltet werden können. Allerdings leidet in diesem Fall das Spielerlebnis unter einer unausgewogenen Rollenverteilung. Die Spielerrolle des Animators nimmt vorwiegend eine unterstützende Funktion für die andere Rolle (die Stop-Motion-Puppe) ein und hat dadurch nur eingeschränkt eigene Spielanteile.
+
+Ein ähnliches Ungleichgewicht lässt sich bei \say{Keep Talking and Nobody Explodes} beobachten. auch hier übernimmt die Expertenrolle hauptsächlich eine beratende Funktion für den Bombenentschärfer, ohne selbst unmittelbar in das Spielgeschehen eingebunden zu sein.
 
 \subsection{Mechanics}
-Die Mechanischen Elemente des Spiels werden in die zwei jeweiligen Spielerrollen (Player und Watcher) und allgemeingültigen Mechaniken aufgeteilt.
+Die mechanischen Elemente des Spiels lassen sich in drei Kategorien einteilen: Die Spielerrolle des Players, die des Watchers sowie allgemeingültige Weltregeln, die für beide Rollen relevant sind.
 
 \paragraph{Player}
-Der Player steuert entweder über die Maussteuerung (Point \& Click-System) oder über Touchinputs den Avatar in der Spielwelt. Über das Mausrad oder die Zoom-Touch Steuerung kann die Höhe der Kamera zum Avatar verändert werden. Außerdem kann er in der Ansicht zwischen der Standard isometrischen Perspektive und einer First-Person-Ansicht wechseln. Das \ac{UI} des Players besitzt eine Toolbar, über die der Avatar bestimmte Interaktionen mit den Weltgegenständen wie das Aufnehmen oder Platzieren vollführen kann. Außerdem kann der Player Gegenstände tragen und diese an den Watcher zurück schicken. Über die First-Person-Ansicht kann der Player ebenfalls Gegenstände platzieren.
 
-Außerdem schaltet der Player neue Gegenstände in der Spielwelt frei, in dem er so nah an sie herangeht, dass er mit ihnen interagieren kann.
+Der Player steuert seinen Avatar in der Spielwelt entweder über eine klassische Maussteuerung im Point-and-Click-Stil oder über Touch-Inputs. Die Kameraperspektive kann über das Mausrad bzw Zoom-Gesten angepasst werden und zwischen einer standardmäßigen isometrischen Ansicht und einer First-Person-Perspektive wechseln.
+
+Das \ac{UI} des Players umfasst eine Toolbar, über welch Interaktionen mit Weltobjekten ausgelöst werden, etwa das Aufnehmen oder Platzieren von Gegenständen. Zusätzlich ist es dem Player möglich, bestimmte Objekte zu tragen und an den Watcher zu übermitteln. Über die First-Person-Ansicht können Gegenstände präzise in der Spielwelt platziert werden.
+
+Neue Objekte in der Spielwelt werden durch physische Annährung des Avatars freigeschaltet, soabld eine Interaktion möglich ist.
 
 \paragraph{Watcher}
-Der Watcher hat in seiner \ac{AR}-Anwendung die Spielwelt vor sich platziert und kann im physischen Raum um die Spielwelt herumgehen und auch in die Spielwelt hinein, um sich die Welt genauer anzusehen. Seine Aufgaben liegen darin, eine Übersicht über die Spielwelt und alle gesammelten bzw. platzierten Gegenstände zu bekommen. Er kann alle interagierbaren Gegenstände, die entdeckt und platziert wurden von der Spielwelt entfernen. Die Gegenstände gehen danach wieder in das Inventar über, auf welches nur er Zugriff hat. Er kann bestimmte Gegenstände in der Spielwelt über einen Touch-Input platzieren oder andere Gegenstände an den Player schicken, welche der Player dann trägt. 
 
-Im weiteren Verlauf des Spiels kann der Watcher Gegenstände nicht nur platzieren oder entfernen, sondern auch in der Größe skallieren oder drehen.
+Der Watcher interagiert über eine \ac{AR}-Anwendung mit der Spielwelt, die im physischen Raum vor ihm verankert ist. Er kann sich frei um die virtuelle Szene bewegen und erhält eine übergeordnete Perspektive auf die Raumstruktur sowie auf platzierte oder gesammelte Objekte.
+
+Die Hauptaufgabe des Watchers besteht in der Verwaltung des Objektinventars, dem Platzieren und Entfernen interaktiver Gegenstände sowie dem gezielten Weiterleiten von Objekten an den Player. Entfernte Gegenstände wandern zurück in ein Inventar, auf das ausschließlich der Watcher Zugriff hat. Über Touch-Inputs kann er Objekte an beliebige Stellen in der Spielwelt positionieren.
+
+Im späteren Verlauf erhält der Watcher zudem die Möglichkeit, Gegenstände zu skalieren oder zu rotieren.
 
 \paragraph{Weltregeln}
-Leichte Gegenstände können vom Player getragen und aufgenommen werden. Diese Gegenstände kann der Player in der Spielwelt über die Interaktions-Leiste oder in der First-Person platzieren. 
 
-Schwere Gegenstände können nur vom Watcher platziert oder skaliert werden. Der Player kann jedoch über seine Interaktionen mit ihnen interagieren. Beide Arten von Gegenständen können, sobald sie entdeckt und in der Spielwelt platziert wurden, vom Watcher wieder entfernt werden.
+Leichte Gegenstände können vom Player aufgenommen, getragen und entweder über die Interaktionsleiste oder in der First-Person-Ansicht platziert werden. Schwere Objekte hingegen können ausschließlich vom Watcher positioniert, skaliert und rotiert werden, während der Player mit ihnen lediglich interagieren, sie aber nicht tragen kann. 
 
-Es existieren zudem Hinweise in Schrift- und Bildform, welche vom Player entdeckt und an den Watcher gesendet werden können. Sie gelten als Ergänzung zum Environmental Rätseldesign.
+Sobald ein Gegenstand entdeckt oder in der Spielwelt platziert wurde, kann er vom Watcher (wieder) entfernt und dem Inventar hinzugefügt werden.
+
+Darüber hinaus existieren Hinweise in Form von Texten oder Bildern, die der Player in der Spielwelt entdecken und zur weiteren Analyse an den Watcher weiterleiten kann. Diese Hinweise ergänzen das räumliche eingebettete Rätseldesign der Umgebung und fördern die kooperative Interaktion zwischen den beiden Rollen.
 
 \subsection{Dynamics}
-Die aus den Mechaniken folgenden Dynamiken beziehen sich auf die Asymmetrie in der Perspektive und den Informationen, die beide Spielerrollen haben und erhalten. Außerdem entsteht dadurch eine Kombination aus den gegebenen Informationen, um daraus die richtigen Ansätze für Lösungen zu finden. 
-Es entsteht eine Kombination und Koordination der Fähigkeiten der beiden Rollen, durch welche erst das Lösen der Hindernisse ermöglicht wird.
 
-Durch die AR-Anwendung des Watchers entsteht eine neue räumliche Orientierung, da die Spielwelt in die physische Welt eingebettet wird.
+Die aus den Spielmechaniken resultierenden Dynamiken beruhen auf der asymmetrischen Verteilung von Perspektiven und Informationen zwischen den beiden Spielerrollen. Während des Player primär aus der Spielwelt heraus handelt, nimmt der Watcher eine übergeordnete, räumlich flexible PErspektive ein. Diese Asymmetrie bedingt, dass beide Rollen jeweils unterschiedliche Informationen erhalten und diese eigenständig, aber koordiniert interpretieren müssen.
 
+Die Lösung von Herausforderungen erfordert somit die Kombination und wechselseitige Abstimmung beider Spielerfähigkeiten. Nur durch die koordinierte Nutzung der jeweils verfügbaren Informationen und Interaktionsmöglichkeiten entsteht ein funktionierendes kooperatives Zusammenspiel, das das Fortschreiten im Spiel ermöglicht.
+
+Besonders hervorzuheben ist die räumliche Dynamik, die durch den Einsatz der \ac{AR}-Technologie entsteht. Die Spielwelt wird in den physischen Raum des Watchers projiziert, wodurch eine neuartige räumliche Orientierung und Interaktionsform entsteht, die über klassische Bildschirmdarstellung hinausgeht. Diese physisch-virtuelle Verschmelzung unterstützt nicht nur die Immersion, sondern verstärkt auch die Notwendigkeit einer engen Abstimmung zwischen den Spielerrollen.
 
 \subsection{Aesthetics}
-Die durch das Spiel angesprochenen ästhetischen Eigenschaften sind Challenge, Fellowship und Expression. Das Spiel soll logisches Denken, die Kommunikation und die Koordination der Spielteilnehmer anregen. Außerdem soll durch die enge Verknüpfung der Rollen eine enge Zusammenarbeit entstehen, durch welche ein Gemeinschaftsgefühl aufgebaut werden soll. Durch die Kommunikation sollen die Spieler auch sich selbst näher kennenlernen und herausfinden wie man mit sich selbst am besten umgeht.
 
-Untergeordnet steht das Narrativ des Spiels als Stütze für die Sinnhaftigkeit der Herausforderungen, die bewältigt werden müssen.
+Das Spiel adressiert die ästhetischen Dimensionen \textit{Challange}, \textit{Fellowship} und \textit{Expression} (vgl. \citealp[S. 3]{hunicke_mda_2004}). Im Vordergrund steht die Förderung von logischem Denken, sowie die Anregung intensiver Kommunikation und Koordination zwischen den Spielteilnehmern. Die asymmetrische Rollenverteilung verlangt ein hohes Maß an gegenseitigem Verständnis und Abstimmung, wodurch ein starkes Gefühl der Zusammenarbeit und des gemeinsamen Fortschritts (\textit{Fellowship}) entsteht.
 
+Darüber hinaus eröffnet das Spiel Möglichkeiten zur \textit{Expression}, indem es die Spieler dazu einlädt, individuelle Kommunikations- und Problemlösungsstrategien zu entwickeln. Über den spielerischen Austausch hinaus kann so auch ein besseres Verständnis der eignene Stärken und bevorzugten Arbeitsweisen entstehen.
+
+Das narrative Element fungiert als untergeordnete, aber zentrale Stütze für die Sinnhaftigkeit der gestellten Herausforderungen. Es verleiht den Spielmechaniken einen kohärenten Rahmen und motiviert die Spieler durch eingebettete Kontexte zur Auseinandersetzung mit den aufgaben.
 
 \section{Spielabläufe}
-Die Spielabläufe des Spiels werden in zwei unterschiedliche Abschnitte unterteilt. Es gibt einen übergeordneten Ablauf für das gesamte Spiel und einen für jeden einzelnen Abschnitt.
+
+Die Spielabläufe lassen sich in zwei unterschiedliche Ebenen unterteilen. Zum einen existiert ein übergeordneter Ablauf, der den strukturellen Rahmen des gesamten Spiels definiert. Zum anderen verfügt jeder einzelne Spielabschnitt über einen spezifischen, in sich geschlossenen Ablauf. Diese werden in den folgenden Kapiteln vorgestellt.
 
 \subsection{Ablauf des Spiels}
 \begin{figure}[ht]

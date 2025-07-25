@@ -69,7 +69,8 @@ Der Lösungsprozess verlief wie folgt. Zunächst wählte der Watcher über das D
 Nach erfolgreicher Platzierung erhielten sowohl Player als auch Watcher eine visuelle Rückmeldung durch das System (vgl. rechts Bild, beide weiß Umrandeten Elemente). Zusätzlich wurde der neu platzierte Gegenstand automatisch in die Liste der aktuell vorhandenen Gegenstände auf der rechten Seite der Watcher-Anwendung übernommen (rechtes Bild, rechtes Bildelement). 
 
 \subsection{Freischalten von Gegenständen und Positionen}
-Sobald ein Rätsel durch das Platzieren von Gegenständen gelöst wurde, erhielten Player und Watcher die Information, dass neue Gegenstände freigeschaltet wurden (vgl. Abbildung \ref{fig:old-unlock-system}, erste Reihe linkes Bild, eingekreist in weiß). 
+
+Sobald ein Rätsel durch das Platzieren der richtigen Gegenstände gelöst wurde, erhielten sowohl der Player als auch der Watcher eine Rückmeldung darüber, dass neue Gegenstände freigeschaltet wurden (vgl. Abbildung \ref{fig:old-unlock-system}, erste Reihe linkes Bild, weiß eingekreist). 
 
 \begin{figure}[ht]
 \centering
@@ -78,9 +79,14 @@ Sobald ein Rätsel durch das Platzieren von Gegenständen gelöst wurde, erhielt
 \label{fig:old-unlock-system}
 \end{figure}
 
-Sobald das Lösen des Rätsel das Hindernis beseitigt und einen neuen Bereich zugänglich macht, geht der Bilder-Slider in der Anwendung des Watchers auf das aktuelle Bild. Der Slider zeigt dem Watcher alle verfügbaren Abschnitte der Spielwelt (vgl. erste Reihe, rechtes Bild, in weiß umrandet in Abbildung \ref{fig:old-unlock-system}). Durch die neuen Spielabschnitte werden nicht nur neue Gegenstände freigeschaltet, sondern auch zusätzliche vordefinierte Positionen, auf denen die Gegenstände platziert werden können. Diese werden dem Watcher in den Gegenstand- und Positions-Dropdown Liste aufgelistet (vgl. Abbildung \ref{fig:old-unlock-system}, beide Bilder in der zweiten Reihe in weiß umrandet). 
+Wenn durch das Lösen des Rätsels ein Hindernis entfernt und ein neuer Bereich der Spielwelt zugänglich gemacht wurde, aktualisierte sich der Bilder-Slider in der Watcher-Anwendung automatisch und wechselte zur aktuell freigeschalteten Ansicht. Der Slider zeigt dem Watcher alle derzeit verfügbaren Abschnitte der Spielwelt  (vgl. Abbildung \ref{fig:old-unlock-system}, erste Reihe, rechtes Bild, weiß umrandet). 
+
+Mit dem Zugang zu neuen Spielabschnitten werden nur nur zusätzliche Gegenstände freigeschaltet, sondern auch weitere vordefinierte Zielpositionen, auf denen diese platziert werden können. Diese neue Optionen erscheinen im Watcher-Interface in den Dropdown-Menüs für Gegenstände und Positionen (vgl. Abbildung \ref{fig:old-unlock-system}, zweiten Reihe, beide Bilder, jeweils weiß umrandet). 
 
 \subsection{Aspekte zum Überarbeiten}
+
+In diesem Kapitel werden jene Aspekte des ursprünglichen Prototyps dargestellt, die in der Umsetzung als unzureichend identifiziert wurden und im Rahmen der Weiterentwicklung im neuen Prototyp überarbeitet werden sollen.
+
 \paragraph{Backfaces}
 In den zuvor betrachteten Abbildungen \ref{fig:old-logins} bis \ref{fig:old-unlock-system} fällt auf, dass die Wände der Spielwelt, in der sich der Player befindet (jeweils immer das linke Bildelement), \say{eigenartig} aussehen. Das liegt daran, dass die einzelnen Raum-Elemente dafür gedacht sind, dass durch die Kameraperspektive der Spieler im inneren des Raumes sein sollte. Man müsste für diesem Raumaufbau eine First-Person Kameraansicht wählen.
 

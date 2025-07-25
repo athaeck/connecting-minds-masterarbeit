@@ -250,71 +250,83 @@ Ergänzend wird die Zoom-Geste, bei der zweu Finger zueinander oder voneinander 
 Für die Fortbewegung des Avatars reicht eine einfache Single-Touch-Geste aus, bei der eine Position in der Spielwelt angetippt wird. Der Avatar soll sich anschließend zu dieser Position bewegen. Hierfür kommt das in Unity integrierte \say{NavMesh-Agent}-System zum Einsatz. Dieses basiert auf einem Pathfinding-Algorithmus der es dem Agent ermöglicht, autonom ein Ziel innerhalb eines zuvor definierten Navigationsbereichs (\say{NavMesh Surface}) anzusteuern. Die Zielposition wird per Touch übermittelt, woraufhin sich der Avatar eigenständig dorthin bewegt. Dank der Verbindung zur Cinemachine-Komponente folgt die Kamera dem Avatar während seiner Bewegung automatisch.
 
 \paragraph{Questsystem}\label{sec:quest-system}
-Da die Rätsel und Hindernisse nicht einfach irgendwie in der Spielwelt eingebaut wurden, wurde für diesen Zweck ein kleines System entworfen, durch welches verschiedene Rätsel zusammengebaut werden können.
+
+Da die Rätsel und Hindernisse nicht willkürlich ohne System in der Spielwelt platziert wurden, wurde ein modulares System entwickelt, das den systematischen Aufbau und die Kombination unterschiedlicher Rätselkomponenten ermöglicht.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/QuestSystem.drawio.png}
-\caption{UML-Diagramm zum Questsystem (Quelle: eigene Darstellung), (vollständig in Anhang \ref{})}
+\caption{UML-Diagramm zum Questsystem (Quelle: eigene Darstellung), (vollständig in Anhang \ref{sec:append_realisation_uml_quest})}
 \label{fig:quest-system-uml}
 \end{figure}
 
-Abbildung \ref{fig:quest-system-uml} zeigt das entworfene \say{Questsystem}. Die einzelnen Herausforderungen wurden in Anlehnung an Quests aus \ac{RPG}-Spielen als solche benannt. Dieses System ist so modular aufgebaut, dass es sowohl in der Player- als auch in der Watcher-Anwendung eingebaut werden konnte. Die Inhalte dieses und des folgenden Kapitels gelten auch für die Watcher-Anwendung.
+Abbildung \ref{fig:quest-system-uml} zeigt, das entwickelte Questsystem, das zur strukturierten Einbettung von Rätsel in die Spielwelt dient. Die einzelnen Rätsel wurden in Anlehnung an \ac{RPG}-Spiele als Quests bezeichnet. Das System wurde modular konzipiert, sodass es sowohl in der Player- als auch in der Watcher-Anwendung integriert werden kann. Die folgenden Ausführungen gelten daher für beide Rollen gleichermaßen.
 
-Der \say{QuestController} ist das überwachende Element innerhalb des Systems. Er besitzt zu allen \say{Quests}, die in der Spielszene erstellt wurden, eine Referenz. Er empfängt alle gelösten \say{Quests} vom Server und leitet diese an die jeweiligen \say{Quests} weiter. Außerdem ist er dafür verantwortlich, dass gelöste \say{Quests} an den Server übermittelt werden. Sobald eine neue \say{Quest} gestartet, also ein weiteres Rätsel freigeschaltet/ein weiterer Raum  zugänglich gemacht wurde, leitet der \say{QuestController} diese ebenfalls an den Server weiter, damit diese zur Liste der bislang aktiven und zum Teil gelösten \say{Quests} hinzugefügt wird.
+Zentrale Instanz des Systems ist der QuestController, der als überwachende Einheit fungiert. Er verwaltet Referenzen auf alle in der Szene existierenden Quests, empfängt Rückmeldungen über gelöste Quests vom Server und leitet diese an die entsprechenden Quests weiter. Gleichzeitig ist er für die Übermittlung neuer oder gelöster Quests an den Server verantwortlich. Wird bspw. eine Quest aktiviert, etwa durch das Freischalten eines neuen Raums, sorgt der QuestController dafür, dass diese zur Liste der aktiven bzw. gelösten Quests hinzugefügt wird.
 
-Die \say{Quest} verteilt bestimmte Aufgaben an weitere Komponenten weiter. Sie besitzt ihre \say{Quest}-Daten, also ihren Namen, eine ID und ob sie gelöst wurde oder nicht.  Sollte sie gelöst worden sein, würde sie dies an den \say{QuestController} weiterleiten. Damit die \say{Quest} weiß, ob sie gelöst wurde, besitzt sie Referenzen auf alles \say{QuestSolver}, das mit ihr in Verbindung stehen. Im Beispiel des Diagramms wäre es eine Druckplatte, die die Fähigkeiten eines Platzierungs-Aktivators hat, der aktiv wird, sobald innerhalb des eigenen Colliders ein richtiger Gegenstand platziert wurde. Sobald alle \say{QuestSolver} ausgelöst wurden, kann die Quest bestimmen, ob sie gelöst wurde. 
+Jede Quest selbst stellt eine einzelne Herausforderung dar und ist mit einer eindeutigen ID, einem Namen sowie einem Lösungsstatus ausgestattet. Sie überprüft selbstständig, ob sie gelöst wurde und informiert in diesem Fall den QuestController. Dazu besitzt sie Referenzen auf mehrere QuestSolver, also logische Einheiten, die eine Bedingung zur Lösung erfüllen müssen. Im Beispiel aus Abbildung \ref{fig:quest-system-uml} handelt es sich um eine Druckplatte mit Platzierungsfunktionalität, die dann aktiv wird, wenn ein passender Gegenstand korrekt platziert wurde. Sobald alle zugehörigen QuestSolver erfolgreich ausgelöst wurden, gilt die Quest als gelöst.
 
-Bevor eine \say{Quest} gelöst werden kann, muss sie zunächst gestartet werden. Dies geschieht durch \say{QuestActivator}, zu welchen die \say{Quest} ebenfalls Referenzen besitzt. Werden alle Aktivatoren ausgelöst, so wird die \say{Quest} gestartet und kann gelöst werden. Im Beispiel der Abbildung existiert eine Komponente mit dem Namen \say{CollidableQuestActivator} die ausgelöst wird, sobald der Avatar des Players innerhalb des Colliders des Spielobjektes ist.
+Vor der Lösung muss eine Quests jedoch zunächst aktiviert werden. Diese Funktion übernehmen sog. QuestActivator, auf die jede Quest ebenfalls Referenzen besitzt. Erst wenn alle Aktivatoren ausgelöst wurden, wird die Quest aktiv und kann gelöst werden. Im gezeigten Beispiel kommt ein CollidableQuestActivator zum Einsatz, der dann ausgelöst wird, wenn sich der Avatar des Players innerhalb eines definierten Colliders aufhält.
 
-Nachdem die \say{Quest} gelöst wurde, führen alle mit der \say{Quest} verbundenen \say{QuestSolveExecuter} ihre jeweiligen Tätigkeiten aus. Jede \say{Quest} besitzt eine Referenz auf alle verbundenen \say{Executer}. Im Beispiel der Abbildung ist es eine Gefängnistür, welche beim Lösen einer \say{Quest} über den enthaltenen Animator aufgeht.
+Sobald eine Quest erfolgreich abgeschlossen wurde, werden alle ihr zugewiesenen QuestSolveExecuter aktiviert. Diese Komponenten führen Aktionen aus, etwa das Öffnen einer Tür durch einen Animator, wie im Beispiel der Gefängnistür dargestellt.
 
 \paragraph{Pathsystem}\label{sec:path-system}
-Wie das Questsystem wurde das Pathsystem ebenfalls möglichst modular gehalten, sodass es auch in der Anwendung des Watchers eingebaut werden kann. Das Pathsystem ist deshalb wichtig, da zur Laufzeit des Spiels weitere Wege und Räume zugänglich gemacht werden und diese auf eine Weise mit der Logik der Rätsel verbunden sein müssen.
+
+Wie das Questsystem wurde auch das Pathsystem modular konzipiert, um eine Wiederverwendung sowohl in der Player- als auch der Watcher-Anwendung zu ermöglichen. Dieses System ist insbesondere deshalb von zentraler Bedeutung, weil im Verlauf des Spiels neue Wege und Räume zugänglich gemacht werden, deren Freischaltung eng mit dem Fortschritt im Rätselsystem verknüpft ist.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/PathSystem.drawio.png}
-\caption{UML-Diagramm zum Pathsystem (Quelle: eigene Darstellung), (vollständig in Anhang \ref{})}
+\caption{UML-Diagramm zum Pathsystem (Quelle: eigene Darstellung), (vollständig in Anhang \ref{sec:append_realisation_uml_path})}
 \label{fig:path-system-uml}
 \end{figure}
 
-Abbildung \ref{fig:path-system-uml} zeigt das entworfene modulares Pathsystem für die Player- und Watcher-Anwendung.
+Abbildung \ref{fig:path-system-uml} zeigt das entworfene modulare Pathsystem, das in beiden Anwendungen eingebunden ist. Das zentrale Steuerelement stellt die Klasse PathController dar, welche, analog zum QuestController, für die Kommunikation mit dem Server verantwortlich ist. Sie empfängt und sendet Pathdaten und verwaltet sämtliche in der Spielszene konfigurierten Wege (Pathways).
 
-Wie auch im Questsystem, besitzt das Pathsystem mit der Klasse \say{PathController} ein überwachendes Element, das wie der \say{QuestController} dafür zuständig ist, Daten vom Server zu empfangen und an ihn zurückzusenden. Außerdem besitzt er Referenzen auf alle konfigurierten Wege der Spielwelt (\say{Pathways}). Erhält der \say{PathController} neue \say{Path}-Daten, werden diese an die jeweiligen \say{Pathway}-Komponenten weitergegeben.
+Jeder Pathway verwaltet eine Reihe von Komponenten. Sog. PathActivator, die für die Freischaltung eines Weges zuständig sind und optional PathForgetter, welche bereits geöffnete Wege bei Bedarf wieder deaktivieren können. Darüber hinaus besitzt ein Pathway Referenzen auf die zugehörigen Objekte in der Spielwelt, ein sichtbares Wegobjekt (PathObject) sowie auf Kollisionsbereiche (PathCollider). Letztere spielen insbesondere bei der physischen Blockierung von noch nicht zugänglichen Bereichen eine Rolle.
 
-Jeder \say{Pathway} besitzt Referenzen auf Aktivatoren (\say{PathActivator}) und Deaktivieren (\say{PathForgetter}), die je nach Anwendungsfall einen Weg entweder freischalten oder wieder deaktivieren. Zudem hat er zum eigentlichen Weg-Objekt, also dem Objekt, das in der Spielwelt diesen \say{Pathway} symbolisiert, und einer Collider-Klasse Referenzen. Diese werden jeweils bei Aktivierung und Deaktivierung des Weges relevant.
+Da im konzipierten Tutorial-Szenario keine bereits geöffneten Wege deaktiviert werden, wurde auf eine Implementierung konkreter PathForgetter verzichtet. Die Klasse QuestPathActivator aus dem in Abbildung \ref{fig:path-system-uml} dargestellten Beispiel übernimmt die Aufgabe, nach dem erfolgreichen Abschluss einer bestimmten Quest den zugehörigen Pathway zu aktivieren.
 
-Da in dem konzipierten Tutorial kein Weg wieder deaktiviert wird, existiert dafür kein Beispiel. Die \say{QuestPathActivator}-Klasse ist im Beispiel des Diagramms dafür verantwortlich, nach Lösen einer \say{Quest} den mit dieser \say{Quest} verbundenen \say{Pathway} zu entdecken.
+Wird ein Pathway aktiviert, so wird das entsprechende \ac{3D}-Objekt (PathObject) in der Szene sichtbar geschaltet und die zugehörigen PathCollider deaktiviert, sodass der neue Bereich für den Player zugänglich wird. Auf die genaue Funktionsweise der PathCollider und deren Bedeutung im Gesamtsystem wird im späteren Kapitel \ref{sec:difficulties-placement} detailliert eingegangen.
 
-Wurde ein \say{Pathway} entdeckt, wird in der Komponente des \say{PathObjects} das entsprechende \ac{3D}-Objekt in der Spielszene aktiviert und die Collider für den Raum in der Komponente des \say{PathColliders} deaktiviert. Die Wichtigkeit der \say{PathCollider} wird im späteren Kapitel \ref{sec:difficulties-placement} erklärt. 
+\paragraph{User-Interfaces}
 
-[TODO: ich müsste npch die Toolbar vom Player irgendwo zeigen]
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{content/pictures/UI.PNG}
+\caption{UI des Players (Quelle: eigene Darstellung)}
+\label{fig:player-ui}
+\end{figure}
+
+Abbildung \ref{fig:player-ui} zeigt die Ansicht, die der Player in der Spielwelt hat. Unten in der Mitte wird die Interaktionsleiste angezeigt, über welche der Player Interaktionen mit der Spielwelt ausführen kann. Anhand des gezeigten Bildes kann er derzeit nur in die First-Person-Sicht wechseln. Sobald er an einen interaktiven Gegenstand kommt, erscheint in der Leiste seine entsprechenden Interaktionsfunktionen. Dieses Konzept ist an Spiele wie \say{Diablo 4} oder \say{Baldurs Gate 3} angelehnt, bei denen über eine ähnliche Aktionsleiste Fähigkeiten und Angriffe ausgeführt werden können  (vgl. \citealp{blizzard_entertainment_diablo_2023,larian_studios_baldurs_2023}).
 
 \subsection{Watcher-Anwendung}
-Die Watcher-Anwendung ist wie die Player-Anwendung eine der beiden \say{Views} der \ac{MVC}-Architektur. Auch sie umfasst die grundlegende Spielwelt aus der Sicht des Watchers und wie er mit dieser interagiert. In der Gestaltung der Spielwelt, wie sie der Watcher sieht, gilt hier ebenfalls das gleiche wie beim Player. Sie enthält die Basisobjekte der Spielwelt, welche innerhalb von Prefabs Variants editiert wurden.
 
-Im Vergleich zum Player besitzt die Watcher-Anwendung jedoch zwei unterschiedliche Spielmodi. Der Watcher kann entweder mit der \ac{AR}-Integration einer Session beitreten oder auch über die \ac{3D}-Integration. Die \ac{3D}-Integration wurde grundlegend für die Entwicklung entworfen, da durch sie das Testen der bestehenden Entwicklungsstände einfach war. So musste die Anwendung nicht für das entsprechende Smartphone gebaut werden und konnte direkt im Editor getestet werden.
+Die Watcher-Anwendung stellt, ebenso wie die Player-Anwendung, eine der beiden \say{Views} innerhalb der umgesetzten \ac{MVC}-Architektur dar. Sie umfasst die grundlegende Spielwelt aus der Perspektive des Watchers und bildet zugleich die Grundlage für dessen Interaktionsmöglichkeiten mit der Umgebung.
+
+Analog zur Player-Anwendung basiert auch die visuelle Darstellung in der Watcher-Anwendung auf den Basisobjekten der Spielwelt, die mittels sog. Prefab Variants darstellungsspezifisch angepasst wurden. Auf diese Weise wird eine konsistente Gestaltung der Umgebung sichergestellt, wobei sich für die jeweilige Perspektive relevanten Unterschiede manifestieren.
+
+Ein wesentlicher Unterschied zur Player.Anwendung besteht in der Existenz zweier unterschiedlicher Betriebsmodi. Der Watcher kann entweder mittels einer \ac{AR}-Integration oder über eine \ac{3D}-Ansicht auf die Spielwelt zugreifen. Während die \ac{AR}-Variante für den späteren produktiven Einsatz konzipiert ist, wurde die \ac{3D}-Integration primär für Entwicklungs- und Testzwecke realisiert. Sie ermöglicht es, den aktuellen Entwicklungsstand direkt im Unity-Editor zu überprüfen, ohne dass die Anwendung jeweils auf ein Smartphone übertragen und oder ausgeführt werden muss.
 
 \paragraph{Steuerung der Anwendung}
-Wie bereits in der Player-Anwendung ist auch hier ein großer Teil die Steuerung der Kamera innerhalb der Anwendung. Jedoch muss diese im Vergleich zur Player-Anwendung differenzierter betrachtet werden. 
 
-In der \ac{AR}-Variante der Anwendung benötigt der Spieler keine umfassende Kamerasteuerung, da diese vom Smartphone \say{selbst} übernommen. \cite{reinhard_augmented_2022} zeigt dies in der Vorstellung der verschiedenen Touchsteuerungen aus (vgl. S.66ff). Der Spieler benötigt lediglich eine Single-Touch-Interaktion um mit der Anwendung interagieren zu können.
+Wie bereits in der Player-Anwendung spielt auch in der Watcher-Anwendung die Kamerasteuerung eine zentrale Rolle. Allerdings muss sie hier differenzierter betrachtet werden, da sich die Anforderungen in den beiden Modi, \ac{AR} und \ac{3D}, deutlich unterscheiden.
 
-In der \ac{3D}-Variante muss, wie auch schon beim Player, auf die verschiedenen Steuerungsmöglichkeiten von \cite{reinhard_augmented_2022} zurückgegriffen werden. Zunächst ist jedoch zu entscheiden, welche Art von Kamerasystem die \ac{3D}-Anwendung haben soll. 
+In der \ac{AR}-Variante übernimmt das Endgerät die Kamerasteuerung automatisch über die Sensorsysteme. Eine manuelle Steuerung den Watcher ist daher nicht erforderlich. Für die Interaktion mir der Anwendung genügt eine einfache Single-Touch-Eingabe, etwa zur Platzierung von Gegenständen. Wie \cite{reinhard_augmented_2022} zeigt, sind solche minimalistischen Eingabekonzepte typisch für \ac{AR}-Anwendungen auf Mobilgeräten (vgl. \citealp[S. 66ff]{reinhard_augmented_2022}).
 
-Einige Spiele für mobile Endgeräte besitzen keine freie Bewegung der Kamera. Manche besitzen ein Follow des Spieler-Avatars und der Rest besitzt keine freie Bewegung in der Spielwelt. Die häufigsten Umsetzungen für Steuerungselemente in Spielen für Touch-Endgeräte sind entweder die Steuerung über die verschiedenen Touch-Gesten, die \cite{reinhard_augmented_2022} in seiner Arbeit aufgelistet hat, oder Joystick-ähnliche \ac{HUD}-Elemente. 
-So steuert der Spieler im Spiel \say{Botworld Adventure} (vgl. \cite{noauthor_botworld_nodate}) über Joystick-Elemente, oder in den Spielen \say{Die Sims Mobile} (vgl. \cite{arts_sims_2017}) und \say{Outlanders} (vgl. \cite{noauthor_outlanders_2025}) über verschiedene Touch-Gesten. 
+ Gegensatz dazu erfordert die \ac{3D}-Variante der Anwendung eine explizite Kamerasteuerung, ähnlich wie in der Player-Anwendung. In diesem Kontext sind zunächst grundsätzliche Überlegungen zum zugrunde liegenden Kamerakonzept notwendig. Mobile Spiele nutzen unterschiedliche Steuerungsarten. Einige verzichten gänzlich auf eine freie Kamerabewegung, andere folgen einem Spieler-Avatar, während wieder andere eine vollständige Kontrolle über die Kamera ermöglichen.
 
-Das Nutzen eines Joystick-Overlays würde den Sinn des Nutzens eines Touchmonitors nicht unterstützen, weshalb dieser Ansatz nicht weiter betrachtet wurde. Es wurden ausschließlich die Kamerasysteme der anderen Steuerungsverwendungen betrachtet. In Sims Online und Outlanders wird ein ähnliches Kamera-System verwendet, wie es bereits aus Spielen wie der \say{Anno-Reihe} (vgl. \cite{noauthor_ubisoft_nodate}) bekannt ist. Sie nutzen ein sog. \say{Real-Time-Strategy}-System, bei dem die Kamera ein unsichtbares Objekt verfolgt, welches durch Nutzereingaben bewegt wird.
+ Für die \ac{3D}-Variante wurde bewusst auf die Implementierung eines Joystick-basierten \ac{HUD}-Overlays verzichtet, da dieses der intuitiven Touchsteuerung-Nutzung widerspricht und Interaktionsmöglichkeiten unnötig einschränkt. Stattdessen orientierte sich die Umsetzung an Spielen, die auf Touch-Gesten basieren, etwa \say{Die Sims Mobile} oder \say{Outlanders} (vgl. \citealp{arts_sims_2017, pomelo_games_outlanders_2019}). Diese nutzen ein Kamerasystem, wie es aus klassischen Strategiespielen, wie der \say{Anno}-Reihe, bekannt ist, eine, sog. \ac{RTS}-Kamera, bei der ein unsichtbares LookAt und Follow Objekt durch Nutzereingaben verschoben wird, dem die Kamera folgt (vgl. \citealp{noauthor_ubisoft_nodate}). 
 
-Der Ansatz der \ac{RTS}-Kameraführung wurde bei der Entwicklung der \ac{3D}-Anwendung verfolgt. Über die Single-Touch-Interaktion soll der Spieler Gegenstände platzieren können. Über die Yaw-Geste kann der Spieler die Ansicht auf die Spielszene drehen, um von einer anderen Blickrichtung neue Eindrücke sammeln zu können. Wie auch in der Player-Anwendung, kann der Spieler über die Zoom-Geste an die Spielwelt heranzoomen. Über die Pan-Bewegung kann der Spieler das \ac{RTS}-Kamerasystem durch die Spielwelt steuern. In der jetzigen Umsetzung gab es noch keinen Nutzen für die Pitch-Geste.
+Auch in der Watcher-Anwendung wurde dieser \ac{RTS}-Ansatz umgesetzt. Dabei wird die Kamera durch folgende Touch-Gesten gesteuert.
+Der Single-Touch für das Platzieren und Entfernen von Gegenständen in der Spielwelt, die Yaw-Geste für die horizontale Rotation der Kameraansicht zur Veränderung der Blickrichtung, die Zoom-Geste für die Annäherung und Entfernung zur Spielwelt und die Pan-Geste zur Bewegung der Kamera innerhalb der Spielwelt.
 
-% [hier jetzt steuerungen von ein paar spielen nennen die es so gibt]
+Die Pitch-Geste wurde bislang nicht implementiert, da für sie in der aktuellen Fassung der Anwendung kein konkreter Anwendungsfall identifiziert wurde.
+
 \paragraph{Aufbau des Nutzerflows}
 Da die Hauptaufgabe des Watchers das Verwalten und Platzieren von Gegenständen ist, muss zunächst analysiert werden, wie ein für die Anforderungen an die Anwendungen passender Nutzerfluss konzipiert und umgesetzt werden kann.
 
-Das Spiel \say{Outlanders} (vgl. \cite{noauthor_outlanders_2025}) passte in seinem Spielaufbau und seiner Führung durch die Menüs zu der Anforderung der Watcher Anwendung, bei der sich der Spieler zunächst frei durch die Spielwelt bewegen (entweder als \ac{AR}-Kamera oder über das RTS-Kamerasystem), über ein Menü Gegenstände platzieren oder dem Player schicken kann.
+Das Spiel \say{Outlanders} (vgl. \cite{pomelo_games_outlanders_2019}) passte in seinem Spielaufbau und seiner Führung durch die Menüs zu der Anforderung der Watcher Anwendung, bei der sich der Spieler zunächst frei durch die Spielwelt bewegen (entweder als \ac{AR}-Kamera oder über das RTS-Kamerasystem), über ein Menü Gegenstände platzieren oder dem Player schicken kann.
 
 In \say{Outlanders} muss der Spieler als Anführer der gemeinen Bevölkerung eine Stadt errichten. Dies kann er über ein Hauptmenü initiieren, welches sich in seiner Menüleiste befindet.
 

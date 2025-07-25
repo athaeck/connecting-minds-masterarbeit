@@ -88,7 +88,8 @@ Mit dem Zugang zu neuen Spielabschnitten werden nur nur zusätzliche Gegenständ
 In diesem Kapitel werden jene Aspekte des ursprünglichen Prototyps dargestellt, die in der Umsetzung als unzureichend identifiziert wurden und im Rahmen der Weiterentwicklung im neuen Prototyp überarbeitet werden sollen.
 
 \paragraph{Backfaces}
-In den zuvor betrachteten Abbildungen \ref{fig:old-logins} bis \ref{fig:old-unlock-system} fällt auf, dass die Wände der Spielwelt, in der sich der Player befindet (jeweils immer das linke Bildelement), \say{eigenartig} aussehen. Das liegt daran, dass die einzelnen Raum-Elemente dafür gedacht sind, dass durch die Kameraperspektive der Spieler im inneren des Raumes sein sollte. Man müsste für diesem Raumaufbau eine First-Person Kameraansicht wählen.
+
+In den zuvor dargestellten Abbildungen \ref{fig:old-logins} bis \ref{fig:old-unlock-system} ist zu erkennen, dass die Wände der Spielwelt, in der sich der Player befindet (jeweils das linke Bildelement), eine ungewöhnliche und falsche Darstellung aufweisen. Dies liegt daran, dass die verwendeten Raumelemente ursprünglich für eine Kameraperspektive aus dem Inneren des Raums konzipiert wurden. Um eine konkrete Darstellung zu gewährleisten, wäre für diesen Aufbau eine First-Person-Kamera notwendig.
 
 \begin{figure}[ht]
 \centering
@@ -97,39 +98,41 @@ In den zuvor betrachteten Abbildungen \ref{fig:old-logins} bis \ref{fig:old-unlo
 \label{fig:missing-backfaces}
 \end{figure}
 
-Abbildung \ref{fig:missing-backfaces} zeigt fehlende Rückseiten-Oberflächen an. Die blauen Oberflächen sind die Oberflächen, die durch ihre Ausrichtung der Normalvektoren von der Game-Engine gerendert werden können. Die roten Oberflächen sind die, die von der Game-Engine nicht berücksichtigt werden. Hierbei kann es zwei unterschiedliche Ansätze geben, fehlende Rückseiten hinzuzufügen. Innerhalb der Material-Konfiguration der einzelnen Materialien kann bi-direktionales Rendering aktiviert werden, oder das Modell muss pro Richtung, auf die auf das Modell schaut, jeweils eine Oberfläche haben, die auch in diese Richtung zeigt.
+Abbildung \ref{fig:missing-backfaces} verdeutlicht, dass Rückseitenflächen bei der aktuellen Modellierung fehlen. Die blauen Flächen kennzeichnen Oberflächen, deren Normalvektoren in Richtung der Kamera zeigen und somit von der Game Engine gerendert werden können. Die roten Flächen hingegen sind Rückseiten, deren Normalvektoren von der Kamera wegzeigen und die daher standardmäßig nicht dargestellt werden.
 
-Außerdem müsste für den Anwendungszweck eines Spiel mit einer Top-Down Ansicht auch eine Decke der Räume entfernt werden, da diese für den Spieler nicht sichtbar sein sollte und sonst stören würde.
+Zur Behebung dieses Problems bestehen grundsätzlich zwei Lösungsansätze. Entweder wird in der Materialkonfiguration der betroffenen Objekte bidirektionales Rendering aktiviert, oder das Modell wird so angepasst, dass es für jede Betrachtungsrichtung eigene Flächen mit entsprechend ausgerichteten Normalen enthält.
 
-% backfaces
+Für die beabsichtige Nutzung in einem Spiel mit Top-Down-Perspektive ist es darüber hinaus erforderlich, die Decken der Räume zu entfernen, da diese aus der gewählten Kameraperspektive nicht sichtbar sind und die Sicht auf relevante Elemente der Spielwelt beeinträchtigen würden.
 
 \paragraph{Steuerung des Avatars}
-Im vorangegangenem Prototyp wurde wenig Aufmerksamkeit auf die Gestaltung der Spielsteuerung über Touch-Inputs gelegt. Die Standard-Steuerung innerhalb des verwendeten Unity-Assets von \cite{alasl_autolevel_nodate} enthielt zum Start des Projekts nur die Steuerung über Maus und Tastatur. Über die Tastatur konnte sich über die Spielwelt hinweg bewegt werden, ähnlich wie es aus \ac{RTS}-Spielen bekannt ist. Über die linke Maustaste konnte in die Spielwelt geklickt werden, wodurch sich der Spieler-Avatar an diese Stelle bewegte. Eine Steuerung über Touch-Eingaben an einem Touch-Monitor oder Fernseher musste erst eingebaut werden. Das Asset von \cite{alasl_autolevel_nodate} verwendet das Kamera-System der Cinemachine (vgl. \cite{noauthor_about_nodate}) wodurch einige vorgefertigte Steuerungen der Kamera durch die Maus bereits implementiert sind. 
 
-Es fehlte also die Touchsteuerung. Diese wurde allerdings nicht nach den Funktionalitäten eines Touchscreens konzipiert und umgesetzt, wie es bspw. in der Arbeit von \cite[S. 64ff]{reinhard_augmented_2022} aufgezeigt wurde, sondern über eigene Ideen, die nicht den Komfort der Maussteuerung wiedergeben konnte. Durch existierende und nicht sichtbare Oberflächen in der Spielwelt, wurde ebenfalls die Erfolgschance den Avatar durch einen Touch-Klick in die Spielwelt zu bewegen vermindert, wodurch ebenfalls Spielkomfort verloren ging.
+Im vorangegangenen Prototyp wurde der Gestaltung der Spielsteuerung mittel Touch-Input nur geringe Aufmerksamkeit geschenkt. Die im Projekt zu Beginn eingesetzte Standardsteuerung des verwendeten Unity-Assets von \cite{alasl_autolevel_2022} unterstützte ausschließlich Maus- und Tastatureingaben. Die Fortbewegung innerhalb der Spielwelt erfolgte die Steuerung der Kamera über die Tastatur, ähnlich wie in \ac{RTS}-Spielen, während ein Klick mit der linken Maustaste eine Bewegung des Avatars zur angeklickten Position auslöste.
 
-% steuerung beim Player
+Eine Steuerung über Touch-Eingaben, etwa an einem Touchscreen-Monitor oder Fernsehgerät, war in der ursprünglichen Implementierung des Beispielprojekts nicht vorgesehen und musste nachträglich ergänzt werden. Das Asset von \cite{alasl_autolevel_2022} nutzt das Cinemachine-Kamerasystem, wodurch einige mausbasierte Kamerasteuerungen bereits vorimplementiert waren (vgl. \citealp{unity_technologies_about_2017}). Eine spezifische Touch-Steuerung hingegen fehlte vollständig.
+
+Die nachträglich hinzugefügte Touch-Eingabe orientierte sich nicht nach etablierten Standards für Touch-Interfaces, wie sie bspw. von \cite{reinhard_augmented_2022} vorgeschlagen werden (vgl. \citealp[S. 64ff]{reinhard_augmented_2022}). Stattdessen wurde eine eigens entwickelte Lösung implementiert, die jedoch nicht denselben Bedienkomfort wie die Maussteuerung bieten konnte.
 
 \paragraph{Interaktion mit der Spielwelt}
-Sowohl die Anwendung des Players als auch die des Watchers besitzen wenig, bis keine Interaktionen mit der Spielwelt. Bei der Anwendung des Players besteht lediglich das Laufen innerhalb der Spielwelt als Interaktion. Der Watcher hingegen besaß keine Funktionalität im Bezug auf die Spielwelt. Lediglich die Menüs, über die die Daten der Session bearbeitet werden hatten eine Funktionalität. Für einen zukünftigen Prototyp müssen mehr Kernfunktionen in die Anwendungen eingebaut und Interaktionen mit der Spielwelt geschaffen werden.
 
-% interaktion mit der spielwelt beim watcher
-% feedback von den probandentests aufzählen
+Sowohl in der Anwendung des Players als auch in der Watchers bestanden bislang nur sehr eingeschränkte, teils gar keine Interaktionsmöglichkeiten mit der Spielwelt. In der Player-Anwendung beschränkte sich die Interaktion auf das Navigieren innerhalb der Spielumgebung. Die Watcher-Anwendung verfügte hingegen über keinerlei Funktionalitäten im direkten Bezug auf die Spielwelt. Die Interaktion beschränkte sich auf die Menüführung, über die Sitzungsdaten verwaltet werden konnten.
+
+Für den zukünftigen Prototyp ist es daher essenziell, die zentralen Kernfunktionen zu integrieren, die eine vertiefte Interaktion mit der Spielwelt ermöglichen. Nur so kann das interaktive Zusammenspiel zwischen Player und Watcher gewährleistet werden.
 
 \paragraph{Sonstiges Feedback aus den Probandentests}
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/Handlungsempfehlungen.PNG}
-\caption{Handlungsempfehlungen des alten Prototyps (Quelle: eigene Darstellung aus der Abschlusspräsentation), (ganze Präsentation in Anhang \ref{}, S. 33)}
+\caption{Handlungsempfehlungen des alten Prototyps (Quelle: eigene Darstellung aus der Abschlusspräsentation), (ganze Präsentation in Anhang \ref{sec:append_realisation_ausgangslage_presentation}: \nameref{sec:append_realisation_ausgangslage_presentation}, S. 33)}
 \label{fig:recommended-action}
 \end{figure}
 
-Abbildung \ref{fig:recommended-action} zeigt die Handlungsempfehlungen für den alten Prototyp aus der vorangegangenen Arbeit. Die Abschnitte der \say{Player Interaktion}, \say{Player Ansicht}, \say{Kamerasteuerung} und \say{Watcher Ansicht} wurden bereits angesprochen. Die Abschnitte \say{Environment} und \say{Watcher Tutorial} fehlen noch, wobei \say{Watcher Tutorial} in der Weiterentwicklung des Prototyps in der Implementierung keine Beachtung geschenkt wurde, da der Umfang ein eingebautes Tutorial für \ac{UI}-Elemente zu konzipieren und umzusetzen zu aufwändig wäre. Es müsste außerdem auch für die Anwendung des Player gälten.
+Abbildung \ref{fig:recommended-action} stellt die in der vorangegangenen Arbeit formulierten Handlungsempfehlungen für den ursprünglichen Prototyp dar. Die Bereiche \say{Player Interaktion}, \say{Player Ansicht}, \say{Kamerasteuerung} sowie \say{Watcher Ansicht} wurden in den o. g. Abschnitten bereits thematisiert. Die Punkte \say{Environment} und \say{Watcher Tutorial} blieben bislang unberücksichtigt. Insbesondere das \say{Watcher Tutorial} wurde in der Weiterentwicklung des Prototyps nicht implementiert da der konzeptionelle und technische Aufwand für die Erstellung eines integrierten Tutorials zur Einführung in die \ac{UI}-Elemente als zu hoch eingeschätzt wurde. Ein entsprechendes Tutorials müsste darüber hinaus auch für die Anwendung des Players vorgesehen werden, was den Entwicklungswand weiter erhöht hätte.
 
-Daher wird nun noch der Fokus auf das Environment gelegt. Die Handlungsempfehlungen beziehen sich in der Darstellung auf das bestehende System des Prototyps. Abstrahiert betrachtet ermöglicht eine grundlegende Weiterentwicklung der Anwendungen und des Environment neue Möglichkeiten wie Rätsel innerhalb der Spielwelt konzipiert und umgesetzt werden können. Dadurch kann es frei wählbare Positionen auf der Spielkarte geben, die nicht mehr vordefiniert sein müssen, oder dass bestehende Gegenstände auf irgend eine weise verändert werden müssen. Diese Aspekte könnten in einer neu Entwicklung des Environments anders aufgebaut werden.
+Im Folgenden wird der Fokus daher auf das Environment gelegt. Die Handlungsempfehlungen in Abbildung \ref{fig:recommended-action} besziehen sich auf das bestehende System des Prototyps, kassen sich jedoch abstrahieren und auf eine umfassendere Weiterentwicklung übertragen. Eine solche Weiterentwicklung würde neue Möglichkeiten zur Gestellung und Integration von Rätseln innerhalb der Spielwelt eröffnen. So könnten etwas Interaktionspunkte auf der Karte dynamisch und nicht mehr ausschließlich vordefiniert positioniert werden. Ebenso wäre es denkbar bestehende Objekte in ihrer Funktionalität oder Erscheinung zu verändern, um neue Spielmechaniken zu ermöglichen. Diese Potenziale sollten bei einer zukünftigen Neugestaltung des Environments berücksichtigt werden, um die spielerische Tiefe und Varianz zu erhöhen.
 
 \section{Verwendete Technologien}
-In der folgenden Aufzählung werden alle externen Assets und Packages vorgestellt, welche in der Entwicklung des Prototyps verwendet wurden. Manche der Assets werden im Registry des Projekts nicht aufgezählt, da diese in einem Test-Projekt importiert und für den Gebrauch dieses Projekt in jeweilige Submodule editiert importiert wurden. 
+
+In der folgenden Auflistung werden sämtliche externen Assets und Packages vorgestellt, die während der Entwicklung des Prototyps zum Einsatz kamen. Einige dieser Assets sind nicht in der Projekt-Registry aufgeführt, da sie zunächst in ein separates Testprojekt importiert, dort bearbeitet und anschließend als angepasste Submodule in das Hauptprojekt integriert wurden.
 
 \subsection{Unity Editor Version 2022.3.45f1}
 Der Prototyp wurde mit der 2022.3.45f1 \ac{LTS}-Version umgesetzt, da diese zum Start der Masterarbeit die aktuelle 2022 \ac{LTS}-Version war. Zwischenzeitlich wurde auch die 2023.2.20f1 (vgl. \cite{noauthor_unity_nodate}) ausprobiert. Da diese allerdings weder eine \ac{LTS}-Version noch zusätzlich im Package der Cinemachine ein Major-Update enthalten war und die Cinemachine einige Probleme mit sich führte, wurde eine stabile 20222-Version gewählt.

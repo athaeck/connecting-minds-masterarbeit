@@ -128,26 +128,26 @@ Für den zukünftigen Prototyp ist es daher essenziell, die zentralen Kernfunkti
 
 Abbildung \ref{fig:recommended-action} stellt die in der vorangegangenen Arbeit formulierten Handlungsempfehlungen für den ursprünglichen Prototyp dar. Die Bereiche \say{Player Interaktion}, \say{Player Ansicht}, \say{Kamerasteuerung} sowie \say{Watcher Ansicht} wurden in den o. g. Abschnitten bereits thematisiert. Die Punkte \say{Environment} und \say{Watcher Tutorial} blieben bislang unberücksichtigt. Insbesondere das \say{Watcher Tutorial} wurde in der Weiterentwicklung des Prototyps nicht implementiert da der konzeptionelle und technische Aufwand für die Erstellung eines integrierten Tutorials zur Einführung in die \ac{UI}-Elemente als zu hoch eingeschätzt wurde. Ein entsprechendes Tutorials müsste darüber hinaus auch für die Anwendung des Players vorgesehen werden, was den Entwicklungswand weiter erhöht hätte.
 
-Im Folgenden wird der Fokus daher auf das Environment gelegt. Die Handlungsempfehlungen in Abbildung \ref{fig:recommended-action} besziehen sich auf das bestehende System des Prototyps, kassen sich jedoch abstrahieren und auf eine umfassendere Weiterentwicklung übertragen. Eine solche Weiterentwicklung würde neue Möglichkeiten zur Gestellung und Integration von Rätseln innerhalb der Spielwelt eröffnen. So könnten etwas Interaktionspunkte auf der Karte dynamisch und nicht mehr ausschließlich vordefiniert positioniert werden. Ebenso wäre es denkbar bestehende Objekte in ihrer Funktionalität oder Erscheinung zu verändern, um neue Spielmechaniken zu ermöglichen. Diese Potenziale sollten bei einer zukünftigen Neugestaltung des Environments berücksichtigt werden, um die spielerische Tiefe und Varianz zu erhöhen.
+Im Folgenden wird der Fokus daher auf das Environment gelegt. Die Handlungsempfehlungen in Abbildung \ref{fig:recommended-action} beziehen sich auf das bestehende System des Prototyps, kassen sich jedoch abstrahieren und auf eine umfassendere Weiterentwicklung übertragen. Eine solche Weiterentwicklung würde neue Möglichkeiten zur Gestellung und Integration von Rätseln innerhalb der Spielwelt eröffnen. So könnten etwas Interaktionspunkte auf der Karte dynamisch und nicht mehr ausschließlich vordefiniert positioniert werden. Ebenso wäre es denkbar bestehende Objekte in ihrer Funktionalität oder Erscheinung zu verändern, um neue Spielmechaniken zu ermöglichen. Diese Potenziale sollten bei einer zukünftigen Neugestaltung des Environments berücksichtigt werden, um die spielerische Tiefe und Varianz zu erhöhen.
 
 \section{Verwendete Technologien}
 
 In der folgenden Auflistung werden sämtliche externen Assets und Packages vorgestellt, die während der Entwicklung des Prototyps zum Einsatz kamen. Einige dieser Assets sind nicht in der Projekt-Registry aufgeführt, da sie zunächst in ein separates Testprojekt importiert, dort bearbeitet und anschließend als angepasste Submodule in das Hauptprojekt integriert wurden.
 
 \subsection{Unity Editor Version 2022.3.45f1}
-Der Prototyp wurde mit der 2022.3.45f1 \ac{LTS}-Version umgesetzt, da diese zum Start der Masterarbeit die aktuelle 2022 \ac{LTS}-Version war. Zwischenzeitlich wurde auch die 2023.2.20f1 (vgl. \cite{noauthor_unity_nodate}) ausprobiert. Da diese allerdings weder eine \ac{LTS}-Version noch zusätzlich im Package der Cinemachine ein Major-Update enthalten war und die Cinemachine einige Probleme mit sich führte, wurde eine stabile 20222-Version gewählt.
+Der Prototyp wurde mit der 2022.3.45f1 \ac{LTS}-Version umgesetzt, da diese zum Start der Masterarbeit die aktuelle 2022 \ac{LTS}-Version war. Zwischenzeitlich wurde auch die 2023.2.20f1 (vgl. \citealp{noauthor_unity_nodate}) ausprobiert. Da diese allerdings weder eine \ac{LTS}-Version noch zusätzlich im Package der Cinemachine ein Major-Update enthalten war und die Cinemachine einige Probleme mit sich führte, wurde eine stabile 20222-Version gewählt.
 
 \subsection{Blender 4.3.2}
 Blender dient als Bearbeitungstool für die 3D-Modelle aus den hinzugenommenen Unity Assets. Die aktuelle Version zu Projektstart war die 4.3.2 Version- welche über den gesamten Bearbeitungszeitraum verwendet wurde. Außerdem bietet Unity einen Blender Direktimport an, wodurch keine \ac{FBX} oder \ac{OBJ} Dateien aus den Blenderdateien exportiert und in Unity importiert werden mussten.
 
 \subsection{NuGetForUnity 4.1.1}
-NuGetForUnity ist ein für Unity entwickelter NuGet-Client (vgl. \cite{noauthor_nuget_nodate}) über den zusätzliche funktionale Pakete für Unity installiert werden kann (vgl. \cite{mccarthy_glitchenzonugetforunity_2025}). Er war nötig, um ein nicht über Unity erworbenes Package in Unity nutzen zu können. Die aktuelle Version zum Bearbeitungsstart war die 4.1.1 Version, welche bis zum Ende genutzt wurde.
+NuGetForUnity ist ein für Unity entwickelter NuGet-Client (vgl. \citealp{noauthor_nuget_nodate}) über den zusätzliche funktionale Pakete für Unity installiert werden kann (vgl. \citealp{mccarthy_glitchenzonugetforunity_2025}). Er war nötig, um ein nicht über Unity erworbenes Package in Unity nutzen zu können. Die aktuelle Version zum Bearbeitungsstart war die 4.1.1 Version, welche bis zum Ende genutzt wurde.
 
 \subsection{Newtonsoft.Json 13.03}
-Das erste Package, welches über NuGetForUnity installiert wurde ist Newtonsoft.Json, durch welches über den WebSocket übertragene JSON-Daten leicht deserialisiert und serialisiert werden können (vgl. \cite{newtonsoft_jsonnet_nodate}). Die aktuelle Version im NuGet-Paketverwaltungstool war die 13.03.
+Das erste Package, welches über NuGetForUnity installiert wurde ist Newtonsoft.Json, durch welches über den WebSocket übertragene JSON-Daten leicht deserialisiert und serialisiert werden können (vgl. \citealp{newtonsoft_jsonnet_nodate}). Die aktuelle Version im NuGet-Paketverwaltungstool war die 13.03.
 
-\subsection{WebSocketSharp-netstandard 1.0.1v}
-Derzeit gibt es einige Netzwerk-Integrationen für Unity, bspw. Mirror (vgl. \cite{noauthor_mirror_nodate}) oder Netcode for GameObjects (vgl. \cite{noauthor_about_2025}). Durch die beiden Packages wäre jedoch die Netzwerk-Topologie starrer und die Entwicklung nach eigener Vorstellung wäre ebenfalls eingeschränkter. Daher wurde über NuGetForUnity das WebSocketSharp-netstandard Paket installiert, welches eine direkte Kommunikation mit einem WebSocket-Server ermöglicht (vgl. \cite{pingman_tools_pingmantoolswebsocket-sharp_2025}), da bislang existierende Integration mit Unity nicht mehr unterstützt werden. Die derzeit installierte und zum Projektstart installierbare Version ist die 1.0.1.
+\subsection{WebSocketSharp-netstandard 1.0.1}
+Derzeit gibt es einige Netzwerk-Integrationen für Unity, bspw. Mirror (vgl. \citealp{noauthor_mirror_nodate}) oder Netcode for GameObjects (vgl. \citealp{noauthor_about_2025}). Durch die beiden Packages wäre jedoch die Netzwerk-Topologie starrer und die Entwicklung nach eigener Vorstellung wäre ebenfalls eingeschränkter. Daher wurde über NuGetForUnity das WebSocketSharp-netstandard Paket installiert, welches eine direkte Kommunikation mit einem WebSocket-Server ermöglicht (vgl. \citealp{pingman_tools_pingmantoolswebsocket-sharp_2025}), da bislang existierende Integration mit Unity nicht mehr unterstützt werden. Die derzeit installierte und zum Projektstart installierbare Version ist die 1.0.1.
 
 \subsection{AI Navigation 1.1.5}
 Da sich der Avatar des Players innerhalb der Spielwelt per Touch-Click auf den Bildschirm an die angeklickte Stelle bewegen soll, muss ein \ac{AI}-Agent eingebaut werden, der das Avatar Spielobjekt an die gewünschte Stelle bewegt. In Unity kann dafür das NavMesh System verwendet werden, welches ein Pathfinding-System implementiert, wodurch ein automatisiertes Bewegen eines Agents durch eine Zielposition integriert werden kann. Das Paket in Unity heißt \ac{AI}-Navigation. Die aktuelle Version zum Start des Projekts ist die 1.1.5.
@@ -159,7 +159,7 @@ Die Cinemachine wurde in der Entwicklung des Prototyps bei beiden Anwendungen al
 Für die Entwicklung einer Anwendung für Mobile Endgeräte oder die für Windows-Geräte kann die \ac{URP} verwendet werden. Außerdem ist die \ac{URP} mit ARFoundation kompatibel, wodurch die Wahl auf die \ac{URP} und nicht die Built-In Render Pipeline fiel. Die zum Start und über den Verlauf der Arbeit genutzte Version ist die 14.0.11.
 
 \subsection{Unity UI 1.0.0 und TextMeshPro 3.0.9}
-Für die Entwicklung der \ac{UI}-Elemente der Anwendungen wurden die Pakete Unity \ac{UI} und TextMeshPro in ihren zum Start des Projekt aktuellen Versionen verwendet. Unity \ac{UI} ist dabei das Standard-Paket für die Entwicklung von User-Interfaces. TextMeshPro. Sie erweitert die Standard \ac{UI}-Elemente von Unity \ac{UI} um weitere Komponenten, welche für die Entwicklung des \ac{UI}s verwendet wurden.
+Für die Entwicklung der \ac{UI}-Elemente der Anwendungen wurden die Pakete Unity \ac{UI} und TextMeshPro in ihren zum Start des Projekt aktuellen Versionen verwendet. Unity \ac{UI} ist dabei das Standard-Paket für die Entwicklung von User-Interfaces. TextMeshPro erweitert die Standard \ac{UI}-Elemente von Unity \ac{UI} um weitere Komponenten, welche für die Entwicklung des \ac{UI}s verwendet wurden.
 
 \subsection{Input System 1.7.0}
 Seit der 2022er-Unity Version wird empfohlen das neue Input System von Unity zu verwenden. Das alte Input System ist standardisiert in jedem Unity Projekt enthalten und wird durch das neue, das Paket Input System überschrieben. Es ermöglicht über ein eigenes Menü verschiedene Input-Möglichkeiten zu konfigurieren und innerhalb der Scripte zu verwenden.
@@ -176,46 +176,43 @@ In Abhängigkeit zum Paket AR Foundation wurde auch das Google ARCore Modul inst
 \subsection{Unity Assets}
 Da durch den begrenzten Bearbeitungszeitraum keine Zeit blieb in großen Maßen eigene \ac{3D}-Objekte zu modellieren, wurde dafür auf bestehende und zum größten Teil kostenlose Assets zurückgegriffen, welche alle über den Unity Asset Store erworben werden konnten. Die enthaltenen Objekte wurden jedoch in einer großen Nacharbeitung an die eigenen Anforderungen angepasst und in die eigenen Submodule importiert.
 \begin{itemize}  
-    \item Astronaut - Free Model By Quaternius von \cite{quaternius_astronaut_nodate}
-    \item Chair Pack - 3D Low Poly Office Furniture 1.0 \cite{fast_mesh_chair_nodate}
-    \item low poly WD | 3D Props 1.1 \cite{squid_low_nodate}
-    \item Adventure Game Environment Pack | URP | 3D Sci-Fi 1.0 \cite{unity_technologies_adventure_nodate-1}
-    \item Adventure - Sample Game | Tutorials 3.0 \cite{unity_technologies_adventure_nodate}
-    \item Bedroom / Interior - Low Poly assets | 3D Interior 1.1.6 \cite{fries_and_seagull_bedroom_nodate}
-    \item Big Furniture Pack | 3D Furniture 1.3 \cite{vertex_studio_big_nodate}
-    \item Chair pack - 3D Low Poly Office Furniture - Created with FastMesh Asset | 3D Furniture 1.0 \cite{fast_mesh_chair_nodate}
-    \item Fantasy Cemetery \& Necropolis Pack Lite: 3D Assets for RPG and Adventure Games | 3D Fantasy 1.2 \cite{emaceart_fantasy_nodate}
-    \item Free Wood Door Pack | 3D Interior 1.0 \cite{biostart_free_nodate}
-    \item Kitchen Appliance - Low Poly | 3D Electronics 1.02 \cite{alstra_infinite_kitchen_nodate}
-    \item Lowpoly Dungeon Assets | 3D Dungeons 1.0 \cite{kunniki_lowpoly_nodate}
-    \item Low Poly Dungeon Generator | 3D Dungeons 1.0 \cite{mysticforge_low_nodate}
-    \item Low Poly Dungeons Lite | 3D Dungeons 1.11 \cite{justcreate_low_nodate-1}
-    \item Low Poly Simple Medieval Props | 3D Props 1.0 \cite{justcreate_low_nodate}
-    \item LowPoly Server Room Props | 3D Environments 1.0 \cite{ipoly3d_lowpoly_nodate}
-    \item Melon's Low Poly Office | 3D Interior 1.1.1 \cite{mistyczny_arbuz_melons_nodate}
-    \item Office Pack - Free | 3D Interior 1.02 \cite{nappin_office_nodate}
-    \item Ultimate Low Poly Dungeon | 3D Dungeons 2.0 \cite{broken_vector_ultimate_nodate}
+    \item Astronaut - Free Model By Quaternius von \cite{quaternius_astronaut_2022}
+    \item low poly WD | 3D Props 1.1 \cite{squid_low_2023}
+    \item Adventure Game Environment Pack | URP | 3D Sci-Fi 1.0 \cite{unity_technologies_adventure_2023}
+    \item Adventure - Sample Game | Tutorials 3.0 \cite{unity_technologies_adventure_2024}
+    \item Bedroom / Interior - Low Poly assets | 3D Interior 1.1.6 \cite{fries_and_seagull_bedroom_2025}
+    \item Big Furniture Pack | 3D Furniture 1.3 \cite{vertex_studio_big_2027}
+    \item Chair pack - 3D Low Poly Office Furniture - Created with FastMesh Asset | 3D Furniture 1.0 \cite{fast_mesh_chair_2024}
+    \item Fantasy Cemetery \& Necropolis Pack Lite: 3D Assets for RPG and Adventure Games | 3D Fantasy 1.2 \cite{emaceart_fantasy_2022}
+    \item Free Wood Door Pack | 3D Interior 1.0 \cite{biostart_free_2024}
+    \item Kitchen Appliance - Low Poly | 3D Electronics 1.02 \cite{alstra_infinite_kitchen_2021}
+    \item Lowpoly Dungeon Assets | 3D Dungeons 1.0 \cite{kunniki_lowpoly_2018}
+    \item Low Poly Dungeon Generator | 3D Dungeons 1.0 \cite{mysticforge_low_2025}
+    \item Low Poly Dungeons Lite | 3D Dungeons 1.11 \cite{justcreate_low_2024}
+    \item Low Poly Simple Medieval Props | 3D Props 1.0 \cite{justcreate_low_2023}
+    \item LowPoly Server Room Props | 3D Environments 1.0 \cite{ipoly3d_lowpoly_2021}
+    \item Melon's Low Poly Office | 3D Interior 1.1.1 \cite{mistyczny_arbuz_melons_2022}
+    \item Office Pack - Free | 3D Interior 1.02 \cite{nappin_office_2024}
+    \item Ultimate Low Poly Dungeon | 3D Dungeons 2.0 \cite{broken_vector_ultimate_2022}
 \end{itemize}
 
 \subsection{Node Version 20.18.1}
-Für den WebSocket-Server wurde eine Laufzeitumgebung benötigt, welche die zum Zeitpunkt des zugrunde liegenden Projekts die Node 20.18.1 war. Da das Teilprojekt des WebSocket-Servers aus dem vorangegangenen Projekts wiederverwendet werden konnte, wurde die Node Version beibehalten.
+Für den WebSocket-Server wurde eine Laufzeitumgebung benötigt, welche die zum Zeitpunkt des zugrunde liegenden Projekts die Node Version 20.18.1 war. Da das Teilprojekt des WebSocket-Servers aus dem vorangegangenen Projekts wiederverwendet werden konnte, wurde die Node Version beibehalten.
 
 \subsection{Express.js Webserver 5.1.0}
-Express.js ist eine Webserver Erweiterung von Node.js Servern, durch diese spezifische \ac{URL}-Endpunkte erstellt werden können. Diese Erweiterung ist wichtig, um bestimmte Funktionen starten zu können. Außerdem ist er die Basis des WebSocket-Servers durch welchen dieser erst erreichbar wird.
-% \cite{noauthor_express_nodate}
+Express.js ist eine Webserver Erweiterung von Node.js Servern, durch diese spezifische \ac{URL}-Endpunkte erstellt werden können. Über diese \ac{URL}-Endpunkte lassen sich Funktionen realisieren, die der Server haben soll. Zusätzlich benötigt das Package WS einen Express.js Server um über diesen einen WebSocket-Server zu starten. 
 
 \subsection{WS 8.18.2}
-WS ist das \ac{NPM}-Paket, über welches der WebSocket-Server implementiert werden kann. Das Paket ist innerhalb eines Express.js Server einfach zu verwenden und ermöglicht es Nachrichten zu empfangen und zu senden. Außerdem können empfangene Nachrichten in einem internen Mechanismus weitergereicht werden, wodurch für verschiedene Nachrichten Arten verschiedene Klassen gebaut werden konnten (vgl. \cite{websockets_websocketsws_2025}).
+WS ist das \ac{NPM}-Paket, über welches der WebSocket-Server implementiert werden kann. Das Paket ist innerhalb eines Express.js Server einfach zu verwenden und ermöglicht es Nachrichten zu empfangen und zu senden. Außerdem können empfangene Nachrichten in einem internen Mechanismus weitergereicht werden, wodurch für verschiedene Nachrichten Arten verschiedene Klassen gebaut werden konnten (vgl. \citealp{websockets_websocketsws_2025}).
 
 \subsection{Docker}
-Docker ist eine Open-Source-Plattform über die Container erstellt, bereitgestellt, ausgeführt, aktualisiert und verwaltet werden können. Container sind standardisierte, ausführbare Komponenten, die den Code von einzelnen Anwendungen mit den Betriebssystembibliotheken und Abhängigkeiten kombinieren (vgl. \cite{noauthor_was_2024}). Docker wurde aus dem Grund eines möglichen späteren Deployments des WebSocket-Server verwendet, da aus dem erstellen Express.js Server ein Docker-Image erstellt werden könnte, und so die öffentliche Bereitstellung vereinfacht worden wäre. Außerdem können über die Docker Engine weitere Images importiert werden, welche lokal auf dem Gerät laufen und so eine Unabhängigkeit zum Internetzugang bestehen kann.
-% \cite{noauthor_docker_2025}
+Docker ist eine Open-Source-Plattform über die Container erstellt, bereitgestellt, ausgeführt, aktualisiert und verwaltet werden können. Container sind standardisierte, ausführbare Komponenten, die den Code von einzelnen Anwendungen mit den Betriebssystembibliotheken und Abhängigkeiten kombinieren (vgl. \citealp{noauthor_was_2024}). Docker wurde aus dem Grund eines möglichen späteren Deployments des WebSocket-Server verwendet, da aus dem erstellen Express.js Server ein Docker-Image erstellt werden könnte, und so die öffentliche Bereitstellung vereinfacht worden wäre. Außerdem können über die Docker Engine weitere Images importiert werden, welche lokal auf dem Gerät laufen und so eine Unabhängigkeit zum Internetzugang bestehen kann.
 
 \subsection{MongoDB - Docker Image}
-MongoDB bietet über das eigene Atlas System einen Online-Zugriff auf definierten Datenbanken an. Diese sind nur über das Internet erreichbar. Sie können in der Datenanfrage und dem Daten zuschicken Latenzzeiten beinhalten????? Ist der letzte Satz richtig verständlich???? Daher wurde ein Docker Image für eine MongoDB Umgebung verwendet. Dieses Image ist aus der Docker Community und für jeden frei zugänglich (vgl. \cite{noauthor_mongo_nodate}). Diese läuft auf dem Rechner, auf dem Docker läuft und ist innerhalb dieses Rechners frei erreichbar??????? wo läuft sie und wo ist sie erreihbar????
+MongoDB bietet über das eigene Atlas System einen Online-Zugriff auf definierten Datenbanken an. Diese sind nur über das Internet erreichbar. Eine Anfrage an die Online-Datenbank könnte Latenzzeiten enthalten, wodurch der Prozess gestört werdem würde. Daher wurde ein Docker Image für eine MongoDB Umgebung verwendet. Dieses Image ist aus der Docker Community und für jeden frei zugänglich (vgl. \citealp{noauthor_mongo_nodate}). Diese läuft auf dem Rechner, auf dem Docker läuft und ist innerhalb dieses Rechners über den definierten Port erreichbar.
 
 \subsection{node-mongodb-native NPM-Paket}
-Um innerhalb des Express.js Servers eine Verbindungen zur MongoDB Datenbank aufbauen zu können, existiert eine Library, die Zugänge und weitere Funktionen im Bezug auf MongoDB bereitstellt. Das \ac{NPM}-Paket \say{node-mongodb-native} wurde für diesen Zweck verwendet (vgl. \cite{mongodb_mongodbnode-mongodb-native_2025}).
+Um innerhalb des Express.js Servers eine Verbindungen zur MongoDB Datenbank aufbauen zu können, existiert eine Library, die Zugänge und weitere Funktionen im Bezug auf MongoDB bereitstellt. Das \ac{NPM}-Paket \say{node-mongodb-native} wurde für diesen Zweck verwendet (vgl. \citealp{mongodb_mongodbnode-mongodb-native_2025}).
 
 
 \subsection{User Interface Inspirationen}
@@ -224,32 +221,33 @@ Für die bisherig Implementierten \ac{UI}-Elemente wurden bestehende Bilder oder
 \begin{itemize}
     \item Vorlage für SciFi \ac{UI}s von \cite{pchvector_free_nodate}
     \item Vorlage für Low-Poly Feder von \cite{masud_download_nodate}
-    % [TODO: Hier fehlen noch die Dumps von CHat, die nachgemalt wurden]
-    \item Vorlage für die Rucksack Icon in Anhang \ref{}
+    \item Vorlage für die Rucksack Icon in Anhang \ref{sec:append_realisation_vorlage_rucksack}
     \item Vorlage für das Positions zurücksetzen Icon \cite{noauthor_chatgpt_nodate-3}
     \item Vorlage für das Hinweis Icon \cite{noauthor_chatgpt_nodate-2}
     \item Vorlage für Interaktions Icon \cite{noauthor_chatgpt_nodate-1}
     \item Vorlage für die Bücher Icons \cite{noauthor_chatgpt_nodate}
-    \item Vorlage für die Handzeichnung in Anhang \ref{}
+    \item Vorlage für die Handzeichnung in Anhang \ref{sec:append_realisation_vorlage_handzeichnung}
 \end{itemize}
 
 \section{Aufbau des Prototyps}
-Der Prototyp ist wie der zugrunde liegende Prototyp in drei Einzelprojekte unterteilt. Die drei Einzelprojekte, die des Players, Watchers und des Servers, werden wie auch das vorangegangene Projekt in den Aufbau der \ac{MVC}-Architektur eingegliedert. Die Server-Anwendung aus dem vorangegangenem Projekt konnte weitergeführt und weiterentwickelt werden. Sie funktionierte nur in dieser bestimmten Architektur. Außerdem wurde diese gewählt, da im vorangegangenem Projekt jedes Gruppenmitglied einen eigenen Umsetzungsteil abgeben musste und diese Architektur das getrennte Entwickeln ermöglichte.
-% Die Projekte des Players, Watchers und des Servers werden wie im alten Prototyp in die \ac{MVC}-Architektur eingegliedert.
+
+Der neue Prototyp ist, analog zum vorhergehenden Projekt, in drei separate Einzelprojekte untergegliedert: Die Anwendungen für Player, Watcher und Server. Diese drei Komponenten wurden entsprechend der \ac{MVC}-Architektur strukturiert. Die Server-Anwendung ais dem vorherigen Projekt konnte in diesem Zusammenhang übernommen und funktional erweitert werden. Ihre Architektur ist spezifisch auf das Zusammenspiel innerhalb dieses Aufbaus ausgerichtet. Die Wahl dieser Struktur basierte ursprünglich darauf, dass im vorherigen Projekt jedes Gruppenmitglied einen eigenständigen Implementierungsteil bearbeiten und abgeben musste. Die klare Trennung der Zuständigkeit innerhalb der \ac{MVC}-Architektur unterstütze dabei.
 
 \subsection{Player-Anwendung}
-Die Player-Anwendung dient als die eine der beiden \say{Views} in dem entworfenem System. Sie umfasst grundlegend die Spielwelt, in der sich der Player-Avatar zur Laufzeit des Spiels bewegt. Die Spielwelt ist dabei so aufgebaut, dass es in einem der Submodule des Projekts Basismodelle für die Spielwelt gibt, die jeweils als Prefab Variant in diesem Projekt angepasst werden kann. Dadurch wird gewährleistet, dass der Kern der Spielwelt in der Anwendung des Players als auch des Watchers identisch bleibt und nur die gewünschten Unterschiede eingebaut werden müssen.
+
+Die Player-Anwendung stellt eine der beiden \say{Views} innerhalb des entworfenen Systems dar. Sie bildet primär die Spielwelt ab, in der sich der Avatar des Players während der Laufzeit bewegt. Der Aufbau der Spielwelt basiert auf einem Submodul des Projekts, das zentrale Basismodelle bereitstellt. Diese Modelle werden im jeweiligen Projektkontext als \say{Prefab Variants} angepasst. Auf diese Weise kann sichergestellt werden, dass die zugrunde liegende Struktur der Spielwelt sowohl in der Player- als auch in der Watcher-Anwendung konsistent bleibt, während spezifische Unterschiede gezielt integriert werden können.
 
 \paragraph{Steuerung der Anwendung}
-Ein Kern der Player-Anwendung ist die Steuerung des Avatars. Im Ursprungsprojekt war geplant, dass der Spieler die Anwendung an einem Touchmonitor, entweder einem kleinen oder einem Smartboard, spielen kann.
 
-\cite{reinhard_augmented_2022} stellt heraus, dass Multitouch-Anwendungen Pan (Drag-Bewegung nach Links-Recht-Oben-Unten), Zoom, Yaw (Finger-Rotierend) und Pitch (Neigungswinkelveränderung) Steuerungselemente enthalten können. 
+Ein zentrales Element der Player-Anwendung ist die Steuerung des Avatars. Im ursprünglichen Projekt war vorgesehen, dass die Anwendung auf einem Touchmonitor, etwa einem kleinen Display oder einem Smartboard, bedient werden kann. \cite{reinhard_augmented_2022} weist darauf hin, dass Multitouch-Anwendungen typischerweise Interaktionen wie Pan (Verschiebung auf der X- und Y-Achse), Zoom, Yaw (Rotation um die vertikale Achsel mittel Fingerbewegung) sowie Pitch (Veränderung des Neigungswinkels) unterstützen (vgl. \citealp[S. 66ff]{reinhard_augmented_2022}).
 
-Das bedeutet für die Anwendung, dass nun bestimmt werden muss, wie die Ansicht auf die Spielwelt und des Avatars ist, der innerhalb der Spielszene bewgt wird. Unity bietet für Kamerafahrten, Kameraführungen und Kamerasteuerungen ein kostenloses Paket an. Die Cinemachine bietet verschiedene Kamera-Arten an, unter anderem das Kamera-System der \say{Free-Look-Camera}, durch welche der Nutzer in den bereitgestellten Komponenten ein \say{Follow} und \say{Look-At} Objekt hinterlegen muss, um sich frei um dieses Objekt bewegen zu können. Für diese Anwendung wäre das ideal, da nun automatisiert die Kamera dem Avatar folgen kann. Allerdings wird die Cinemachine bei Anwendungen mit Maussteuerung verwendet, da die Input-Actions der Maus direkt mit den Komponenten verbunden ist. Daher müssen nun die von Reinhard aufgezeigten Steuerungen eingebaut werden, damit die Cinemachine Free-Look-Camera auch mit einem Touchmonitor zu spielen ist. 
+Für die konkrete Umsetzung bedeutet dies, dass zunächst festgelegt werden muss, wie die Kamera auf die Spielszene sowie auf den Avatar ausgerichtet ist und gesteuert wird. Unity stellt mit dem Cinemachine-Paket ein flexibles und leistungsfähiges System zur Kamerasteuerung bereit. Die sog. \say{Free-Look Camera} ermöglicht dabei eine freie Kameraführung um ein definiertes Zielobjekt. Voraussetzung hierfür ist die Angabe eines \say{Follow}- und eines \say{LookAt}-Objekts, um die Kamera automatisch an das Ziel anzugleichen.
 
-Die Pan-Geste, bei der ein Finger über den Bildschirm auf zwei Achsen vor/zurück oder nach rechts/links bewegt wird, eignet sich für die Drehung der Kamera um den Avatar. Sie ersetzt damit die Bewegung der Maus, durch welche um das Look-At Objekt gedreht wird. Da die Free-Look Komponente in der Mausteuerung auch automatisiert näher an das Objekt gefahren werden kann, muss die Funktion ebenfalls eingebaut werden. Die Zoom-Bewegung, bei der zwei Finger auf dem Bildschirm entweder zueinander oder voneinander weg bewegt werden, übernimmt die Kamerafahrt näher zum Objekt.
+Die Cinemachine-Komponenten sind standardmäßig für Maus-Inputs optimiert. Um die Kamera jedoch auch auf Touch-Eingaben zu übertragen, müssen die von Reinhard beschriebenen Multitouch-Gesten implementiert werden. Die Pan-Geste, also das horizontale oder vertikale Verschieben eines Fingers über den Bildschirm, wird genutzt, um die Kamera rotierend um den Avatar zu bewegen. Diese ersetzt die Mausbewegung, mit der in der Standardeinstellung um das LookAt-Objekt rotiert wird.
 
-Es fehlt nun nur noch die Bewegung des Avatars. Dafür reicht die grundlegenden Single-Touch Touch Aktion, durch welche auf die Spielwelt geklickt wird und sich der Avatar zu dieser Position bewegen soll. Um die Bewegung des Avatars zu ermöglichen, wurde das System der NavMesh Agents verwendet. Das System ermöglicht durch einen Path-Finding Algorithmus dass sich der Agent selbständig an ein gewünschtes Ziel bewegen kann. Zunächst muss ein Surface der Spielwelt erstellt werden. Anschließend kann dem Agent eine Zielposition übermittelt werden und der ????? wer bewegt sich, Agent oder Zieperson????bewegt sich selbständig an die gewünschte Position. Durch das Follow der Cinemachine-Komponente folgt das Kamerasystem dem Avatar selbständig.
+Ergänzend wird die Zoom-Geste, bei der zweu Finger zueinander oder voneinander wegbewegt werden, verwendet, um die Kamera entlang der Z-Achse näher an den Avatar heranzuführen oder sich von ihm zu entfernen. Damit wird das in der Cinemachine integrierte Zoom-Verhalten für die Maussteuerung auf Touch-Eingaben übertragen.
+
+Für die Fortbewegung des Avatars reicht eine einfache Single-Touch-Geste aus, bei der eine Position in der Spielwelt angetippt wird. Der Avatar soll sich anschließend zu dieser Position bewegen. Hierfür kommt das in Unity integrierte \say{NavMesh-Agent}-System zum Einsatz. Dieses basiert auf einem Pathfinding-Algorithmus der es dem Agent ermöglicht, autonom ein Ziel innerhalb eines zuvor definierten Navigationsbereichs (\say{NavMesh Surface}) anzusteuern. Die Zielposition wird per Touch übermittelt, woraufhin sich der Avatar eigenständig dorthin bewegt. Dank der Verbindung zur Cinemachine-Komponente folgt die Kamera dem Avatar während seiner Bewegung automatisch.
 
 \paragraph{Questsystem}\label{sec:quest-system}
 Da die Rätsel und Hindernisse nicht einfach irgendwie in der Spielwelt eingebaut wurden, wurde für diesen Zweck ein kleines System entworfen, durch welches verschiedene Rätsel zusammengebaut werden können.

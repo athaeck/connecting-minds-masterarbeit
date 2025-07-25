@@ -324,19 +324,18 @@ Der Single-Touch für das Platzieren und Entfernen von Gegenständen in der Spie
 Die Pitch-Geste wurde bislang nicht implementiert, da für sie in der aktuellen Fassung der Anwendung kein konkreter Anwendungsfall identifiziert wurde.
 
 \paragraph{Aufbau des Nutzerflows}
-Da die Hauptaufgabe des Watchers das Verwalten und Platzieren von Gegenständen ist, muss zunächst analysiert werden, wie ein für die Anforderungen an die Anwendungen passender Nutzerfluss konzipiert und umgesetzt werden kann.
 
-Das Spiel \say{Outlanders} (vgl. \cite{pomelo_games_outlanders_2019}) passte in seinem Spielaufbau und seiner Führung durch die Menüs zu der Anforderung der Watcher Anwendung, bei der sich der Spieler zunächst frei durch die Spielwelt bewegen (entweder als \ac{AR}-Kamera oder über das RTS-Kamerasystem), über ein Menü Gegenstände platzieren oder dem Player schicken kann.
+Da die Hauptaufgabe des Watchers im Verwalten und Platzieren von Gegenständen besteht, musste zunächst ein geeigneter Nutzerfluss entwickelt werden, der den spezifischen Anforderungen der Anwendung gerecht wird. 
 
-In \say{Outlanders} muss der Spieler als Anführer der gemeinen Bevölkerung eine Stadt errichten. Dies kann er über ein Hauptmenü initiieren, welches sich in seiner Menüleiste befindet.
+Als Referenz dient hierbei das Spiel \say{Outlanders}, dessen Spielaufbau und Menünavigation zentrale Parallelen zur Watcher-Anwendung aufweist (vgl. \citealp{pomelo_games_outlanders_2019}). In Outlanders übernimmt der Spieler die Rolle eines Anführers, der eine Siedlung errichten muss. Der Zugriff auf entsprechende Bau- und Verwaltungsfunktionen erfolgt dabei über ein zentrales Hauptmenü, das in die Menüleiste des Spiels integriert ist. Dieses Interface-Prinzip wurde aufgegriffen, da es dem Watcher ermöglicht, sich zunächst frei in der Spielwelt zu bewegen, sei es durch die \ac{AR}-Kamera oder das \ac{RTS}-Kamerasystem, und anschließend über ein übersichtliches Menü Gegenstände zu platzieren oder dem Player zu senden.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/Nutzerflow.png}
-\caption{Nutzerfluss beim Gebäudebau in Outlanders (Screenshots von \cite{coates_game_nodate}), (Quelle: eigene Darstellung), (groß in Anhang \ref{})}
+\caption{Nutzerfluss beim Gebäudebau in Outlanders (Screenshots von \cite{coates_game_nodate}), (Quelle: eigene Darstellung)}
 \label{fig:userflow-outlanders-build}
 \end{figure}
-
+[hier weitermachen]
 Zunächst kann der Spieler sich frei durch die Spielwelt bewegen (1). Sobald der Spieler ein Gebäude für seine Bevölkerung bauen möchte, muss er in der Menüleiste am unteren Ende des Bildschirms auf den Reiter \say{Build} klicken (2). Darauffolgend öffnet sich ein Overlay-Menü, welches das Baumenü darstellt. In ihm kann der Spieler zwischen verschiedenen Kategorien von Gebäuden und anderen Bauelementen wechseln. Klickt er auf ein gewünschtes Gebäude, schließt sich das Menü und er muss nun in der Spielwelt auf die Stelle klicken, wohin das ausgewählte Gebäude platziert werden soll (3). Wurde eine Position gewählt, öffnet sich ein weiteres Menü, welches nur über die Hälfte des Bildschirmes geht, in welchem der Spieler bestätigen muss, dass das Gebäude an diese Stelle platziert werden soll (4). Nachdem er bestätigt hat, wird das Gebäude platziert und das Bestätigungs-Menü geschlossen. Der Spieler kann nun wieder frei durch die Spielwelt navigieren (5).
 
 Nicht nur der Nutzerfluss des Baumenüs wurde übernommen, sondern auch die Eindrücke des \ac{UI}s haben einen sehr starken Einfluss auf die ersten \ac{UI}s der Anwendung.
@@ -344,7 +343,7 @@ Nicht nur der Nutzerfluss des Baumenüs wurde übernommen, sondern auch die Eind
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/PlacementFlow.png}
-\caption{Nutzerfluss des Platzierens eines Gegenstandes (Quelle: eigene Darstellung), (groß in Anhang \ref{})}
+\caption{Nutzerfluss des Platzierens eines Gegenstandes (Quelle: eigene Darstellung)}
 \label{fig:userflow-placement-cm}
 \end{figure}
 

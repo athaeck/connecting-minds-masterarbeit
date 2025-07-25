@@ -1,18 +1,20 @@
 \chapter{Umsetzung des Prototyps}\label{sec:realisation}
-Nachdem in Kapitel \ref{sec:concept} die Konzeption der Anwendungen vorgestellt wurde, kann nun die Umsetzung der Anwendungen erfolgen.
 
-Zunächst wird dabei die Ausgangssituation aus dem vorangegangenem Projekt vorgestellt. Im Anschluss erfolgt eine Auflistung der verwendeten Technologien. Danach erfolgt die Vorstellung der Anwendungen, sowie die Beschreibung die Herausforderungen und Probleme in der Umsetzung.
+Nachdem in Kapitel \ref{sec:concept} die Konzeption der Anwendungen dargestellt wurde, folgt in diesem Kapitel die Beschreibung der praktischen Umsetzung.
+
+Zunächst wird die Ausgangssituation erläutert, wie sie sich aus dem vorangegangenen Projekt ergab. Anschließend erfolgt eine Übersicht der verwendeten Technologien. Darauf aufbauend werden die entwickelten Anwendungen im Detail vorgestellt. Abschließend werden zentrale Herausforderungen und Probleme beschrieben, die im Verlauf der Umsetzung auftraten.
 
 \section{Ausgangssituation}
 
-In der vorausgehenden Arbeit wurde ein Art \ac{MVP} der Spielidee umgesetzt welche aus 3 Hauptanwendungen bestand. Es gibt eine Unity-Anwendung, in welcher das Spielgeschehen des \say{Players} umgesetzt wurde. Das Spielgeschehen der \say{Watcher}-Anwendung wurde über eine Vue3-Webseite realisiert. Für die Kommunikation der beiden Anwendungen untereinander wurde auf der Basis eines \say{Express.js} Node-Servers ein WebSocket-Server entwickelt. Der Node-WebSocket-Server kommuniziert zusätzlich mit einer MongoDB Datenbank, in welcher die Fortschritte der einzelnen Sessions gespeichert werden.
+In der vorangegangenen Arbeit wurde ein erstes funktionsfähiges \ac{MVP} der Spielidee realisiert das sich aus drei Hauptkomponenten zusammensetzt. Die Spielanwendung für den Player wurde mithilfe der Game Engine Unity umgesetzt. Das Spielgeschehen des Watchers wurde hingegen als Webanwendung auf Basis des Vue3-Frameworks realisiert. Für die Kommunikation zwischen beiden Anwendungen wurde ein WebSocket-Server auf Grundlage von Express.js (Auf Basis von Node.js) entwickelt. Dieser Server steht zusätzlich in Verbindung mit einer MongoDB-Datenbank, in der die Fortschritte einzelner Spielsessions gespeichert werden.
 
-Die Anwendungen des \say{Players} und des \say{Watchers} sind in dieser Konstellation jeweils Anzeigende und auf die Eingaben des Nutzers reagierende Komponenten im gesamten System. Sie geben eine Rückmeldung an den Server, der die Daten zur Laufzeit abspeichert und persistent in einer Datenbank speichern kann.
+Die Anwendungen des Players und des Watchers fungieren in diesem System als visuelle und interaktive Frontend, die auf Nutzereingaben reagieren. Diese Eingaben werden an den Server übermittelt, der sie zur Laufzeit verarbeitet und bei Bedarf persistent in der Datenbank speichert.
 
 \subsection{Aufbau der Ausgangssituation}
 
-Im Softwaredesign wird dabei von einem \ac{MVC} Design-Pattern gesprochen (vgl. \cite{GlossarWiki:Reenskaug:1979a}). 
-Das Model definiert, welche Daten die App enthalten soll. Ändert sich der Zustand dieser Daten, informiert das Modell die einzelnen Views, damit die Ansicht der Daten entsprechend aktualisiert wird. Außerdem wird manchmal auch der Controller über Änderungen informiert. Die View definiert wie die Daten angezeigt werden sollen. Der Controller verarbeitet die reinkommenden Änderungen aus den Views, die die Nutzer getätigt haben, und gibt diese an das Model oder die Views direkt weiter (vgl. \cite{noauthor_mvc_2023}); (vgl. Abbildung \ref{fig:mvc-diagramm}).
+Im Softwaredesign wurde in diesem Zusammenhang häufig auf das \ac{MVC} zurückgegriffen (vgl. \citealp{GlossarWiki:Reenskaug:1979a}). Das Modell (Model) definiert die Datenstruktur der Anwendung und enthält die zugrunde liegende Information. Bei einer Zustandsänderung benachrichtigt das Modell die jeweiligen Views, sodass die Darstellung der Daten entsprechend aktualisiert wird. In einigen Implementierungen wird zusätzlich auch das Controller über Änderungen informiert.
+
+Die View legt fest, wie die Daten visuell präsentiert werden. Der Controller wiederum ist für die Bearbeitung der Nutzereingabe verantwortlich. Er nimmt die Änderungen aus der View entgegen und übermittelt sie entweder an das Modell oder direkt zurück an die View (vgl. \citealp{noauthor_mvc_2023}, Abbildung \ref{fig:mvc-diagramm}).
 
 \begin{figure}[ht]
 \centering
@@ -21,7 +23,7 @@ Das Model definiert, welche Daten die App enthalten soll. Ändert sich der Zusta
 \label{fig:mvc-diagramm}
 \end{figure}
 
-Die MongoDB Datenbank und Klassen innerhalb des WebSocket-Servers nehmen die Rolle des Models ein. Die einzelnen WebSocket-Nachricht Endpunkte übernehmen die Aufgaben des Controllers. Die Anwendung des \say{Watchers} und des \say{Players} sind die Views der Architektur.
+Innerhalb der Systemarchitektur übernehmen die MongoDB-Datenbank sowie bestimmte Klassen des WebSocket-Servers die Rolle des Modells. Sie verwalten die zentralen Anwendungsdaten und deren Persistenz. Die verschiedenen WebSocket-Nachrichtenendpunkte fungieren als Controller. Sie verarbeiten eingehende Nachrichten, koordinieren die Datenflüsse zwischen Modul und View und steuern die Anwendungslogik. Die \say{Frontends} der Watcher- und Player-Anwendungen bilden die Views des \ac{MVC}-Design-Patterns und dienen der Darstellung sowie Interaktion mit dem Nutzer.
 
 \subsection{Beitreten einer Session}
 
@@ -32,7 +34,7 @@ Die MongoDB Datenbank und Klassen innerhalb des WebSocket-Servers nehmen die Rol
 \label{fig:old-logins}
 \end{figure}
 
-Abbildung \ref{fig:old-logins} zeigt den bereits im alten Prototyp entwickelten Startbildschirm über welchen der Player eine neue Session starten (linkes Bild, links oben) und der Watcher dieser beitreten kann (linkes Bild, rechts unten). Sobald der Player eine Session erstellt hat, erhält er vom WebSocket-Server eine Rückmeldung mit der erstellten Session-ID (rechtes Bild, links oben) welches er dem Watcher mitteilen muss, damit dieser  der Session bbeitreten kann (rechts Bild, rechts unten).
+Abbildung \ref{fig:old-logins} zeigt den bereits im früheren Prototyp entwickelten Startbildschirm, über den der Player eine neue Spielsession starten (linkes Bild, oben links) und der Watcher dieser beitreten kann (linkes Bild, unten rechts). Nachdem der Player eine Session erstellt hat, erhält er vom WebSocket-Server eine Rückmeldung mit der dazugehörigen Session-ID (rechtes Bild, oben links). Diese ID muss er dem Watcher mitteilen, damit dieser der entsprechenden Session beitreten kann (rechtes Bild, unten rechts).
 
 \subsection{Einführung in die Anwendungen}
 
@@ -43,14 +45,15 @@ Abbildung \ref{fig:old-logins} zeigt den bereits im alten Prototyp entwickelten 
 \label{fig:old-introductions}
 \end{figure}
 
-Abbildung \ref{fig:old-introductions} zeigt die Einführung der beiden Anwendungen in die Spielwelt. Zum Start erhielt der Watcher einzelne Tooltips, mit Erklärungen zu den Grundfunktionen seiner Anwendung (erstes bis drittes Bild in der ersten Zeile und linkes Bild in der zweiten Zeile; jeweils in weiß umrandet im rechten Bildelement). Seine Anwendung enthalten zwei Dropdown-Menüs, über die Gegenstände und Positionen ausgewählt werden können, (erste Zeile, Bilder links und und in der Mitte) eine Liste mit allen platzierten Gegenstände (erste Zeile rechts Bild), die jeweils einzeln entfernt werden können und eine Top-Down-Ansicht der Spielwelt, in der sich der Player befindet (zweite Zeile, linkes Bild). 
+Abbildung \ref{fig:old-introductions} zeigt die Einführung der beiden Anwendungen in die Spielwelt. Zu Beginn erhält der Watcher verschiedene Tooltips, die ihm die Grundfunktionen seiner Anwendung erläutern (vgl. erstes bis drittes Bild in der ersten Zeile und linkes Bild in der zweiten Zeile; jeweils in weiß umrandet im rechten Bildelement). Die Anwendung des Watchers umfasst zwei Dropdown-Menüs, über die Gegenstände und deren Positionen ausgewählt werden können (erste Zeile, Bilder links und und in der Mitte), eine Lister aller aktuell platzierten Objekte (erste Zeile rechts Bild), welche einzeln wieder entfernt werden können, sowie eine Top-Down-Ansicht der Spielwelt, in der sich der Player befindet (zweite Zeile, linkes Bild). 
 
-Der Player steuert seinen Avatar über einen Touch-druck auf die Spielwelt (zweite Reihe mittlere Bild, linkes Bildelement). Außerdem kann er über vertikale Swipes die Höhe der Kamera zum Avatar verändern. Dadurch verändert sich in einem gewissen Rahmen die Ansicht.
+Der Player steuert seinen Avatar durch Antippen der gewünschten Position auf dem Bildschirm (zweite Reihe mittlere Bild, linkes Bildelement). Zusätzlich kann er die Kamerahöhe in Relation zur Spielfigur durch vertikale Wischbewegungen (Swipes) anpassen, wodurch sich die Perspektive innerhalb eines bestimmten Rahmens verändert.
 
-Um in der Spielwelt an das Ziel zu gelangen, müssen der Player und Watcher zusammenarbeiten und Hindernisse in der Spielwelt beseitigen. Im linken Bild in der zweiten Zeile im weiß umrandeten wird ein solches Rätselelement dargestellt, welches gelöst werden muss.
+Um das gemeinsame Spielziel zu erreichen, müssen Player und Watcher kooperieren und gemeinsam Hindernisse in der Spielwelt überwinden. Ein solches Rätselelement, das im Zusammenspiel gelöst werden muss, ist im weiß umrandeten Bereich des linken Bildes in der zweiten Zeile dargestellt.
 
 \subsection{Lösen von Rätseln}
-Wie wurden im alten Prototyp die einzelnen Rätsel gelöst und durch wen erfolgte dies?
+
+Wie wurden im ursprünglichen Prototyp die einzelnen Rätsel gelöst und durch wen erfolgte dies?
 
 \begin{figure}[ht]
 \centering
@@ -59,7 +62,11 @@ Wie wurden im alten Prototyp die einzelnen Rätsel gelöst und durch wen erfolgt
 \label{fig:old-solving-riddle}
 \end{figure}
 
-Der Watcher war dafür verantwortlich, dass Gegenstände auf ihre richtigen Zielpositionen platziert wurden. Sobald der Player auf eine Absperrung in der Spielwelt stieß, musste er beschreiben was er sah, um dem Watcher einen Hinweis darauf zu geben, welche Gegenstände wo genau platziert werden müssen. Zunächst wählt der Watcher über das Gegenstände-Dropdown einen entsprechenden Gegenstand aus (linkes Bild, rechtes Bildelement). Anschließend wählt er eine vorgegebene Position aus, die im derzeitig aktiven Abschnitt der Spielwelt hinzugekommen ist (mittlere Bild, rechts Bildelement). Über den Button \say{Gegenstand platzieren} (linker Button) wird der Gegenstand in die Spielwelt des Players platziert. Sowohl der Player als auch der Watcher erhalten vom System eine Benachrichtigung, dass der Gegenstand platziert wurde (rechts Bild, beide weißen Umrandungen). Auf der rechten Seite der Watcher-Anwendung erscheint zur selben Zeit die Information über den  platzierten Gegenstand in der Liste der Gegenstände (rechtes Bild, rechtes Bildelement). 
+Im früheren Prototyp lag die alleinige Verantwortung für die Lösung der Rätsel beim Watcher. Dieser war dafür zuständig, die richtigen Gegenstände an den jeweils korrekten Zielpositionen zu platzieren. Sobald der Player in der Spielwelt auf eine Absperrung stieß, musste er seine Beobachtungen verbal schildern, um dem Watcher Hinweise darauf zu geben, welche Gegenstände an welchen Positionen benötigt werden.
+
+Der Lösungsprozess verlief wie folgt. Zunächst wählte der Watcher über das Dropdown-Menü für Gegenstände den entsprechenden Gegenstand aus (vgl. Abbildung \ref{fig:old-solving-riddle}, linkes Bild, rechtes Bildelement). Anschließend wählte er eine Zielposition aus einer vordefinierten Liste von Platzierungsoptionen, die in den aktuell aktiven Abschnitten der Spielwelt verfügbar waren (vgl. mittlere Bild, rechts Bildelement). Über den Button \say{Gegenstand platzieren} (linker Button) wird der Gegenstand in die Spielwelt des Players eingefügt.
+
+Nach erfolgreicher Platzierung erhielten sowohl Player als auch Watcher eine visuelle Rückmeldung durch das System (vgl. rechts Bild, beide weiß Umrandeten Elemente). Zusätzlich wurde der neu platzierte Gegenstand automatisch in die Liste der aktuell vorhandenen Gegenstände auf der rechten Seite der Watcher-Anwendung übernommen (rechtes Bild, rechtes Bildelement). 
 
 \subsection{Freischalten von Gegenständen und Positionen}
 Sobald ein Rätsel durch das Platzieren von Gegenständen gelöst wurde, erhielten Player und Watcher die Information, dass neue Gegenstände freigeschaltet wurden (vgl. Abbildung \ref{fig:old-unlock-system}, erste Reihe linkes Bild, eingekreist in weiß). 

@@ -14,12 +14,12 @@ Die Anwendungen des Players und des Watchers fungieren in diesem System als visu
 
 Im Softwaredesign wurde in diesem Zusammenhang häufig auf das \ac{MVC} zurückgegriffen (vgl. \citealp{GlossarWiki:Reenskaug:1979a}). Das Modell (Model) definiert die Datenstruktur der Anwendung und enthält die zugrunde liegende Information. Bei einer Zustandsänderung benachrichtigt das Modell die jeweiligen Views, sodass die Darstellung der Daten entsprechend aktualisiert wird. In einigen Implementierungen wird zusätzlich auch das Controller über Änderungen informiert.
 
-Die View legt fest, wie die Daten visuell präsentiert werden. Der Controller wiederum ist für die Bearbeitung der Nutzereingabe verantwortlich. Er nimmt die Änderungen aus der View entgegen und übermittelt sie entweder an das Modell oder direkt zurück an die View (vgl. \citealp{noauthor_mvc_2023}, Abbildung \ref{fig:mvc-diagramm}).
+Die View legt fest, wie die Daten visuell präsentiert werden. Der Controller wiederum ist für die Bearbeitung der Nutzereingabe verantwortlich. Er nimmt die Änderungen aus der View entgegen und übermittelt sie entweder an das Modell oder direkt zurück an die View (vgl. \citealp{mills_mvc_2025}, Abbildung \ref{fig:mvc-diagramm}).
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/mvc-architecture.png}
-\caption{\ac{MVC} Beispiel-Diagramm (Quelle: \cite{noauthor_mvc_2023})}
+\caption{\ac{MVC} Beispiel-Diagramm (Quelle: \cite{mills_mvc_2025})}
 \label{fig:mvc-diagramm}
 \end{figure}
 
@@ -136,19 +136,19 @@ Im Folgenden wird der Fokus daher auf das Environment gelegt. Die Handlungsempfe
 In der folgenden Auflistung werden sämtliche externen Assets und Packages vorgestellt, die während der Entwicklung des Prototyps zum Einsatz kamen. Einige dieser Assets sind nicht in der Projekt-Registry aufgeführt, da sie zunächst in ein separates Testprojekt importiert, dort bearbeitet und anschließend als angepasste Submodule in das Hauptprojekt integriert wurden.
 
 \subsection{Unity Editor Version 2022.3.45f1}
-Der Prototyp wurde mit der 2022.3.45f1 \ac{LTS}-Version umgesetzt, da diese zum Start der Masterarbeit die aktuelle 2022 \ac{LTS}-Version war. Zwischenzeitlich wurde auch die 2023.2.20f1 (vgl. \citealp{noauthor_unity_nodate}) ausprobiert. Da diese allerdings weder eine \ac{LTS}-Version noch zusätzlich im Package der Cinemachine ein Major-Update enthalten war und die Cinemachine einige Probleme mit sich führte, wurde eine stabile 20222-Version gewählt.
+Der Prototyp wurde mit der 2022.3.45f1 \ac{LTS}-Version umgesetzt, da diese zum Start der Masterarbeit die aktuelle 2022 \ac{LTS}-Version war. Zwischenzeitlich wurde auch die 2023.2.20f1 (vgl. \citealp{unity_technologies_unity_2024}) ausprobiert. Da diese allerdings weder eine \ac{LTS}-Version noch zusätzlich im Package der Cinemachine ein Major-Update enthalten war und die Cinemachine einige Probleme mit sich führte, wurde eine stabile 20222-Version gewählt.
 
 \subsection{Blender 4.3.2}
 Blender dient als Bearbeitungstool für die 3D-Modelle aus den hinzugenommenen Unity Assets. Die aktuelle Version zu Projektstart war die 4.3.2 Version- welche über den gesamten Bearbeitungszeitraum verwendet wurde. Außerdem bietet Unity einen Blender Direktimport an, wodurch keine \ac{FBX} oder \ac{OBJ} Dateien aus den Blenderdateien exportiert und in Unity importiert werden mussten.
 
 \subsection{NuGetForUnity 4.1.1}
-NuGetForUnity ist ein für Unity entwickelter NuGet-Client (vgl. \citealp{noauthor_nuget_nodate}) über den zusätzliche funktionale Pakete für Unity installiert werden kann (vgl. \citealp{mccarthy_glitchenzonugetforunity_2025}). Er war nötig, um ein nicht über Unity erworbenes Package in Unity nutzen zu können. Die aktuelle Version zum Bearbeitungsstart war die 4.1.1 Version, welche bis zum Ende genutzt wurde.
+NuGetForUnity ist ein für Unity entwickelter NuGet-Client (vgl. \citealp{microsoft_nuget_2010}) über den zusätzliche funktionale Pakete für Unity installiert werden kann (vgl. \citealp{mccarthy_glitchenzonugetforunity_2024}). Er war nötig, um ein nicht über Unity erworbenes Package in Unity nutzen zu können. Die aktuelle Version zum Bearbeitungsstart war die 4.1.1 Version, welche bis zum Ende genutzt wurde.
 
 \subsection{Newtonsoft.Json 13.03}
-Das erste Package, welches über NuGetForUnity installiert wurde ist Newtonsoft.Json, durch welches über den WebSocket übertragene JSON-Daten leicht deserialisiert und serialisiert werden können (vgl. \citealp{newtonsoft_jsonnet_nodate}). Die aktuelle Version im NuGet-Paketverwaltungstool war die 13.03.
+Das erste Package, welches über NuGetForUnity installiert wurde ist Newtonsoft.Json, durch welches über den WebSocket übertragene JSON-Daten leicht deserialisiert und serialisiert werden können (vgl. \citealp{newton-king_jsonnet_2023}). Die aktuelle Version im NuGet-Paketverwaltungstool war die 13.03.
 
 \subsection{WebSocketSharp-netstandard 1.0.1}
-Derzeit gibt es einige Netzwerk-Integrationen für Unity, bspw. Mirror (vgl. \citealp{noauthor_mirror_nodate}) oder Netcode for GameObjects (vgl. \citealp{noauthor_about_2025}). Durch die beiden Packages wäre jedoch die Netzwerk-Topologie starrer und die Entwicklung nach eigener Vorstellung wäre ebenfalls eingeschränkter. Daher wurde über NuGetForUnity das WebSocketSharp-netstandard Paket installiert, welches eine direkte Kommunikation mit einem WebSocket-Server ermöglicht (vgl. \citealp{pingman_tools_pingmantoolswebsocket-sharp_2025}), da bislang existierende Integration mit Unity nicht mehr unterstützt werden. Die derzeit installierte und zum Projektstart installierbare Version ist die 1.0.1.
+Derzeit gibt es einige Netzwerk-Integrationen für Unity, bspw. Mirror (vgl. \citealp{mirrornetworking_mirrornetworkingmirror_2025}) oder Netcode for GameObjects (vgl. \citealp{reeve_about_2025}). Durch die beiden Packages wäre jedoch die Netzwerk-Topologie starrer und die Entwicklung nach eigener Vorstellung wäre ebenfalls eingeschränkter. Daher wurde über NuGetForUnity das WebSocketSharp-netstandard Paket installiert, welches eine direkte Kommunikation mit einem WebSocket-Server ermöglicht (vgl. \citealp{pingman_tools_websocket-sharp_2017}), da bislang existierende Integration mit Unity nicht mehr unterstützt werden. Die derzeit installierte und zum Projektstart installierbare Version ist die 1.0.1.
 
 \subsection{AI Navigation 1.1.5}
 Da sich der Avatar des Players innerhalb der Spielwelt per Touch-Click auf den Bildschirm an die angeklickte Stelle bewegen soll, muss ein \ac{AI}-Agent eingebaut werden, der das Avatar Spielobjekt an die gewünschte Stelle bewegt. In Unity kann dafür das NavMesh System verwendet werden, welches ein Pathfinding-System implementiert, wodurch ein automatisiertes Bewegen eines Agents durch eine Zielposition integriert werden kann. Das Paket in Unity heißt \ac{AI}-Navigation. Die aktuelle Version zum Start des Projekts ist die 1.1.5.
@@ -169,7 +169,7 @@ Seit der 2022er-Unity Version wird empfohlen das neue Input System von Unity zu 
 Manche Meshes der verwendeten Unity-Assets waren nicht im Binary-\ac{FBX}-Format importiert,  wodurch sie über den \ac{FBX} Exporter zu einer Binary-\ac{FBX} Datei exportiert werden konnten. Außerdem kam es vor, dass manche Assets keine grundlegenden Meshes enthielten, wodurch die enthaltenen Prefabs zu \ac{FBX}-Dateien exportiert werden mussten. Die aktuelle Version des Exporters zum Start des Projekts war die 4.2.1.
 
 \subsection{AR Foundation 5.1.6}
-Für die Entwicklung von \ac{AR}-Anwendungen in Unity gibt es verschiedene Möglichkeiten. Die gängigsten Auswahlmöglichkeiten sind hierbei Vuforia (vgl. \cite{noauthor_home_nodate}) oder das Unity interne Paket AR Foundation (vgl. \cite{noauthor_ar_nodate}). Die AR Foundation ermöglicht im Vergleich zu Vuforia auf mehreren Arten das Tracking und Platzieren von virtuellen Gegenständen. Darum fiel die Wahl auf AR Foundation. Außerdem ist die AR Foundation leichter in die Versionierung in Git einzubinden. Hierbei gab es in vergangenen Projekten durch zu große Konfigurations-Dateien von Vuforia Probleme.
+Für die Entwicklung von \ac{AR}-Anwendungen in Unity gibt es verschiedene Möglichkeiten. Die gängigsten Auswahlmöglichkeiten sind hierbei Vuforia (vgl. \cite{parametric_technology_gmbh_vuforia_nodate}) oder das Unity interne Paket AR Foundation (vgl. \cite{unity_technologies_ar_2024}). Die AR Foundation ermöglicht im Vergleich zu Vuforia auf mehreren Arten das Tracking und Platzieren von virtuellen Gegenständen. Darum fiel die Wahl auf AR Foundation. Außerdem ist die AR Foundation leichter in die Versionierung in Git einzubinden. Hierbei gab es in vergangenen Projekten durch zu große Konfigurations-Dateien von Vuforia Probleme.
 
 \subsection{Google ARCore XR Plugin 5.1.6}
 In Abhängigkeit zum Paket AR Foundation wurde auch das Google ARCore Modul installiert, welches wichtig für mobiles \ac{AR} auf Android Smartphones ist. Es bietet eine Schnittstelle zwischen den Android eigenen Modulen auf dem Smartphone und der Unity Anwendung.
@@ -207,12 +207,12 @@ Express.js ist eine Webserver Erweiterung von Node.js Servern, durch diese spezi
 WS ist das \ac{NPM}-Paket, über welches der WebSocket-Server implementiert werden kann. Das Paket ist innerhalb eines Express.js Server einfach zu verwenden und ermöglicht es Nachrichten zu empfangen und zu senden. Außerdem können empfangene Nachrichten in einem internen Mechanismus weitergereicht werden, wodurch für verschiedene Nachrichtenarten verschiedene Klassen gebaut werden konnten (vgl. \citealp{websockets_websocketsws_2025}).
 
 \subsection{Docker}
-Docker ist eine Open-Source-Plattform über die Container erstellt, bereitgestellt, ausgeführt, aktualisiert und verwaltet werden können. Container sind standardisierte, ausführbare Komponenten, die den Code von einzelnen Anwendungen mit den Betriebssystembibliotheken und Abhängigkeiten kombinieren (vgl. \citealp{noauthor_was_2024}). Docker wurde aus dem Grund eines möglichen späteren Deployments des WebSocket-Server verwendet, da aus dem erstellen Express.js Server ein Docker-Image erstellt werden könnte, und so die öffentliche Bereitstellung vereinfacht worden wäre. Außerdem können über die Docker Engine weitere Images importiert werden, welche lokal auf dem Gerät laufen und so eine Unabhängigkeit zum Internetzugang bestehen kann.
+Docker ist eine Open-Source-Plattform über die Container erstellt, bereitgestellt, ausgeführt, aktualisiert und verwaltet werden können. Container sind standardisierte, ausführbare Komponenten, die den Code von einzelnen Anwendungen mit den Betriebssystembibliotheken und Abhängigkeiten kombinieren (vgl. \citealp{susnjara_was_2024}). Docker wurde aus dem Grund eines möglichen späteren Deployments des WebSocket-Server verwendet, da aus dem erstellen Express.js Server ein Docker-Image erstellt werden könnte, und so die öffentliche Bereitstellung vereinfacht worden wäre. Außerdem können über die Docker Engine weitere Images importiert werden, welche lokal auf dem Gerät laufen und so eine Unabhängigkeit zum Internetzugang bestehen kann.
 
 \subsection{MongoDB - Docker Image}
 MongoDB bietet über das eigene Atlas System einen Online-Zugriff auf definierten Datenbanken an. Diese sind nur über das Internet erreichbar. Eine Anfrage an die Online-Datenbank könnte Latenzzeiten enthalten, wodurch der Prozess gestört werden würde. Daher wurde ein Docker Image für eine MongoDB Umgebung verwendet. Dieses Image ist aus der Docker Community und für jeden frei zugänglich (vgl. \citealp{noauthor_mongo_nodate}). Diese läuft auf dem Rechner in Docker und ist innerhalb dieses Rechners über den definierten Port erreichbar.
 
-\subsection{node-mongodb-native NPM-Paket}
+\subsection{node-mongodb-native NPM-Paket 6.18.0}
 Um innerhalb des Express.js Servers eine Verbindungen zur MongoDB Datenbank aufbauen zu können, existiert eine Library, die Zugänge und weitere Funktionen im Bezug auf MongoDB bereitstellt. Das \ac{NPM}-Paket \say{node-mongodb-native} wurde für diesen Zweck verwendet (vgl. \citealp{mongodb_mongodbnode-mongodb-native_2025}).
 
 
@@ -220,13 +220,13 @@ Um innerhalb des Express.js Servers eine Verbindungen zur MongoDB Datenbank aufb
 Für die bisherig Implementierten \ac{UI}-Elemente wurden bestehende Bilder oder Icons nachgezeichnet und als Vorlage für eine Weiterentwicklung des \ac{UI}s eingebaut. Im folgenden werden die Quellen aufgezählt.
 
 \begin{itemize}
-    \item Vorlage für SciFi \ac{UI}s von \cite{pchvector_free_nodate}
-    \item Vorlage für Low-Poly Feder von \cite{masud_download_nodate}
+    \item Vorlage für SciFi \ac{UI}s von: \cite{pchvector_free_nodate}
+    \item Vorlage für Low-Poly Feder von :\cite{masud_download_nodate}
     \item Vorlage für die Rucksack Icon in Anhang \ref{sec:append_realisation_vorlage_rucksack}
-    \item Vorlage für das Positions zurücksetzen Icon \cite{noauthor_chatgpt_nodate-3}
-    \item Vorlage für das Hinweis Icon \cite{noauthor_chatgpt_nodate-2}
-    \item Vorlage für Interaktions Icon \cite{noauthor_chatgpt_nodate-1}
-    \item Vorlage für die Bücher Icons \cite{noauthor_chatgpt_nodate}
+    \item Vorlage für das Positions zurücksetzen Icon: \cite{noauthor_chatgpt_2025}
+    \item Vorlage für das Hinweis Icon: \cite{noauthor_chatgpt_2025-1}
+    \item Vorlage für Interaktions Icon: \cite{noauthor_chatgpt_2024}
+    \item Vorlage für die Bücher Icons: \cite{zhenstudio_book_2019}
     \item Vorlage für die Handzeichnung in Anhang \ref{sec:append_realisation_vorlage_handzeichnung}
 \end{itemize}
 
@@ -317,7 +317,7 @@ In der \ac{AR}-Variante übernimmt das Endgerät die Kamerasteuerung automatisch
 
  Im Gegensatz dazu erfordert die \ac{3D}-Variante der Anwendung eine explizite Kamerasteuerung, ähnlich wie in der Player-Anwendung. In diesem Kontext sind zunächst grundsätzliche Überlegungen zum zugrunde liegenden Kamerakonzept notwendig. Mobile Spiele nutzen unterschiedliche Steuerungsarten. Einige verzichten gänzlich auf eine freie Kamerabewegung, andere folgen einem Spieler-Avatar, während wieder andere eine vollständige Kontrolle über die Kamera ermöglichen.
 
- Für die \ac{3D}-Variante wurde bewusst auf die Implementierung eines Joystick-basierten \ac{HUD}-Overlays verzichtet, da dieses der intuitiven Touchsteuerung-Nutzung widerspricht und Interaktionsmöglichkeiten unnötig einschränkt. Stattdessen orientierte sich die Umsetzung an Spielen, die auf Touch-Gesten basieren, etwa \say{Die Sims Mobile} oder \say{Outlanders} (vgl. \citealp{arts_sims_2017, pomelo_games_outlanders_2019}). Diese nutzen ein Kamerasystem, wie es aus klassischen Strategiespielen, etwa wie der \say{Anno}-Reihe, bekannt ist, eine, sog. \ac{RTS}-Kamera, bei der ein unsichtbares LookAt und Follow Objekt durch Nutzereingaben verschoben wird, dem die Kamera folgt (vgl. \citealp{noauthor_ubisoft_nodate}). 
+ Für die \ac{3D}-Variante wurde bewusst auf die Implementierung eines Joystick-basierten \ac{HUD}-Overlays verzichtet, da dieses der intuitiven Touchsteuerung-Nutzung widerspricht und Interaktionsmöglichkeiten unnötig einschränkt. Stattdessen orientierte sich die Umsetzung an Spielen, die auf Touch-Gesten basieren, etwa \say{Die Sims Mobile} oder \say{Outlanders} (vgl. \citealp{arts_sims_2018, pomelo_games_outlanders_2019}). Diese nutzen ein Kamerasystem, wie es aus klassischen Strategiespielen, etwa wie der \say{Anno}-Reihe, bekannt ist, eine, sog. \ac{RTS}-Kamera, bei der ein unsichtbares LookAt und Follow Objekt durch Nutzereingaben verschoben wird, dem die Kamera folgt (vgl. \citealp{ubisoft_mainz_ubisoft_2019}). 
 
 Auch in der Watcher-Anwendung wurde dieser \ac{RTS}-Ansatz umgesetzt. Dabei wird die Kamera durch folgende Touch-Gesten gesteuert.
 Der Single-Touch für das Platzieren und Entfernen von Gegenständen in der Spielwelt, die Yaw-Geste für die horizontale Rotation der Kameraansicht zur Veränderung der Blickrichtung, die Zoom-Geste für die Annäherung und Entfernung zur Spielwelt und die Pan-Geste zur Bewegung der Kamera innerhalb der Spielwelt.
@@ -406,9 +406,9 @@ Die Kombination beider Ansätze stellt für die Anwendung von Connecting-Minds d
 \label{fig:cm-topology}
 \end{figure}
 
-Nachdem eine geeignete Netzwerk-Topologie bestimmt wurde (vgl. Abbildung \ref{fig:cm-topology}), ist im nächsten Schritt festzulegen, auf welche Weise die Anwendungen im Detail miteinander kommunizieren sollen. Zur Einordnung der Kommunikationsprozesse dient das \ac{OSI}-Modell, das die Netzwerkkommunikation in sieben funktionale Schichten unterteilt vgl. \citealp{noauthor_osi-modell_nodate}).
+Nachdem eine geeignete Netzwerk-Topologie bestimmt wurde (vgl. Abbildung \ref{fig:cm-topology}), ist im nächsten Schritt festzulegen, auf welche Weise die Anwendungen im Detail miteinander kommunizieren sollen. Zur Einordnung der Kommunikationsprozesse dient das \ac{OSI}-Modell, das die Netzwerkkommunikation in sieben funktionale Schichten unterteilt vgl. \citealp{a1_osi-modell_2025}).
 
-Für die Kommunikation zwischen verteilten Anwendungen ist insbesondere die Transportschicht (Layer 4) von zentraler Bedeutung. Jeglicher Datenaustausch auf Anwendungsebene muss diese Schicht durchlaufen, da sie für den zuverlässigen Transport von Datenpaketen zwischen Endgeräten verantwortlich ist. Innerhalb der Transportschicht kommen hauptsächlich zwei Protokolle zum Einsatz: Das \ac{TCP} sowie das \ac{UDP} (vgl. \citealp{noauthor_transport_nodate}). Beide Protokolle unterscheiden sich grundlegend hinsichtlich ihrer Zuverlässigkeit, Latenz und Kommunikationsweise und stellen somit unterschiedliche Vor- und Nachteile für die Anforderungen der Spielarchitektur dar.
+Für die Kommunikation zwischen verteilten Anwendungen ist insbesondere die Transportschicht (Layer 4) von zentraler Bedeutung. Jeglicher Datenaustausch auf Anwendungsebene muss diese Schicht durchlaufen, da sie für den zuverlässigen Transport von Datenpaketen zwischen Endgeräten verantwortlich ist. Innerhalb der Transportschicht kommen hauptsächlich zwei Protokolle zum Einsatz: Das \ac{TCP} sowie das \ac{UDP} (vgl. \citealp{talkb1nary_transport_nodate}). Beide Protokolle unterscheiden sich grundlegend hinsichtlich ihrer Zuverlässigkeit, Latenz und Kommunikationsweise und stellen somit unterschiedliche Vor- und Nachteile für die Anforderungen der Spielarchitektur dar.
 
 \begin{figure}[ht]
 \centering
@@ -520,7 +520,7 @@ Die zentrale Spielmechanik des Prototyps besteht im Lösen von Hindernissen durc
 \label{fig:collision-sketch}
 \end{figure}
 
-Sobald ein Gegenstand innerhalb des Zielbereichs eines anderen Colliders platziert wird, registriert das Physiksystem von Unity eine Kollision, welche in den entsprechenden Klassen verarbeitet werden kann. Das \say{Script lifecycle flowchart} von  \cite{technologies_unity_nodate} veranschaulicht diesen Ablauf. Nach dem Instanziieren eines neuen Knotens in der Spielwelt beginnt zunächst die Initialisierung der zugehörigen Skripte. Darauf folgt die Auswertung des Physiksystem, ehe der Ablauf über Input-Events zur Spiellogik übergeht.
+Sobald ein Gegenstand innerhalb des Zielbereichs eines anderen Colliders platziert wird, registriert das Physiksystem von Unity eine Kollision, welche in den entsprechenden Klassen verarbeitet werden kann. Das \say{Script lifecycle flowchart} von \cite{technologies_unity_2019} veranschaulicht diesen Ablauf. Nach dem Instanziieren eines neuen Knotens in der Spielwelt beginnt zunächst die Initialisierung der zugehörigen Skripte. Darauf folgt die Auswertung des Physiksystem, ehe der Ablauf über Input-Events zur Spiellogik übergeht.
 
 Im Rahmen der Entwicklung traten jedoch Probleme beim Entfernen platzierter Objekte aus den zuvor genannten Zielradien der Collider auf. Der Lebenszyklus von Unity sieht vor, dass nach dem Entfernen eines Objekts keine weitere physikalische Berechnung für dieses durchgeführt werden (vgl. Diagrammabschnitt \say{OnApplicationQuit}). Für das System zur Lösung von Hindernissen, insbesondere im Hinblick auf die Aktivierung oder Deaktivierung bestimmter Pfade, stellt dies eine erhebliche Einschränkung dar.
 
@@ -558,8 +558,8 @@ Für die Evaluation war ursprünglich vorgesehen, die Anwendung des Watchers mit
 
 Zur Realisierung dieser Funktionalität wurde das \say{Plane Detection}-Modul der ARFoundation eingesetzt. Um eine stabile Verankerung der Spielwelt zu gewährleisten, wurde zusätzlich ein \say{ARAnchor} auf einer erkannten Ebene (Plane) gesetzt. Dieser Anchor wird vom \say{AnchorManager} verwaltet, was eine zuverlässige Verortung im Raum ermöglichen soll.
 
-Während der Entwicklung zeigte sich jedoch ein Problem. Die platzierte Spielwelt bewegte sich mit der Kamera mit, anstatt fest im Raum verankert zu bleiben. Dieses Verhalten ist ebenfalls im Unity-Forum dokumentiert (vgl. Beitrag von Howard258 in: \citealp{noauthor_unity_2025}). Verschiedene Lösungsansätze, wie die Anpassung der Zuweisung zwischen Anchor und Plane oder das manuelle Verschieben des Weltobjekts in andere Hierarchien, blieben wirkungslos.
+Während der Entwicklung zeigte sich jedoch ein Problem. Die platzierte Spielwelt bewegte sich mit der Kamera mit, anstatt fest im Raum verankert zu bleiben. Dieses Verhalten ist ebenfalls im Unity-Forum dokumentiert (vgl. Beitrag von Howard258 in: \citealp{howard258_unity_2025}). Verschiedene Lösungsansätze, wie die Anpassung der Zuweisung zwischen Anchor und Plane oder das manuelle Verschieben des Weltobjekts in andere Hierarchien, blieben wirkungslos.
 
-Ein weiterer Diskussionsbeitrag im Unity-Forum (\citealp{noauthor_ar_2023}) legt nahe, dass die verwendete Version der ARFoundation sowie die genutzte Unity-Editor-Version ursächlich für das fehlerhafte Verhalten sein könnten. Eine Herabstufung der Entwicklungsumgebung wurde aus zeitlichen und technischen Gründen jedoch nicht mehr umgesetzt. Außerdem hätte es potenziell auch zu Kompatibilitätsproblemen mit bestehenden Assets und Konfigurationen führen können.
+Ein weiterer Diskussionsbeitrag im Unity-Forum (\citealp{aardruss_ar_2023}) legt nahe, dass die verwendete Version der ARFoundation sowie die genutzte Unity-Editor-Version ursächlich für das fehlerhafte Verhalten sein könnten. Eine Herabstufung der Entwicklungsumgebung wurde aus zeitlichen und technischen Gründen jedoch nicht mehr umgesetzt. Außerdem hätte es potenziell auch zu Kompatibilitätsproblemen mit bestehenden Assets und Konfigurationen führen können.
 
 Auch alternative Ansätze wie das \say{Image Tracking} wurden bewusst nicht verfolgt, Da sich der Watcher frei im physischen Raum bewegen soll, besteht bei dieser Methode das Risiko, dass das benötigte Referenzbild aus dem Sichtfeld verschwindet und damit die Spielwelt nicht mehr konkret dargestellt werden kann.

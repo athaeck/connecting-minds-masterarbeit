@@ -2,6 +2,7 @@
 
 In diesem Kapitel werden die für den Forschungshintergrund und die Entwicklung des Prototyps wichtigen theoretischen Grundlagen beschrieben.
 Zunächst werden verschiedene Theorien zu Kommunikationsmodellen und kooperativer Kommunikation vorgestellt, die dem Modell dieser Anwendung zugrunde liegen.
+Darauffolgend erfolgt ein kleiner Exkurs zur Definition von Spielen und dem mit dieser Arbeit verbundenen Adventure-Spielen.
 Im Anschluss daran werden die in der Ludologie beschriebenen Akteurstypen vorgestellt, die sich in den Teilnehmenden dieser Masterarbeitsstudie widerspiegeln.
 Allgemein ist bekannt, dass Video- und Computerspiele drei verschiedene Modi haben können: Singleplayer, Multiplayer und Mischformen. Da im Rahmen dieser Studie ein Multiplayer-Spiel konzipiert und umgesetzt wurde, werden im weiteren Verlauf verschiedene Kategorien von Multiplayer-Spielen vorgestellt. Außerdem werden die damit einhergehenden Netzwerkinfrastrukturen dargestellt, die für die aktuelle sowie eine potenzielle zukünftige Entwicklung relevant sind. Zum Schluss erfolgt ein Einblick in die \ac{AR}.
 
@@ -22,7 +23,7 @@ Verbale Informationen können schriftlich festgehalten und gelesen ebenfalls ein
 Nonverbale Informationen durch Mimik, Gestik und die Körpersprache können nur dann verstanden werden, wenn der Gegenüber sie sieht. 
 Paraverbale Informationen werden durch die Betonung, Stimmlage, Pausenlängen etc. übermittelt. Sie können nur durch das Hören gedeutet werden (vgl. \citealp[S. 33]{ebert_formen_2018}).
 
-Kommunikation ist durch gegenseitige Abhängigkeiten geprägt: Während der Sender das Geschehen aktiv gestaltet, nimmt der Empfänger Informationen auf und interpretiert diese. Dabei ist nicht jede Kommunikation bewusst beabsichtigt. Die Abgrenzung zwischen Kommunikation und Interaktion ist schwierig, da Kommunikation häufig als Bestandteil von Interaktion verstanden wird. Kommunikatives Verhalten wird sowohl durch bewusste Erfahrungen und Lernprozesse als auch durch unbewusste Verhaltensmuster beeinflusst (vgl. \citealp[S. 20]{becker_praxishandbuch_2018}.
+Kommunikation ist durch gegenseitige Abhängigkeiten geprägt: Während der Sender das Geschehen aktiv gestaltet, nimmt der Empfänger Informationen auf und interpretiert diese. Dabei ist nicht jede Kommunikation bewusst beabsichtigt. Die Abgrenzung zwischen Kommunikation und Interaktion ist schwierig, da Kommunikation häufig als Bestandteil von Interaktion verstanden wird. Kommunikatives Verhalten wird sowohl durch bewusste Erfahrungen und Lernprozesse als auch durch unbewusste Verhaltensmuster beeinflusst (vgl. \citealp[S. 20]{becker_praxishandbuch_2018}).
 
 Um besser zu verstehen, welche Prozesse innerhalb der Kommunikation ablaufen und wie sie erlebt und interpretiert wird, wurden im Laufe der Zeit zahlreiche Theorien und Modelle entwickelt (vgl. \citealp[S. 311]{schwarz_grundlagen_2019}).
 
@@ -61,7 +62,7 @@ Als Erweiterung des Modells von Osgood und Schramm kann das Modell von Badura ge
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/badura.PNG}
-\caption{Kommunikationsmodell von Badura (Quelle: \cite{badura_kommunikation_1992}, \cite[S. 93]{scheufele_kommunikation_2007})}
+\caption{Kommunikationsmodell von Badura (Quelle: \citealp{badura_kommunikation_1992}, \citealp[S. 93]{scheufele_kommunikation_2007})}
 \label{fig:badura-modell}
 \end{figure}
 
@@ -84,7 +85,7 @@ Die gewählten Äußerungen entstammen dabei aus den sog. \say{vier Schnäbeln} 
 Das Modell ist im Kern ein Ausdrucksmodell der Kommunikation. Es soll einerseits dabei helfen, die Ursachen möglicher Missverständnisse besser zu verstehen. Andererseits wird jedoch kritisiert, dass es sowohl den Charakter der Kommunikation als gemeinschaftliche Handlung, als auch den steuernden Aspekt des Sprechens vernachlässigt (vgl \citealp[S. 23]{becker_praxishandbuch_2018}). Es berücksichtigt somit nicht die Möglichkeit des Nachfragens beim Sender. Stattdessen legt das Modell nahe, dass jeder Äußerung ein einziger \say{wahrer} Bedeutungskern innewohne (vgl \citealp[S. 23]{becker_praxishandbuch_2018}). 
 
 \subsection{Konversationsmaximen von Grice}
-Grice erweitert die o. g. Theorien insofern, das Kommunikation nicht nur über das Gesagte, sondern auch über das Implizierte funktioniert (vgl. \citealp[S. 43f]{grice_logic_1975}). 
+\citeauthor{grice_logic_1975} erweitert die o. g. Theorien insofern, das Kommunikation nicht nur über das Gesagte, sondern auch über das Implizierte funktioniert (vgl. \citealp[S. 43f]{grice_logic_1975}). 
 
 Ausgangspunkt seiner Überlegungen sind die Bedingungen, unter deren Konversationen stattfinden. In der Regel bestehen sie nicht aus zufälligen und unzusammenhängenden Äußerungen, sondern folgen einer bestimmten Struktur. Daraus leitet Grice das sogenannte Kooperationsprinzip ab. Dieses besagt, dass ein Gesprächsbeitrag so gestaltet sein soll, wie es der Zweck oder die Richtung des Gesprächs im jeweiligen Stadium erfordert (vgl. \citealp[S. 45]{grice_logic_1975}).
 
@@ -95,15 +96,15 @@ Die Maxime der Quantität (Informationsmenge) besagt, dass der gesprochene Beitr
 Wird gegen eine der Maximen verstoßen, kann der Gesprächspartner davon ausgehen, dass dies nicht zufällig, sondern absichtlich geschieht. Somit wird eine zusätzliche Bedeutung impliziert. In solchen Fällen entsteht eine implizite Bedeutung, die über das wörtlich Gesagte hinausgeht. Doe Maximen dienen somit als Interpretationshilfe, um solche kommunikativen Hinweise richtig zu deuten (vgl. \citealp[S. 49f]{grice_logic_1975}).
 
 \subsection{Axiome der Kommunikationen nach Watzlawik et. al}
-Ergänzend zu den davor dargestellten Modellen betrachten Watzlawik, Beavin und Jackson zwischenmenschliche Kommunikation aus einer systematisch-konstruktivistischen Perspektive. Im Mittelpunkt steht dabei Kommunikation als wechselseitiges Verhalten innerhalb sozialer Kontexte (vgl. \citealp{Watzlawick2016-km}). 
+Ergänzend zu den davor dargestellten Modellen betrachten Watzlawik, Beavin und Jackson zwischenmenschliche Kommunikation aus einer systematisch-konstruktivistischen Perspektive. Im Mittelpunkt steht dabei Kommunikation als wechselseitiges Verhalten innerhalb sozialer Kontexte (vgl. \citealp{watzlawick_menschliche_2016}). 
 
-Zur Beschreibung dieses Verständnisses definieren die Autoren fünf Grundprinzipien (Axiome) mit denen sich menschliche Kommunikation systematisch erklären lässt (vgl. \citealp{Watzlawick2016-km}):
+Zur Beschreibung dieses Verständnisses definieren die Autoren fünf Grundprinzipien (Axiome) mit denen sich menschliche Kommunikation systematisch erklären lässt (vgl. \citealp{watzlawick_menschliche_2016}):
 \begin{itemize}
-    \item \say{Man kann nicht nicht kommunizieren}, da jedes Verhalten kommunikativen Charakter besitzt, ist Kommunikation unausweichlich (vgl. \citealp[S. 53]{Watzlawick2016-km}).
-    \item \say{Jede Kommunikation hat einen Inhalts- und einen Beziehungsaspekt, derart, dass letzterer den ersteren bestimmt und daher eine Metakommunikation ist.} \cite[S. 64]{Watzlawick2016-km}
-    \item \say{Die Natur einer Beziehung ist durch die Interpunktion der Kommunikationsabläufe seitens der Partner bedingt.} Die Kommunikation verläuft zirkular. (vgl. \citealp[S. 69]{Watzlawick2016-km})
-    \item Menschliche Kommunikation nutzt sowohl digitale als auch analoge Ausdrucksformen. Digitale Kommunikation ist logisch strukturiert, aber in Beziehungssituationen bedeutungsarm. Analoge Kommunikation hingegen transportiert Beziehungsinhalte wirkungsvoll, ist jedoch weniger eindeutig in der Bedeutung (vgl. \citealp[S. 77]{Watzlawick2016-km}).
-    \item \say{Zwischenmenschliche Kommunikationsabläufe sind entweder symmetrisch oder komplementär, je nachdem, ob die Beziehung zwischen den Partnern auf Gleichheit oder Ungleichheit beruht} \cite[S. 80]{Watzlawick2016-km}
+    \item \say{Man kann nicht nicht kommunizieren}, da jedes Verhalten kommunikativen Charakter besitzt, ist Kommunikation unausweichlich (vgl. \citealp[S. 53]{watzlawick_menschliche_2016}).
+    \item \say{Jede Kommunikation hat einen Inhalts- und einen Beziehungsaspekt, derart, dass letzterer den ersteren bestimmt und daher eine Metakommunikation ist.} \cite[S. 64]{watzlawick_menschliche_2016}
+    \item \say{Die Natur einer Beziehung ist durch die Interpunktion der Kommunikationsabläufe seitens der Partner bedingt.} Die Kommunikation verläuft zirkular. (vgl. \citealp[S. 69]{watzlawick_menschliche_2016})
+    \item Menschliche Kommunikation nutzt sowohl digitale als auch analoge Ausdrucksformen. Digitale Kommunikation ist logisch strukturiert, aber in Beziehungssituationen bedeutungsarm. Analoge Kommunikation hingegen transportiert Beziehungsinhalte wirkungsvoll, ist jedoch weniger eindeutig in der Bedeutung (vgl. \citealp[S. 77]{watzlawick_menschliche_2016}).
+    \item \say{Zwischenmenschliche Kommunikationsabläufe sind entweder symmetrisch oder komplementär, je nachdem, ob die Beziehung zwischen den Partnern auf Gleichheit oder Ungleichheit beruht} \cite[S. 80]{watzlawick_menschliche_2016}
 \end{itemize}
 
 \subsection{Gelingende Kommunikation nach Carl Rogers}
@@ -177,13 +178,11 @@ Eine Vergleichseigenschaft ist dabei der enthaltene Text im Spiel. Frühere Adve
 % Adventure Games 
 
 \section{Spielertypen}
-% Die kommunikationswissenschaftlichen Aspekte bilden zwar den Schnwerpunkt dieser Arbeit, doch wurden auch ludologische Gesichtspunkte
-% berücksichtigt. Dabei handelt es sich um die wissenschaftliche Auseinandersetzung mit dem Spielen selbst (vgl. \citealp{institut_fur_ludologie_spielforschung_nodate}). 
 
 Im Hinblick auf die Konzeption und Entwicklung eines Spiels ist es wichtig, die Eigenschaften des Spielsystems so zu gestalten, dass sie Begeisterung und Engagement bei der gewünschten Zielgruppe hervorrufen. Deshalb muss zunächst die Zielgruppe in verschiedene Typen eingeteilt werden. Die Ludologie unterscheidet hierfür verschiedene Spielertypen. Zwar ist nicht jeder Mensch ein eindeutiger \say{Spielertyp}, dennoch lassen sich unterschiedliche Spielertypen grundsätzlich über spezifische Spielelemente ansprechen (vgl. \citealp{institut_fur_ludologie_spielertypen_nodate}).
 
 \subsection{Nach Bartle}
-1996 beschäftigte sich Richard Bartle mit der Frage, welche Spielertypen in der Ludologie unterschieden werden können. Dabei ging es zunächst um Klassifizierungen von Ansätzen, die beim Spielen von sogenannten \ac{MUD}s existieren (vgl. \cite{bartle_hearts_1996}). Diese Klassifizierungen werden noch heute für die Einteilung in Spielertypen herangezogen.
+1996 beschäftigte sich Richard Bartle mit der Frage, welche Spielertypen in der Ludologie unterschieden werden können. Dabei ging es zunächst um Klassifizierungen von Ansätzen, die beim Spielen von sogenannten \ac{MUD}s existieren (vgl. \citealp{bartle_hearts_1996}). Diese Klassifizierungen werden noch heute für die Einteilung in Spielertypen herangezogen.
 
 Bartle unterscheidet bei der Einteilung der Spielertypen zwei grundlegende Interessen (vgl. Abbildung \ref{fig:bartle-muds}):
 
@@ -210,7 +209,7 @@ Sie wollen mit anderen Spielern interagieren, meist über Gespräche, aber auch 
 Sie sind daran interessiert, auf andere Spiele einzuwirken und mit ihnen zu interagieren - häufig ohne deren Einverständnis. Sie wollen ihre Überlegenheit gegenüber anderen Menschen demonstrieren und sind stolz auf ihren Ruf, sowie auf ihre oft geübten Kampffähigkeiten.
 
 \subsection{Erweiterte Einteilungen}
-Bartle ist nicht der Einzige, der sich mit Spielertypen auseinandergesetzt hat. Seine Forschung bildet jedoch ein grundlegendes Fundament, das in der weiteren wissenschaftlichen Auseinandersetzung intensive Diskussionen innerhalb der Forschungs- und Game-Design-Community ausgelöst hat. Im folgenden werden weitere Typisierungen und Einteilungen vorgestellt.
+\citeauthor{bartle_hearts_1996} ist nicht der Einzige, der sich mit Spielertypen auseinandergesetzt hat. Seine Forschung bildet jedoch ein grundlegendes Fundament, das in der weiteren wissenschaftlichen Auseinandersetzung intensive Diskussionen innerhalb der Forschungs- und Game-Design-Community ausgelöst hat. Im folgenden werden weitere Typisierungen und Einteilungen vorgestellt.
 \begin{quote}
     \textit{
         \enquote{Player types are not a defined concept and any categorization of players or users needs to occur within the context of a particular application or domain. Play-personas are suggested as a useful tool that can be used to put player type research into practice as part of the design process of gamified systems.}
@@ -260,14 +259,14 @@ Ein weiteres Modell, das in der Arbeit von Bateman genannt wird, ist das BRAINHE
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/brainhex-classes.png}
-\caption{Brainhex-Model Darstellung von \citealp{pixel_ninja_i_2015} nach \citealp{nacke_brainhex_2013}}
+\caption{Brainhex-Model Darstellung (Quelle: \citealp{pixel_ninja_i_2015}) nach \citealp{nacke_brainhex_2013}}
 \label{fig:brain-hex}
 \end{figure}
 
 \section{Multiplayer-Spiele}
 Im Vergleich zu Einzelspieler-Spielen existieren bei Multiplayer-Spielen nicht nur Unterschiede im Genre, sondern auch in den Spielrollen (Symmetrie / Asymmetrie) sowie in den Spielzeitpunkten, zu denen die Spielteilnehmer an ihrem Spielfortschritt weiterarbeiten (Synchron / Asynchron). Auf dem Spielemarkt existieren außerdem Multiplayer-Spiele, die unterschiedliche Medientechniken verwenden. Teilweise dienen diese Medientechniken dazu, Cross-Plattform Funktionalität zu gewährleisten (vgl. \citealp{larian_studios_baldurs_2023}), oder sie sind integraler Bestandteil des Gamedesigns (vgl. \citealp{steel_crate_games_keep_2015}).
 
-Da im Kontext von \say{Connecting-Minds} die Spieler zeitgleich in einer Sitzung gemeinsam spielen, wird im Folgenden auf die Symmetrie und Asymmetrie von Computer- und Videospielen eingegangen.
+Da im Kontext von Connecting-Minds die Spieler zeitgleich in einer Sitzung gemeinsam spielen, wird im Folgenden auf die Symmetrie und Asymmetrie von Computer- und Videospielen eingegangen.
 
 \subsection{Symmetrische Multiplayer}
 Symmetrische Spiele sind solche, bei denen alle Spieler die gleichen Spielregeln haben und das gleiche Spielziel verfolgen. Viele traditionelle Spiele wie Schach sowie Computer- und Videospiele wie \say{Mario Kart} oder \say{Minecraft} (vgl. \citealp{nintendo_mario_1992, mojang_willkommen_2009}) sind symmetrische Multiplayer-Spiele, bei denen für jeden Spieler das gleiche Ziel gilt (vgl. \citealp[S. 12]{adams_fundamentals_2009}).
@@ -287,7 +286,7 @@ Wie \citeauthor{lotz_konzeption_2021} in ihrer Bachelor-Arbeit beschrieben hat, 
 \end{figure}
 
 Wie Abbildung \ref{fig:lotz_multiplayer_types} zeigt, können Multiplayer-Spiele hinsichtlich ihrer Medientechnik in drei Kategorien eingeteilt werden.
-Spiele wie \say{Mario Kart} oder \say{Minecraft} können nur auf der gleiche Plattform gespielt werden. Bei Spielen wie \say{Among Us} oder \say{Fortnite} ist die Plattform, auf der gespielt wird, nicht relevant, da eine Cross-Play-Funktionalität gegeben ist. Jeder kann auf der Plattform mitspielen, die er besitzt. Die dritte Kategorie umfasst Spiele, bei denen die Spieler gezwungen werden, unterschiedliche Plattformen zu nutzen. In \say{Keep talking and nobody explodes} ist dies der Kern des Gamedesigns.
+Spiele wie \say{Mario Kart} oder \say{Minecraft} können nur auf der gleiche Plattform gespielt werden. Bei Spielen wie \say{Among Us} oder \say{Fortnite} ist die Plattform, auf der gespielt wird, nicht relevant, da eine Cross-Play-Funktionalität gegeben ist. Jeder kann auf der Plattform mitspielen, die er besitzt. Die dritte Kategorie umfasst Spiele, bei denen die Spieler gezwungen werden, unterschiedliche Plattformen zu nutzen. In \say{Keep Talking and Nobody Explodes } ist dies der Kern des Gamedesigns.
 
 \section{Spielweisen von Multiplayer-Spielen}
 Nachdem die unterschiedlichen Strukturen und technischen Formen von Multiplayer-Spielen behandelt wurden, ist es nun wichtig, die verschiedenen Spielweisen zu betrachten. Multiplayer-Spiele können dabei in kompetitive, kollaborative und kooperative Spiele unterteilt werden (vgl. \citealp[S. 25f]{p_zagal_collaborative_2006}).
@@ -366,7 +365,7 @@ Im Kontext der vorliegenden Arbeit stellt \ac{AR} eine essenzielle Technologie d
 Im Vergleich zur \ac{VR}, das eine voll-immersive Umgebung erstellt, erweitert die \ac{AR} die eigene Realität und bietet dadurch die Möglichkeit, dass sich die Nutzer frei in der Welt bewegen können. Sie können aber auch noch in der echten Welt interagieren (vgl. \citealp[S. 79]{billinghurst_survey_2015}; \citealp[S. 1]{stefanidi_meaningful_2024}).
 
 \subsection{Abgrenzung der Begriffe}
-Sowohl in der Vergangenheit als auch in der aktuellen Forschung werden intensiv Konzepte und Ansätze zur Integration und Verbesserung von \ac{AR} und \ac{VR} untersucht. Damit zwischen diesen Begriffen und den weiteren in der Forschung angewandten Begriffen \ac{MR} oder \ac{XR} unterschieden werden kann, wurde von  \cite{milgram_taxonomy_1994} das Konzept des \say{\ac{VC}s} entworfen (vgl. Abbildung \ref{fig:virtuality-continuum}).
+Sowohl in der Vergangenheit als auch in der aktuellen Forschung werden intensiv Konzepte und Ansätze zur Integration und Verbesserung von \ac{AR} und \ac{VR} untersucht. Damit zwischen diesen Begriffen und den weiteren in der Forschung angewandten Begriffen \ac{MR} oder \ac{XR} unterschieden werden kann, wurden von  \cite{milgram_taxonomy_1994} das Konzept des \say{\ac{VC}s} entworfen (vgl. Abbildung \ref{fig:virtuality-continuum}).
 
 \begin{figure}[ht]
 \centering

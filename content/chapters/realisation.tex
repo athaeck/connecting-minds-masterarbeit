@@ -1,12 +1,12 @@
 \chapter{Umsetzung des Prototyps}\label{sec:realisation}
 
-Nachdem in Kapitel \ref{sec:concept} die Konzeption der Anwendungen dargestellt wurde, folgt in diesem Kapitel die Beschreibung der praktischen Umsetzung.
+Nachdem in Kapitel \textit{\nameref{sec:concept}} die Konzeption der Anwendungen dargestellt wurde, folgt in diesem Kapitel die Beschreibung der praktischen Umsetzung.
 
 Zunächst wird die Ausgangssituation erläutert, wie sie sich aus dem vorangegangenen Projekt ergab. Anschließend erfolgt eine Übersicht der verwendeten Technologien. Darauf aufbauend werden die entwickelten Anwendungen im Detail vorgestellt. Abschließend werden zentrale Herausforderungen und Probleme beschrieben, die im Verlauf der Umsetzung auftraten.
 
 \section{Ausgangssituation}
 
-In der vorangegangenen Arbeit wurde ein erstes funktionsfähiges \ac{MVP} der Spielidee realisiert das sich aus drei Hauptkomponenten zusammensetzt. Die Spielanwendung für den Player wurde mithilfe der Game Engine Unity umgesetzt. Das Spielgeschehen des Watchers wurde hingegen als Webanwendung auf Basis des Vue3-Frameworks realisiert. Für die Kommunikation zwischen beiden Anwendungen wurde ein WebSocket-Server auf Grundlage von Express.js (Auf Basis von Node.js) entwickelt. Dieser Server steht zusätzlich in Verbindung mit einer MongoDB-Datenbank, in der die Fortschritte einzelner Spielsessions gespeichert werden.
+In der vorangegangenen Arbeit wurde ein erstes funktionsfähiges \ac{MVP} der Spielidee realisiert das sich aus drei Hauptkomponenten zusammensetzt. Die Spielanwendung für den Player wurde mithilfe der Game Engine Unity umgesetzt. Das Spielgeschehen des Watchers wurde hingegen als Webanwendung auf Basis des Vue3-Frameworks realisiert. Für die Kommunikation zwischen beiden Anwendungen wurde ein WebSocket-Server auf Grundlage von Express.js (auf Basis von Node.js) entwickelt. Dieser Server steht zusätzlich in Verbindung mit einer MongoDB-Datenbank, in der die Fortschritte einzelner Spielsessions gespeichert werden.
 
 Die Anwendungen des Players und des Watchers fungieren in diesem System als visuelle und interaktive Frontend, die auf Nutzereingaben reagieren. Diese Eingaben werden an den Server übermittelt, der sie zur Laufzeit verarbeitet und bei Bedarf persistent in der Datenbank speichert.
 
@@ -19,7 +19,7 @@ Die View legt fest, wie die Daten visuell präsentiert werden. Der Controller wi
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/mvc-architecture.png}
-\caption{\ac{MVC} Beispiel-Diagramm (Quelle: \cite{mills_mvc_2025})}
+\caption{\ac{MVC} Beispiel-Diagramm (Quelle: \citealp{mills_mvc_2025})}
 \label{fig:mvc-diagramm}
 \end{figure}
 
@@ -66,7 +66,7 @@ Im früheren Prototyp lag die alleinige Verantwortung für die Lösung der Räts
 
 Der Lösungsprozess verlief wie folgt. Zunächst wählte der Watcher über das Dropdown-Menü für Gegenstände den entsprechenden Gegenstand aus (vgl. Abbildung \ref{fig:old-solving-riddle}, linkes Bild, rechtes Bildelement). Anschließend wählte er eine Zielposition aus einer vordefinierten Liste von Platzierungsoptionen, die in den aktuell aktiven Abschnitten der Spielwelt verfügbar waren (vgl. mittlere Bild, rechts Bildelement). Über den Button \say{Gegenstand platzieren} (linker Button) wird der Gegenstand in die Spielwelt des Players eingefügt.
 
-Nach erfolgreicher Platzierung erhielten sowohl Player als auch Watcher eine visuelle Rückmeldung durch das System (vgl. rechts Bild, beide weiß Umrandeten Elemente). Zusätzlich wurde der neu platzierte Gegenstand automatisch in die Liste der aktuell vorhandenen Gegenstände auf der rechten Seite der Watcher-Anwendung übernommen (rechtes Bild, rechtes Bildelement). 
+Nach erfolgreicher Platzierung erhielten sowohl Player als auch Watcher eine visuelle Rückmeldung durch das System (vgl. rechts Bild, beide weiß umrandeten Elemente). Zusätzlich wurde der neu platzierte Gegenstand automatisch in die Liste der aktuell vorhandenen Gegenstände auf der rechten Seite der Watcher-Anwendung übernommen (rechtes Bild, rechtes Bildelement). 
 
 \subsection{Freischalten von Gegenständen und Positionen}
 
@@ -94,7 +94,7 @@ In den zuvor dargestellten Abbildungen \ref{fig:old-logins} bis \ref{fig:old-unl
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/Backfaces.png}
-\caption{Fehlende Rückwand-Oberflächen in den Raummodellen (Quelle: eigene Darstellung), (Modell von \cite{alasl_autolevel_2022})}
+\caption{Fehlende Rückwand-Oberflächen in den Raummodellen (Quelle: eigene Darstellung), (Modell von \citealp{alasl_autolevel_2022})}
 \label{fig:missing-backfaces}
 \end{figure}
 
@@ -169,7 +169,7 @@ Seit der 2022er-Unity Version wird empfohlen das neue Input System von Unity zu 
 Manche Meshes der verwendeten Unity-Assets waren nicht im Binary-\ac{FBX}-Format importiert,  wodurch sie über den \ac{FBX} Exporter zu einer Binary-\ac{FBX} Datei exportiert werden konnten. Außerdem kam es vor, dass manche Assets keine grundlegenden Meshes enthielten, wodurch die enthaltenen Prefabs zu \ac{FBX}-Dateien exportiert werden mussten. Die aktuelle Version des Exporters zum Start des Projekts war die 4.2.1.
 
 \subsection{AR Foundation 5.1.6}
-Für die Entwicklung von \ac{AR}-Anwendungen in Unity gibt es verschiedene Möglichkeiten. Die gängigsten Auswahlmöglichkeiten sind hierbei Vuforia (vgl. \cite{parametric_technology_gmbh_vuforia_nodate}) oder das Unity interne Paket AR Foundation (vgl. \cite{unity_technologies_ar_2024}). Die AR Foundation ermöglicht im Vergleich zu Vuforia auf mehreren Arten das Tracking und Platzieren von virtuellen Gegenständen. Darum fiel die Wahl auf AR Foundation. Außerdem ist die AR Foundation leichter in die Versionierung in Git einzubinden. Hierbei gab es in vergangenen Projekten durch zu große Konfigurations-Dateien von Vuforia Probleme.
+Für die Entwicklung von \ac{AR}-Anwendungen in Unity gibt es verschiedene Möglichkeiten. Die gängigsten Auswahlmöglichkeiten sind hierbei Vuforia (vgl. \citealp{parametric_technology_gmbh_vuforia_nodate}) oder das Unity interne Paket AR Foundation (vgl. \citealp{unity_technologies_ar_2024}). Die AR Foundation ermöglicht im Vergleich zu Vuforia auf mehreren Arten das Tracking und Platzieren von virtuellen Gegenständen. Darum fiel die Wahl auf AR Foundation. Außerdem ist die AR Foundation leichter in die Versionierung in Git einzubinden. Hierbei gab es in vergangenen Projekten durch zu große Konfigurations-Dateien von Vuforia Probleme.
 
 \subsection{Google ARCore XR Plugin 5.1.6}
 In Abhängigkeit zum Paket AR Foundation wurde auch das Google ARCore Modul installiert, welches wichtig für mobiles \ac{AR} auf Android Smartphones ist. Es bietet eine Schnittstelle zwischen den Android eigenen Modulen auf dem Smartphone und der Unity Anwendung.
@@ -262,15 +262,15 @@ Da die Rätsel und Hindernisse nicht willkürlich ohne System in der Spielwelt p
 \label{fig:quest-system-uml}
 \end{figure}
 
-Abbildung \ref{fig:quest-system-uml} zeigt das entwickelte Questsystem, das zur strukturierten Einbettung von Rätsel in die Spielwelt dient. Die einzelnen Rätsel wurden in Anlehnung an \ac{RPG}-Spiele als Quests bezeichnet. Das System wurde modular konzipiert, sodass es sowohl in der Player- als auch in der Watcher-Anwendung integriert werden kann. Die folgenden Ausführungen gelten daher für beide Rollen gleichermaßen.
+Abbildung \ref{fig:quest-system-uml} zeigt das entwickelte \say{Questsystem}, das zur strukturierten Einbettung von Rätsel in die Spielwelt dient. Die einzelnen Rätsel wurden in Anlehnung an \ac{RPG}-Spiele als \say{Quests} bezeichnet. Das System wurde modular konzipiert, sodass es sowohl in der Player- als auch in der Watcher-Anwendung integriert werden kann. Die folgenden Ausführungen gelten daher für beide Rollen gleichermaßen.
 
-Zentrale Instanz des Systems ist der QuestController, der als überwachende Einheit fungiert. Er verwaltet Referenzen auf alle in der Szene existierenden Quests, empfängt Rückmeldungen über gelöste Quests vom Server und leitet diese an die entsprechenden Quests weiter. Gleichzeitig ist er für die Übermittlung neuer oder gelöster Quests an den Server verantwortlich. Wird bspw. eine Quest aktiviert, etwa durch das Freischalten eines neuen Raums, sorgt der QuestController dafür, dass diese zur Liste der aktiven bzw. gelösten Quests hinzugefügt wird.
+Zentrale Instanz des Systems ist der \say{QuestController}, der als überwachende Einheit fungiert. Er verwaltet Referenzen auf alle in der Szene existierenden Quests, empfängt Rückmeldungen über gelöste Quests vom Server und leitet diese an die entsprechenden Quests weiter. Gleichzeitig ist er für die Übermittlung neuer oder gelöster Quests an den Server verantwortlich. Wird bspw. eine Quest aktiviert, etwa durch das Freischalten eines neuen Raums, sorgt der QuestController dafür, dass diese zur Liste der aktiven bzw. gelösten Quests hinzugefügt wird.
 
-Jede Quest selbst stellt eine einzelne Herausforderung dar und ist mit einer eindeutigen ID, einem Namen sowie einem Lösungsstatus ausgestattet. Sie überprüft selbstständig, ob sie gelöst wurde und informiert in diesem Fall den QuestController. Dazu besitzt sie Referenzen auf mehrere QuestSolver, also logische Einheiten, die eine Bedingung zur Lösung erfüllen müssen. Im Beispiel aus Abbildung \ref{fig:quest-system-uml} handelt es sich um eine Druckplatte mit Platzierungsfunktionalität, die dann aktiv wird, wenn ein passender Gegenstand korrekt platziert wurde. Sobald alle zugehörigen QuestSolver erfolgreich ausgelöst wurden, gilt die Quest als gelöst.
+Jede Quest selbst stellt eine einzelne Herausforderung dar und ist mit einer eindeutigen \ac{ID}, einem Namen sowie einem Lösungsstatus ausgestattet. Sie überprüft selbstständig, ob sie gelöst wurde und informiert in diesem Fall den QuestController. Dazu besitzt sie Referenzen auf mehrere QuestSolver, also logische Einheiten, die eine Bedingung zur Lösung erfüllen müssen. Im Beispiel aus Abbildung \ref{fig:quest-system-uml} handelt es sich um eine Druckplatte mit Platzierungsfunktionalität, die dann aktiv wird, wenn ein passender Gegenstand korrekt platziert wurde. Sobald alle zugehörigen \say{QuestSolver} erfolgreich ausgelöst wurden, gilt die Quest als gelöst.
 
-Vor der Lösung muss eine Quests jedoch zunächst aktiviert werden. Diese Funktion übernehmen sog. QuestActivator, auf die jede Quest ebenfalls Referenzen besitzt. Erst wenn alle Aktivatoren ausgelöst wurden, wird die Quest aktiv und kann gelöst werden. Im gezeigten Beispiel kommt ein CollidableQuestActivator zum Einsatz, der dann ausgelöst wird, wenn sich der Avatar des Players innerhalb eines definierten Colliders aufhält.
+Vor der Lösung muss eine Quests jedoch zunächst aktiviert werden. Diese Funktion übernehmen sog. \say{QuestActivator}, auf die jede Quest ebenfalls Referenzen besitzt. Erst wenn alle Aktivatoren ausgelöst wurden, wird die Quest aktiv und kann gelöst werden. Im gezeigten Beispiel kommt ein \say{CollidableQuestActivator} zum Einsatz, der dann ausgelöst wird, wenn sich der Avatar des Players innerhalb eines definierten Colliders aufhält.
 
-Sobald eine Quest erfolgreich abgeschlossen wurde, werden alle ihr zugewiesenen QuestSolveExecuter aktiviert. Diese Komponenten führen Aktionen aus, etwa das Öffnen einer Tür durch einen Animator (wie im Beispiel der Gefängnistür dargestellt).
+Sobald eine Quest erfolgreich abgeschlossen wurde, werden alle ihr zugewiesenen \say{QuestSolveExecuter} aktiviert. Diese Komponenten führen Aktionen aus, etwa das Öffnen einer Tür durch einen Animator (wie im Beispiel der Gefängnistür dargestellt).
 
 \paragraph{Pathsystem}\label{sec:path-system}
 
@@ -283,11 +283,11 @@ Wie das Questsystem wurde auch das Pathsystem modular konzipiert, um eine Wieder
 \label{fig:path-system-uml}
 \end{figure}
 
-Abbildung \ref{fig:path-system-uml} zeigt das entworfene modulare Pathsystem, das in beiden Anwendungen eingebunden ist. Das zentrale Steuerelement stellt die Klasse PathController dar, welche, analog zum QuestController, für die Kommunikation mit dem Server verantwortlich ist. Sie empfängt und sendet Pathdaten und verwaltet sämtliche in der Spielszene konfigurierten Wege (Pathways).
+Abbildung \ref{fig:path-system-uml} zeigt das entworfene modulare Pathsystem, das in beiden Anwendungen eingebunden ist. Das zentrale Steuerelement stellt die Klasse \say{PathController} dar, welche, analog zum QuestController, für die Kommunikation mit dem Server verantwortlich ist. Sie empfängt und sendet Pathdaten und verwaltet sämtliche in der Spielszene konfigurierten Wege (\say{Pathways}).
 
-Jeder Pathway verwaltet eine Reihe von Komponenten. Sog. PathActivator, die für die Freischaltung eines Weges zuständig sind und optional PathForgetter, welche bereits geöffnete Wege bei Bedarf wieder deaktivieren können. Darüber hinaus besitzt ein Pathway Referenzen auf die zugehörigen Objekte in der Spielwelt, ein sichtbares Wegobjekt (PathObject) sowie auf Kollisionsbereiche (PathCollider). Letztere spielen insbesondere bei der physischen Blockierung von noch nicht zugänglichen Bereichen eine Rolle.
+Jeder Pathway verwaltet eine Reihe von Komponenten. Sog. PathActivator, die für die Freischaltung eines Weges zuständig sind und optional PathForgetter, welche bereits geöffnete Wege bei Bedarf wieder deaktivieren können. Darüber hinaus besitzt ein Pathway Referenzen auf die zugehörigen Objekte in der Spielwelt, ein sichtbares Wegobjekt (\say{PathObject}) sowie auf Kollisionsbereiche (\say{PathCollider}). Letztere spielen insbesondere bei der physischen Blockierung von noch nicht zugänglichen Bereichen eine Rolle.
 
-Da im konzipierten Tutorial-Szenario keine bereits geöffneten Wege deaktiviert werden, wurde auf eine Implementierung konkreter PathForgetter verzichtet. Die Klasse QuestPathActivator aus dem in Abbildung \ref{fig:path-system-uml} dargestellten Beispiel übernimmt die Aufgabe, nach dem erfolgreichen Abschluss einer bestimmten Quest den zugehörigen Pathway zu aktivieren.
+Da im konzipierten Tutorial-Szenario keine bereits geöffneten Wege deaktiviert werden, wurde auf eine Implementierung konkreter \say{PathForgetter} verzichtet. Die Klasse \say{QuestPathActivator} aus dem in Abbildung \ref{fig:path-system-uml} dargestellten Beispiel übernimmt die Aufgabe, nach dem erfolgreichen Abschluss einer bestimmten Quest den zugehörigen Pathway zu aktivieren.
 
 Wird ein Pathway aktiviert, so wird das entsprechende \ac{3D}-Objekt (PathObject) in der Szene sichtbar geschaltet und die zugehörigen PathCollider deaktiviert, sodass der neue Bereich für den Player zugänglich wird. Auf die genaue Funktionsweise der PathCollider und deren Bedeutung im Gesamtsystem wird im späteren Kapitel \ref{sec:difficulties-placement} detailliert eingegangen.
 
@@ -304,7 +304,7 @@ Abbildung \ref{fig:player-ui} zeigt die Ansicht, die der Player in der Spielwelt
 
 \subsection{Watcher-Anwendung}
 
-Die Watcher-Anwendung stellt, ebenso wie die Player-Anwendung, eine der beiden \say{Views} innerhalb der umgesetzten \ac{MVC}-Architektur dar. Sie umfasst die grundlegende Spielwelt aus der Perspektive des Watchers und bildet zugleich die Grundlage für dessen Interaktionsmöglichkeiten mit der Umgebung.
+Die Watcher-Anwendung stellt, ebenso wie die Player-Anwendung, eine der beiden Views innerhalb der umgesetzten \ac{MVC}-Architektur dar. Sie umfasst die grundlegende Spielwelt aus der Perspektive des Watchers und bildet zugleich die Grundlage für dessen Interaktionsmöglichkeiten mit der Umgebung.
 
 Analog zur Player-Anwendung basiert auch die visuelle Darstellung in der Watcher-Anwendung auf den Basisobjekten der Spielwelt, die mittels sog. Prefab Variants darstellungsspezifisch angepasst wurden. Auf diese Weise wird eine konsistente Gestaltung der Umgebung sichergestellt, wobei sich für die jeweilige Perspektive relevanten Unterschiede manifestieren.
 
@@ -329,12 +329,12 @@ Die Pitch-Geste wurde bislang nicht implementiert, da für sie in der aktuellen 
 
 Da die Hauptaufgabe des Watchers im Verwalten und Platzieren von Gegenständen besteht, musste zunächst ein geeigneter Nutzerfluss entwickelt werden, der den spezifischen Anforderungen der Anwendung gerecht wird. 
 
-Als Referenz dient hierbei das Spiel \say{Outlanders}, dessen Spielaufbau und Menünavigation zentrale Parallelen zur Watcher-Anwendung aufweist (vgl. \citealp{pomelo_games_outlanders_2019}). In Outlanders übernimmt der Spieler die Rolle eines Anführers, der eine Siedlung errichten muss. Der Zugriff auf entsprechende Bau- und Verwaltungsfunktionen erfolgt dabei über ein zentrales Hauptmenü, das in die Menüleiste des Spiels integriert ist. Dieses Interface-Prinzip wurde aufgegriffen, da es dem Watcher ermöglicht, sich zunächst frei in der Spielwelt zu bewegen, sei es durch die \ac{AR}-Kamera oder das \ac{RTS}-Kamerasystem, um anschließend über ein übersichtliches Menü Gegenstände zu platzieren oder dem Player zu senden.
+Als Referenz dient hierbei das Spiel Outlanders, dessen Spielaufbau und Menünavigation zentrale Parallelen zur Watcher-Anwendung aufweist (vgl. \citealp{pomelo_games_outlanders_2019}). In Outlanders übernimmt der Spieler die Rolle eines Anführers, der eine Siedlung errichten muss. Der Zugriff auf entsprechende Bau- und Verwaltungsfunktionen erfolgt dabei über ein zentrales Hauptmenü, das in die Menüleiste des Spiels integriert ist. Dieses Interface-Prinzip wurde aufgegriffen, da es dem Watcher ermöglicht, sich zunächst frei in der Spielwelt zu bewegen, sei es durch die \ac{AR}-Kamera oder das \ac{RTS}-Kamerasystem, um anschließend über ein übersichtliches Menü Gegenstände zu platzieren oder dem Player zu senden.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1\linewidth]{content/pictures/Nutzerflow.png}
-\caption{Nutzerfluss beim Gebäudebau in Outlanders (Screenshots von \cite{coates_game_nodate}), (Quelle: eigene Darstellung)}
+\caption{Nutzerfluss beim Gebäudebau in Outlanders (Screenshots von \citealp{coates_game_nodate}), (Quelle: eigene Darstellung)}
 \label{fig:userflow-outlanders-build}
 \end{figure}
 
@@ -380,7 +380,7 @@ Zunächst kann sich der Watcher frei durch die Spielwelt bewegen. Um einen Gegen
 \label{fig:userflow-remove-preview-cm}
 \end{figure}
 
-Abbildung \ref{fig:userflow-remove-preview-cm} veranschaulicht den Nutzerfluss für das Entfernen eines des Players gepreviewten Gegenstands. Ausgangspunkt ist erneut der freie Navigationsmodus, in dem sich der Watcher innerhalb der Spielwelt bewegen kann. Sobald er einen Hinweis erhält, dass ein zuvor übermittelter Gegenstand wieder entfernt werden soll, öffnet er, analog zum Previewprozess, das \say{Preview}-Menü (1). Anders als beim erstmaligen Previewen eines Gegenstandes öffnet sich jedoch nicht die vollständige Galerieansicht, sondern unmittelbar ein Bestätigungsdialog, der abfragt, ob der aktuell vom Player getragene Gegenstand entfernt werden soll (2). Wird diese Abfrage bestätigt, wird der Gegenstand entfernt und der Watcher kehrt in den freien Navigationsmodus zurück. Zusätzlich verschwindet die entsprechende Visualisierung des Gegenstands aus der rechten, halbhohen Bildschirmanzeige (3). 
+Abbildung \ref{fig:userflow-remove-preview-cm} veranschaulicht den Nutzerfluss für das Entfernen eines des Players gepreviewten Gegenstandes. Ausgangspunkt ist erneut der freie Navigationsmodus, in dem sich der Watcher innerhalb der Spielwelt bewegen kann. Sobald er einen Hinweis erhält, dass ein zuvor übermittelter Gegenstand wieder entfernt werden soll, öffnet er, analog zum Previewprozess, das \say{Preview}-Menü (1). Anders als beim erstmaligen Previewen eines Gegenstandes öffnet sich jedoch nicht die vollständige Galerieansicht, sondern unmittelbar ein Bestätigungsdialog, der abfragt, ob der aktuell vom Player getragene Gegenstand entfernt werden soll (2). Wird diese Abfrage bestätigt, wird der Gegenstand entfernt und der Watcher kehrt in den freien Navigationsmodus zurück. Zusätzlich verschwindet die entsprechende Visualisierung des Gegenstandes aus der rechten, halbhohen Bildschirmanzeige (3). 
 
 \subsection{Server-Anwendung}
 
@@ -407,7 +407,7 @@ Die Kombination beider Ansätze stellt für die Anwendung von Connecting-Minds d
 \label{fig:cm-topology}
 \end{figure}
 
-Nachdem eine geeignete Netzwerk-Topologie bestimmt wurde (vgl. Abbildung \ref{fig:cm-topology}), ist im nächsten Schritt festzulegen, auf welche Weise die Anwendungen im Detail miteinander kommunizieren sollen. Zur Einordnung der Kommunikationsprozesse dient das \ac{OSI}-Modell, das die Netzwerkkommunikation in sieben funktionale Schichten unterteilt vgl. \citealp{a1_osi-modell_2025}).
+Nachdem eine geeignete Netzwerk-Topologie bestimmt wurde (vgl. Abbildung \ref{fig:cm-topology}), ist im nächsten Schritt festzulegen, auf welche Weise die Anwendungen im Detail miteinander kommunizieren sollen. Zur Einordnung der Kommunikationsprozesse dient das \ac{OSI}-Modell, das die Netzwerkkommunikation in sieben funktionale Schichten unterteilt (vgl. \citealp{a1_osi-modell_2025}).
 
 Für die Kommunikation zwischen verteilten Anwendungen ist insbesondere die Transportschicht (Layer 4) von zentraler Bedeutung. Jeglicher Datenaustausch auf Anwendungsebene muss diese Schicht durchlaufen, da sie für den zuverlässigen Transport von Datenpaketen zwischen Endgeräten verantwortlich ist. Innerhalb der Transportschicht kommen hauptsächlich zwei Protokolle zum Einsatz: Das \ac{TCP} sowie das \ac{UDP} (vgl. \citealp{talkb1nary_transport_nodate}). Beide Protokolle unterscheiden sich grundlegend hinsichtlich ihrer Zuverlässigkeit, Latenz und Kommunikationsweise und stellen somit unterschiedliche Vor- und Nachteile für die Anforderungen der Spielarchitektur dar.
 
@@ -512,7 +512,7 @@ Trotz der letztlich verworfenen Umsetzung hatte der entwickelte Ansatz einen pos
 
 \subsection{Physik-System von Unity}\label{sec:unity-physics-system}
 
-Die zentrale Spielmechanik des Prototyps besteht im Lösen von Hindernissen durch das gezielte Platzieren von Objekten an definierten Positionen in der Spielwelt. In Teilen erfolgt die Validierung dieser Platzierungen über das Physiksystem von Unity. Jeder platzierbare Gegenstand ist mit einem Collider ausgestattet, der auf Kollisionen mit anderen Collider-Komponenten, bspw. dem des Player-Avatars, reagiert. Wie in den zuvor beschriebenen Beispielen des \say{QuestSolver} (vgl. Abschnitt \nameref{sec:quest-system}) oder des \say{PathActivator} (vgl. Abschnitt \nameref{sec:path-system}) beschrieben, prüfen diese Komponenten, ob ein Gegenstand innerhalb ihres eigenen Collider-Bereichs platziert wurde und lösen daraufhin entsprechende Spielereignisse aus (vgl. Abbildung \ref{fig:collision-sketch}). 
+Die zentrale Spielmechanik des Prototyps besteht im Lösen von Hindernissen durch das gezielte Platzieren von Objekten an definierten Positionen in der Spielwelt. In Teilen erfolgt die Validierung dieser Platzierungen über das Physiksystem von Unity. Jeder platzierbare Gegenstand ist mit einem Collider ausgestattet, der auf Kollisionen mit anderen Collider-Komponenten, bspw. dem des Player-Avatars, reagiert. Wie in den zuvor beschriebenen Beispielen des QuestSolver (vgl. Abschnitt \nameref{sec:quest-system}) oder des PathActivator (vgl. Abschnitt \nameref{sec:path-system}) beschrieben, prüfen diese Komponenten, ob ein Gegenstand innerhalb ihres eigenen Collider-Bereichs platziert wurde und lösen daraufhin entsprechende Spielereignisse aus (vgl. Abbildung \ref{fig:collision-sketch}). 
 
 \begin{figure}[ht]
 \centering
@@ -561,6 +561,6 @@ Zur Realisierung dieser Funktionalität wurde das \say{Plane Detection}-Modul de
 
 Während der Entwicklung zeigte sich jedoch ein Problem. Die platzierte Spielwelt bewegte sich mit der Kamera mit, anstatt fest im Raum verankert zu bleiben. Dieses Verhalten ist ebenfalls im Unity-Forum dokumentiert (vgl. Beitrag von Howard258 in: \citealp{howard258_unity_2025}). Verschiedene Lösungsansätze, wie die Anpassung der Zuweisung zwischen Anchor und Plane oder das manuelle Verschieben des Weltobjekts in andere Hierarchien, blieben wirkungslos.
 
-Ein weiterer Diskussionsbeitrag im Unity-Forum (\citealp{aardruss_ar_2023}) legt nahe, dass die verwendete Version der ARFoundation sowie die genutzte Unity-Editor-Version ursächlich für das fehlerhafte Verhalten sein könnten. Eine Herabstufung der Entwicklungsumgebung wurde aus zeitlichen und technischen Gründen jedoch nicht mehr umgesetzt. Außerdem hätte es potenziell auch zu Kompatibilitätsproblemen mit bestehenden Assets und Konfigurationen führen können.
+Ein weiterer Diskussionsbeitrag im Unity-Forum (vgl. \citealp{aardruss_ar_2023}) legt nahe, dass die verwendete Version der ARFoundation sowie die genutzte Unity-Editor-Version ursächlich für das fehlerhafte Verhalten sein könnten. Eine Herabstufung der Entwicklungsumgebung wurde aus zeitlichen und technischen Gründen jedoch nicht mehr umgesetzt. Außerdem hätte es potenziell auch zu Kompatibilitätsproblemen mit bestehenden Assets und Konfigurationen führen können.
 
 Auch alternative Ansätze wie das \say{Image Tracking} wurden bewusst nicht verfolgt, Da sich der Watcher frei im physischen Raum bewegen soll, besteht bei dieser Methode das Risiko, dass das benötigte Referenzbild aus dem Sichtfeld verschwindet und damit die Spielwelt nicht mehr konkret dargestellt werden kann.

@@ -1,1 +1,1 @@
-📄 [Masterarbeit ansehen](./Abschlussarbeit_MIM_Nick_Häcker.pdf)
+📄 [Masterarbeit ansehen](./masterthesis.pdf)

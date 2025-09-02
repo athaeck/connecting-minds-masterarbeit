@@ -100,6 +100,8 @@ Diese Arbeit knüpft an die grundlegenden Untersuchungen von Nasir et al. (2013,
 
 ## Umsetzung
 
+### Ansicht der Spielrrollen
+
 <table>
     <tr>
         <td>
@@ -115,6 +117,22 @@ Diese Arbeit knüpft an die grundlegenden Untersuchungen von Nasir et al. (2013,
     </td>
     <td>
       <img src="./content/pictures/FreeLook01.png" width="350" />
+    </td>
+  </tr>
+</table>
+
+### Erstellte Spielwelt
+
+<table>
+  <tr>
+    <td>
+      <img src="./content/pictures/Abschnitt_00.PNG" width="350" />
+    </td>
+    <td>
+        <img src="./content/pictures/Abschnitt_01 - Watcher.png" width="350" />
+    </td>
+    <td>
+        <img src="./content/pictures/Abschnitt_02.png" width="350" />
     </td>
   </tr>
 </table>

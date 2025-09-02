@@ -6,6 +6,10 @@ Diese Masterarbeit widmet sich der Konzeption und Entwicklung eines asymmetrisch
 
 📄 [Masterarbeit lesen](./masterthesis.pdf)
 
+## Zugang zur Präsentation
+
+📄 [Präsentation ansehen](./präsentation.pdf)
+
 ## Hintergründe
 
 Während der COVID-19-Pandemie führten Maßnahmen wie Lockdowns und soziale Distanzierung zu massiver psychischer Belastung, insbesondere durch gesteigerte Einsamkeit und eingeschränkte soziale Interaktionen. Studien zeigen, dass Online-Gaming als Bewältigungsstrategie diente und dabei helfen konnte, Stress, Angst, Depressionen und Einsamkeit zu reduzieren. Insbesondere spielerische soziale Interaktionen dienten dabei als Stütze (vgl. Lewinson et al. 2023). So ergab eine systematische Übersichtarbeit, dass Online-Gaming jungen Erwachsenen weltweit als wichtiger Faktor zur sozialen Vernetzung diente, gleichzeitig aber auch Beziehungen und Empathie bei intensiver Nutzung beeinträchtigen kann (vgl. Park et al. 2025).

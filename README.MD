@@ -63,13 +63,13 @@ Diese Arbeit knüpft an die grundlegenden Untersuchungen von Nasir et al. (2013,
 <table>
   <tr>
     <td>
-      <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3247270/header.jpg?t=1741367325" width="350" style="object-fit: cover;" />
+      <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3247270/header.jpg?t=1741367325" width="350"  />
     </td>
     <td>
-      <img src="https://static.wikia.nocookie.net/we-were-here/images/a/a2/Series.png/revision/latest?cb=20230331152138" width="350" style="object-fit: cover;" />
+      <img src="https://static.wikia.nocookie.net/we-were-here/images/a/a2/Series.png/revision/latest?cb=20230331152138" width="350"  />
     </td>
     <td>
-      <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1259640/header.jpg?t=1624523339" width="350" style="object-fit: cover;" />
+      <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1259640/header.jpg?t=1624523339" width="350"  />
     </td>
   </tr>
   <tr>

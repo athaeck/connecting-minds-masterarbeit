@@ -82,7 +82,7 @@ Diese Arbeit knüpft an die grundlegenden Untersuchungen von Nasir et al. (2013,
       Visuelle Analyse:<br>
       <a href="/Analyse/WeWereHere/Visual/Explorer_Analysis.png">Ansicht Explorer</a><br>
       <a href="/Analyse/WeWereHere/Visual/Librarian_Analysis.png">Ansicht Librarian</a><br>
-      <br>
+      <!-- <br> -->
 
       <em>We Were Here Too</em><br>
       Visuelle Analyse:<br>
@@ -103,7 +103,7 @@ Diese Arbeit knüpft an die grundlegenden Untersuchungen von Nasir et al. (2013,
       <em>We Were Here</em><br>
       Analyse Rätseldesign:<br>
       <a href="/Analyse/WeWereHere/Rätseldesign.png">Ergebnisse</a><br>
-      <br>
+      <!-- <br> -->
 
       <em>We Were Here Too</em><br>
       Analyse Rätseldesign:<br>

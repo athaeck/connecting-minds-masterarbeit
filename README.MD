@@ -2,6 +2,10 @@
 
 Diese Masterarbeit widmet sich der Konzeption und Entwicklung eines asymmetrischen AR-/3D-Adventure Multiplayer Anwendung zur Beobachtung und Förderung der Kommunikation zwischen Individuen. Vor dem Hintergrund zunehmender sozialer Isolation, insbesondere bei jungen Erwachsenen durch die COVID-19-Pandemie, untersucht die Arbeit, inwiefern spielerische Interaktionssysteme gezielt soziale Kommunikation anregen und verbessern können. Die Arbeit verfolgt das Ziel, ein digitales Spielsystem zu entwickeln, in dem zwei Spielerrollen (Player und Watcher) kooperativ Rätsel lösen und dabei unterschiedliche Perspektiven und Informationslagen einnehmen. Aufbauend auf kognitionswissenschaftlichen Modellen und spieltheoretischen Konzepten wurde ein funktionaler Prototyp umgesetzt, getestet und im Rahmen einer Nutzerstudie evaluiert. Die Untersuchung analysiert quantitative Veränderungen im Kommunikationsverhalten der Teilnehmenden und zeigt, dass asymmetrisches Gameplay hinreichenden Auswirkungen auf Gesprächsführung, Rollenverteilung, Empathie und Engagement haben. Die Ergebnisse deuten das Potenzial von Mixed-Plattform-Spielen zur Verbesserung zwischenmenschlicher Kommunikation an, und liefern praxisnahe Empfehlungen für zukünftige interaktive Systeme in sozialen und pädagogischen Kontexten.
 
+## Zugang zur Arbeit
+
+📄 [Masterarbeit lesen](./masterthesis.pdf)
+
 ## Hintergründe
 
 Während der COVID-19-Pandemie führten Maßnahmen wie Lockdowns und soziale Distanzierung zu massiver psychischer Belastung, insbesondere durch gesteigerte Einsamkeit und eingeschränkte soziale Interaktionen. Studien zeigen, dass Online-Gaming als Bewältigungsstrategie diente und dabei helfen konnte, Stress, Angst, Depressionen und Einsamkeit zu reduzieren. Insbesondere spielerische soziale Interaktionen dienten dabei als Stütze (vgl. Lewinson et al. 2023). So ergab eine systematische Übersichtarbeit, dass Online-Gaming jungen Erwachsenen weltweit als wichtiger Faktor zur sozialen Vernetzung diente, gleichzeitig aber auch Beziehungen und Empathie bei intensiver Nutzung beeinträchtigen kann (vgl. Park et al. 2025).
@@ -137,6 +141,10 @@ Diese Arbeit knüpft an die grundlegenden Untersuchungen von Nasir et al. (2013,
   </tr>
 </table>
 
+Interesse geweckt?
+
+Melde dich einfach über dieses Kontaktformular bei mir, um den Quellcode für den Prototyp und eine Anleitung zu erhalten!
+
 ## Quellen
 
 
@@ -183,7 +191,3 @@ Smilovitch, Michael/Lachman, Richard (2019):BirdQuestVR: A Cross-Platform Asymme
 Nasir, Maaz/Lyons, Kelly/Leung, Rock/Moradian, Ali (2013):Cooperative Games and Their Effect on Group Collaboration. In: vom Brocke, Jan/Hekkala, Riitta/Ram, Sudha/Rossi, Matti (Hrsg.), Design Science at the Intersection of Physical and Virtual Design, Berlin, Heidelberg, S. 502–510.
 
 Nasir, Maaz/Lyons, Kelly/Leung, Rock/Bailie, Anthea/Whitmarsh, Fred (2015):The effect of a collaborative game on group work (CASCON ’15), Proceedings of the 25th Annual International Conference on Computer Science and Software Engineering, USA, S. 130–139.
-
-
-
-📄 [Masterarbeit ansehen](./masterthesis.pdf)

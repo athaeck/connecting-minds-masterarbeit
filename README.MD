@@ -73,41 +73,41 @@ Diese Arbeit knüpft an die grundlegenden Untersuchungen von Nasir et al. (2013,
     </td>
   </tr>
   <tr>
-    <td>
-        Visuelle Analyse:
-        [Ansicht Animator](./Analyse/Myrmidon/Visual/Animator_Analysis.png)
+    <td valign="top">
+        Visuelle Analyse:<br>
+        [Ansicht Animator](./Analyse/Myrmidon/Visual/Animator_Analysis.png)<br>
         [Ansicht Puppet](./Analyse/Myrmidon/Visual/Puppet_Analysis.png)
     </td>
-    <td>
-        <em>We Were Here</em>
-        Visuelle Analyse:
-        [Ansicht Explorer](./Analyse/WeWereHere/Visual/Explorer_Analysis.png)
-        [Ansicht Librarian](./Analyse/WeWereHere/Visual/Librarian_Analysis.png)
-        <em>We Were Here Too</em>
-        Visuelle Analyse:
-        [Ansicht Lord](./Analyse/WeWereHereToo/Visual/Lord_Analysis.png)
+    <td valign="top">
+        <em>We Were Here</em><br>
+        Visuelle Analyse:<br>
+        [Ansicht Explorer](./Analyse/WeWereHere/Visual/Explorer_Analysis.png)<br>
+        [Ansicht Librarian](./Analyse/WeWereHere/Visual/Librarian_Analysis.png)<br>
+        <em>We Were Here Too</em><br>
+        Visuelle Analyse:<br>
+        [Ansicht Lord](./Analyse/WeWereHereToo/Visual/Lord_Analysis.png)<br>
         [Ansicht Peasant](./Analyse/WeWereHereToo/Visual/Peasant_Analysis.png)
     </td>
-    <td>
-        Visuelle Analyse:
+    <td valign="top">
+        Visuelle Analyse:<br>
         [Ansicht Spieler](./Analyse/TinyRoomStoriesTownMystery/Visual.png)
     </td>
   </tr>
   <tr>
-    <td>
-        Analyse Rätseldesign:
+    <td valign="top">
+        Analyse Rätseldesign:<br>
         [Ergebnisse](./Analyse/Myrmidon/Rätseldesign.png)
     </td>
-    <td>
-        <em>We Were Here</em>
-        Analyse Rätseldesign:
-        [Ergebnisse](./Analyse/WeWereHere/Rätseldesign.png)
-        <em>We Were Here Too</em>
-        Analyse Rätseldesign:
+    <td valign="top">
+        <em>We Were Here</em><br>
+        Analyse Rätseldesign:<br>
+        [Ergebnisse](./Analyse/WeWereHere/Rätseldesign.png)<br>
+        <em>We Were Here Too</em><br>
+        Analyse Rätseldesign:<br>
         [Ergebnisse](./Analyse/WeWereHereToo/Rätseldesign.png)
     </td>
-    <td>
-        Analyse Rätseldesign:
+    <td valign="top">
+        Analyse Rätseldesign:<br>
         [Ergebnisse](./Analyse/TinyRoomStoriesTownMystery/Rätseldesign.png)
     </td>
   </tr>

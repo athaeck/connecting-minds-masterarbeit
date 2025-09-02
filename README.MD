@@ -65,6 +65,60 @@ Diese Arbeit knüpft an die grundlegenden Untersuchungen von Nasir et al. (2013,
 | Analyse Rätseldesign:<br> [Ergebnisse](/Analyse/Myrmidon/Rätseldesign.png) | **We Were Here**<br>Analyse Rätseldesign:<br> [Ergebnisse](/Analyse/WeWereHere/Rätseldesign.png)<br>**We Were Here Too**<br>Analyse Rätseldesign:<br> [Ergebnisse](/Analyse/WeWereHereToo/Rätseldesign.png) | Analyse Rätseldesign:<br> [Ergebnisse](/Analyse/TinyRoomStoriesTownMystery/Rätseldesign.png) |
 
 
+## Konzeption anhand des MDA-Frameworks
+
+- Mechanics (Mechaniken)
+
+    - Player: Steuert einen Avatar per Maus oder Touch, kann zwischen isometrischer und First-Person-Perspektive wechseln, Objekte aufnehmen, tragen und platzieren. Interaktionen erfolgen über Toolbar oder First-Person-View. Neue Objekte werden durch physische Annäherung freigeschaltet.
+
+    - Watcher: Interagiert via AR-Anwendung, bewegt sich frei um die Szene, verwaltet Inventar, platziert/entfernt Objekte und übergibt sie an den Player. Später kann er Objekte skalieren oder rotieren.
+
+    - Weltregeln: Leichte Objekte kann der Player tragen, schwere nur der Watcher. Hinweise in Form von Texten/Bildern fördern die Kooperation und die räumliche Interaktion.
+
+- Dynamics (Dynamiken)
+
+    - Asymmetrische Informations- und Perspektivverteilung zwingt beide Rollen zur koordinierten Abstimmung.
+
+    - Herausforderungen erfordern kombinierte Nutzung der jeweiligen Fähigkeiten.
+
+    - AR-Technologie projiziert die Spielwelt in den physischen Raum des Watchers, wodurch neuartige räumliche Orientierung und immersive Interaktion entstehen.
+
+    - Kooperation wird durch die Abhängigkeit der Rollen gefördert, ohne dass eine Rolle komplett dominiert wird.
+
+- Aesthetics (Erfahrungen)
+
+    - Fördert Challenge, Fellowship und Expression:
+
+        - Logisches Denken und Problemlösung
+
+        - Intensive Kommunikation und Abstimmung zwischen den Spielerrollen
+
+        - Entwicklung individueller Strategien und Reflexion eigener Stärken
+
+    - Narrative Elemente geben den Mechaniken Kontext und Motivation, steigern den Sinn und fördern ein kohärentes Spielerlebnis.
+
+
+## Umsetzung
+
+<table>
+    <tr>
+        <td>
+        Player-Anwendung
+        </td>
+        <td>
+        Watcher-Anwendung
+        </td>
+    </tr>
+  <tr>
+    <td>
+      <img src="./content/pictures/Player-Anwendung.PNG" width="350" />
+    </td>
+    <td>
+      <img src="./content/pictures/FreeLook01.png" width="350" />
+    </td>
+  </tr>
+</table>
+
 ## Quellen
 
 

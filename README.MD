@@ -145,6 +145,16 @@ Diese Arbeit knüpft an die grundlegenden Untersuchungen von Nasir et al. (2013,
   </tr>
 </table>
 
+
+### Gameplay Video
+
+<!-- https://youtu.be/kcAachdtRzo -->
+
+<a href="https://youtu.be/kcAachdtRzo" target="_blank" rel="noopener noreferrer">
+  <img src="./thumbnail.png" alt="Gameplayvideo anschauen" />
+</a>
+
+
 Interesse geweckt?
 
 Melde dich einfach über dieses [Kontaktformular](https://athaeck.github.io/) bei mir, um den Quellcode für den Prototyp und eine Anleitung zu erhalten!
